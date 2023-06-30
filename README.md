@@ -11,7 +11,8 @@ This is my first time writing a mod.
 Technically it's not a mod, I just created the datapack first (also my first time) and added the fabric header file then converted it to .jar to make it work in mods folder.
 
 Therefore, in case something breaks, you can add in the coment section, if there's any...
-idk I just signed up github
+idk I just signed up github today
+
 hope you have fun with this mod ;)
 
 ################
