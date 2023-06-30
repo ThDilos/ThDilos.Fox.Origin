@@ -25,11 +25,11 @@ idk I just signed up for github today
 
 hope you have fun with this mod ;)
 
-############################################################################################
+######################################################################################
 
-I tried to recall everything I've added to this origin, maybe there are ones I forget about.
+**I tried to recall everything I've added to this origin, maybe there are ones I forget about.**
 
-############################################################################################
+######################################################################################
 
 Added Origin:
 Red Fox
