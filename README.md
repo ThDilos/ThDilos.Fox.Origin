@@ -2,6 +2,7 @@
 A custom-made fox origin mod for Minecraft Fabric Origins Mod.
 Language available: Simplified Chinese & English
 **Needs Origins Mod and Pehkui Mod to function**
+
 Origins Mod: https://www.curseforge.com/minecraft/mc-mods/origins
 
 Pehkui Mod: https://www.curseforge.com/minecraft/mc-mods/pehkui
