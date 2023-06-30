@@ -21,15 +21,15 @@ Technically it's not a mod, I just created the datapack first (also my first tim
 Therefore, in case something breaks, you can add in the comment section, if there's any...
 but do not expect too much from me cuz I'm literally new to any of these xwx
 
-idk I just signed up for github today
+I just signed up for github today whats all these buttons do?
 
-hope you have fun with this mod ;)
+Anyways, hope you have fun with this mod ;)
 
-######################################################################################
+############################################################################################
 
-**I tried to recall everything I've added to this origin, maybe there are ones I forget about.**
+I tried to recall everything I've added to this origin, maybe there are ones I forget about.
 
-######################################################################################
+############################################################################################
 
 Added Origin:
 Red Fox
@@ -139,7 +139,7 @@ Red Fox
 -Passive Skill 5
 	**Timidity**
 
-	When meeting certain conditions, add "fear" effect:
+	When meeting certain conditions, add "fear" effect **every tick**:
 	-16 blocks around a Polar bear
 	-18 blocks around a Wolf
 	-16 blocks around a Villager  (No longer applies when having advancement hero_of_the_village)
@@ -156,7 +156,7 @@ Red Fox
 	-Weakness 1 for 5 seconds
 	-Shaking for 8 seconds
 
-	When health is less than 4 (2 hearts), spawn red particles like you leave a blood trail.
+	When health is less than 4 (2 hearts), spawn red particles so that it looks like you leave a blood trail behind.
 	Sneak to stop your bleeding to hide the blood trail effect, in case you want to hide from something...
 
 -Passive Skill 6
@@ -186,5 +186,5 @@ Red Fox
 	Playsound fox.sleep when sleeping.
 	Playsound fox.ambient when wakeup.
 	
-	(I tried move all the playsound into this power, only left those in Pounce, in case you get sick of these...)
+	(I tried move all the playsound into this power, only left those in Pounce, in case you get sick of these sounds...)
 	(To deactivate this skill, open (This Mod).jar\data\thorigins\origins\fox.json, remove "thorigins:thsound" and the comma at the end of last line)
