@@ -128,7 +128,7 @@ Red Fox
 	-50 blocks around a Wither  (No longer applies when killed 1 wither)
 	-150 blocks around an Ender dragon  (No longer applies when killed 1 Ender dragon)
 	-Spawn of lightning
-	-Health < 3 (1.5 hearts)
+	-Health < 6 (3 hearts)
 
 	Fear Effect:
 	-Speed 1 for 5 seconds
@@ -155,7 +155,7 @@ Red Fox
 
 	Attack speed is increased to 125%.
 
--Hidden Skiil
+-Hidden Skill
 	Fox Sound Pack
 
 	Playsound fox.death when death.
@@ -163,4 +163,4 @@ Red Fox
 	Playsound fox.eat when eat.
 	Playsound fox.aggro when eat disliked food.(nerfed food)
 	Playsound fox.sleep when sleeping.
-	Playsound fox.ambient when wakeup
+	Playsound fox.ambient when wakeup.
