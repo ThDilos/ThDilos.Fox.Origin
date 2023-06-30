@@ -1,0 +1,11 @@
+{
+    "pack": {
+        "name": "ThDilos Origins",
+        "id": "thorigins",
+        "pack_format": 15,
+        "authors": [
+            "ThDilos"
+        ],
+        "description": "ThDilos自己做的Origin起源包"
+    }
+}

@@ -1,0 +1,388 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite":"origins:textures/gui/badge/active.png",
+            "text": "origins.gui.badge.active"
+        }
+    ],
+
+    "duration":{
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "inverted": true,
+            "bar_index": 5
+        }
+    },
+
+    "cooldown":{
+        "type": "origins:cooldown",
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 5
+        }
+    },
+
+    "sense":{
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 50                    
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:entity_group",
+                                "group": "undead"
+                            },
+                            {
+                                "type": "origins:entity_group",
+                                "group": "illager"
+                            },
+                            {
+                                "type": "origins:entity_group",
+                                "group": "arthropod"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "creeper"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "witch"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "enderman"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "endermite"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "guardian"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "elder_guardian"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "warden"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "blaze"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "ghast"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "hoglin"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "magma_cube"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "shulker"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "silverfish"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "slime"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "wolf"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "polar_bear"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "ender_dragon"
+                            }
+                        ]
+                    }
+                }
+            ] 
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_duration",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "use_teams": false,
+        "red": 0.8,
+        "green": 0.5,
+        "blue": 0.5
+    },
+
+    "glow1":{
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 50                    
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "player"
+                                }
+                        ]
+
+                    }
+                }
+            ] 
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_duration",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "use_teams": false,
+        "red": 0.5,
+        "green": 0.5,
+        "blue": 0.8
+    },
+
+    "glow2":{
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 50                    
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "fox"
+                                }
+                        ]
+
+                    }
+                }
+            ] 
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_duration",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "use_teams": false,
+        "red": 0.5,
+        "green": 0.8,
+        "blue": 0.5
+    },
+
+    "glow3":{
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:or",
+            "inverted": true,
+            "conditions":[    
+                {
+                    "type": "origins:entity_type",
+                    "entity_type":"item" 
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "arrow"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "trident"
+                },
+                {
+                    "type": "origins:entity_group",
+                    "group": "undead"
+                },
+                {
+                    "type": "origins:entity_group",
+                    "group": "illager"
+                },
+                {
+                    "type": "origins:entity_group",
+                    "group": "arthropod"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "fox"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "player"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "creeper"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "witch"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "enderman"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "endermite"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "guardian"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "elder_guardian"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "warden"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "blaze"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "ghast"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "hoglin"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "magma_cube"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "shulker"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "silverfish"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "slime"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "wolf"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "ender_dragon"
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 50                    
+                }
+            ] 
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_duration",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "use_teams": false,
+        "red": 1,
+        "green": 1,
+        "blue": 1
+    },
+
+    "startduration":{
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "*:*_duration"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions":[
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_duration",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+
+    "startcooldown":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:delay",
+            "ticks": 3,
+            "action":{
+                "type": "origins:trigger_cooldown",
+                "power": "*:*_cooldown"
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource":"*:*_duration",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    }
+}

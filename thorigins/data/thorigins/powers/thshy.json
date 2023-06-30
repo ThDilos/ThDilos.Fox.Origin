@@ -1,0 +1,237 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "minecraft:textures/item/egg.png",
+            "text": "origin.thorigin.passive"
+        }
+    ],
+
+    "scoreboardtocheckkillcount":{
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action":{
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "/scoreboard objectives add killedwarden minecraft.killed:minecraft.warden"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "/scoreboard objectives add killedwither minecraft.killed:minecraft.wither"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "/scoreboard objectives add killededragon minecraft.killed:minecraft.ender_dragon"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "/scoreboard objectives add deadcheck deathCount"
+                    }
+                ]
+            }
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players reset @s killedwarden"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players reset @s killedwither"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players reset @s killededragon"
+                }
+            ]
+        }
+    },
+
+    "feareffect":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "speed",
+                            "amplifier": 0,
+                            "duration": 100,
+                            "show_icon": true,
+                            "show_particles": false,
+                            "is_ambient": false
+                        },
+                        {
+                            "effect": "weakness",
+                            "amplifier": 0,
+                            "duration": 100,
+                            "show_icon": true,
+                            "show_particles": false,
+                            "is_ambient": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:or",
+            "conditions":[
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:['fear']}"                    
+                }
+            ]
+        }
+    },
+
+    "nearvillagerandwolf":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute at @e[type=villager,distance=..16] run tag @s[advancements={minecraft:adventure/hero_of_the_village=false}] add fear"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute at @e[type=wolf,distance=..18] run tag @s add fear"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute at @e[type=polar_bear,distance=..16] run tag @s add fear"
+                }
+            ]
+        }
+    },
+
+    "nearwarden":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/execute at @e[type=warden,distance=..30] run tag @s[scores={killedwarden=..3}] add fear"
+        }
+    },
+
+    "nearwither":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/execute at @e[type=wither,distance=..50] run tag @s[scores={killedwither=..1}] add fear"
+        }
+    },
+
+    "nearedragon":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/execute at @e[type=ender_dragon,distance=..150] run tag @s[scores={killededragon=..1}] add fear"
+        }
+    },
+
+    "shakingoffear":{
+        "type": "origins:shaking",
+        "condition": {
+            "type": "origins:resource",
+            "resource":"*:*_shakingtimer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+
+    "shakingtimer":{
+        "type": "origins:cooldown",
+        "cooldown": 160,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "resettimer":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "*:*_shakingtimer"
+        },
+        "condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:['fear']}"
+        }
+    },
+
+    "removetag":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/tag @e[tag=fear] remove fear"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource":"*:*_shakingtimer",
+            "compare_to": 160,
+            "comparison": "=="
+        }
+    },
+
+    "thunderforshaking":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/execute as @e[type=lightning_bolt] run tag @s add fear"                    
+        }
+    },
+
+    "lowhpforfear":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<=",
+            "compare_to": 6
+        },
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/tag @s add fear"
+        }
+    },
+
+    "bloodtrail":{
+        "type": "origins:action_over_time",
+        "condition": {
+            "type": "origins:and",
+            "conditions":[
+                {
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                }
+            ]
+        },
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/particle dust_color_transition 1 0 0 1.5 0.15 0 0 ~ ~ ~ 0 0 0 0 1 force"
+        }
+    }
+}

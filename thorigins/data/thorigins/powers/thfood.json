@@ -1,0 +1,237 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "text": "origin.thorigin.passive",
+            "sprite":"minecraft:textures/item/bread.png"
+        }
+    ],
+
+    "berries":{
+        "type": "origins:modify_food",
+        "item_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "sweet_berries"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "glow_berries"
+                    }
+                }
+            ]
+        },
+        "food_modifier": {
+            "name": "Origin modifier",
+            "operation": "addition",
+            "value": 4.0
+        },
+        "saturation_modifier": {
+            "name": "Origin modifier",
+            "operation":"addition",
+            "value": 16.0
+        },
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "regeneration",
+                "amplifier": 0,
+                "duration": 60,
+                "show_icon": true,
+                "show_particles": true,
+                "is_ambient": false
+            }
+        },
+        "always_edible": true
+    },
+
+    "meat":{
+        "type": "origins:modify_food",
+        "item_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "chicken"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "rabbit"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "cooked_chicken"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "cooked_rabbit"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "cod"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "salmon"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "cooked_cod"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "cooked_salmon"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "tropical_fish"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "rabbit_stew"
+                    }
+                }
+            ]
+        },
+        "food_modifier": {
+            "name": "Origin modifier",
+            "operation": "addition",
+            "value": 2.0
+        },
+        "saturation_modifier": {
+            "name": "Origin modifier",
+            "operation":"addition",
+            "value": 5.0
+        },
+        "prevent_effects": true,
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "regeneration",
+                "amplifier": 0,
+                "duration": 60,
+                "show_icon": true,
+                "show_particles": true,
+                "is_ambient": false
+            }
+        },
+        "always_edible": true
+    },
+
+    "otherfood":{
+        "type": "origins:modify_food",
+        "item_condition": {
+            "type": "origins:or",
+            "inverted": true,
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "sweet_berries"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "glow_berries"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "chicken"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "rabbit"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "cooked_chicken"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "cooked_rabbit"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "cod"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "salmon"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "cooked_cod"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "cooked_salmon"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "tropical_fish"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "item": "rabbit_stew"
+                    }
+                }
+            ]
+        },
+        "food_modifier": {
+            "name": "Origin modifier",
+            "operation": "multiply_base",
+            "value": -0.25
+        },
+        "saturation_modifier": {
+            "name": "Origin modifier",
+            "operation":"multiply_base",
+            "value": -0.25
+        }
+    }
+}

@@ -1,0 +1,373 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "text": "origin.thorigin.passive",
+            "sprite":"minecraft:textures/block/white_wool.png"
+        }
+    ],
+
+    "morefiredmg":{
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:fire"
+        },
+        "modifier": {
+            "name": "Origin modifier",
+            "operation":"multiply_base",
+            "value": 0.5
+        }
+    },
+
+    "nofreezing":{
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "freeze"
+        },
+        "condition": {
+            "type": "origins:in_rain",
+            "inverted": true
+        }
+    },
+
+
+    "slowdown":{
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "name": "Origin modifier",
+            "operation": "multiply_base",
+            "value": -0.2
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource":"*:*_timer",
+                    "comparison": ">=",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:enchantment",
+                    "enchantment": "origins:water_protection",
+                    "calculation": "sum",
+                    "comparison": ">=",
+                    "compare_to": 4,
+                    "inverted": true
+                }
+            ]
+        } 
+
+    },
+
+    "cooldown":{
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "cooldowncheck":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "*:*_cooldown"
+        },
+        "condition": {
+            "type": "origins:power_active",
+            "power": "*:*_sound"
+        },
+        "interval": 1
+    },
+
+    "timer":{
+        "type": "origins:cooldown",
+        "cooldown": 30,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "timer2":{
+        "type": "origins:cooldown",
+        "cooldown": 30,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+
+    "triggercooldown":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "*:*_timer"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:in_block",
+                            "block_condition": {
+                                "type": "origins:block",
+                                "block": "water"
+                            }
+                        },
+                        {
+                            "type": "origins:in_rain"
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:in_block",
+                                    "block_condition": {
+                                        "type": "origins:block_state",
+                                        "property": "level",
+                                        "compare_to": 1,
+                                        "comparison": ">"
+                                    }
+                                },
+                                {
+                                    "type": "origins:in_block",
+                                    "block_condition": {
+                                        "type": "origins:block",
+                                        "block": "water_cauldron"
+                                    }
+                                }
+                            ]
+                        }
+
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource":"*:*_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+
+    "triggercooldown2":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "*:*_timer2"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:in_block",
+                            "block_condition": {
+                                "type": "origins:block",
+                                "block": "powder_snow"
+                            }
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:in_block",
+                                    "block_condition": {
+                                        "type": "origins:block_state",
+                                        "property": "level",
+                                        "compare_to": 1,
+                                        "comparison": ">"
+                                    }
+                                },
+                                {
+                                    "type": "origins:in_block",
+                                    "block_condition": {
+                                        "type": "origins:block",
+                                        "block": "powder_snow_cauldron"
+                                    }
+                                }
+                            ]
+                        }
+
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource":"*:*_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+
+    "waterparticle":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type":"origins:and",
+            "conditions":[
+                {
+                "type": "origins:resource",
+                "resource":"*:*_timer",
+                "compare_to": 28,
+                "comparison": "<="
+                },
+            {
+                "type": "origins:resource",
+                "resource":"*:*_timer",
+                "compare_to": 0,
+                "comparison": ">"
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:spawn_particles",
+            "particle": "minecraft:splash",
+            "count": 5,
+            "offset_y": 0.8
+        }
+
+    },
+
+    "snowparticle":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type":"origins:and",
+            "conditions":[
+                {
+                "type": "origins:resource",
+                "resource":"*:*_timer2",
+                "compare_to": 28,
+                "comparison": "<="
+                },
+            {
+                "type": "origins:resource",
+                "resource":"*:*_timer2",
+                "compare_to": 0,
+                "comparison": ">"
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:spawn_particles",
+            "particle": "minecraft:snowflake",
+            "count": 5,
+            "offset_y": 0.70,
+            "spread": {
+                "x": 0.3,
+                "y": 0.25,
+                "z": 0.3
+            },
+            "speed": 0
+        }
+    },
+
+    "sound":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource":"*:*_timer",
+                            "comparison": "==",
+                            "compare_to": 27
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource":"*:*_timer2",
+                            "comparison": "==",
+                            "compare_to": 27
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:play_sound",
+            "sound": "entity.wolf.shake",
+            "volume": 0.5
+        }
+    },
+
+    "shake":{
+        "type": "origins:shaking",
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type":"origins:and",
+                    "conditions":[
+                        {
+                        "type": "origins:resource",
+                        "resource":"*:*_timer",
+                        "compare_to": 28,
+                        "comparison": "<="
+                        },
+                    {
+                        "type": "origins:resource",
+                        "resource":"*:*_timer",
+                        "compare_to": 0,
+                        "comparison": ">"
+                        },
+                        {
+                            "type": "origins:sneaking",
+                            "inverted": true
+                        }
+                    ]
+                },
+                {
+                    "type":"origins:and",
+                    "conditions":[
+                        {
+                        "type": "origins:resource",
+                        "resource":"*:*_timer2",
+                        "compare_to": 28,
+                        "comparison": "<="
+                        },
+                    {
+                        "type": "origins:resource",
+                        "resource":"*:*_timer2",
+                        "compare_to": 0,
+                        "comparison": ">"
+                        },
+                        {
+                            "type": "origins:sneaking",
+                            "inverted": true
+                        }
+                    ]
+                }
+            ]
+        }
+
+    }
+}
