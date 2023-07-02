@@ -25,11 +25,11 @@ I just signed up for github today whats all these buttons do?
 
 Anyways, hope you have fun with this mod ;)
 
-############################################################################################
+#######################################################################################
 
 I tried to recall everything I've added to this origin, maybe there are ones I forget about.
 
-############################################################################################
+#######################################################################################
 
 Added Origin:
 Red Fox
@@ -129,21 +129,26 @@ Red Fox
 	
 	When in rain for 5 seconds, trigger soaked effect.
 	When in water for 0.2 seconds, trigger soaked effect.
+ 	When in snow for 0.5 seconds, trigger snowed effect.
 
 	Soaked effect:
 	movement speed reduce by 20%. Effect resets after shaking.
 	Effect can be avoided by wearing armor with water_protection enchantment level sum > 4.
 
-	Trigger a shaking water effect like wolf when out of water/under cover.
+ 	Snowed effect:
+  	Will trigger shaking snow.
+
+	Trigger a shaking water effect like wolf when soaked.
 	Will not trigger the shaking water effect if you are sneaking, in case you want to hide from something...
 
-	Will also trigger a shaking snow effect when out of powder snow (Had no idea how to test in snow so it won't work for that...)
+	Will also trigger a shaking snow effect when snowed (Had no idea how to test in snow so it won't work for that...)
 
 	Water/powder snow in Cauldron only trigger shaking if block_state level > 1
 
 	Evaporation:
 	When no longer in-rain, water, powdered_snow, trigger a natural evaporation that remove rain/snow counter by 1 every second in the span of 100s
-	If block light level > 12, on magma_block, or exposed_to_sun, the remove is by 5 everysecond, in 20s
+	If block light level > 12, on magma_block, or exposed_to_sun, the remove is by 5 everysecond, in 20s. 
+	I prob don't need the time span thingy but meh..
 
 -Passive Skill 5
 	**Timidity**
