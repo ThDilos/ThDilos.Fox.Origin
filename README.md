@@ -77,7 +77,7 @@ Red Fox
 
 	Sneak to charge a 3 seconds bar.
 	Excceed 1.5 seconds become invisible.
-	When fully charged, your attack increases by 50% in 5 seconds.
+	When fully charged, your attack increases by 25% in 5 seconds.
 
 	Under these circumstances the charge will be interrupted:
 	-No longer sneak
@@ -85,6 +85,7 @@ Red Fox
 	-Fall distance more than 2
 	-Receive more than 2 damage
     
+	The damage bonus is doubled(50%) between time 18000 and 23000 (midnight--sunrise)
 
 -Passive Skill 1
 	**Agility**
@@ -126,15 +127,23 @@ Red Fox
 	
 	Invulnerable against freezing damage.(Unless your upper body is in rain)
 	
-	When in rain/in water, movement speed reduce by 20%. Effect resets when under cover/out of water.
+	When in rain for 5 seconds, trigger soaked effect.
+	When in water for 0.2 seconds, trigger soaked effect.
+
+	Soaked effect:
+	movement speed reduce by 20%. Effect resets after shaking.
 	Effect can be avoided by wearing armor with water_protection enchantment level sum > 4.
 
-	Trigger a shaking water effect like wolf when out of water/under cover.(Effect cooldown 10s)
+	Trigger a shaking water effect like wolf when out of water/under cover.
 	Will not trigger the shaking water effect if you are sneaking, in case you want to hide from something...
 
 	Will also trigger a shaking snow effect when out of powder snow (Had no idea how to test in snow so it won't work for that...)
 
 	Water/powder snow in Cauldron only trigger shaking if block_state level > 1
+
+	Evaporation:
+	When no longer in-rain, water, powdered_snow, trigger a natural evaporation that remove rain/snow counter by 1 every second in the span of 100s
+	If block light level > 12, on magma_block, or exposed_to_sun, the remove is by 5 everysecond, in 20s
 
 -Passive Skill 5
 	**Timidity**
@@ -164,10 +173,13 @@ Red Fox
 
 	Glow berries/Sweet berries buffed to outmatch golden carrot.(From the base, +4 foodlevel, +16 saturation)
 	Raw/cooked chicken/rabbit/cod/salmon/tropical fish buffed by addition.(From the base, +2 foodlevel, +5 saturation)
+
+	Chicken and rottenflesh will not give you negative effects.
+
 	The above foods are edible even foodlevel is at maximum.
 	When consumed, apply regeneration 1 for 3 seconds.
 
-	All other foods except for 3 golden food are nerfed that they only provide half as much foodlevel,saturation as before.
+	All other foods except for apple, rotten_flesh, 3 golden food are nerfed that they only provide half as much foodlevel,saturation as before.
  
 -Passive Skill 7
 	**Fast-Paced**
@@ -187,4 +199,5 @@ Red Fox
 	Playsound fox.ambient when wakeup.
 	
 	(I tried move all the playsound into this power, only left those in Pounce, in case you get sick of these sounds...)
-	(To deactivate this skill, open (This Mod).jar\data\thorigins\origins\fox.json, remove "thorigins:thsound" and the comma at the end of last line)
+ 	(To temporarily deactivate this skill, do /power revoke @s thorigins:thsound)
+	(To PERMANENTLY deactivate this skill, open (This Mod).jar\data\thorigins\origins\fox.json, remove "thorigins:thsound" and the comma at the end of last line)
