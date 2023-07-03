@@ -71,7 +71,7 @@ Red Fox
 
 -Active Skill 3
 	**Hunt**
-	[Activate with sneak key]
+	[Activate by double-tapping sneak key in 10 ticks(0.5s)]
 
 	Cooldown Indicator On
 
