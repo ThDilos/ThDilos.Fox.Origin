@@ -57,7 +57,7 @@ Red Fox
 
 -Active Skill 2
 	**Hyper-sensing**
-	[Activate with Primary skill key]
+	[Activate with Secondary skill key]
 
 	Cooldown 5s
 	Cooldown Indicator On
