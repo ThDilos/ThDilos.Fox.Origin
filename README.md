@@ -182,6 +182,21 @@ Red Fox
 
 	Chicken and rottenflesh will not give you negative effects.
 
+	When consuming sweet_berries there is 20% chance the berry is not consumed.(/give you a new one)
+	There is also 5% chance for you to receive a random positive effect(same weight for all) chosen from this list:
+	Strength 1 30s
+	Absorption 1 30s
+	Haste 1 30s
+	Instant_health 1 1s
+	Jump_boost 1 30s
+	Speed 1 30s
+	Luck 1 30s
+	Resistance 1 30s
+	Saturation 1 30s
+	Regeneration 2 30s
+	
+	For glow berries, the chance of giving you a positive effect is raised to 10%.
+
 	The above foods are edible even foodlevel is at maximum.
 	When consumed, apply regeneration 1 for 3 seconds.
 
