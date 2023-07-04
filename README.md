@@ -114,6 +114,7 @@ Red Fox
 	Does not get damaged by berry bush.(I have no idea how to remove the slow down effect)
     
 	Trusted by foxes in 16 blocks radius.
+	Right-click a fox with empty hand to drop whatever it's holding.
 
 	Receive a random item when waking up.(Items/Weights from Minecraft wiki: items foxes hold when spawn naturally)
 
@@ -202,6 +203,8 @@ Red Fox
 	Playsound fox.aggro when eat disliked food.(nerfed food)
 	Playsound fox.sleep when sleeping.
 	Playsound fox.ambient when wakeup.
+
+	When right-clicked with empty hand by another player, playsound fox.ambient and send messages to both players. Cooldown 3 senconds.
 	
 	(I tried move all the playsound into this power, only left those in Pounce, in case you get sick of these sounds...)
  	(To temporarily deactivate this skill, do /power revoke @s thorigins:thsound)
