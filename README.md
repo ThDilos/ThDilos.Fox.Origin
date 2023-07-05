@@ -119,7 +119,7 @@ Red Fox
 	Receive a random item when waking up.(Items/Weights from Minecraft wiki: items foxes hold when spawn naturally)
 
 	Unable to fall asleep when light level > 5.
-	Unable to fall asleep then exposed to sky.
+	Unable to fall asleep when exposed to sky. 
 
 -Passive Skill 4
 	**Fluffy**
@@ -182,7 +182,7 @@ Red Fox
 
 	Chicken and rottenflesh will not give you negative effects.
 
-	When consuming sweet_berries there is 20% chance the berry is not consumed.(/give you a new one)
+	When consuming sweet_berries/glow_berries there is 20% chance the berry is not consumed.(/give you a new one)
 	There is also 5% chance for you to receive a random positive effect(same weight for all) chosen from this list:
 	Strength 1 30s
 	Absorption 1 30s
@@ -221,6 +221,6 @@ Red Fox
 
 	When right-clicked with empty hand by another player, playsound fox.ambient and send messages to both players. Cooldown 3 senconds.
 	
-	(I tried move all the playsound into this power, only left those in Pounce, in case you get sick of these sounds...)
+	(I tried to move all the playsound into this power, only left those in Pounce, in case you get sick of these sounds...)
  	(To temporarily deactivate this skill, do /power revoke @s thorigins:thsound)
 	(To PERMANENTLY deactivate this skill, open (This Mod).jar\data\thorigins\origins\fox.json, remove "thorigins:thsound" and the comma at the end of last line)
