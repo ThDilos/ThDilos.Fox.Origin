@@ -42,41 +42,37 @@ Red Fox
 	Cooldown Indicator On
 
 	Adds velocity to forward and upward motions. When falling, your attack damage increase to 300% and damage done to you increase to 200%.
-	Your reach is increaseed to 140% for more attack window.
+	Your reach is increaseed to 115% for more attack window.
 	All effects reset when you land on blocks.
     
-	Play sounds when the skill and the two damage modifier is activated.
-	Spawn particles when the skill is activated.
+	Play sounds when the skill and the two damage modifier is activated. (fox.bite and fox.screech)
+	Spawn particles when the skill is activated. (snowflake)
     
 	The two damage modifiers are disabled when you sneak during the fall (Hold sneak to defend).
 
 	Apply 0.5 exhaustion when activate.
-	Unable to use if foodlevel reaches 0, play a sound instead.
+	Unable to use if foodlevel reaches 0, play a sound instead. (fox.sleep)
 
-	Can use at most twice before landing, so that fireworks are not completely useless when flying with elytra.
+	When cooling down from first pounce, you can initiate it again after 0.5 second at the cost of 10 times the exhaustion (5), with fox.ambient 	played.	
+
+	Can use at most twice before landing (including the double jump), so that fireworks are not completely useless when flying with elytra.
 
 -Active Skill 2
-	**Hyper-sensing**
-	[Activate with Secondary skill key]
-
-	Cooldown 5s
-	Cooldown Indicator On
-
-	Makes mobs in 50 radius glow for you in the duration of 10s.
-
-	Hostle mobs/Endermen/Wolves/Polar bears glow red
-	Players glow blue
-	Foxes glow green
-	Other entities glow white
-
--Active Skill 3
 	**Hunt**
 	[Activate by double-tapping sneak key in 10 ticks(0.5s)]
 
 	Cooldown Indicator On
 
-	Sneak to charge a 3 seconds bar.
-	Excceed 1.5 seconds become invisible.
+	Sneak to charge a 2.5 seconds bar.
+
+	Excceed 0.3 second start turning invisible and at 1.25 seconds become fully invisible.
+
+	Exceed 1.85 seconds makes mobs 50 blocks around you glow.
+	Hostle mobs/Endermen/Wolves/Polar bears glow red
+	Players glow blue
+	Foxes glow green
+	Other entities glow white
+
 	When fully charged, your attack increases by 25% in 5 seconds.
 
 	Under these circumstances the charge will be interrupted:
@@ -150,6 +146,8 @@ Red Fox
 	When no longer in-rain, water, powdered_snow, trigger a natural evaporation that remove rain/snow counter by 1 every second in the span of 100s
 	If block light level > 12, on magma_block, or exposed_to_sun, the remove is by 5 everysecond, in 20s. 
 	I prob don't need the time span thingy but meh..
+
+	I know that foxes are supposed to be able to walk above powder snow, I just dk how to achieve it... But I made you able to levitate in powder 	snow by pressing jump.
 
 -Passive Skill 5
 	**Timidity**
