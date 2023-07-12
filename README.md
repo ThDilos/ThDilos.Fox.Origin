@@ -88,7 +88,7 @@ Red Fox
 
 	While sprinting, movement speed and jump height increased by 40%.
 	Ignore fall damage if Fall distance less than 24.
-	If falling more than 23 blocks, hold sneak when landing to reduce fall damage by 80%.
+	If falling more or equal than 24 blocks, hold sneak when landing to reduce fall damage by 80%.
 
 -Passive Skill 2
 	**Smol**
@@ -117,6 +117,8 @@ Red Fox
 	Unable to fall asleep when light level > 5.
 	Unable to fall asleep when exposed to sky. 
 
+	When you go invisible with Active Skill 2 Hunt, wolves and polar bears will not mad at you, so that you can breed them.(You still fear the tamed wolf tho)
+
 -Passive Skill 4
 	**Fluffy**
 
@@ -127,6 +129,7 @@ Red Fox
 	When in rain for 5 seconds, trigger soaked effect.
 	When in water for 0.2 seconds, trigger soaked effect.
  	When in snow for 0.5 seconds, trigger snowed effect.
+	When in the snowfall for 5 seconds, trigger snowed effect.
 
 	Soaked effect:
 	movement speed reduce by 20%. Effect resets after shaking.
@@ -138,9 +141,11 @@ Red Fox
 	Trigger a shaking water effect like wolf when soaked.
 	Will not trigger the shaking water effect if you are sneaking, in case you want to hide from something...
 
-	Will also trigger a shaking snow effect when snowed (Had no idea how to test in snow so it won't work for that...)
+	Will also trigger a shaking snow effect when snowed.
 
 	Water/powder snow in Cauldron only trigger shaking if block_state level > 1
+
+	The shaking effects only take place if the respective counter does not increase for 0.5s, so that you wont spam shaking by holding space in powder snow and water.
 
 	Evaporation:
 	When no longer in-rain, water, powdered_snow, trigger a natural evaporation that remove rain/snow counter by 1 every second in the span of 100s
@@ -207,7 +212,7 @@ Red Fox
 
 	Attack speed is increased to 125%.
 
--Hidden Skill
+-Hidden Skill 1
 	**Fox Sound Pack**
 
 	Playsound fox.death when death.
@@ -222,3 +227,22 @@ Red Fox
 	(I tried to move all the playsound into this power, only left those in Pounce, in case you get sick of these sounds...)
  	(To temporarily deactivate this skill, do /power revoke @s thorigins:thsound)
 	(To PERMANENTLY deactivate this skill, open (This Mod).jar\data\thorigins\origins\fox.json, remove "thorigins:thsound" and the comma at the end of last line)
+
+-Hidden Skill 2
+	**ThTrackers**
+	
+	Provides trackers to support Passive Skill 5 Timidity.
+	This power is granted by it, with source "thorigins:global".
+	This power still follows you even you no longer a Red fox origin, you can do /power remove @s thorigins:thtrackers to remove it.
+
+-Hidden Skill 3&4
+	**ThTransform** & **ThTransformCD**
+	Provides support to transform into the lightning fox, if you have it installed.
+	Detailed explanation check that mod link here:
+
+	ThTransformCD is granted by ThTransform, with source "thorigins:global".
+	These power still follow you even you no longer a Red fox origin and will not work, you can do /power revokeall @s thorigins:global to remove them, including the Hidden Skill 2.
+
+
+**Since the 3 hidden skills are granted, stuff may break. In that case, I have written a function for you to revoke them all and reset:**
+**/function thorigins:reset_all**
