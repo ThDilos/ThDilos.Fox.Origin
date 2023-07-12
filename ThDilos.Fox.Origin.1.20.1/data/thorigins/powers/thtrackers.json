@@ -1,0 +1,165 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "minecraft:textures/item/egg.png",
+            "text": "origin.thorigin.passive"
+        }
+    ],
+    "hidden": true,
+
+    "wardenkills":{
+        "type": "origins:resource",
+        "hud_render": {
+            "should_render": false
+        },
+        "min": 0,
+        "max": 2147483647,
+        "start_value": 0
+    },
+
+    "wardenkillstracker":{
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:warden"
+        },
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "*:*_wardenkills",
+            "modifier": {
+                "operation": "addition",
+                "value": 1
+            }
+        },
+        "cooldown": 0
+    },
+
+    "witherkills":{
+        "type": "origins:resource",
+        "hud_render": {
+            "should_render": false
+        },
+        "min": 0,
+        "max": 2147483647,
+        "start_value": 0
+    },
+
+    "witherkillstracker":{
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:wither"
+        },
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "*:*_witherkills",
+            "modifier": {
+                "operation": "addition",
+                "value": 1
+            }
+        },
+        "cooldown": 0
+    },
+
+    "edragkills":{
+        "type": "origins:resource",
+        "hud_render": {
+            "should_render": false
+        },
+        "min": 0,
+        "max": 2147483647,
+        "start_value": 0
+    },
+
+    "edragkillstracker":{
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:ender_dragon"
+        },
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "*:*_edragkills",
+            "modifier": {
+                "operation": "addition",
+                "value": 1
+            }
+        },
+        "cooldown": 0
+    },
+
+    "thunderstruck":{
+        "type": "origins:resource",
+        "hud_render": {
+            "should_render": false
+        },
+        "min": 0,
+        "max": 2147483647,
+        "start_value": 0
+    },
+
+    "thunderstrucktracker":{
+        "type": "origins:action_when_damage_taken",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "lightningBolt"
+        },
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "*:*_thunderstruck",
+            "modifier": {
+                "operation": "addition",
+                "value": 1
+            }
+        },
+        "cooldown": 0
+    },
+
+    "thunder_notification":{
+        "type": "origins:action_when_damage_taken",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "lightningBolt"
+        },
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/tellraw @s [\"\",{\"text\":\"You have unlocked the power of\",\"italic\":true,\"color\":\"green\",\"bold\":true},{\"text\":\" \",\"italic\":true,\"color\":\"gold\",\"bold\":true},{\"text\":\"LIGHTNING\",\"color\":\"gold\",\"bold\":true}]"
+            },
+        "cooldown": 0,
+        "condition": {
+            "type": "origins:resource",
+            "resource":"*:*_thunderstruck",
+            "compare_to": 31,
+            "comparison": "=="
+        }
+    },
+
+    "death":{
+        "type": "origins:resource",
+        "hud_render": {
+            "should_render": false
+        },
+        "min": 0,
+        "max": 2147483647,
+        "start_value": 0
+    },
+
+    "deathtracker":{
+        "type": "origins:self_action_when_hit",
+        "condition": {
+            "type": "origins:nbt",
+            "nbt": "{Health:0.0f}"
+        },
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "*:*_death",
+            "modifier": {
+                "operation": "addition",
+                "value": 1
+            }
+        },
+        "cooldown": 0
+    }
+}
