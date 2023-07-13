@@ -1,0 +1,85 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite":"origins:textures/gui/badge/active.png",
+            "text": "origins.gui.badge.active"
+        }
+    ],
+    "hidden": true,
+    
+    "transform":{
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.loadToolbarActivator"
+        },
+        "entity_action":{
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/origin set @s origins:origin thorigins:lightning_fox"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scale reset pehkui:reach @s"
+                },
+                {
+                    "type": "origins:spawn_particles",
+                    "particle": "minecraft:wax_off",
+                    "count": 20,
+                    "spread": {
+                        "x": 0.1,
+                        "y": 0.3,
+                        "z": 0.1
+                    },
+                    "speed": 4
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:thtransformcd_cooldown",
+                    "compare_to": 0,
+                    "comparison": "=="
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:thtrackers_thunderstruck",
+                    "comparison": ">=",
+                    "compare_to": 32
+                },
+                {
+                    "type": "origins:origin",
+                    "origin": "thorigins:fox"
+                }
+            ]
+        } 
+    },
+
+    "give_cd_power":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:power",
+            "power": "thorigins:thtransformcd",
+            "inverted": true
+        },
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/execute as @s run power grant @s thorigins:thtransformcd thorigins:foxes"
+        } 
+    },
+
+    "activate_cooldown":{
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:trigger_cooldown",
+            "power": "*:thtransformcd_cooldown"
+        }
+    }
+}

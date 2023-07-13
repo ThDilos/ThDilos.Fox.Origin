@@ -1,0 +1,74 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite":"origins:textures/gui/badge/active.png",
+            "text": ""
+        }
+    ],
+
+    "cooldown":{
+        "type": "origins:cooldown",
+            "cooldown": 600,
+            "hud_render": {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+                "bar_index": 9,
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "*:thtrackers_thunderstruck",
+                    "compare_to": 32,
+                    "comparison": ">="
+                }
+            }
+    },
+
+    "revokeall_if_not_foxes":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:or",
+            "inverted": true,
+            "conditions": [
+                {
+                    "type": "origins:origin",
+                    "origin": "thorigins:fox"
+                },
+                {
+                    "type": "origins:origin",
+                    "origin": "thorigins:lightning_fox"
+                }
+            ]
+        },
+        "entity_action":{
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scale reset @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/power revokeall @s thorigins:redfox"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/power revokeall @s thorigins:lightningfox"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/power remove @s thorigins:thtrackers"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "/power remove @s thorigins:thtransformcd"
+                    }
+                }
+            ]
+        }
+    }
+}

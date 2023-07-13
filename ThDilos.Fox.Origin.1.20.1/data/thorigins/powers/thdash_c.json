@@ -1,0 +1,511 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite":"origins:textures/gui/badge/active.png",
+            "text": "origins.gui.badge.active"
+        }
+    ],
+
+    "dash2_cd_check": {
+        "type": "origins:cooldown",
+        "hud_render": {
+            "should_render": false
+        },
+        "cooldown": 30
+    },
+
+    "dashmain":{
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_dash2_cd_check"
+                },
+                {
+                    "type": "origins:toggle",
+                    "power": "*:*_toggle"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 1.0,
+                    "space": "local",
+                    "client": true,
+                    "server": true
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "y": 0.3,
+                    "space": "world",
+                    "client": true,
+                    "server": true
+                },
+                {
+                    "type": "origins:spawn_particles",
+                    "particle": "minecraft:snowflake",
+                    "count": 30,
+                    "speed": 0,
+                    "force": false,
+                    "offset_y": 0,
+                    "spread":{
+                    "x":0.8,
+                    "y":0.15,
+                    "z":0.8
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.fox.sniff",
+                    "volume": 1.0
+                },
+                {
+                    "type": "origins:exhaust",
+                    "amount": 0.5
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource":"*:*_maxjumpcount",
+                    "modifier": {
+                        "operation":"addition",
+                        "value": -1,
+                        "name": "minusonewhenjump"
+                    }
+                }
+            ]
+        },
+        "cooldown": 30,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 2
+        },
+        "key":{
+            "key": "key.origins.primary_active"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions":[
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource":"*:*_maxjumpcount",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+
+    "dash2":{
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_dashmain"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 1.0,
+                    "space": "local",
+                    "client": true,
+                    "server": true
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "y": 0.3,
+                    "space": "world",
+                    "client": true,
+                    "server": true
+                },
+                {
+                    "type": "origins:spawn_particles",
+                    "particle": "minecraft:snowflake",
+                    "count": 30,
+                    "speed": 0,
+                    "force": false,
+                    "offset_y": 0,
+                    "spread":{
+                    "x":0.8,
+                    "y":0.15,
+                    "z":0.8
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.fox.ambient",
+                    "volume": 1.0
+                },
+                {
+                    "type": "origins:exhaust",
+                    "amount": 5
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource":"*:*_maxjumpcount",
+                    "modifier": {
+                        "operation":"addition",
+                        "value": -1,
+                        "name": "minusonewhenjump"
+                    }
+                }
+            ]
+        },
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": false
+        },
+        "key":{
+            "key": "key.origins.primary_active"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions":[
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource":"*:*_maxjumpcount",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_dash2_cd_check",
+                    "compare_to": 0,
+                    "comparison": ">"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_dash2_cd_check",
+                    "compare_to": 20,
+                    "comparison": "<="
+                }
+            ]
+        }
+    },
+
+    "dash2_crit":{
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:toggle",
+            "power": "*:*_toggle"
+        },
+        "cooldown": 30,
+        "hud_render": {
+            "should_render": false
+        },
+        "key":{
+            "key": "key.origins.primary_active"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions":[
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource":"*:*_maxjumpcount",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_dash2_cd_check",
+                    "compare_to": 0,
+                    "comparison": ">"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_dash2_cd_check",
+                    "compare_to": 20,
+                    "comparison": "<="
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "*:*_toggle",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+
+    "addreach":{
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "entity_action": {
+            "type":"origins:execute_command",
+            "command": "/scale multiply pehkui:reach 1.15 @s"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource":"*:*_maxjumpcount",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "cooldown": 30
+    },
+    
+    "toggle":{
+        "type": "origins:toggle",
+        "key":{
+            "key":"key.origins.denary_active"
+        },
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+            {
+                "type": "origins:food_level",
+                "comparison": ">",
+                "compare_to": 0
+            }
+            ]
+        } 
+    },
+
+    "crits": {
+            "type":"origins:modify_damage_dealt",
+            "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:fall_distance",
+                "compare_to": 0.5,
+                "comparison": ">="
+            }
+           },
+            "modifier": {
+            "operation":"multiply_base",
+            "value": 2.0
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:*_toggle"
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+
+    "critssound":{
+            "type": "origins:self_action_on_hit",
+            "entity_action": {
+                "type": "origins:play_sound",
+                "sound": "minecraft:entity.fox.bite",
+                "volume": 1.5,
+                "hidden": true
+            },
+            "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:fall_distance",
+                "compare_to": 0.5,
+                "comparison": ">="
+            }
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:power_active",
+                        "power": "*:*_toggle"
+                    },
+                    {
+                        "type": "origins:sneaking",
+                        "inverted": true
+                    }
+                ]
+            },
+            "cooldown": 0
+       },
+
+    "critsoff-landingandresetreach":{
+        "type": "origins:action_on_land",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+        {
+            "type": "origins:toggle",
+            "power": "*:*_toggle"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "/scale reset pehkui:reach @s"
+        }
+            ]
+        },
+        "condition": {
+            "type": "origins:power_active",
+            "power": "*:*_toggle"
+        }
+    },
+
+    "hungrycannotusesound":{
+        "type": "origins:active_self",
+        "condition": {
+            "type": "origins:food_level",
+            "comparison": "<=",
+            "compare_to": 0
+        },
+        "entity_action": {
+            "type": "origins:play_sound",
+            "sound": "minecraft:entity.fox.sleep",
+            "volume": 1
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 40
+    },
+
+    "maxjumpcount":{
+        "type": "origins:resource",
+        "hud_render": {
+            "should_render": false
+        },
+        "max": 2,
+        "min": 0,
+        "start_value": 2
+    },
+
+    "resetjumpcountwhenlanding":{
+        "type": "origins:action_on_land",
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource":"*:*_maxjumpcount",
+            "modifier": {
+                "name": "resetjumpcount",
+                "operation":"addition",
+                "value": 2
+            }
+        }
+    },
+
+    "alsoresetjumpcountwheninwaterandsnow":{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:in_block",
+            "block_condition":{
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:block",
+                        "block": "water"
+                    },
+                    {
+                        "type": "origins:block",
+                        "block": "powder_snow"
+                    }
+                ]
+            } 
+
+        },
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource":"*:*_maxjumpcount",
+            "modifier": {
+                "name": "resetjumpcount",
+                "operation":"addition",
+                "value": 2
+            }
+        }
+    },
+
+    "dmgmodifierwhilefalling":{
+        "type": "origins:modify_damage_taken",
+        "bientity_condition":{
+            "type": "origins:target_condition",
+            "condition":{
+                "type":"origins:and",
+                "conditions":[
+                    {
+                        "type": "origins:power_active",
+                        "power": "*:*_toggle"
+                    },
+                    {
+                        "type": "origins:sneaking",
+                        "inverted": true
+                    },
+                    {
+                        "type": "origins:fall_flying",
+                        "inverted": true
+                    }
+                ]
+            }
+        },
+        "modifier": {
+            "name": "Origin modifier",
+            "operation":"multiply_base",
+            "value": 1
+        },
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:play_sound",
+                "sound": "minecraft:entity.fox.screech",
+                "pitch": 1.5,
+                "volume": 1.5
+            }
+        }
+    },
+
+    "reset_reach_to_avoid_abusing_infinite_reach_bug_by_not_dashing_up_or_dashing_in_water_also_give_you_back_jumpcount_lmao": {  
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action":{
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scale reset pehkui:reach @s"
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "*:*_maxjumpcount",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 2
+                    }
+                }
+            ]
+        },
+        "condition":{
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:block",
+                        "block": "water"
+                    }
+                }
+            ]
+        } 
+
+    }
+}
+    

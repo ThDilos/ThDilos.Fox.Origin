@@ -1,0 +1,28 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite":"origins:textures/gui/badge/active.png",
+            "text": "origins.gui.badge.active"
+        }
+    ],
+    "hidden": true,
+    
+    "grant_power":{
+        "type": "origins:action_on_callback",
+        "entity_action_added":{
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/power grant @s thorigins:thtransform_c thorigins:redfox"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/power revokeall @s thorigins:lightningfox"
+                }
+            ]
+        } 
+    }
+}

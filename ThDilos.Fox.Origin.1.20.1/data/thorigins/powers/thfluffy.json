@@ -1,0 +1,18 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "text": "origin.thorigin.passive",
+            "sprite":"minecraft:textures/block/white_wool.png"
+        }
+    ],
+
+    "grant_power":{
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:execute_command",
+            "command": "/power grant @s thorigins:thfluffy_c thorigins:redfox"
+        }
+    }
+}
