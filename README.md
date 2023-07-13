@@ -238,7 +238,7 @@ Red Fox
 -Hidden Skill 3&4
 	**ThTransform** & **ThTransformCD**
 	Provides support to transform into the lightning fox, if you have it installed.
-	Detailed explanation check that mod link here:
+	Detailed explanation check that mod link here: https://github.com/ThDilos/UnRealistic-Fox-Origin
 
 	ThTransformCD is granted by ThTransform, with source "thorigins:global".
 	These power still follow you even you no longer a Red fox origin and will not work, you can do /power revokeall @s thorigins:global to remove them, including the Hidden Skill 2.
