@@ -232,7 +232,7 @@ Red Fox
 	**ThTrackers**
 	
 	Provides trackers to support Passive Skill 5 Timidity.
-	This power is granted by it, with source "thorigins:global".
+	This power is granted by it, with source "thorigins:foxes".
 	This power still follows you even you no longer a Red fox origin, you can do /power remove @s thorigins:thtrackers to remove it.
 
 -Hidden Skill 3&4
@@ -240,8 +240,8 @@ Red Fox
 	Provides support to transform into the lightning fox, if you have it installed.
 	Detailed explanation check that mod link here: https://github.com/ThDilos/UnRealistic-Fox-Origin
 
-	ThTransformCD is granted by ThTransform, with source "thorigins:global".
-	These power still follow you even you no longer a Red fox origin and will not work, you can do /power revokeall @s thorigins:global to remove them, including the Hidden Skill 2.
+	ThTransformCD is granted by ThTransform, with source "thorigins:foxes".
+	These power still follow you even you no longer a Red fox origin and will not work, you can do /power revokeall @s thorigins:foxes to remove them, including the Hidden Skill 2.
 
 
 **Since the 3 hidden skills are granted, stuff may break. In that case, I have written a function for you to revoke them all and reset:**
