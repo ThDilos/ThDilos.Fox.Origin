@@ -119,6 +119,9 @@ Red Fox
 
 	When you go invisible with Active Skill 2 Hunt, wolves and polar bears will not mad at you, so that you can breed them.(You still fear the tamed wolf tho)
 
+	Damage dealt to Merling and Avian origin increased by 15%
+	Damage taken from Blazeborn origin increased by 15%
+
 -Passive Skill 4
 	**Fluffy**
 
