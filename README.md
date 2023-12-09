@@ -58,6 +58,12 @@ Red Fox
 	Can use at most twice before landing (including the double jump), so that fireworks are not completely useless when flying with elytra.
 
 -Active Skill 2
+	**Fox Pouch**
+	[Activate with Secondary skill key]
+
+	A 5-slot inventory with KeepInventory On
+
+-Active Skill 3
 	**Hunt**
 	[Activate by double-tapping sneak key in 10 ticks(0.5s)]
 
@@ -80,8 +86,14 @@ Red Fox
 	-Use Active Skill 1
 	-Fall distance more than 2
 	-Receive more than 2 damage
+	-Hit another mob
     
 	The damage bonus is doubled(50%) between time 18000 and 23000 (midnight--sunrise)
+	A red-ish screen overlay is applied when damage bonus is activated, redder during midnight
+	
+	During the Damage Bonus Phase(Refers to as 'Hunt'), every 3rd hits on living entities will have an extra damage applied after 5 ticks, with particles and sound effects. Whenever it is triggered, apply 3 damage(with name "thorigins:foxie_bite", pass through armor, ignore invincible frame) to the target, feed you 2 foodpoints and 2 saturation point.
+	
+	Throughout the Preparation and Hunt phases, the fear effect by Passive Skill 6 is suspended. Until the Hunt phase end.
 
 -Passive Skill 1
 	**Agility**
@@ -98,6 +110,12 @@ Red Fox
 	Mob follow range decrease to 80%.
 
 -Passive Skill 3
+	**Weak**
+	Cannot use shield
+	Cannot equip armor heavier than iron armors
+	Air drains faster when underwater(double speed)
+
+-Passive Skill 4
 	**Foxiality**
 
 	Permanent Night Vision with strength 0.5
@@ -122,7 +140,9 @@ Red Fox
 	Damage dealt to Merling and Avian origin increased by 15%
 	Damage taken from Blazeborn origin increased by 15%
 
--Passive Skill 4
+	Break blocks that are minable by shovel 900% faster
+
+-Passive Skill 5
 	**Fluffy**
 
 	Received fire damage increases to 150%.
@@ -148,7 +168,7 @@ Red Fox
 
 	Water/powder snow in Cauldron only trigger shaking if block_state level > 1
 
-	The shaking effects only take place if the respective counter does not increase for 0.5s, so that you wont spam shaking by holding space in powder snow and water.
+	The shaking effects only take place if the respective counter does not increase for 0.75s, so that you wont spam shaking by holding space in powder snow and water.
 
 	Evaporation:
 	When no longer in-rain, water, powdered_snow, trigger a natural evaporation that remove rain/snow counter by 1 every second in the span of 100s
@@ -157,7 +177,7 @@ Red Fox
 
 	I know that foxes are supposed to be able to walk above powder snow, I just dk how to achieve it... But I made you able to levitate in powder 	snow by pressing jump.
 
--Passive Skill 5
+-Passive Skill 6
 	**Timidity**
 
 	When meeting certain conditions, add "fear" effect **every tick**:
@@ -180,7 +200,7 @@ Red Fox
 	When health is less than 4 (2 hearts), spawn red particles so that it looks like you leave a blood trail behind.
 	Sneak to stop your bleeding to hide the blood trail effect, in case you want to hide from something...
 
--Passive Skill 6
+-Passive Skill 7
 	**Unique Taste**
 
 	Glow berries/Sweet berries buffed to outmatch golden carrot.(From the base, +4 foodlevel, +16 saturation)
@@ -208,12 +228,21 @@ Red Fox
 
 	All other foods except for apple, rotten_flesh, 3 golden food are nerfed that they only provide half as much foodlevel,saturation as before.
  
--Passive Skill 7
+-Passive Skill 8
 	**Fast-Paced**
 
 	When foodlevel > 6, base exhaustion speed is increased to 150%.
 
 	Attack speed is increased to 125%.
+
+	Foodlevel affects damage delt:
+		When at max(==20), damage bonus by 5%
+		When at 7-9 icons(14-18), damage dealt reduces to 90%
+		When at 5-7 icons(10-14), damage dealt reduces to 80%
+		When at 3-5 icons(6-10), damage dealt reduces to 70%
+		When at 2-3 icons(4-6), damage dealt reduces to 60%
+		When at 1-2 icons(2-4), damage dealt reduces to 50%
+		When at lower (0-2), damage dealt reduces to 40%
 
 -Hidden Skill 1
 	**Fox Sound Pack**
@@ -235,17 +264,12 @@ Red Fox
 	**ThTrackers**
 	
 	Provides trackers to support Passive Skill 5 Timidity.
-	This power is granted by it, with source "thorigins:foxes".
+	This power is granted by it, with source "thorigins:universal".
 	This power still follows you even you no longer a Red fox origin, you can do /power remove @s thorigins:thtrackers to remove it.
-
--Hidden Skill 3&4
-	**ThTransform** & **ThTransformCD**
-	Provides support to transform into the lightning fox, if you have it installed.
-	Detailed explanation check that mod link here: https://github.com/ThDilos/UnRealistic-Fox-Origin
-
-	ThTransformCD is granted by ThTransform, with source "thorigins:foxes".
-	These power still follow you even you no longer a Red fox origin and will not work, you can do /power revokeall @s thorigins:foxes to remove them, including the Hidden Skill 2.
 
 
 **Since the 3 hidden skills are granted, stuff may break. In that case, I have written a function for you to revoke them all and reset:**
 **/function thorigins:reset_all**
+
+Use this to disable CD:
+**/function thorigins:no_cd_cheat**
