@@ -91,7 +91,7 @@ Red Fox
 	The damage bonus is doubled(50%) between time 18000 and 23000 (midnight--sunrise)
 	A red-ish screen overlay is applied when damage bonus is activated, redder during midnight
 	
-	During the Damage Bonus Phase(Refers to as 'Hunt'), every 3rd hits on living entities will have an extra damage applied after 5 ticks, with particles and sound effects. Whenever it is triggered, apply 3 damage(with name "thorigins:foxie_bite", pass through armor, ignore invincible frame) to the target, feed you 2 foodpoints and 2 saturation point.
+	During the Damage Bonus Phase(Refers to as 'Hunt'), every 3rd hits on living entities will have an extra damage applied after 4 ticks, with particles and sound effects. Whenever it is triggered, apply 3 damage(with name "thorigins:foxie_bite", pass through armor, ignore invincible frame) to the target, feed you 2 foodpoints and 2 saturation point.
 	
 	Throughout the Preparation and Hunt phases, the fear effect by Passive Skill 6 is suspended. Until the Hunt phase end.
 
@@ -121,6 +121,8 @@ Red Fox
 	Permanent Night Vision with strength 0.5
 
 	Damage against chicken, rabbit, fishes, turtles increases to 400%.
+
+	Ignore berry bushes
 
 	Will anger wolf in 18 blocks radius.
 	Will anger Polar bear in 16 blocks radius.
