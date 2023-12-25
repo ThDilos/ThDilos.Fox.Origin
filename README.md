@@ -57,6 +57,10 @@ Red Fox
 
 	Can use at most twice before landing (including the double jump), so that fireworks are not completely useless when flying with elytra.
 
+	When killed something, give back 1 maxjumpcount and reset the second jump's CD, so you can do a cool combo.
+	When down striked during Hunt with this skill, activate the every 3rd hit effect in the Hunt. 
+	When in the hunt preparation phase, and facing from north to east range (y_rotate=-160..-135), there will be a blue screen overlay, notifying that if you pounce in this direction, your next damage will get a small boost ontop of all other damage modifiers(multiply_total). 
+
 -Active Skill 2
 	**Fox Pouch**
 	[Activate with Secondary skill key]
@@ -91,9 +95,11 @@ Red Fox
 	The damage bonus is doubled(50%) between time 18000 and 23000 (midnight--sunrise)
 	A red-ish screen overlay is applied when damage bonus is activated, redder during midnight
 	
-	During the Damage Bonus Phase(Refers to as 'Hunt'), every 3rd hits on living entities will have an extra damage applied after 4 ticks, with particles and sound effects. Whenever it is triggered, apply 3 damage(with name "thorigins:foxie_bite", pass through armor, ignore invincible frame) to the target, feed you 2 foodpoints and 2 saturation point.
+	During the Damage Bonus Phase(Refers to as 'Hunt'), every 3rd hits(damage has to > 1) on living entities will have an extra damage applied after 4 ticks, with particles and sound effects. Whenever it is triggered, apply 3 damage(with name "thorigins:foxie_bite", pass through armor, ignore invincible frame) to the target, feed you 2 foodpoints and 2 saturation point, also extend the hunt duration by 1.5s.
 	
 	Throughout the Preparation and Hunt phases, the fear effect by Passive Skill 6 is suspended. Until the Hunt phase end.
+
+	When in the nether/end, before the respective fear is conquered, the hunt will treat the dimension as day time, and will be midnight after conquering the fears.
 
 -Passive Skill 1
 	**Agility**
@@ -136,6 +142,8 @@ Red Fox
 
 	Unable to fall asleep when light level > 5.
 	Unable to fall asleep when exposed to sky. 
+	Unable to fall asleep when fear factors nearby.
+	Unable to fall asleep when during Hunt.
 
 	When you go invisible with Active Skill 2 Hunt, wolves and polar bears will not mad at you, so that you can breed them.(You still fear the tamed wolf tho)
 
@@ -191,8 +199,8 @@ Red Fox
 	-150 blocks around an Ender dragon  (No longer applies when killed 1 Ender dragon)
 	-Spawn of lightning (No longer applies when struck by lightning 16 times)
 	-Health < 6 (3 hearts) (No longer applies when died 8 times)
-	-In the nether dimension (No longer applies when equipping elytra or having fire_resistence or armours fire_protection enchantment level sum >=4)
-	-In the end dimension (No longer applies when equipping elytra)
+	-In the nether dimension (No longer applies when equipping elytra or having fire_resistence or armours fire_protection enchantment level sum >=4) (Or staying in the nether for at least 10 minutes, using skill Hunt will speed this up twice.)
+	-In the end dimension (No longer applies when equipping elytra) (Or staying in the end for at least 10 minutes, using skill Hunt will speed this up twice.)
 
 	Fear Effect:
 	-Speed 1 for 5 seconds
