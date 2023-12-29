@@ -59,7 +59,7 @@ Red Fox
 
 	When killed something, give back 1 maxjumpcount and reset the second jump's CD, so you can do a cool combo.
 	When down striked during Hunt with this skill, activate the every 3rd hit effect in the Hunt. 
-	When in the hunt preparation phase, and facing from north to east range (y_rotate=-160..-135), there will be a blue screen overlay, notifying that if you pounce in this direction, your next damage will get a small boost ontop of all other damage modifiers(multiply_total). 
+	When in the hunt preparation phase, and facing from north to east range (y_rotate=-160..-135) or south to west range (y_rotate=-340..-315), there will be a blue screen overlay, notifying that if you pounce in this direction, your next damage will get a small boost ontop of all other damage modifiers(multiply_total). 
 
 -Active Skill 2
 	**Fox Pouch**
@@ -283,3 +283,8 @@ Red Fox
 
 Use this to disable CD:
 **/function thorigins:no_cd_cheat**
+
+Use this to change op-lvl:
+**/function thorigins:change_op_lvl**
+
+1.18.2 ver will not have drop_inventory and warden fear, will not detect snow in hills.
