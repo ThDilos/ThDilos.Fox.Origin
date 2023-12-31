@@ -34,257 +34,31 @@ I tried to recall everything I've added to this origin, maybe there are ones I f
 Added Origin:
 Red Fox
 
--Active Skill 1
-	**Pounce**
-	[Activate with Primary skill key]
-    
-	Cooldown 1.5s
-	Cooldown Indicator On
-
-	Adds velocity to forward and upward motions. When falling, your attack damage increase to 300% and damage done to you increase to 200%.
-	Your reach is increaseed to 115% for more attack window.
-	All effects reset when you land on blocks.
-    
-	Play sounds when the skill and the two damage modifier is activated. (fox.bite and fox.screech)
-	Spawn particles when the skill is activated. (snowflake)
-    
-	The two damage modifiers are disabled when you sneak during the fall (Hold sneak to defend).
-
-	Apply 0.5 exhaustion when activate.
-	Unable to use if foodlevel reaches 0, play a sound instead. (fox.sleep)
-
-	When cooling down from first pounce, you can initiate it again after 0.5 second at the cost of 10 times the exhaustion (5), with fox.ambient 	played.	
-
-	Can use at most twice before landing (including the double jump), so that fireworks are not completely useless when flying with elytra.
-
-	When killed something, give back 1 maxjumpcount and reset the second jump's CD, so you can do a cool combo.
-	When down striked during Hunt with this skill, activate the every 3rd hit effect in the Hunt. 
-	When in the hunt preparation phase, and facing from north to east range (y_rotate=-160..-135) or south to west range (y_rotate=-340..-315), there will be a blue screen overlay, notifying that if you pounce in this direction, your next damage will get a small boost ontop of all other damage modifiers(multiply_total). 
-
--Active Skill 2
-	**Fox Pouch**
-	[Activate with Secondary skill key]
-
-	A 5-slot inventory with KeepInventory On
-
--Active Skill 3
-	**Hunt**
-	[Activate by double-tapping sneak key in 10 ticks(0.5s)]
-
-	Cooldown Indicator On
-
-	Sneak to charge a 2.5 seconds bar.
-
-	Excceed 0.3 second start turning invisible and at 1.25 seconds become fully invisible.
-
-	Exceed 1.85 seconds makes mobs 50 blocks around you glow.
-	Hostle mobs/Endermen/Wolves/Polar bears glow red
-	Players glow blue
-	Foxes glow green
-	Other entities glow white
-
-	When fully charged, your attack increases by 25% in 5 seconds.
-
-	Under these circumstances the charge will be interrupted:
-	-No longer sneak
-	-Use Active Skill 1
-	-Fall distance more than 2
-	-Receive more than 2 damage
-	-Hit another mob
-    
-	The damage bonus is doubled(50%) between time 18000 and 23000 (midnight--sunrise)
-	A red-ish screen overlay is applied when damage bonus is activated, redder during midnight
-	
-	During the Damage Bonus Phase(Refers to as 'Hunt'), every 3rd hits(damage has to > 1) on living entities will have an extra damage applied after 4 ticks, with particles and sound effects. Whenever it is triggered, apply 3 damage(with name "thorigins:foxie_bite", pass through armor, ignore invincible frame) to the target, feed you 2 foodpoints and 2 saturation point, also extend the hunt duration by 1.5s.
-	
-	Throughout the Preparation and Hunt phases, the fear effect by Passive Skill 6 is suspended. Until the Hunt phase end.
-
-	When in the nether/end, before the respective fear is conquered, the hunt will treat the dimension as day time, and will be midnight after conquering the fears.
-
--Passive Skill 1
-	**Agility**
-
-	While sprinting, movement speed and jump height increased by 40%.
-	Ignore fall damage if Fall distance less than 24.
-	If falling more or equal than 24 blocks, hold sneak when landing to reduce fall damage by 80%.
-
--Passive Skill 2
-	**Smol**
-
-	Size shrinks to 70% of Human.
-	Max Health Reduces to 8 hearts.
-	Mob follow range decrease to 80%.
-
--Passive Skill 3
-	**Weak**
-	Cannot use shield
-	Cannot equip armor heavier than iron armors
-	Air drains faster when underwater(double speed)
-
--Passive Skill 4
-	**Foxiality**
-
-	Permanent Night Vision with strength 0.5
-
-	Damage against chicken, rabbit, fishes, turtles increases to 400%.
-
-	Ignore berry bushes
-
-	Will anger wolf in 18 blocks radius.
-	Will anger Polar bear in 16 blocks radius.
-
-	Does not get damaged by berry bush.(I have no idea how to remove the slow down effect)
-    
-	Trusted by foxes in 16 blocks radius.
-	Right-click a fox with empty hand to drop whatever it's holding.
-
-	Receive a random item when waking up.(Items/Weights from Minecraft wiki: items foxes hold when spawn naturally)
-
-	Unable to fall asleep when light level > 5.
-	Unable to fall asleep when exposed to sky. 
-	Unable to fall asleep when fear factors nearby.
-	Unable to fall asleep when during Hunt.
-
-	When you go invisible with Active Skill 2 Hunt, wolves and polar bears will not mad at you, so that you can breed them.(You still fear the tamed wolf tho)
-
-	Damage dealt to Merling and Avian origin increased by 15%
-	Damage taken from Blazeborn origin increased by 15%
-
-	Break blocks that are minable by shovel 900% faster
-
--Passive Skill 5
-	**Fluffy**
-
-	Received fire damage increases to 150%.
-	
-	Invulnerable against freezing damage.(Unless your upper body is in rain)
-	
-	When in rain for 5 seconds, trigger soaked effect.
-	When in water for 0.2 seconds, trigger soaked effect.
- 	When in snow for 0.5 seconds, trigger snowed effect.
-	When in the snowfall for 5 seconds, trigger snowed effect.
-
-	Soaked effect:
-	movement speed reduce by 20%. Effect resets after shaking.
-	Effect can be avoided by wearing armor with water_protection enchantment level sum > 4.
-
- 	Snowed effect:
-  	Will trigger shaking snow.
-
-	Trigger a shaking water effect like wolf when soaked.
-	Will not trigger the shaking water effect if you are sneaking, in case you want to hide from something...
-
-	Will also trigger a shaking snow effect when snowed.
-
-	Water/powder snow in Cauldron only trigger shaking if block_state level > 1
-
-	The shaking effects only take place if the respective counter does not increase for 0.75s, so that you wont spam shaking by holding space in powder snow and water.
-
-	Evaporation:
-	When no longer in-rain, water, powdered_snow, trigger a natural evaporation that remove rain/snow counter by 1 every second in the span of 100s
-	If block light level > 12, on magma_block, or exposed_to_sun, the remove is by 5 everysecond, in 20s. 
-	I prob don't need the time span thingy but meh..
-
-	I know that foxes are supposed to be able to walk above powder snow, I just dk how to achieve it... But I made you able to levitate in powder 	snow by pressing jump.
-
--Passive Skill 6
-	**Timidity**
-
-	When meeting certain conditions, add "fear" effect **every tick**:
-	-16 blocks around a Polar bear
-	-18 blocks around a Wolf
-	-16 blocks around a Villager  (No longer applies when having advancement hero_of_the_village)
-	-30 blocks around a Warden  (No longer applies when killed 3 wardens)
-	-50 blocks around a Wither  (No longer applies when killed 1 wither)
-	-150 blocks around an Ender dragon  (No longer applies when killed 1 Ender dragon)
-	-Spawn of lightning (No longer applies when struck by lightning 16 times)
-	-Health < 6 (3 hearts) (No longer applies when died 8 times)
-	-In the nether dimension (No longer applies when equipping elytra or having fire_resistence or armours fire_protection enchantment level sum >=4) (Or staying in the nether for at least 10 minutes, using skill Hunt will speed this up twice.)
-	-In the end dimension (No longer applies when equipping elytra) (Or staying in the end for at least 10 minutes, using skill Hunt will speed this up twice.)
-
-	Fear Effect:
-	-Speed 1 for 5 seconds
-	-Weakness 1 for 5 seconds
-	-Shaking for 8 seconds
-
-	When health is less than 4 (2 hearts), spawn red particles so that it looks like you leave a blood trail behind.
-	Sneak to stop your bleeding to hide the blood trail effect, in case you want to hide from something...
-
--Passive Skill 7
-	**Unique Taste**
-
-	Glow berries/Sweet berries buffed to outmatch golden carrot.(From the base, +4 foodlevel, +16 saturation)
-	Raw/cooked chicken/rabbit/cod/salmon/tropical fish buffed by addition.(From the base, +2 foodlevel, +5 saturation)
-
-	Chicken and rottenflesh will not give you negative effects.
-
-	When consuming sweet_berries/glow_berries there is 20% chance the berry is not consumed.(/give you a new one)
-	There is also 5% chance for you to receive a random positive effect(same weight for all) chosen from this list:
-	Strength 1 30s
-	Absorption 1 30s
-	Haste 1 30s
-	Instant_health 1 1s
-	Jump_boost 1 30s
-	Speed 1 30s
-	Luck 1 30s
-	Resistance 1 30s
-	Saturation 1 30s
-	Regeneration 2 30s
-	
-	For glow berries, the chance of giving you a positive effect is raised to 10%.
-
-	The above foods are edible even foodlevel is at maximum.
-	When consumed, apply regeneration 1 for 3 seconds.
-
-	All other foods except for apple, rotten_flesh, 3 golden food are nerfed that they only provide half as much foodlevel,saturation as before.
- 
--Passive Skill 8
-	**Fast-Paced**
-
-	When foodlevel > 6, base exhaustion speed is increased to 150%.
-
-	Attack speed is increased to 125%.
-
-	Foodlevel affects damage delt:
-		When at max(==20), damage bonus by 5%
-		When at 7-9 icons(14-18), damage dealt reduces to 90%
-		When at 5-7 icons(10-14), damage dealt reduces to 80%
-		When at 3-5 icons(6-10), damage dealt reduces to 70%
-		When at 2-3 icons(4-6), damage dealt reduces to 60%
-		When at 1-2 icons(2-4), damage dealt reduces to 50%
-		When at lower (0-2), damage dealt reduces to 40%
-
--Hidden Skill 1
-	**Fox Sound Pack**
-
-	Playsound fox.death when death.
-	Playsound fox.hurt when hurt.
-	Playsound fox.eat when eat.
-	Playsound fox.aggro when eat disliked food.(nerfed food)
-	Playsound fox.sleep when sleeping.
-	Playsound fox.ambient when wakeup.
-
-	When right-clicked with empty hand by another player, playsound fox.ambient and send messages to both players. Cooldown 3 senconds.
-	
-	(I tried to move all the playsound into this power, only left those in Pounce, in case you get sick of these sounds...)
- 	(To temporarily deactivate this skill, do /power revoke @s thorigins:thsound)
-	(To PERMANENTLY deactivate this skill, open (This Mod).jar\data\thorigins\origins\fox.json, remove "thorigins:thsound" and the comma at the end of last line)
-
--Hidden Skill 2
-	**ThTrackers**
-	
-	Provides trackers to support Passive Skill 5 Timidity.
-	This power is granted by it, with source "thorigins:universal".
-	This power still follows you even you no longer a Red fox origin, you can do /power remove @s thorigins:thtrackers to remove it.
+## Power Index
+* Active Skills
+>1. [Pounce](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Active-Skills#pounce)
+>2. [Hunt](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Active-Skills#Hunt)
+>3. [Mouth Pouch](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Active-Skills#Mouth-Pouch)
+* Passive Skills
+>1. [Agility](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Passive-Skills#agility)
+>2. [Foxiality](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Passive-Skills#foxiality)
+>3. [Fluffy](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Passive-Skills#fluffy)
+>4. [Smol](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Passive-Skills#smol)
+>5. [Unique Taste](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Passive-Skills#unique-taste)
+>6. [Fast-Paced](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Passive-Skills#fast-paced)
+>7. [Timidity](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Passive-Skills#timidity)
+>8. [Weak](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Passive-Skills#weak)
+* Hidden Skills
+>1. [Fox Sound Pack](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Hidden-Skills#fox-sound-pack)
+>2. [ThTrackers](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Hidden-Skills#thtrackers)
+>3. [loadin](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Hidden-Skills#loadin)
 
 
-**Since the 3 hidden skills are granted, stuff may break. In that case, I have written a function for you to revoke them all and reset:**
-**/function thorigins:reset_all**
 
-Use this to disable CD:
-**/function thorigins:no_cd_cheat**
+## Functions Available
+1. Activate [no CD cheats](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Hidden-Skills#haxx) with /function thorigins:no_cd_cheat
+2. Change [OP-Level](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Hidden-Skills#op-level-balancer) with /function thorigins:change_op_lvl
+3. In case some power breaks and can't be fixed by exit and re-enter the world, reset everything with /function thorigins:reset_all
 
-Use this to change op-lvl:
-**/function thorigins:change_op_lvl**
 
 1.18.2 ver will not have drop_inventory and warden fear, will not detect snow in hills.
