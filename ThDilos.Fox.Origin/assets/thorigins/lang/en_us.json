@@ -1,0 +1,61 @@
+{
+    "origin.thorigins.fox.name": "Fox",
+    "origin.thorigins.fox.description": "Vulpes Are Known For Their Cunning. They Hide In Shadows, Attack Unexpectedly And Strike At Their Enemies' Weakest",
+
+    "power.thorigins.thdash.name": "§6§l§nPounce",
+    "power.thorigins.thdash.description": "By sacrificing defence, pounce forward and boost your attack while falling down.",
+
+    "power.thorigins.thstorage.name": "§6§l§nMouth Pouch",
+    "power.thorigins.thstorage.description": "A 5-slot inventory that saves the items inside upon you death.",
+    "thorigins.fox.container.inventory": "Do Not Swallow",
+
+    "power.thorigins.thhunt.name": "§6§l§nHunt",
+    "power.thorigins.thhunt.description": "Hide yourself by crouching and enter a hunting phase after much preparation.",
+
+    "power.thorigins.thswift.name": "§a§nAgility",
+    "power.thorigins.thswift.description": "You have strong limbs that enhance sprinting and jumping abilities, and you're more resilient to fall damage.",
+
+    "power.thorigins.thsmol.name": "§e§nSmol",
+    "power.thorigins.thsmol.description": "Being a fox, you're shorter and have less endurance. But monsters will have a harder time noticing you.",
+
+    "power.thorigins.thweak.name": "§c§nWeak",
+    "power.thorigins.thweak.description": "You were born with slender limbs, which restrict you from using shield and heavy armors.",
+
+    "power.thorigins.thfoxiality.name": "§e§nFoxiality",
+    "power.thorigins.thfoxiality.description": "Embrace your fox nature and thrive.",
+
+    "power.thorigins.thfluffy.name": "§e§nFluffy",
+    "power.thorigins.thfluffy.description": "Shaggy fur provides excellent cold protection but is highly flammable.",
+
+    "power.thorigins.thshy.name": "§c§nTimidity",
+    "power.thorigins.thshy.description": "Survival instincts make you fear predators, death, crowds, and danger, but there are ways to conquer the fears.",
+
+    "power.thorigins.thfood.name": "§e§nUnique Taste",
+    "power.thorigins.thfood.description": "Your food preferences are heavily influenced by your nature.",
+
+    "power.thorigins.thhunger.name": "§e§nFast-Paced",
+    "power.thorigins.thhunger.description": "Your small body has a fast metabolism, granting higher attack speed but requiring frequent large food intake.",
+
+    "power.thorigins.thsound.name": "Fox Sound Pack",
+    "power.thorigins.thsound.description": "In case it isn't obvious, foxes aren't players",
+
+    "origin.thorigin.sneak": "Active ability，double tap and hold %s to use",
+    "origin.thorigin.passive": "Passive ability",
+
+    "origin.thorigin.cant_sleep_light": "It's too bright for you to fall asleep!",
+    "origin.thorigin.cant_sleep_shade": "Your fox instincts force you to sleep under shades!",
+    "origin.thorigin.cant_sleep_fear": "You're too scared to fall asleep!",
+    "origin.thorigin.cant_sleep_hunt": "You're in the middle of hunting!",
+
+    "death.attack.thorigins:foxie_bite": "%1$s couldn't handle the claws and fangs of %2$s.",
+    "death.attack.thorigins:foxie_bite.player": "%1$s underestimated how feral %2$s can be in a fight.",
+    "death.attack.thorigins:foxie_bite.item": "%1$s is mauled to death by %2$s.",
+
+    "power.thorigins.wakeup.item": "You Found Something When You Were Asleep!",
+
+    "thorigins.op_lvl.1": "§a§l§oYour OP Level has being adjusted to 1!",
+    "thorigins.op_lvl.2": "§9§l§oYour OP Level has being adjusted to 2!",
+    "thorigins.op_lvl.3": "§5§l§oYour OP Level has being adjusted to 3!",
+    "thorigins.op_lvl.4": "§6§l§oYour OP Level has being adjusted to 4!",
+    "thorigins.op_lvl.5": "§d§l§oYour OP Level has being adjusted to 5!"
+}
