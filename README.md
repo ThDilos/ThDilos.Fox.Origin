@@ -25,11 +25,11 @@ I just signed up for github today whats all these buttons do?
 
 Anyways, hope you have fun with this mod ;)
 
-#######################################################################################
+---
 
 I tried to recall everything I've added to this origin, maybe there are ones I forget about.
 
-#######################################################################################
+---
 
 Added Origin:
 Red Fox
