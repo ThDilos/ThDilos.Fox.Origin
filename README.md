@@ -56,9 +56,5 @@ Red Fox
 
 
 ## Functions Available
-1. Activate [no CD cheats](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Hidden-Skills#haxx) with /function thorigins:no_cd_cheat
-2. Change [OP-Level](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Hidden-Skills#op-level-balancer) with /function thorigins:change_op_lvl
-3. In case some power breaks and can't be fixed by exit and re-enter the world, reset everything with /function thorigins:reset_all
-
-
-1.18.2 ver will not have drop_inventory and warden fear, will not detect snow in hills.
+1. Fox(es) Settings: /function thorigins:fox_settings
+2. In case some power breaks and can't be fixed by exit and re-enter the world, reset everything with /function thorigins:reset_all
