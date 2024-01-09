@@ -56,5 +56,5 @@ Red Fox
 
 
 ## Functions Available
-1. Fox(es) Settings: /function thorigins:fox_settings
+1. Fox(es) Settings: /function thorigins:fox_setting
 2. In case some power breaks and can't be fixed by exit and re-enter the world, reset everything with /function thorigins:reset_all
