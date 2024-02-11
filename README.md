@@ -37,8 +37,9 @@ Red Fox
 ## Power Index
 * Active Skills
 >1. [Pounce](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Active-Skills#pounce)
->2. [Hunt](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Active-Skills#Hunt)
->3. [Mouth Pouch](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Active-Skills#Mouth-Pouch)
+>2. [Foxify](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Active-Skills#foxify)
+>3. [Hunt](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Active-Skills#Hunt)
+>4. [Mouth Pouch](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Active-Skills#Mouth-Pouch)
 * Passive Skills
 >1. [Agility](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Passive-Skills#agility)
 >2. [Foxiality](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Passive-Skills#foxiality)
