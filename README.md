@@ -32,7 +32,7 @@ I tried to recall everything I've added to this origin, maybe there are ones I f
 ---
 
 Added Origin:
-Red Fox
+Fox
 
 ## Power Index
 * Active Skills
