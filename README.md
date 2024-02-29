@@ -54,8 +54,5 @@ Fox
 >2. [ThTrackers](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Hidden-Skills#thtrackers)
 >3. [loadin](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Hidden-Skills#loadin)
 
-
-
-## Functions Available
-1. Fox(es) Settings: /function thorigins:fox_setting
-2. In case some power breaks and can't be fixed by exit and re-enter the world, reset everything with /function thorigins:reset_all
+## Useful Stuffs
+[For Server Admin](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/For-Server-Admins)
