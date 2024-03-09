@@ -1,0 +1,100 @@
+{
+	"origin.thorigins.fox.name": "狐狸",
+	"origin.thorigins.fox.description": "狐生性黠，附身于幽，一击必杀",
+
+	"power.thorigins.fox/thdash.name": "§6§l§n掠袭",
+	"power.thorigins.fox/thdash.description": "暂时放弃防御，向前上方冲刺一段距离，并在下落时巨幅加成攻击力。",
+
+	"power.thorigins.fox/thstorage.name": "§6§l§n叼住",
+	"power.thorigins.fox/thstorage.description": "把东西存在嘴里，死了也能带走。",
+	"thorigins.redfox.container.inventory": "别咽下去了",
+
+	"power.thorigins.fox/thfoxify.name": "§6§l§n狐化",
+	"power.thorigins.fox/thfoxify.description": "睡觉时变成一只狐狸，并且可以顶着一只狐狸去冒险。",
+	"origin.thorigins.oldver.foxify1": "主动能力，站立不动，蹲下并按 [%s]",
+	"origin.thorigins.oldver.foxify2": "主动能力，对着狐狸按 [c]",
+
+	"power.thorigins.fox/thhunt.name": "§6§l§n狩猎",
+	"power.thorigins.fox/thhunt.description": "通过下蹲保持隐蔽，蓄力后进入猎杀状态，短时间内提升攻击力。",
+
+	"power.thorigins.fox/thswift.name": "§a§n灵跃",
+	"power.thorigins.fox/thswift.description": "轻盈的身体让你能轻松跨越障碍物，不惧摔伤。",
+
+	"power.thorigins.fox/thsmol.name": "§e§n迷你",
+	"power.thorigins.fox/thsmol.description": "作为狐狸，你比一般人矮了许多，耐力也随之下降。不过，怪物也因此不能轻易地发现你了。",
+
+	"power.thorigins.fox/thweak.name": "§c§n羸弱",
+	"power.thorigins.fox/thweak.description": "你纤细的四肢不能使用盾牌, 身着重甲。",
+
+	"power.thorigins.fox/thfoxiality.name": "§e§n狐狸本性",
+	"power.thorigins.fox/thfoxiality.description": "理解狐狸，接收狐狸，成为狐狸。",
+
+	"power.thorigins.fox/thfluffy.name": "§e§n毛绒绒",
+	"power.thorigins.fox/thfluffy.description": "浑身的毛绒绒让你不畏严寒，但一点火星子就能让你生不如死。",
+
+	"power.thorigins.fox/thshy.name": "§c§n胆小",
+	"power.thorigins.fox/thshy.description": "胆小的天性让你惧怕天敌、惧怕死亡、惧怕人群、惧怕极其危险的生物，给你带来诸多不便。不过，大部分恐惧都能想办法克服。",
+
+	"power.thorigins.fox/thfood.name": "§e§n独特胃口",
+	"power.thorigins.fox/thfood.description": "狐狸对某些食物的偏好被刻入了你的DNA。",
+
+	"power.thorigins.fox/thhunger.name": "§e§n极速代谢",
+	"power.thorigins.fox/thhunger.description": "小小又好动的身体给你带来了比常人快的新陈代谢，虽然你拥有了更快的攻击速度，但也需要大量进食。",
+
+	"power.thorigins.fox/thsound.name": "§a§n狐狸声音包",
+	"power.thorigins.fox/thsound.description": "In case it isn't obvious, foxes aren't players",
+
+	"origin.thorigin.sneak": "主动能力，双击按住%s使用",
+	"origin.thorigin.passive": "被动能力",
+	"origin.thorigin.foxhat1": "主动能力，对着狐狸按 [",
+	"origin.thorigin.foxhat2": "] 使用",
+	"origin.thorigin.foxrider1": "对着下蹲的玩家按住 [",
+	"origin.thorigin.foxrider2": "] 来骑乘该玩家",
+	"origin.thorigin.sleepin1": "主动能力，站立不动，蹲下并按 [",
+	"origin.thorigin.sleepin2": "] 使用",
+
+	"origin.thorigin.cant_sleep_light": "这里太亮了睡不着！",
+	"origin.thorigin.cant_sleep_shade": "你的狐狸基因阻止你露天睡觉！",
+	"origin.thorigin.cant_sleep_fear": "你现在不能睡觉，周围有令你恐惧的东西!",
+	"origin.thorigin.cant_sleep_hunt": "你正在狩猎!别偷懒!",
+
+	"death.attack.thorigins:foxie_bite": "%1$s被撕成了碎片。",
+	"death.attack.thorigins:foxie_bite_2": "%1$s被撕成了碎片。",
+	"death.attack.thorigins:foxie_bite_item": "%1$s被撕成了碎片。",
+
+	"death.attack.thorigins:foxie_bite.player": "%1$s被%2$s咬断了喉咙。",
+	"death.attack.thorigins:foxie_bite_2.player": "%1$s无法抵挡%2$s的尖牙利爪。",
+	"death.attack.thorigins:foxie_bite_item.player": "%1$s被%2$s活活咬死。",
+
+	"death.attack.thorigins:foxie_bite.item": "%1$s被%2$s咬断了喉咙。",
+	"death.attack.thorigins:foxie_bite_2.item": "%1$s无法抵挡%2$s的尖牙利爪。",
+	"death.attack.thorigins:foxie_bite_item.item": "%1$s被%2$s活活咬死。",
+
+	"power.thorigins.wakeup.item": "你在睡梦中找到了个小玩意儿!",
+
+	"power.thorigins.fox.aggro.booper": "你没有Boop这只狐狸的犬线 >:3",
+	"power.thorigins.fox.aggro.1": "对",
+	"power.thorigins.fox.aggro.booped_2": "的非法Boop尝试表达了严重不满 >:3",
+
+	"power.thorigins.fox.aggro.pet": "你没有Pet这只狐狸的权限 >:3",
+	"power.thorigins.fox.aggro.petted_2": "的未授权Pet尝试发出了警告 >:3",
+
+	"power.thorigins.fox.petted": "你被摸头了，是",
+
+	"power.thorigins.sleepin.mode.1": "你进入了[睡眠模式]",
+	"power.thorigins.sleepin.mode.2": "按<",
+	"power.thorigins.sleepin.mode.3": ">让狐狸面向你目前的方向",
+	"power.thorigins.sleepin.mode.4": ">让狐狸从你的屏幕上隐藏",
+	"power.thorigins.sleepin.mode.5": "使用指令 /trigger foxtype 换成别的狐狸(共4种)",
+
+	"message.chosen1": "欢迎使用狐狸起源",
+	"message.chosen1.5": "如果想知道所有技能的详情，按这里：",
+	"message.chosen2": "至管理员: 如果要更改这个起源的设置，使用指令 ",
+	"message.chosen3": "祝你玩得开心！",
+
+	"thorigins.op_lvl.1": "§a§l§o你的起源能力伤害等级已被调整至1级!",
+	"thorigins.op_lvl.2": "§9§l§o你的起源能力伤害等级已被调整至2级!",
+	"thorigins.op_lvl.3": "§5§l§o你的起源能力伤害等级已被调整至3级!",
+	"thorigins.op_lvl.4": "§6§l§o你的起源能力伤害等级已被调整至4级!",
+	"thorigins.op_lvl.5": "§d§l§o你的起源能力伤害等级已被调整至5级!"
+}
