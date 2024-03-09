@@ -1,0 +1,12 @@
+{
+	"bonk": {
+		"sounds":[
+			{
+				"name": "thorigins:bonk",
+				"volumn": 1.0,
+				"pitch": 1.0,
+				"weight": 1
+			}
+		]
+	}
+}
