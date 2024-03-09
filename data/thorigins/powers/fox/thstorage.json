@@ -1,0 +1,8 @@
+{
+    "type": "origins:inventory",
+    "container_type": "hopper",
+    "drop_on_death": false,
+    "recoverable": true,
+    "key": "key.origins.secondary_active",
+    "title": "thorigins.fox.container.inventory"
+}

@@ -1,0 +1,591 @@
+{
+	"type": "origins:multiple",
+	"badges": [
+		{
+			"type": "origins:keybind",
+			"sprite": "minecraft:textures/item/egg.png",
+			"text": "origin.thorigin.passive"
+		}
+	],
+	"hidden": true,
+
+	"welcome_msg": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"tagfordatamodify": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:execute_command",
+				"command": "/tag @s add foxie"
+			}
+		},
+		"entity_action_lost": {
+			"type": "origins:execute_command",
+			"command": "/tag @s remove foxie"
+		}
+	},
+
+	"wardenkills": {
+		"type": "origins:resource",
+		"hud_render": {
+			"should_render": false
+		},
+		"min": 0,
+		"max": 65535,
+		"start_value": 0
+	},
+
+	"wardenkillstracker": {
+		"type": "origins:self_action_on_kill",
+		"target_condition": {
+			"type": "origins:entity_type",
+			"entity_type": "minecraft:warden"
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_wardenkills",
+			"change": 1
+		},
+		"cooldown": 0
+	},
+
+	"witherkills": {
+		"type": "origins:resource",
+		"hud_render": {
+			"should_render": false
+		},
+		"min": 0,
+		"max": 65535,
+		"start_value": 0
+	},
+
+	"witherkillstracker": {
+		"type": "origins:self_action_on_kill",
+		"target_condition": {
+			"type": "origins:entity_type",
+			"entity_type": "minecraft:wither"
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_witherkills",
+			"change": 1
+		},
+		"cooldown": 0
+	},
+
+	"edragkills": {
+		"type": "origins:resource",
+		"hud_render": {
+			"should_render": false
+		},
+		"min": 0,
+		"max": 65535,
+		"start_value": 0
+	},
+
+	"edragkillstracker": {
+		"type": "origins:self_action_on_kill",
+		"target_condition": {
+			"type": "origins:entity_type",
+			"entity_type": "minecraft:ender_dragon"
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_edragkills",
+			"change": 1
+		},
+		"cooldown": 0
+	},
+
+	"thunderstruck": {
+		"type": "origins:resource",
+		"hud_render": {
+			"should_render": false
+		},
+		"min": 0,
+		"max": 65535,
+		"start_value": 0
+	},
+
+	"thunderstrucktracker": {
+		"type": "origins:action_when_damage_taken",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "lightningBolt"
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_thunderstruck",
+			"change": 1
+		},
+		"cooldown": 0
+	},
+
+	"death": {
+		"type": "origins:resource",
+		"hud_render": {
+			"should_render": false
+		},
+		"min": 0,
+		"max": 65535,
+		"start_value": 0
+	},
+
+	"deathtracker": {
+		"type": "origins:self_action_when_hit",
+		"condition": {
+			"type": "origins:nbt",
+			"nbt": "{Health:0.0f}"
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_death",
+			"change": 1
+		},
+		"cooldown": 0
+	},
+
+	"cheat_mode": {
+		"type": "origins:toggle",
+		"active_by_default": false,
+		"key": "key.origins.ternary_active"
+	},
+
+	"time.nether": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 12000,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"time.end": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 12000,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"check.dimensions": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:if_else_list",
+			"actions": [
+				{
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_time.nether",
+						"change": 2
+					},
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:dimension",
+								"dimension": "minecraft:the_nether"
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thhunt_timer",
+										"compare_to": 50,
+										"comparison": "<"
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thhunt_timer2",
+										"compare_to": 0,
+										"comparison": ">"
+									}
+								]
+							}
+						]
+					}
+				},
+				{
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_time.end",
+						"change": 2
+					},
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:dimension",
+								"dimension": "minecraft:the_end"
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thhunt_timer",
+										"compare_to": 50,
+										"comparison": "<"
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thhunt_timer2",
+										"compare_to": 0,
+										"comparison": ">"
+									}
+								]
+							}
+						]
+					}
+				},
+				{
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_time.nether",
+						"change": 1
+					},
+					"condition": {
+						"type": "origins:dimension",
+						"dimension": "minecraft:the_nether"
+					}
+				},
+				{
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_time.end",
+						"change": 1
+					},
+					"condition": {
+						"type": "origins:dimension",
+						"dimension": "minecraft:the_end"
+					}
+				}
+			]
+		}
+	},
+
+	"no_cd": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"cheats": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_no_cd",
+						"compare_to": 1,
+						"comparison": "=="
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:feed",
+								"food": 1,
+								"saturation": 1
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "*:fox/thdash_dashmain",
+									"compare_to": 0,
+									"comparison": ">"
+								},
+								"if_action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:change_resource",
+											"resource": "*:fox/thdash_dashmain",
+											"change": 30,
+											"operation": "set"
+										},
+										{
+											"type": "origins:change_resource",
+											"resource": "*:fox/thdash_maxjumpcount",
+											"change": 2,
+											"operation": "set"
+										}
+									]
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "*:fox/thhunt_timer2",
+									"compare_to": 0,
+									"comparison": ">"
+								},
+								"if_action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:change_resource",
+											"resource": "*:fox/thhunt_munch",
+											"change": 10,
+											"operation": "set"
+										},
+										{
+											"type": "origins:change_resource",
+											"resource": "*:fox/thhunt_hit_counter",
+											"change": 2,
+											"operation": "set"
+										}
+									]
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "*:fox/thsound_interaction_cooldown",
+									"compare_to": 0,
+									"comparison": ">"
+								},
+								"if_action": {
+									"type": "origins:change_resource",
+									"resource": "*:fox/thsound_interaction_cooldown",
+									"change": 60,
+									"operation": "set"
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:gamemode",
+								"gamemode": "creative",
+								"inverted": true
+							},
+							{
+								"type": "origins:power_active",
+								"power": "*:*_cheat_mode"
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:toggle",
+						"power": "*:*_cheat_mode"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:gamemode",
+								"gamemode": "creative"
+							},
+							{
+								"type": "origins:power_active",
+								"power": "*:*_cheat_mode",
+								"inverted": true
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:toggle",
+						"power": "*:*_cheat_mode"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:power_active",
+						"power": "*:*_cheat_mode"
+					},
+					"if_action": {
+						"type": "origins:feed",
+						"food": 1,
+						"saturation": 1
+					}
+				}
+			]
+		}
+	},
+
+	"op_lvl": {
+		"type": "origins:resource",
+		"start_value": 400,
+		"min": 0,
+		"max": 100000,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"announcer_restriction": {
+		"type": "origins:resource",
+		"hud_render": {
+			"should_render": false
+		},
+		"min": 0,
+		"max": 1,
+		"start_value": 0
+	},
+
+	"op_lvl_announcer": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_op_lvl",
+								"compare_to": 100,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/tellraw @s {\"translate\":\"thorigins.op_lvl.1\"}"
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_announcer_restriction",
+										"change": -1
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_op_lvl",
+								"compare_to": 200,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/tellraw @s {\"translate\":\"thorigins.op_lvl.2\"}"
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_announcer_restriction",
+										"change": -1
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_op_lvl",
+								"compare_to": 300,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/tellraw @s {\"translate\":\"thorigins.op_lvl.3\"}"
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_announcer_restriction",
+										"change": -1
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_op_lvl",
+								"compare_to": 400,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/tellraw @s {\"translate\":\"thorigins.op_lvl.4\"}"
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_announcer_restriction",
+										"change": -1
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_op_lvl",
+								"compare_to": 500,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/tellraw @s {\"translate\":\"thorigins.op_lvl.5\"}"
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_announcer_restriction",
+										"change": -1
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_announcer_restriction",
+			"compare_to": 1,
+			"comparison": "=="
+		}
+	}
+}

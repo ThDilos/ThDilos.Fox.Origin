@@ -1,0 +1,414 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+
+	"synchronized_shake": {
+		"type": "origins:shaking",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_shake_timer",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+
+	"auto_decrement": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_shake_timer",
+					"change": -1
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_invis_timer",
+					"change": -1
+				}
+			]
+		}
+	},
+
+	"shake_timer": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 3,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"invulnerable": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:attacker",
+			"entity_condition": {
+				"type": "origins:or",
+				"inverted": true,
+				"conditions": [
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:wolf"
+					},
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:polar_bear"
+					}
+				]
+			}
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "/execute if entity @s[tag=disposed]",
+			"compare_to": 0,
+			"comparison": "=="
+		}
+	},
+
+	"synchronized_invis": {
+		"type": "origins:invisibility",
+		"render_armor": false,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 25,
+			"comparison": "<="
+		}
+	},
+
+	"transparent0": {
+		"type": "origins:model_color",
+		"alpha": 0.95,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 44,
+			"comparison": "<="
+		}
+	},
+
+	"transparent1": {
+		"type": "origins:model_color",
+		"alpha": 0.9,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 43,
+			"comparison": "<="
+		}
+	},
+
+	"transparent2": {
+		"type": "origins:model_color",
+		"alpha": 0.85,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 42,
+			"comparison": "<="
+		}
+	},
+
+	"transparent3": {
+		"type": "origins:model_color",
+		"alpha": 0.8,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 41,
+			"comparison": "<="
+		}
+	},
+
+	"transparent4": {
+		"type": "origins:model_color",
+		"alpha": 0.75,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 40,
+			"comparison": "<="
+		}
+	},
+
+	"transparent5": {
+		"type": "origins:model_color",
+		"alpha": 0.7,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 39,
+			"comparison": "<="
+		}
+	},
+
+	"transparent6": {
+		"type": "origins:model_color",
+		"alpha": 0.65,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 38,
+			"comparison": "<="
+		}
+	},
+
+	"transparent7": {
+		"type": "origins:model_color",
+		"alpha": 0.6,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 37,
+			"comparison": "<="
+		}
+	},
+
+	"transparent8": {
+		"type": "origins:model_color",
+		"alpha": 0.55,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 36,
+			"comparison": "<="
+		}
+	},
+
+	"transparent9": {
+		"type": "origins:model_color",
+		"alpha": 0.5,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 35,
+			"comparison": "<="
+		}
+	},
+
+	"transparent10": {
+		"type": "origins:model_color",
+		"alpha": 0.45,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 34,
+			"comparison": "<="
+		}
+	},
+
+	"transparent11": {
+		"type": "origins:model_color",
+		"alpha": 0.4,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 33,
+			"comparison": "<="
+		}
+	},
+
+	"transparent12": {
+		"type": "origins:model_color",
+		"alpha": 0.35,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 32,
+			"comparison": "<="
+		}
+	},
+
+	"transparent13": {
+		"type": "origins:model_color",
+		"alpha": 0.3,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 31,
+			"comparison": "<="
+		}
+	},
+
+	"transparent14": {
+		"type": "origins:model_color",
+		"alpha": 0.25,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 30,
+			"comparison": "<="
+		}
+	},
+
+	"transparent15": {
+		"type": "origins:model_color",
+		"alpha": 0.2,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 29,
+			"comparison": "<="
+		}
+	},
+
+	"transparent16": {
+		"type": "origins:model_color",
+		"alpha": 0.15,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 28,
+			"comparison": "<="
+		}
+	},
+
+	"transparent17": {
+		"type": "origins:model_color",
+		"alpha": 0.1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 27,
+			"comparison": "<="
+		}
+	},
+
+	"transparent18": {
+		"type": "origins:model_color",
+		"alpha": 0.05,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_invis_timer",
+			"compare_to": 26,
+			"comparison": "<="
+		}
+	},
+
+	"invis_timer": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 50,
+		"start_value": 50,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"anger_reset": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:apply_effect",
+			"effect": {
+				"effect": "regeneration",
+				"amplifier": 9,
+				"duration": 1000000,
+				"is_ambient": true,
+				"show_icon": false,
+				"show_particles": false
+			}
+		},
+		"entity_action_lost": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @e[type=wolf,distance=..18] run data modify entity @s AngryAt []"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @e[type=polar_bear,distance=..16] run data modify entity @s AngryAt []"
+				}
+			]
+		}
+	},
+
+	"damage_back_wolf": {
+		"type": "origins:action_when_damage_taken",
+		"cooldown": 1,
+		"damage_condition": {
+			"type": "origins:attacker",
+			"entity_condition": {
+				"type": "origins:entity_type",
+				"entity_type": "minecraft:wolf"
+			}
+		},
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "/damage @p[tag=foxie,distance=..0.2,limit=1,sort=nearest] 3 minecraft:mob_attack by @e[type=wolf,limit=1,sort=nearest] from @e[type=wolf,limit=1,sort=nearest]"
+		}
+	},
+
+	"damage_back_polar_bear": {
+		"type": "origins:action_when_damage_taken",
+		"cooldown": 1,
+		"damage_condition": {
+			"type": "origins:attacker",
+			"entity_condition": {
+				"type": "origins:entity_type",
+				"entity_type": "minecraft:polar_bear"
+			}
+		},
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "/damage @p[tag=foxie,distance=..0.2,limit=1,sort=nearest] 3 minecraft:mob_attack by @e[type=polar_bear,limit=1,sort=nearest] from @e[type=polar_bear,limit=1,sort=nearest]"
+		}
+	},
+
+	"self_destruct": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/execute unless entity @p[tag=foxie,limit=1,sort=nearest,distance=..0.2] run tag @s add disposed"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:command",
+						"command": "/resource get @p[tag=foxie,limit=1,sort=nearest,distance=..0.2] thorigins:fox/thfoxify_afk_timer",
+						"compare_to": 1,
+						"comparison": ">"
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "/tag @s add disposed"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:command",
+						"command": "/execute if entity @s[tag=disposed,tag=sleepin,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},type=fox]",
+						"compare_to": 1,
+						"comparison": "=="
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/tp @s[tag=disposed,tag=sleepin,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},type=fox] ~ ~500 ~"
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 5,
+								"action": {
+									"type": "origins:execute_command",
+									"command": "/kill @s[tag=disposed,tag=sleepin,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},type=fox]"
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+}

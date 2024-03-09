@@ -1,0 +1,186 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "text": "origin.thorigin.passive",
+            "sprite": "minecraft:textures/item/rotten_flesh.png"
+        }
+    ],
+
+    "base_exhaustion": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Origin modifier",
+            "operation": "multiply_base",
+            "value": 0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">=",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:fox/thfoxify_afk_timer",
+                    "compare_to": 1,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+
+    "faster_attack": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_speed",
+            "name": "Origin modifier",
+            "operation": "multiply_base",
+            "value": 0.25
+        }
+    },
+
+    "hunger_based_dmg_modifier_0": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:food_level",
+            "compare_to": 20,
+            "comparison": "=="
+        },
+        "modifier": {
+            "value": 0.05,
+            "operation": "multiply_total"
+        }
+    },
+
+    "hunger_based_dmg_modifier_1": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 18,
+                    "comparison": "<"
+                },
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 14,
+                    "comparison": ">="
+                }
+            ]
+        },
+        "modifier": {
+            "value": -0.1,
+            "operation": "multiply_total"
+        }
+    },
+
+    "hunger_based_dmg_modifier_2": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 14,
+                    "comparison": "<"
+                },
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 10,
+                    "comparison": ">="
+                }
+            ]
+        },
+        "modifier": {
+            "value": -0.2,
+            "operation": "multiply_total"
+        }
+    },
+
+    "hunger_based_dmg_modifier_3": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 10,
+                    "comparison": "<"
+                },
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 6,
+                    "comparison": ">="
+                }
+            ]
+        },
+        "modifier": {
+            "value": -0.3,
+            "operation": "multiply_total"
+        }
+    },
+
+    "hunger_based_dmg_modifier_4": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 6,
+                    "comparison": "<"
+                },
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 4,
+                    "comparison": ">="
+                }
+            ]
+        },
+        "modifier": {
+            "value": -0.4,
+            "operation": "multiply_total"
+        }
+    },
+
+    "hunger_based_dmg_modifier_5": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 4,
+                    "comparison": "<"
+                },
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 2,
+                    "comparison": ">="
+                }
+            ]
+        },
+        "modifier": {
+            "value": -0.5,
+            "operation": "multiply_total"
+        }
+    },
+
+    "hunger_based_dmg_modifier_6": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:food_level",
+            "compare_to": 2,
+            "comparison": "<"
+        },
+        "modifier": {
+            "value": -0.6,
+            "operation": "multiply_total"
+        }
+    }
+}
