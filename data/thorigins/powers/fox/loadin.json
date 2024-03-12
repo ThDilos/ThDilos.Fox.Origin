@@ -33,6 +33,10 @@
 				{
 					"type": "origins:execute_command",
 					"command": "/scoreboard players set @s[scores={foxtype=4}] foxtype 0"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @s add foxie"
 				}
 			]
 		}
@@ -297,6 +301,15 @@
 					}
 				}
 			]
+		}
+	},
+
+	"periodic_check": {
+		"type": "origins:action_over_time",
+		"interval": 12000,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "/execute as @a[tag=foxie] run tag @s remove foxie"
 		}
 	}
 }

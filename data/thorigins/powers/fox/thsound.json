@@ -534,6 +534,9 @@
 							"type": "origins:or",
 							"conditions": [
 								{
+									"type": "origins:riding"
+								},
+								{
 									"type": "origins:sneaking"
 								},
 								{
@@ -603,6 +606,10 @@
 										{
 											"type": "origins:execute_command",
 											"command": "/tag @s[tag=foxiefear] add foxietrust"
+										},
+										{
+											"type": "origins:swing_hand",
+											"hand": "MAIN_HAND"
 										}
 									]
 								}
@@ -717,6 +724,9 @@
 							"type": "origins:or",
 							"conditions": [
 								{
+									"type": "origins:riding"
+								},
+								{
 									"type": "origins:sneaking"
 								},
 								{
@@ -778,6 +788,10 @@
 								"action": {
 									"type": "origins:and",
 									"actions": [
+										{
+											"type": "origins:swing_hand",
+											"hand": "MAIN_HAND"
+										},
 										{
 											"type": "origins:execute_command",
 											"command": "/tag @s add pet"

@@ -28,10 +28,31 @@
 				},
 				{
 					"translate": "origin.thorigin.foxhat2"
+				},
+				{
+					"text": "\n"
+				},
+				{
+					"translate": "origin.thorigin.foxrider1"
+				},
+				{
+					"keybind": "key.saveToolbarActivator"
+				},
+				{
+					"translate": "origin.thorigin.foxrider2"
 				}
 			]
 		}
 	],
+
+	"fix_bad_fox": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "/execute as @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin] run execute unless entity @p[distance=..0.3] run kill @s"
+		}
+	},
 
 	"auto_decrement": {
 		"type": "origins:action_over_time",
@@ -52,6 +73,37 @@
 						"resource": "*:*_afk_timer",
 						"change": -1
 					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_pressed",
+								"compare_to": 0,
+								"comparison": "=="
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:*_mounting",
+								"compare_to": 0,
+								"comparison": ">"
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_mounting",
+						"change": 0,
+						"operation": "set"
+					}
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_pressed",
+					"change": -1
 				}
 			]
 		}
@@ -720,16 +772,20 @@
 		"type": "origins:active_self",
 		"key": "key.saveToolbarActivator",
 		"condition": {
-			"type": "origins:resource",
-			"resource": "*:*_afk_timer",
-			"compare_to": 1,
-			"comparison": "<="
+			"type": "origins:sneaking",
+			"inverted": true
 		},
 		"entity_action": {
 			"type": "origins:if_else",
 			"condition": {
 				"type": "origins:and",
 				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "*:*_afk_timer",
+						"compare_to": 1,
+						"comparison": "<="
+					},
 					{
 						"type": "origins:resource",
 						"resource": "*:*_fox_hider",
@@ -749,6 +805,49 @@
 				"resource": "*:*_fox_hider",
 				"change": 1,
 				"operation": "set"
+			},
+			"else_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_fox_hider",
+				"change": 0,
+				"operation": "set"
+			}
+		}
+	},
+
+	"sit_mode":{
+		"type": "origins:active_self",
+		"key": "key.saveToolbarActivator",
+		"condition": {
+			"type": "origins:sneaking"
+		},
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "*:*_afk_timer",
+						"compare_to": 1,
+						"comparison": "<="
+					},
+					{
+						"type": "origins:resource",
+						"resource": "*:*_ride_status",
+						"compare_to": 0,
+						"comparison": "=="
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:execute_command",
+						"command": "/data modify @e Sleeping"
+					}
+				]
 			},
 			"else_action": {
 				"type": "origins:change_resource",
@@ -1060,6 +1159,112 @@
 					}
 				}
 			]
+		}
+	},
+
+	"ride_player": {
+		"type": "origins:active_self",
+		"key": {
+			"key": "key.saveToolbarActivator",
+			"continuous": true
+		},
+		"cooldown": 1,
+		"entity_action": {
+			"type": "origins:raycast",
+			"bientity_condition": {
+				"type": "origins:target_condition",
+				"condition": {
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:entity_type",
+							"entity_type": "player"
+						},
+						{
+							"type": "origins:sneaking"
+						}
+					]
+				}
+			},
+			"distance": 3,
+			"bientity_action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_mounting",
+						"compare_to": 20,
+						"comparison": "=="
+					}
+				},
+				"else_action": {
+					"type": "origins:actor_action",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:change_resource",
+								"resource": "*:*_pressed",
+								"change": 2,
+								"operation": "set"
+							},
+							{
+								"type": "origins:change_resource",
+								"resource": "*:*_mounting",
+								"change": 1
+							}
+						]
+					}
+				},
+				"if_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:mount"
+						},
+						{
+							"type": "origins:delay",
+							"ticks": 1,
+							"action": {
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_mounting",
+									"change": 0,
+									"operation": "set"
+								}
+							}
+						}
+					]
+				}
+			}
+		}
+	},
+
+	"mounting": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 20,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 3,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "*:*_mounting",
+				"compare_to": 1,
+				"comparison": ">"
+			}
+		}
+	},
+
+	"pressed": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2,
+		"hud_render": {
+			"should_render": false
 		}
 	}
 }
