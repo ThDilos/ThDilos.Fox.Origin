@@ -37,7 +37,6 @@
         "type": "origins:attribute",
         "modifier": {
             "attribute": "minecraft:generic.attack_speed",
-            "name": "Origin modifier",
             "operation": "multiply_base",
             "value": 0.25
         }

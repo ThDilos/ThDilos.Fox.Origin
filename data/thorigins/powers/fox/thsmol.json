@@ -55,13 +55,11 @@
 
 	"max_health": {
 		"type": "origins:attribute",
-		"modifiers": [
-			{
-				"name": "Origin modifier",
-				"attribute": "minecraft:generic.max_health",
-				"operation": "addition",
-				"value": -4
-			}
-		]
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": -4
+		},
+		"update_health": true
 	}
 }

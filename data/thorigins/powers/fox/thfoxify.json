@@ -177,6 +177,12 @@
 								"comparison": "=="
 							},
 							{
+								"type": "origins:scoreboard",
+								"objective": "foxtype",
+								"compare_to": 0,
+								"comparison": ">="
+							},
+							{
 								"type": "origins:moving",
 								"inverted": true
 							},
@@ -255,6 +261,12 @@
 								"resource": "*:*_disable_sleepin",
 								"comparison": "==",
 								"compare_to": 1
+							},
+							{
+								"type": "origins:scoreboard",
+								"objective": "foxtype",
+								"compare_to": 0,
+								"comparison": "<"
 							},
 							{
 								"type": "origins:moving"
@@ -815,7 +827,7 @@
 		}
 	},
 
-	"sit_mode":{
+	"sit_mode": {
 		"type": "origins:active_self",
 		"key": "key.saveToolbarActivator",
 		"condition": {

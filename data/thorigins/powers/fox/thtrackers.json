@@ -18,19 +18,53 @@
 		}
 	},
 
-	"tagfordatamodify": {
-		"type": "origins:action_on_callback",
-		"entity_action_added": {
-			"type": "origins:delay",
-			"ticks": 1,
-			"action": {
+	"keepalive_foxie_tag": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:power",
+						"power": "*:fox/thfood"
+					},
+					{
+						"type": "origins:nbt",
+						"nbt": { "Tags": ["foxie"] },
+						"inverted": true
+					}
+				]
+			},
+			"if_action": {
 				"type": "origins:execute_command",
 				"command": "/tag @s add foxie"
 			}
-		},
-		"entity_action_lost": {
-			"type": "origins:execute_command",
-			"command": "/tag @s remove foxie"
+		}
+	},
+
+	"remove_non_foxie_tag": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:power",
+						"power": "*:fox/thfood",
+						"inverted": true
+					},
+					{
+						"type": "origins:nbt",
+						"nbt": { "Tags": ["foxie"] }
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:execute_command",
+				"command": "/tag @s remove foxie"
+			}
 		}
 	},
 

@@ -242,14 +242,25 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:resource",
-					"resource": "*:*_sound_sleep",
-					"compare_to": 1,
-					"comparison": "=="
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:resource",
+							"resource": "*:*_disable_sleepin",
+							"compare_to": 1,
+							"comparison": "=="
+						},
+						{
+							"type": "origins:scoreboard",
+							"objective": "foxtype",
+							"compare_to": 0,
+							"comparison": "<"
+						}
+					]
 				},
 				{
 					"type": "origins:resource",
-					"resource": "*:*_disable_sleepin",
+					"resource": "*:*_sound_sleep",
 					"compare_to": 1,
 					"comparison": "=="
 				}
