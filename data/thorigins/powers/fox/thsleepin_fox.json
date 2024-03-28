@@ -45,30 +45,21 @@
 	"invulnerable": {
 		"type": "origins:invulnerability",
 		"damage_condition": {
-			"type": "origins:or",
-			"conditions": [
-				{
-					"type": "origins:attacker",
-					"entity_condition": {
-						"type": "origins:or",
-						"inverted": true,
-						"conditions": [
-							{
-								"type": "origins:entity_type",
-								"entity_type": "minecraft:wolf"
-							},
-							{
-								"type": "origins:entity_type",
-								"entity_type": "minecraft:polar_bear"
-							}
-						]
+			"type": "origins:attacker",
+			"entity_condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:wolf"
+					},
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:polar_bear"
 					}
-				},
-				{
-					"type": "origins:name",
-					"name": "lava"
-				}
-			]
+				]
+			},
+			"inverted": true
 		},
 		"condition": {
 			"type": "origins:command",
