@@ -34,10 +34,6 @@
 					{
 						"type": "origins:execute_command",
 						"command": "/scale set pehkui:visibility 0.8 @s"
-					},
-					{
-						"type": "origins:execute_command",
-						"command": "/scale set pehkui:held_item 0.7 @s"
 					}
 				]
 			}
