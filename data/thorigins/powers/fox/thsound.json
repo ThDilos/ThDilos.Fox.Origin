@@ -615,8 +615,55 @@
 											"command": "/tellraw @p[tag=booped] {\"text\":\"\",\"color\":\"white\",\"bold\":\"true\",\"italic\":\"false\",\"extra\":[{\"selector\":\"@s\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
 										},
 										{
-											"type": "origins:execute_command",
-											"command": "/tag @s[tag=foxiefear] add foxietrust"
+											"type": "origins:if_else",
+											"condition": {
+												"type": "origins:and",
+												"conditions": [
+													{
+														"type": "origins:command",
+														"command": "/execute if entity @s[tag=foxietrust]",
+														"compare_to": 0,
+														"comparison": "=="
+													},
+													{
+														"type": "origins:or",
+														"conditions": [
+															{
+																"type": "origins:nbt",
+																"nbt": {
+																	"Tags": [
+																		"foxiefear"
+																	]
+																}
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:human",
+																"layer": "origins:origin"
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:enderian",
+																"layer": "origins:origin"
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:shulk",
+																"layer": "origins:origin"
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:blazeborn",
+																"layer": "origins:origin"
+															}
+														]
+													}
+												]
+											},
+											"if_action": {
+												"type": "origins:execute_command",
+												"command": "/tag @s[tag=foxiefear] add foxietrust"
+											}
 										},
 										{
 											"type": "origins:swing_hand",
@@ -812,8 +859,55 @@
 											"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Petted \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@p\",\"color\":\"aqua\"}]}"
 										},
 										{
-											"type": "origins:execute_command",
-											"command": "/tag @s[tag=foxiefear] add foxietrust"
+											"type": "origins:if_else",
+											"condition": {
+												"type": "origins:and",
+												"conditions": [
+													{
+														"type": "origins:command",
+														"command": "/execute if entity @s[tag=foxietrust]",
+														"compare_to": 0,
+														"comparison": "=="
+													},
+													{
+														"type": "origins:or",
+														"conditions": [
+															{
+																"type": "origins:nbt",
+																"nbt": {
+																	"Tags": [
+																		"foxiefear"
+																	]
+																}
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:human",
+																"layer": "origins:origin"
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:enderian",
+																"layer": "origins:origin"
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:shulk",
+																"layer": "origins:origin"
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:blazeborn",
+																"layer": "origins:origin"
+															}
+														]
+													}
+												]
+											},
+											"if_action": {
+												"type": "origins:execute_command",
+												"command": "/tag @s[tag=foxiefear] add foxietrust"
+											}
 										},
 										{
 											"type": "origins:delay",
@@ -1444,11 +1538,16 @@
 
 	"no_longer_trust": {
 		"type": "origins:action_when_hit",
+		"damage_condition": {
+			"type": "origins:amount",
+			"compare_to": 3,
+			"comparison": ">="
+		},
 		"bientity_action": {
 			"type": "origins:actor_action",
 			"action": {
 				"type": "origins:execute_command",
-				"command": "/tag @s[tag=foxietrust,tag=foxiefear] remove foxietrust"
+				"command": "/tag @s[tag=foxietrust] remove foxietrust"
 			}
 		}
 	}
