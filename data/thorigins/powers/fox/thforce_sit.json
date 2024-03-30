@@ -1,0 +1,22 @@
+{
+	"type": "origins:action_when_damage_taken",
+	"damage_condition": {
+		"type": "origins:constant",
+		"value": true
+	},
+	"cooldown": 1,
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "/data merge entity @s {Sitting:0b,NoAI:0b}"
+			},
+			{
+				"type": "origins:revoke_power",
+				"power": "thorigins:fox/thforce_sit",
+				"source": "thorigins:universal"
+			}
+		]
+	}
+}
