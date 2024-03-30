@@ -1,0 +1,59 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+
+	"tame_window": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 10,
+		"start_value": 0,
+		"max_action": {
+			"type": "origins:revoke_power",
+			"source": "thorigins:universal",
+			"power": "thorigins:fox/wolf_collar"
+		},
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"check_status": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:if_else_list",
+			"actions": [
+				{
+					"condition": {
+						"type": "origins:tamed",
+						"inverted": true
+					},
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_tame_window",
+						"change": 1
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:tamed"
+					},
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/tag @s add foxie_tamed"
+							},
+							{
+								"type": "origins:revoke_power",
+								"source": "thorigins:universal",
+								"power": "thorigins:fox/wolf_collar"
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+}
