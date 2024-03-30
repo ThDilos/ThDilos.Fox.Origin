@@ -151,7 +151,7 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/execute at @e[type=wolf,distance=..18,sort=nearest,limit=1] run resource change @s thorigins:fox/thshy_fear 1"
+					"command": "/execute at @e[tag=!foxie_tamed,type=wolf,distance=..18,sort=nearest,limit=1] run resource change @s thorigins:fox/thshy_fear 1"
 				},
 				{
 					"type": "origins:execute_command",
@@ -318,6 +318,42 @@
 						"type": "origins:or",
 						"conditions": [
 							{
+								"type": "origins:command",
+								"command": "/execute if entity @p[tag=!foxietrust,distance=..18,nbt={cardinal_components:{\"origins:origin\":{OriginLayers:[{Origin:\"origins:enderian\"}]}}}]",
+								"compare_to": 0,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:command",
+								"command": "/execute if entity @p[tag=!foxietrust,distance=..18,nbt={cardinal_components:{\"origins:origin\":{OriginLayers:[{Origin:\"origins:shulk\"}]}}}]",
+								"compare_to": 0,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:command",
+								"command": "/execute if entity @p[tag=!foxietrust,distance=..18,nbt={cardinal_components:{\"origins:origin\":{OriginLayers:[{Origin:\"origins:blazeborn\"}]}}}]",
+								"compare_to": 0,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:command",
+								"command": "/execute if entity @p[tag=!foxietrust,distance=..18,nbt={cardinal_components:{\"origins:origin\":{OriginLayers:[{Origin:\"origins:human\"}]}}}]",
+								"compare_to": 0,
+								"comparison": ">"
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "/resource change @s thorigins:fox/thshy_fear 1"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
 								"type": "origins:resource",
 								"resource": "*:fox/thhunt_timer",
 								"compare_to": 49,
@@ -339,6 +375,51 @@
 					}
 				}
 			]
+		}
+	},
+
+	"check_wolf_tame": {
+		"type": "origins:action_on_entity_use",
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:wolf"
+					}
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:tamed",
+						"inverted": true
+					}
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:command",
+						"command": "/data get entity @s AngerTime",
+						"compare_to": 0,
+						"comparison": "=="
+					}
+				}
+			]
+		},
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:bone"
+			}
+		},
+		"bientity_action": {
+			"type": "origins:target_action",
+			"action": {
+				"type": "origins:execute_command",
+				"command": "/power grant @s thorigins:fox/wolf_collar thorigins:universal"
+			}
 		}
 	},
 

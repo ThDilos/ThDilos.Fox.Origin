@@ -44,7 +44,7 @@
 		},
 		"modifier": {
 			"value": 3,
-			"operation": "multiply_base"
+			"operation": "multiply_base_multiplicative"
 		}
 	},
 
@@ -264,27 +264,75 @@
 	"get_fox_item": {
 		"type": "origins:action_on_entity_use",
 		"bientity_action": {
-			"type": "origins:target_action",
-			"action": {
-				"type": "origins:drop_inventory",
-				"slot": "weapon.mainhand",
-				"inventory_type": "inventory"
-			}
-		},
-		"hands": ["main_hand"],
-		"item_condition": {
-			"type": "origins:empty"
-		},
-		"bientity_condition": {
-			"type": "origins:target_condition",
+			"type": "origins:if_else",
 			"condition": {
-				"type": "origins:and",
-				"conditions": [
-					{
-						"type": "origins:entity_type",
-						"entity_type": "minecraft:fox"
-					},
-					{
+				"type": "origins:actor_condition",
+				"condition": {
+					"type": "origins:sneaking"
+				}
+			},
+			"if_action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:command",
+								"command": "/data get entity @s NoAI",
+								"compare_to": 0,
+								"comparison": "=="
+							}
+						]
+					}
+				},
+				"if_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:grant_power",
+								"power": "thorigins:fox/thforce_sit",
+								"source": "thorigins:universal"
+							}
+						},
+						{
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:execute_command",
+								"command": "/data merge entity @s {Sitting:1b,NoAI:1b}"
+							}
+						}
+					]
+				},
+				"else_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:execute_command",
+								"command": "/data merge entity @s {Sitting:0b,NoAI:0b}"
+							}
+						},
+						{
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:revoke_power",
+								"power": "thorigins:fox/thforce_sit",
+								"source": "thorigins:universal"
+							}
+						}
+					]
+				}
+			},
+			"else_action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:target_condition",
+					"condition": {
 						"type": "origins:equipped_item",
 						"equipment_slot": "mainhand",
 						"item_condition": {
@@ -292,8 +340,47 @@
 							"inverted": true
 						}
 					}
-				]
+				},
+				"if_action": {
+					"type": "origins:target_action",
+					"action": {
+						"type": "origins:drop_inventory",
+						"slot": "weapon.mainhand",
+						"inventory_type": "inventory"
+					}
+				}
 			}
+		},
+		"hands": ["main_hand"],
+		"item_condition": {
+			"type": "origins:empty"
+		},
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:entity_type",
+								"entity_type": "minecraft:fox"
+							},
+							{
+								"type": "origins:power",
+								"power": "thorigins:fox/thsleepin_fox",
+								"inverted": true
+							},
+							{
+								"type": "origins:power",
+								"power": "thorigins:fox/thhat",
+								"inverted": true
+							}
+						]
+					}
+				}
+			]
 		}
 	},
 
@@ -378,7 +465,7 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base",
+			"operation": "multiply_base_multiplicative",
 			"value": 0.15
 		}
 	},
@@ -405,7 +492,7 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base",
+			"operation": "multiply_base_multiplicative",
 			"value": 0.15
 		}
 	},
@@ -417,7 +504,7 @@
 			"tag": "minecraft:mineable/shovel"
 		},
 		"modifier": {
-			"operation": "multiply_total",
+			"operation": "multiply_total_multiplicative",
 			"value": 9
 		},
 		"condition": {

@@ -71,7 +71,7 @@
             "name": "fall"
         },
         "modifier": {
-            "operation": "multiply_base",
+            "operation": "multiply_base_multiplicative",
             "value": -0.8
         },
         "condition": {
@@ -83,7 +83,7 @@
         "type": "origins:modify_attribute",
         "attribute": "minecraft:generic.movement_speed",
         "modifier": {
-            "operation": "multiply_base",
+            "operation": "multiply_base_multiplicative",
             "value": 0.4
         },
         "condition": {
@@ -103,7 +103,7 @@
     "jumpy": {
         "type": "origins:modify_jump",
         "modifier": {
-            "operation": "multiply_base",
+            "operation": "multiply_base_multiplicative",
             "value": 0.4
         },
         "condition": {

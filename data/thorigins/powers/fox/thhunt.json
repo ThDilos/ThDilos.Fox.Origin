@@ -72,7 +72,7 @@
 	"le_switch": {
 		"type": "origins:toggle",
 		"active_by_default": false,
-		"key": "key.origins.denary_active",
+		"key": "nuh.uh",
 		"retain_state": false
 	},
 
@@ -162,10 +162,21 @@
 						"power": "*:*_le_switch"
 					},
 					{
-						"type": "origins:resource",
-						"resource": "*:*_timer2",
-						"compare_to": 0,
-						"comparison": "=="
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_timer2",
+								"compare_to": 0,
+								"comparison": "=="
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:*_timer",
+								"compare_to": 0,
+								"comparison": "!="
+							}
+						]
 					}
 				]
 			}
@@ -287,18 +298,18 @@
 	"damagebonus_day": {
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
-			"operation": "multiply_base",
+			"operation": "multiply_base_multiplicative",
 			"value": 0.0625,
 			"modifier": {
-				"operation": "multiply_base",
+				"operation": "multiply_base_multiplicative",
 				"value": -1,
 				"modifier": {
-					"operation": "addition",
+					"operation": "add_base_early",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base"
+						"operation": "multiply_base_multiplicative"
 					}
 				}
 			}
@@ -379,18 +390,18 @@
 	"damagebonus_midnight": {
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
-			"operation": "multiply_base",
+			"operation": "multiply_base_multiplicative",
 			"value": 0.125,
 			"modifier": {
-				"operation": "multiply_base",
+				"operation": "multiply_base_multiplicative",
 				"value": -1,
 				"modifier": {
-					"operation": "addition",
+					"operation": "add_base_early",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base"
+						"operation": "multiply_base_multiplicative"
 					}
 				}
 			}

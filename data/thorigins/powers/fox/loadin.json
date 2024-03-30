@@ -76,10 +76,6 @@
 					}
 				},
 				{
-					"type": "origins:execute_command",
-					"command": "/team join TeamFoxie @s"
-				},
-				{
 					"type": "origins:change_resource",
 					"resource": "*:fox/thfluffy_timer",
 					"change": 30,
@@ -132,6 +128,10 @@
 					"resource": "*:fox/thfoxify_afk_timer",
 					"change": 0,
 					"operation": "set"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @s add foxie"
 				}
 			]
 		}

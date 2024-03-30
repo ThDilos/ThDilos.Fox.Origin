@@ -679,18 +679,18 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base",
+			"operation": "multiply_base_multiplicative",
 			"value": 0.5,
 			"modifier": {
-				"operation": "multiply_base",
+				"operation": "multiply_base_multiplicative",
 				"value": -1,
 				"modifier": {
-					"operation": "addition",
+					"operation": "add_base_early",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base"
+						"operation": "multiply_base_multiplicative"
 					}
 				}
 			}
@@ -1100,18 +1100,18 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base",
+			"operation": "multiply_base_multiplicative",
 			"value": 0.0625,
 			"modifier": {
-				"operation": "multiply_base",
+				"operation": "multiply_base_multiplicative",
 				"value": -1,
 				"modifier": {
-					"operation": "addition",
+					"operation": "add_base_early",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base"
+						"operation": "multiply_base_multiplicative"
 					}
 				}
 			}
@@ -1146,18 +1146,18 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base",
+			"operation": "multiply_base_multiplicative",
 			"value": 0.0375,
 			"modifier": {
-				"operation": "multiply_base",
+				"operation": "multiply_base_multiplicative",
 				"value": -1,
 				"modifier": {
-					"operation": "addition",
+					"operation": "add_base_early",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base"
+						"operation": "multiply_base_multiplicative"
 					}
 				}
 			}
@@ -1432,18 +1432,18 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base",
+			"operation": "multiply_base_multiplicative",
 			"value": 0.33,
 			"modifier": {
-				"operation": "multiply_base",
+				"operation": "multiply_base_multiplicative",
 				"value": -1,
 				"modifier": {
-					"operation": "addition",
+					"operation": "add_base_early",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base"
+						"operation": "multiply_base_multiplicative"
 					}
 				}
 			}

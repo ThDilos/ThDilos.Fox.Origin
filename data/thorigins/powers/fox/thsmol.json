@@ -1,67 +1,74 @@
 {
-    "type": "origins:multiple",
-    "badges": [
-        {
-            "type": "origins:keybind",
-            "sprite": "minecraft:textures/item/diamond.png",
-            "text": "origin.thorigin.passive"
-        }
-    ],
-    "adjustsize": {
-        "type": "origins:action_on_callback",
-        "entity_action_added": {
-            "type": "origins:delay",
-            "ticks": 1,
-            "action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:execute_command",
-                        "command": "/scale persist set true @s"
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "/scale set pehkui:width 0.7 @s"
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "/scale set pehkui:height 0.7 @s"
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "/scale set pehkui:drops 0.7 @s"
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "/scale set pehkui:visibility 0.8 @s"
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "/scale set pehkui:held_item 0.7 @s"
-                    }
-                ]
-            }
-        },
-        "entity_action_lost": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "/scale reset @s"
-                }
-            ]
-        }
-    },
+	"type": "origins:multiple",
+	"badges": [
+		{
+			"type": "origins:keybind",
+			"sprite": "minecraft:textures/item/diamond.png",
+			"text": "origin.thorigin.passive"
+		}
+	],
+	"adjustsize": {
+		"type": "origins:action_on_callback",
+		"entity_action_gained": {
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:resource",
+					"resource": "*:fox/thtrackers_scale_modified",
+					"compare_to": 0,
+					"comparison": "=="
+				},
+				"if_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:change_resource",
+							"resource": "*:fox/thtrackers_scale_modified",
+							"change": 1
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/scale persist set true @s"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/scale multiply pehkui:width 0.7 @s"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/scale multiply pehkui:height 0.7 @s"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/scale multiply pehkui:drops 0.7 @s"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/scale multiply pehkui:visibility 0.8 @s"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/scale easing set pehkui:height pehkui:exponential_out @s"
+						}
+					]
+				}
+			}
+		},
+		"entity_action_lost": {
+			"type": "origins:execute_command",
+			"command": "/scale reset @s"
+		}
+	},
 
-    "max_health": {
-        "type": "origins:attribute",
-        "modifiers": [
-            {
-                "name": "Origin modifier",
-                "attribute": "minecraft:generic.max_health",
-                "operation": "addition",
-                "value": -4
-            }
-        ]
-    }
+	"max_health": {
+		"type": "origins:attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": -4
+		},
+		"update_health": true
+	}
 }
