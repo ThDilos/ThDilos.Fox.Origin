@@ -18,12 +18,12 @@
         },
         "food_modifier": {
             "name": "Origin modifier",
-            "operation": "add_base_early",
+            "operation": "addition",
             "value": 4.0
         },
         "saturation_modifier": {
             "name": "Origin modifier",
-            "operation": "add_base_early",
+            "operation": "addition",
             "value": 16.0
         },
         "entity_action": {
@@ -214,12 +214,12 @@
         },
         "food_modifier": {
             "name": "Origin modifier",
-            "operation": "add_base_early",
+            "operation": "addition",
             "value": 4.0
         },
         "saturation_modifier": {
             "name": "Origin modifier",
-            "operation": "add_base_early",
+            "operation": "addition",
             "value": 16.0
         },
         "entity_action": {
@@ -474,12 +474,12 @@
         },
         "food_modifier": {
             "name": "Origin modifier",
-            "operation": "add_base_early",
+            "operation": "addition",
             "value": 2.0
         },
         "saturation_modifier": {
             "name": "Origin modifier",
-            "operation": "add_base_early",
+            "operation": "addition",
             "value": 5.0
         },
         "prevent_effects": true,
@@ -631,12 +631,12 @@
         },
         "food_modifier": {
             "name": "Origin modifier",
-            "operation": "multiply_base_multiplicative",
+            "operation": "multiply_base",
             "value": -0.5
         },
         "saturation_modifier": {
             "name": "Origin modifier",
-            "operation": "multiply_base_multiplicative",
+            "operation": "multiply_base",
             "value": -0.5
         }
     }
