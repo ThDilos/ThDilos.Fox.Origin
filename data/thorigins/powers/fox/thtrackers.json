@@ -18,6 +18,16 @@
 		}
 	},
 
+	"scale_modified": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
 	"keepalive_foxie_tag": {
 		"type": "origins:action_over_time",
 		"entity_action": {
