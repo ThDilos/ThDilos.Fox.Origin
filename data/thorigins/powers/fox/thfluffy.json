@@ -1145,7 +1145,16 @@
 		"type": "origins:action_over_time",
 		"interval": 5,
 		"condition": {
-			"type": "origins:moving"
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:moving"
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				}
+			]
 		},
 		"entity_action": {
 			"type": "origins:and",
