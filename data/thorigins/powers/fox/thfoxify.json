@@ -496,11 +496,15 @@
 									"actions": [
 										{
 											"type": "origins:execute_command",
-											"command": "/scale set pehkui:hitbox_height 0.1 @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1]"
+											"command": "/scale multiply pehkui:hitbox_height 0.7 @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1]"
 										},
 										{
 											"type": "origins:execute_command",
-											"command": "/scale set pehkui:hitbox_width 0.1 @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1]"
+											"command": "/scale multiply pehkui:hitbox_width 0.3 @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1]"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/tp @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,distance=..0.2,limit=1] ~ ~ ~ facing ^-0.3 ^ ^-0.15"
 										}
 									]
 								}
@@ -584,36 +588,28 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:resource",
-						"resource": "*:*_afk_timer",
+						"type": "origins:health",
 						"compare_to": 0,
-						"comparison": "=="
+						"comparison": ">"
 					},
 					"if_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:execute_command",
-								"command": "/scale set pehkui:height 0.39 @s"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/scale set pehkui:third_person 1.81 @s"
-							}
-						]
-					},
-					"else_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:execute_command",
-								"command": "/scale set pehkui:height 0.7 @s"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/scale set pehkui:third_person 1 @s"
-							}
-						]
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "*:*_afk_timer",
+							"compare_to": 0,
+							"comparison": "=="
+						},
+						"if_action": {
+							"type": "origins:change_resource",
+							"resource": "*:*_sleepin_mode_status",
+							"change": 1
+						},
+						"else_action": {
+							"type": "origins:change_resource",
+							"resource": "*:*_sleepin_mode_status",
+							"change": -1
+						}
 					}
 				},
 				{
@@ -656,6 +652,41 @@
 					}
 				}
 			]
+		}
+	},
+
+	"sleepin_mode_status": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"min_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/scale divide pehkui:height 0.39 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scale divide pehkui:third_person 1.81 @s"
+				}
+			]
+		},
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/scale multiply pehkui:height 0.39 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scale multiply pehkui:third_person 1.81 @s"
+				}
+			]
+		},
+		"hud_render": {
+			"should_render": false
 		}
 	},
 
@@ -989,6 +1020,22 @@
 											},
 											{
 												"type": "origins:execute_command",
+												"command": "/scale easing set pehkui:hitbox_height pehkui:exponential_out @s"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/scale easing set pehkui:hitbox_width pehkui:exponential_out @s"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/scale easing set pehkui:model_height pehkui:exponential_out @s"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/scale easing set pehkui:model_width pehkui:exponential_out @s"
+											},
+											{
+												"type": "origins:execute_command",
 												"command": "/data merge entity @s {NoAI:1b}"
 											},
 											{
@@ -997,19 +1044,19 @@
 											},
 											{
 												"type": "origins:execute_command",
-												"command": "/scale set pehkui:hitbox_height 0.5 @s"
+												"command": "/scale multiply pehkui:hitbox_height 0.1 @s"
 											},
 											{
 												"type": "origins:execute_command",
-												"command": "/scale set pehkui:hitbox_width 0.7 @s"
+												"command": "/scale multiply pehkui:hitbox_width 0.7 @s"
 											},
 											{
 												"type": "origins:execute_command",
-												"command": "/scale set pehkui:model_height 0.7 @s"
+												"command": "/scale multiply pehkui:model_height 0.7 @s"
 											},
 											{
 												"type": "origins:execute_command",
-												"command": "/scale set pehkui:model_width 0.7 @s"
+												"command": "/scale multiply pehkui:model_width 0.7 @s"
 											}
 										]
 									}
@@ -1142,22 +1189,6 @@
 							{
 								"type": "origins:execute_command",
 								"command": "/data modify entity @e[tag=hatting,type=fox,limit=1,sort=nearest] Sitting set value 0"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/scale reset pehkui:hitbox_height @e[tag=hatting,type=fox,limit=1,sort=nearest]"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/scale reset pehkui:hitbox_width @e[tag=hatting,type=fox,limit=1,sort=nearest]"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/scale reset pehkui:model_height @e[tag=hatting,type=fox,limit=1,sort=nearest]"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/scale reset pehkui:model_width @e[tag=hatting,type=fox,limit=1,sort=nearest]"
 							},
 							{
 								"type": "origins:execute_command",
