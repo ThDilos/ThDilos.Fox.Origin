@@ -187,15 +187,32 @@
 		"type": "origins:invisibility",
 		"render_armor": false,
 		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "*:*_timer",
-					"compare_to": 25,
-					"comparison": "<="
-				}
-			]
+			"type": "origins:resource",
+			"resource": "*:*_timer",
+			"compare_to": 25,
+			"comparison": "<="
+		}
+	},
+
+	"invis_against_minimap": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effect": {
+				"effect": "minecraft:invisibility",
+				"amplifier": 0,
+				"duration": 3,
+				"is_ambient": false,
+				"show_particles": false,
+				"show_icon": false
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_timer",
+			"compare_to": 25,
+			"comparison": "<="
 		}
 	},
 
