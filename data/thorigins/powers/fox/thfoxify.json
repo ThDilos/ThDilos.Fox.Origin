@@ -1309,5 +1309,18 @@
 		"hud_render": {
 			"should_render": false
 		}
+	},
+
+	"prevent_hitting_by_vehicle": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:attacker",
+			"entity_condition": {
+				"type": "origins:passenger",
+				"bientity_condition": {
+					"type": "origins:riding_recursive"
+				}
+			}
+		}
 	}
 }
