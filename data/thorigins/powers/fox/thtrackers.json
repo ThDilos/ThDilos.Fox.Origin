@@ -41,7 +41,7 @@
 					},
 					{
 						"type": "origins:nbt",
-						"nbt": "{ \"Tags\": [\"foxie\"] }",
+						"nbt": { "Tags": ["foxie"] },
 						"inverted": true
 					}
 				]
@@ -67,7 +67,7 @@
 					},
 					{
 						"type": "origins:nbt",
-						"nbt": "{ \"Tags\": [\"foxie\"] }"
+						"nbt": { "Tags": ["foxie"] }
 					}
 				]
 			},
