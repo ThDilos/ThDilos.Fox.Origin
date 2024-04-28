@@ -73,12 +73,17 @@
 
 	"power.thorigins.fox.aggro.booper": "You are not authorised to boop the fox >:3",
 	"power.thorigins.fox.aggro.1": "Hiss-ed ",
-	"power.thorigins.fox.aggro.booped_2": " for unauthorised boop attempt",
+	"power.thorigins.fox.aggro.booped_2": " for unauthorised booping attempt",
 
 	"power.thorigins.fox.aggro.pet": "You are not authorised to pet the fox >:3",
-	"power.thorigins.fox.aggro.petted_2": " for unauthorised petting attempt",
-
+	"power.thorigins.fox.aggro.petted_2": " for unauthorised petting attempt >:3",
 	"power.thorigins.fox.petted": "You've being petted by ",
+
+	"power.thorigins.fox.feeder": "You granted the fox with berries as a little treat :3",
+	"power.thorigins.fox.feed": "You are fed by ",
+	"power.thorigins.fox.feed2": ", and receive a positive effect!",
+	"power.thorigins.fox.aggro.feeder": "Your food has been rejected by the fox >:3",
+	"power.thorigins.fox.aggro.feed": " for unauthorised feeding attempt >:3",
 
 	"power.thorigins.sleepin.mode.1": "You have entered [Sleepin mode]",
 	"power.thorigins.sleepin.mode.2": "Press <",

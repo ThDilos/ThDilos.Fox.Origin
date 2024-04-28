@@ -77,8 +77,13 @@
 
 	"power.thorigins.fox.aggro.pet": "你没有Pet这只狐狸的权限 >:3",
 	"power.thorigins.fox.aggro.petted_2": "的未授权Pet尝试发出了警告 >:3",
-
 	"power.thorigins.fox.petted": "你被摸头了，是",
+
+	"power.thorigins.fox.feeder": "你给了狐狸一点小零食 :3",
+	"power.thorigins.fox.feed": "你被投喂了，是",
+	"power.thorigins.fox.feed2": "，并且获得了一个随机正面效果！",
+	"power.thorigins.fox.aggro.feeder": "你的投喂被这只狐狸拒绝了>:3",
+	"power.thorigins.fox.aggro.feed": "的非法投喂尝试表达了抗议 >:3",
 
 	"power.thorigins.sleepin.mode.1": "你进入了[睡眠模式]",
 	"power.thorigins.sleepin.mode.2": "按<",
