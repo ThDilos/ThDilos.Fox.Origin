@@ -377,110 +377,53 @@
 	"eatdislikefoodsound": {
 		"type": "origins:modify_food",
 		"item_condition": {
-			"type": "origins:or",
+			"type": "origins:ingredient",
 			"inverted": true,
-			"conditions": [
+			"ingredient": [
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "sweet_berries"
-					}
+					"item": "minecraft:sweet_berries"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "glow_berries"
-					}
+					"item": "minecraft:glow_berries"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "chicken"
-					}
+					"item": "minecraft:chicken"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "rabbit"
-					}
+					"item": "minecraft:rabbit"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "cooked_chicken"
-					}
+					"item": "minecraft:cooked_chicken"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "cooked_rabbit"
-					}
+					"item": "minecraft:cod"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "cod"
-					}
+					"item": "minecraft:salmon"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "salmon"
-					}
+					"item": "minecraft:cooked_cod"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "cooked_cod"
-					}
+					"item": "minecraft:cooked_salmon"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "cooked_salmon"
-					}
+					"item": "minecraft:tropical_fish"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "tropical_fish"
-					}
+					"item": "minecraft:rabbit_stew"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "rabbit_stew"
-					}
+					"item": "minecraft:golden_apple"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "enchanted_golden_apple"
-					}
+					"item": "minecraft:golden_carrot"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "golden_apple"
-					}
+					"item": "minecraft:apple"
 				},
 				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "golden_carrot"
-					}
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "apple"
-					}
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "rotten_flesh"
-					}
+					"item": "minecraft:rotten_flesh"
 				}
 			]
 		},
@@ -488,8 +431,8 @@
 			"type": "origins:if_else",
 			"condition": {
 				"type": "origins:resource",
-				"resource": "*:*_sound_dislike_aggro",
-				"compare_to": 1,
+				"resource": "*:fox/thfood_emergency_hunger_nullify",
+				"compare_to": 0,
 				"comparison": "=="
 			},
 			"if_action": {
@@ -532,222 +475,8 @@
 		}
 	},
 
-	"interaction_boop": {
+	"interactions": {
 		"type": "origins:action_on_being_used",
-		"bientity_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:target_condition",
-						"condition": {
-							"type": "origins:or",
-							"conditions": [
-								{
-									"type": "origins:sneaking"
-								},
-								{
-									"type": "origins:resource",
-									"resource": "*:fox/thfoxify_afk_timer",
-									"compare_to": 1,
-									"comparison": "<="
-								}
-							]
-						}
-					},
-					"if_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:resource",
-												"resource": "*:*_sound_interaction_ambient",
-												"compare_to": 1,
-												"comparison": "=="
-											},
-											"if_action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.fox.ambient"
-											}
-										},
-										{
-											"type": "origins:change_resource",
-											"resource": "*:*_interaction_cooldown",
-											"change": 60,
-											"operation": "set"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add booped"
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 1,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s remove booped"
-											}
-										}
-									]
-								}
-							},
-							{
-								"type": "origins:actor_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:execute_command",
-											"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Boop-ed \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@p[tag=booped]\",\"color\":\"aqua\"}]}"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tellraw @p[tag=booped] {\"text\":\"\",\"color\":\"white\",\"bold\":\"true\",\"italic\":\"false\",\"extra\":[{\"selector\":\"@s\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
-										},
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:and",
-												"conditions": [
-													{
-														"type": "origins:command",
-														"command": "/execute if entity @s[tag=foxietrust]",
-														"compare_to": 0,
-														"comparison": "=="
-													},
-													{
-														"type": "origins:or",
-														"conditions": [
-															{
-																"type": "origins:nbt",
-																"nbt": "{\"Tags\": [\"foxiefear\"]}"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:human",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:enderian",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:shulk",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:blazeborn",
-																"layer": "origins:origin"
-															}
-														]
-													}
-												]
-											},
-											"if_action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s add foxietrust"
-											}
-										},
-										{
-											"type": "origins:swing_hand",
-											"hand": "MAIN_HAND"
-										}
-									]
-								}
-							}
-						]
-					},
-					"else_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:actor_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add hiss"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"power.thorigins.fox.aggro.1\",\"color\":\"red\"},{\"selector\":\"@p[tag=hissed]\",\"color\":\"aqua\"},{\"translate\":\"power.thorigins.fox.aggro.booped_2\",\"color\":\"red\"}]}"
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 1,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s remove hiss"
-											}
-										}
-									]
-								}
-							},
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add hissed"
-										},
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:resource",
-												"resource": "*:*_sound_interaction_aggro",
-												"compare_to": 1,
-												"comparison": "=="
-											},
-											"if_action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.fox.aggro",
-												"volume": 0.8,
-												"pitch": 0.7
-											}
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"selector\":\"@p[tag=hiss,tag=foxie]\",\"color\":\"aqua\"},{\"text\":\": \",\"color\":\"gold\"},{\"translate\":\"power.thorigins.fox.aggro.booper\",\"color\":\"red\"}]}"
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 1,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s remove hissed"
-											}
-										},
-										{
-											"type": "origins:change_resource",
-											"resource": "*:*_interaction_cooldown",
-											"change": 60,
-											"operation": "set"
-										}
-									]
-								}
-							}
-						]
-					}
-				}
-			]
-		},
-		"hands": ["main_hand"],
-		"item_condition": {
-			"type": "origins:empty"
-		},
 		"condition": {
 			"type": "origins:and",
 			"conditions": [
@@ -762,286 +491,879 @@
 					"compare_to": 0
 				}
 			]
-		}
-	},
-
-	"interaction_pet": {
-		"type": "origins:action_on_being_used",
-		"bientity_condition": {
-			"type": "origins:actor_condition",
-			"condition": {
-				"type": "origins:sneaking"
-			}
 		},
 		"bientity_action": {
-			"type": "origins:and",
+			"type": "origins:if_else_list",
 			"actions": [
 				{
-					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:target_condition",
+						"type": "origins:actor_condition",
 						"condition": {
-							"type": "origins:or",
+							"type": "origins:and",
 							"conditions": [
 								{
-									"type": "origins:sneaking"
+									"type": "origins:equipped_item",
+									"equipment_slot": "mainhand",
+									"item_condition": {
+										"type": "origins:ingredient",
+										"ingredient": [
+											{
+												"item": "minecraft:sweet_berries"
+											},
+											{
+												"item": "minecraft:glow_berries"
+											}
+										]
+									}
 								},
 								{
-									"type": "origins:resource",
-									"resource": "*:fox/thfoxify_afk_timer",
-									"compare_to": 1,
-									"comparison": "<="
+									"type": "origins:sneaking"
 								}
 							]
 						}
 					},
-					"if_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:if_else",
-									"condition": {
+					"action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:sneaking"
+							}
+						},
+						"if_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:actor_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:modify_inventory",
+												"item_action": {
+													"type": "origins:consume",
+													"amount": 1
+												},
+												"inventory_type": "inventory",
+												"slot": "weapon.mainhand",
+												"item_condition": {
+													"type": "origins:ingredient",
+													"ingredient": [
+														{
+															"item": "minecraft:sweet_berries"
+														},
+														{
+															"item": "minecraft:glow_berries"
+														}
+													]
+												}
+											},
+											{
+												"type": "origins:if_else",
+												"condition": {
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:command",
+															"command": "/execute if entity @s[tag=foxietrust]",
+															"compare_to": 0,
+															"comparison": "=="
+														},
+														{
+															"type": "origins:or",
+															"conditions": [
+																{
+																	"type": "origins:nbt",
+																	"nbt": "{\"Tags\": [\"foxiefear\"]}"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:human",
+																	"layer": "origins:origin"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:enderian",
+																	"layer": "origins:origin"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:shulk",
+																	"layer": "origins:origin"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:blazeborn",
+																	"layer": "origins:origin"
+																}
+															]
+														}
+													]
+												},
+												"if_action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s add foxietrust"
+												}
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/tag @s add feeder"
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove feeder"
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:change_resource",
+												"resource": "*:*_interaction_cooldown",
+												"change": 60,
+												"operation": "set"
+											},
+											{
+												"type": "origins:play_sound",
+												"sound": "minecraft:entity.fox.eat"
+											},
+											{
+												"type": "origins:feed",
+												"food": 6,
+												"saturation": 20
+											},
+											{
+												"type": "origins:apply_effect",
+												"effect": {
+													"effect": "regeneration",
+													"amplifier": 0,
+													"duration": 100,
+													"show_icon": true,
+													"show_particles": true,
+													"is_ambient": false
+												}
+											},
+											{
+												"type": "origins:chance",
+												"chance": 0.2,
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:execute_command",
+															"command": "/tellraw @s {\"text\":\"power.thorigins.fox.feed\",\"extra\":[{\"translate\":\"\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=feeder]\",\"color\":\"aqua\"},{\"translate\":\"power.thorigins.fox.feed2\",\"color\":\"light_purple\"}]}"
+														},
+														{
+															"type": "origins:choice",
+															"actions": [
+																{
+																	"weight": 10,
+																	"element": {
+																		"type": "origins:apply_effect",
+																		"effect": {
+																			"effect": "strength",
+																			"amplifier": 0,
+																			"duration": 600,
+																			"show_particles": false,
+																			"is_ambient": false
+																		}
+																	}
+																},
+																{
+																	"weight": 10,
+																	"element": {
+																		"type": "origins:apply_effect",
+																		"effect": {
+																			"effect": "absorption",
+																			"amplifier": 0,
+																			"duration": 600,
+																			"show_particles": false,
+																			"is_ambient": false
+																		}
+																	}
+																},
+																{
+																	"weight": 10,
+																	"element": {
+																		"type": "origins:apply_effect",
+																		"effect": {
+																			"effect": "haste",
+																			"amplifier": 0,
+																			"duration": 600,
+																			"show_particles": false,
+																			"is_ambient": false
+																		}
+																	}
+																},
+																{
+																	"weight": 10,
+																	"element": {
+																		"type": "origins:apply_effect",
+																		"effect": {
+																			"effect": "instant_health",
+																			"amplifier": 0,
+																			"duration": 1,
+																			"show_particles": false,
+																			"is_ambient": false
+																		}
+																	}
+																},
+																{
+																	"weight": 10,
+																	"element": {
+																		"type": "origins:apply_effect",
+																		"effect": {
+																			"effect": "jump_boost",
+																			"amplifier": 0,
+																			"duration": 600,
+																			"show_particles": false,
+																			"is_ambient": false
+																		}
+																	}
+																},
+																{
+																	"weight": 10,
+																	"element": {
+																		"type": "origins:apply_effect",
+																		"effect": {
+																			"effect": "speed",
+																			"amplifier": 0,
+																			"duration": 600,
+																			"show_particles": false,
+																			"is_ambient": false
+																		}
+																	}
+																},
+																{
+																	"weight": 10,
+																	"element": {
+																		"type": "origins:apply_effect",
+																		"effect": {
+																			"effect": "luck",
+																			"amplifier": 0,
+																			"duration": 600,
+																			"show_particles": false,
+																			"is_ambient": false
+																		}
+																	}
+																},
+																{
+																	"weight": 10,
+																	"element": {
+																		"type": "origins:apply_effect",
+																		"effect": {
+																			"effect": "resistance",
+																			"amplifier": 0,
+																			"duration": 600,
+																			"show_particles": false,
+																			"is_ambient": false
+																		}
+																	}
+																},
+																{
+																	"weight": 10,
+																	"element": {
+																		"type": "origins:apply_effect",
+																		"effect": {
+																			"effect": "saturation",
+																			"amplifier": 0,
+																			"duration": 600,
+																			"show_particles": false,
+																			"is_ambient": false
+																		}
+																	}
+																},
+																{
+																	"weight": 10,
+																	"element": {
+																		"type": "origins:apply_effect",
+																		"effect": {
+																			"effect": "regeneration",
+																			"amplifier": 1,
+																			"duration": 600,
+																			"show_particles": false,
+																			"is_ambient": false
+																		}
+																	}
+																}
+															]
+														}
+													]
+												},
+												"fail_action": {
+													"type": "origins:execute_command",
+													"command": "/tellraw @s {\"text\":\"power.thorigins.fox.feed\",\"extra\":[{\"translate\":\"\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=feeder]\",\"color\":\"aqua\"}]}"
+												}
+											}
+										]
+									}
+								}
+							]
+						},
+						"else_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:actor_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "/tag @s add hissed"
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 1,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"selector\":\"@p[tag=foxie,tag=hiss]\",\"color\":\"aqua\"},{\"text\":\": \"},{\"translate\": \"power.thorigins.fox.aggro.feeder\",\"color\":\"red\"}]}"
+												}
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove hissed"
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "/tag @s add hiss"
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 1,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"power.thorigins.fox.aggro.1\",\"color\":\"red\"},{\"selector\":\"@p[tag=hissed]\",\"color\":\"aqua\"},{\"translate\":\"power.thorigins.fox.aggro.feed\",\"color\":\"red\"}]}"
+												}
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove hiss"
+												}
+											},
+											{
+												"type": "origins:change_resource",
+												"resource": "*:*_interaction_cooldown",
+												"change": 60,
+												"operation": "set"
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:actor_condition",
+						"condition": {
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:equipped_item",
+									"equipment_slot": "mainhand",
+									"item_condition": {
+										"type": "origins:empty"
+									}
+								},
+								{
+									"type": "origins:sneaking"
+								}
+							]
+						}
+					},
+					"action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:sneaking"
+									},
+									{
 										"type": "origins:resource",
-										"resource": "*:*_sound_interaction_purr",
+										"resource": "*:fox/thfoxify_afk_timer",
 										"compare_to": 1,
-										"comparison": "=="
-									},
-									"if_action": {
-										"type": "origins:play_sound",
-										"sound": "minecraft:entity.cat.purr",
-										"volume": 0.7,
-										"pitch": 1.2
+										"comparison": "<="
 									}
-								}
-							},
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add petted"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"power.thorigins.fox.petted\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=pet]\",\"color\":\"aqua\"}]}"
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 1,
-											"action": {
+								]
+							}
+						},
+						"if_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:if_else",
+												"condition": {
+													"type": "origins:resource",
+													"resource": "*:*_sound_interaction_purr",
+													"compare_to": 1,
+													"comparison": "=="
+												},
+												"if_action": {
+													"type": "origins:play_sound",
+													"sound": "minecraft:entity.cat.purr",
+													"volume": 0.7,
+													"pitch": 1.2
+												}
+											},
+											{
 												"type": "origins:execute_command",
-												"command": "/tag @s remove petted"
-											}
-										}
-									]
-								}
-							},
-							{
-								"type": "origins:actor_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:swing_hand",
-											"hand": "MAIN_HAND"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add pet"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Petted \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@p\",\"color\":\"aqua\"}]}"
-										},
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:and",
-												"conditions": [
-													{
-														"type": "origins:command",
-														"command": "/execute if entity @s[tag=foxietrust]",
-														"compare_to": 0,
-														"comparison": "=="
+												"command": "/tag @s add petted"
+											},
+											{
+												"type": "origins:change_resource",
+												"resource": "*:*_interaction_cooldown",
+												"change": 60,
+												"operation": "set"
+											},
+											{
+												"type": "origins:if_else",
+												"condition": {
+													"type": "origins:resource",
+													"resource": "*:fox/thfoxify_afk_timer",
+													"compare_to": 602,
+													"comparison": ">"
+												},
+												"if_action": {
+													"type": "origins:change_resource",
+													"resource": "*:fox/thfoxify_afk_timer",
+													"change": -600
+												},
+												"else_action": {
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:resource",
+														"resource": "*:fox/thfoxify_afk_timer",
+														"compare_to": 3,
+														"comparison": ">"
 													},
-													{
-														"type": "origins:or",
-														"conditions": [
-															{
-																"type": "origins:nbt",
-																"nbt": "{\"Tags\": [\"foxiefear\"]}"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:human",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:enderian",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:shulk",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:blazeborn",
-																"layer": "origins:origin"
-															}
-														]
+													"if_action": {
+														"type": "origins:change_resource",
+														"resource": "*:fox/thfoxify_afk_timer",
+														"change": 3,
+														"operation": "set"
 													}
-												]
+												}
 											},
-											"if_action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s add foxietrust"
+											{
+												"type": "origins:delay",
+												"ticks": 1,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"power.thorigins.fox.petted\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=pet]\",\"color\":\"aqua\"}]}"
+												}
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove petted"
+												}
 											}
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 1,
-											"action": {
+										]
+									}
+								},
+								{
+									"type": "origins:actor_action",
+									"action": {
+										"type": "apoli:and",
+										"actions": [
+											{
+												"type": "origins:swing_hand",
+												"hand": "MAIN_HAND"
+											},
+											{
 												"type": "origins:execute_command",
-												"command": "/tag @s remove pet"
+												"command": "/tag @s add pet"
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 1,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Petted \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@p[tag=petted,tag=foxie]\",\"color\":\"aqua\"}]}"
+												}
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove pet"
+												}
+											},
+											{
+												"type": "origins:if_else",
+												"condition": {
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:command",
+															"command": "/execute if entity @s[tag=foxietrust]",
+															"compare_to": 0,
+															"comparison": "=="
+														},
+														{
+															"type": "origins:or",
+															"conditions": [
+																{
+																	"type": "origins:nbt",
+																	"nbt": "{\"Tags\": [\"foxiefear\"]}"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:human",
+																	"layer": "origins:origin"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:enderian",
+																	"layer": "origins:origin"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:shulk",
+																	"layer": "origins:origin"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:blazeborn",
+																	"layer": "origins:origin"
+																}
+															]
+														}
+													]
+												},
+												"if_action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s add foxietrust"
+												}
 											}
-										}
-									]
-								}
-							},
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:change_resource",
-									"resource": "*:*_interaction_cooldown",
-									"change": 60,
-									"operation": "set"
-								}
-							},
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:if_else",
-									"condition": {
-										"type": "origins:resource",
-										"resource": "*:fox/thfoxify_afk_timer",
-										"compare_to": 596,
-										"comparison": "<"
-									},
-									"if_action": {
-										"type": "origins:change_resource",
-										"resource": "*:fox/thfoxify_afk_timer",
-										"change": 600
-									},
-									"else_action": {
-										"type": "origins:change_resource",
-										"resource": "*:fox/thfoxify_afk_timer",
-										"change": 3,
-										"operation": "set"
+										]
 									}
 								}
-							}
-						]
-					},
-					"else_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:actor_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add hiss"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"power.thorigins.fox.aggro.1\",\"color\":\"red\"},{\"selector\":\"@p[tag=hissed]\",\"color\":\"aqua\"},{\"translate\":\"power.thorigins.fox.aggro.petted_2\",\"color\":\"red\"}]}"
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 1,
-											"action": {
+							]
+						},
+						"else_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:actor_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
 												"type": "origins:execute_command",
-												"command": "/tag @s remove hiss"
-											}
-										}
-									]
-								}
-							},
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add hissed"
-										},
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:resource",
-												"resource": "*:*_sound_interaction_aggro",
-												"compare_to": 1,
-												"comparison": "=="
+												"command": "/tag @s add hissed"
 											},
-											"if_action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.fox.aggro",
-												"volume": 0.8,
-												"pitch": 0.7
+											{
+												"type": "origins:delay",
+												"ticks": 1,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"selector\":\"@p[tag=foxie,tag=hiss]\",\"color\":\"aqua\"},{\"text\":\": \"},{\"translate\": \"power.thorigins.fox.aggro.pet\",\"color\":\"red\"}]}"
+												}
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove hissed"
+												}
 											}
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"selector\":\"@p[tag=hiss,tag=foxie]\",\"color\":\"aqua\"},{\"text\":\": \",\"color\":\"gold\"},{\"translate\":\"power.thorigins.fox.aggro.pet\",\"color\":\"red\"}]}"
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 1,
-											"action": {
+										]
+									}
+								},
+								{
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
 												"type": "origins:execute_command",
-												"command": "/tag @s remove hissed"
+												"command": "/tag @s add hiss"
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 1,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"power.thorigins.fox.aggro.1\",\"color\":\"red\"},{\"selector\":\"@p[tag=hissed]\",\"color\":\"aqua\"},{\"translate\":\"power.thorigins.fox.aggro.petted_2\",\"color\":\"red\"}]}"
+												}
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove hiss"
+												}
+											},
+											{
+												"type": "origins:change_resource",
+												"resource": "*:*_interaction_cooldown",
+												"change": 60,
+												"operation": "set"
 											}
-										},
-										{
-											"type": "origins:change_resource",
-											"resource": "*:*_interaction_cooldown",
-											"change": 60,
-											"operation": "set"
-										}
-									]
+										]
+									}
 								}
-							}
-						]
+							]
+						}
 					}
-				}
-			]
-		},
-		"hands": ["main_hand"],
-		"item_condition": {
-			"type": "origins:empty"
-		},
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:riding",
-					"inverted": true
 				},
 				{
-					"type": "origins:resource",
-					"resource": "*:*_interaction_cooldown",
-					"comparison": "==",
-					"compare_to": 0
+					"condition": {
+						"type": "origins:actor_condition",
+						"condition": {
+							"type": "origins:equipped_item",
+							"equipment_slot": "mainhand",
+							"item_condition": {
+								"type": "origins:empty"
+							}
+						}
+					},
+					"action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:sneaking"
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thfoxify_afk_timer",
+										"compare_to": 1,
+										"comparison": "<="
+									}
+								]
+							}
+						},
+						"if_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:actor_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:delay",
+												"ticks": 1,
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:execute_command",
+															"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Boop-ed \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@p[tag=booped]\",\"color\":\"aqua\"}]}"
+														},
+														{
+															"type": "origins:execute_command",
+															"command": "/tellraw @p[tag=booped] {\"text\":\"\",\"color\":\"white\",\"bold\":\"true\",\"italic\":\"false\",\"extra\":[{\"selector\":\"@s\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
+														}
+													]
+												}
+											},
+											{
+												"type": "origins:if_else",
+												"condition": {
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:command",
+															"command": "/execute if entity @s[tag=foxietrust]",
+															"compare_to": 0,
+															"comparison": "=="
+														},
+														{
+															"type": "origins:or",
+															"conditions": [
+																{
+																	"type": "origins:nbt",
+																	"nbt": "{\"Tags\": [\"foxiefear\"]}"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:human",
+																	"layer": "origins:origin"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:enderian",
+																	"layer": "origins:origin"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:shulk",
+																	"layer": "origins:origin"
+																},
+																{
+																	"type": "origins:origin",
+																	"origin": "origins:blazeborn",
+																	"layer": "origins:origin"
+																}
+															]
+														}
+													]
+												},
+												"if_action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s add foxietrust"
+												}
+											},
+											{
+												"type": "origins:swing_hand",
+												"hand": "MAIN_HAND"
+											}
+										]
+									}
+								},
+								{
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:if_else",
+												"condition": {
+													"type": "origins:resource",
+													"resource": "*:*_sound_interaction_ambient",
+													"compare_to": 1,
+													"comparison": "=="
+												},
+												"if_action": {
+													"type": "origins:play_sound",
+													"sound": "minecraft:entity.fox.ambient"
+												}
+											},
+											{
+												"type": "origins:change_resource",
+												"resource": "*:*_interaction_cooldown",
+												"change": 60,
+												"operation": "set"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/tag @s add booped"
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove booped"
+												}
+											}
+										]
+									}
+								}
+							]
+						},
+						"else_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:actor_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "/tag @s add hissed"
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 1,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"selector\":\"@p[tag=foxie,tag=hiss]\",\"color\":\"aqua\"},{\"text\":\": \"},{\"translate\": \"power.thorigins.fox.aggro.booper\",\"color\":\"red\"}]}"
+												}
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove hissed"
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "/tag @s add hiss"
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 1,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"power.thorigins.fox.aggro.1\",\"color\":\"red\"},{\"selector\":\"@p[tag=hissed]\",\"color\":\"aqua\"},{\"translate\":\"power.thorigins.fox.aggro.booped_2\",\"color\":\"red\"}]}"
+												}
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove hiss"
+												}
+											},
+											{
+												"type": "origins:change_resource",
+												"resource": "*:*_interaction_cooldown",
+												"change": 60,
+												"operation": "set"
+											}
+										]
+									}
+								}
+							]
+						}
+					}
 				}
 			]
 		}
