@@ -239,6 +239,32 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_afk_timer",
+								"compare_to": 1,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:*_fox_hider",
+								"compare_to": 1,
+								"comparison": "=="
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_fox_hider",
+						"change": -1,
+						"operation": "set"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
 						"type": "origins:command",
 						"command": "/data get entity @s SleepTimer",
 						"compare_to": 1,
@@ -393,7 +419,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f]}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b}"
 											}
 										},
 										{
@@ -405,7 +431,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f]}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b}"
 											}
 										},
 										{
@@ -417,7 +443,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b}"
 											}
 										},
 										{
@@ -429,7 +455,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b}"
 											}
 										}
 									]
@@ -446,7 +472,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f]}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b}"
 											}
 										},
 										{
@@ -458,7 +484,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f]}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b}"
 											}
 										},
 										{
@@ -470,7 +496,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b}"
 											}
 										},
 										{
@@ -482,7 +508,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b}"
 											}
 										}
 									]
@@ -1166,6 +1192,13 @@
 					},
 					"else_action": {
 						"type": "origins:passenger_action",
+						"bientity_condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:entity_type",
+								"entity_type": "minecraft:fox"
+							}
+						},
 						"action": {
 							"type": "origins:dismount"
 						}
