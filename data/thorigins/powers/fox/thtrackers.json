@@ -631,5 +631,51 @@
 			"compare_to": 1,
 			"comparison": "=="
 		}
+	},
+
+	"size_consistency": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:command",
+						"command": "/origin has @s origins:origin thorigins:element_fox",
+						"compare_to": 0,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:command",
+						"command": "/origin has @s origins:origin thorigins:fox",
+						"compare_to": 0,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:resource",
+						"resource": "*:*_scale_modified",
+						"compare_to": 1,
+						"comparison": "=="
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:change_resource",
+						"resource": "*:*_scale_modified",
+						"change": 0,
+						"operation": "set"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/scale reset @s"
+					}
+				]
+			}
+		}
 	}
 }

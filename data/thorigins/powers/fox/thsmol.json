@@ -26,7 +26,8 @@
 						{
 							"type": "origins:change_resource",
 							"resource": "*:fox/thtrackers_scale_modified",
-							"change": 1
+							"change": 1,
+							"operation": "set"
 						},
 						{
 							"type": "origins:execute_command",
@@ -55,10 +56,6 @@
 					]
 				}
 			}
-		},
-		"entity_action_lost": {
-			"type": "origins:execute_command",
-			"command": "/scale reset @s"
 		}
 	},
 
