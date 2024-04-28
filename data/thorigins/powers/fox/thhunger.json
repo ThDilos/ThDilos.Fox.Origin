@@ -51,7 +51,7 @@
         },
         "modifier": {
             "value": 0.05,
-            "operation": "multiply_total_multiplicative"
+            "operation": "multiply_total"
         }
     },
 
@@ -74,7 +74,7 @@
         },
         "modifier": {
             "value": -0.1,
-            "operation": "multiply_total_multiplicative"
+            "operation": "multiply_total"
         }
     },
 
@@ -97,7 +97,7 @@
         },
         "modifier": {
             "value": -0.2,
-            "operation": "multiply_total_multiplicative"
+            "operation": "multiply_total"
         }
     },
 
@@ -120,7 +120,7 @@
         },
         "modifier": {
             "value": -0.3,
-            "operation": "multiply_total_multiplicative"
+            "operation": "multiply_total"
         }
     },
 
@@ -143,7 +143,7 @@
         },
         "modifier": {
             "value": -0.4,
-            "operation": "multiply_total_multiplicative"
+            "operation": "multiply_total"
         }
     },
 
@@ -166,7 +166,7 @@
         },
         "modifier": {
             "value": -0.5,
-            "operation": "multiply_total_multiplicative"
+            "operation": "multiply_total"
         }
     },
 
@@ -179,7 +179,7 @@
         },
         "modifier": {
             "value": -0.6,
-            "operation": "multiply_total_multiplicative"
+            "operation": "multiply_total"
         }
     }
 }

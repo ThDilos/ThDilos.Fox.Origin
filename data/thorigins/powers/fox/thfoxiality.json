@@ -504,7 +504,7 @@
 			"tag": "minecraft:mineable/shovel"
 		},
 		"modifier": {
-			"operation": "multiply_total_multiplicative",
+			"operation": "multiply_total",
 			"value": 9
 		},
 		"condition": {
