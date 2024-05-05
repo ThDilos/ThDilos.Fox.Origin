@@ -679,18 +679,18 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base_multiplicative",
+			"operation": "multiply_base",
 			"value": 0.5,
 			"modifier": {
-				"operation": "multiply_base_multiplicative",
+				"operation": "multiply_base",
 				"value": -1,
 				"modifier": {
-					"operation": "add_base_early",
+					"operation": "addition",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base_multiplicative"
+						"operation": "multiply_base"
 					}
 				}
 			}
@@ -1100,18 +1100,18 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base_multiplicative",
+			"operation": "multiply_base",
 			"value": 0.0625,
 			"modifier": {
-				"operation": "multiply_base_multiplicative",
+				"operation": "multiply_base",
 				"value": -1,
 				"modifier": {
-					"operation": "add_base_early",
+					"operation": "addition",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base_multiplicative"
+						"operation": "multiply_base"
 					}
 				}
 			}
@@ -1146,18 +1146,18 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base_multiplicative",
+			"operation": "multiply_base",
 			"value": 0.0375,
 			"modifier": {
-				"operation": "multiply_base_multiplicative",
+				"operation": "multiply_base",
 				"value": -1,
 				"modifier": {
-					"operation": "add_base_early",
+					"operation": "addition",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base_multiplicative"
+						"operation": "multiply_base"
 					}
 				}
 			}
@@ -1204,6 +1204,9 @@
 										"type": "origins:or",
 										"conditions": [
 											{
+												"type": "origins:sneaking"
+											},
+											{
 												"type": "origins:resource",
 												"resource": "*:fox/thhunt_timer",
 												"compare_to": 49,
@@ -1239,6 +1242,9 @@
 									{
 										"type": "origins:or",
 										"conditions": [
+											{
+												"type": "origins:sneaking"
+											},
 											{
 												"type": "origins:resource",
 												"resource": "*:fox/thhunt_timer",
@@ -1432,18 +1438,18 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base_multiplicative",
+			"operation": "multiply_base",
 			"value": 0.33,
 			"modifier": {
-				"operation": "multiply_base_multiplicative",
+				"operation": "multiply_base",
 				"value": -1,
 				"modifier": {
-					"operation": "add_base_early",
+					"operation": "addition",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base_multiplicative"
+						"operation": "multiply_base"
 					}
 				}
 			}
