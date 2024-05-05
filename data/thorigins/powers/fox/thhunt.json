@@ -315,18 +315,18 @@
 	"damagebonus_day": {
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
-			"operation": "multiply_base_multiplicative",
+			"operation": "multiply_base",
 			"value": 0.0625,
 			"modifier": {
-				"operation": "multiply_base_multiplicative",
+				"operation": "multiply_base",
 				"value": -1,
 				"modifier": {
-					"operation": "add_base_early",
+					"operation": "addition",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base_multiplicative"
+						"operation": "multiply_base"
 					}
 				}
 			}
@@ -407,18 +407,18 @@
 	"damagebonus_midnight": {
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
-			"operation": "multiply_base_multiplicative",
+			"operation": "multiply_base",
 			"value": 0.125,
 			"modifier": {
-				"operation": "multiply_base_multiplicative",
+				"operation": "multiply_base",
 				"value": -1,
 				"modifier": {
-					"operation": "add_base_early",
+					"operation": "addition",
 					"resource": "*:fox/thtrackers_op_lvl",
 					"value": 0,
 					"modifier": {
 						"value": -0.99,
-						"operation": "multiply_base_multiplicative"
+						"operation": "multiply_base"
 					}
 				}
 			}
