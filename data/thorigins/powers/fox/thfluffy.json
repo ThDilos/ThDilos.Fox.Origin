@@ -15,7 +15,7 @@
 		},
 		"modifier": {
 			"name": "Origin modifier",
-			"operation": "multiply_base_multiplicative",
+			"operation": "multiply_base",
 			"value": 0.5
 		}
 	},
@@ -37,7 +37,7 @@
 		"attribute": "minecraft:generic.movement_speed",
 		"modifier": {
 			"name": "Origin modifier",
-			"operation": "multiply_base_multiplicative",
+			"operation": "multiply_base",
 			"value": -0.2
 		},
 		"condition": {
