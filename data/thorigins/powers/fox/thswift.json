@@ -1,122 +1,153 @@
 {
-    "type": "origins:multiple",
-    "badges": [
-        {
-            "type": "origins:keybind",
-            "sprite": "minecraft:textures/item/feather.png",
-            "text": "origin.thorigin.passive"
-        }
-    ],
+	"type": "origins:multiple",
+	"badges": [
+		{
+			"type": "origins:keybind",
+			"sprite": "minecraft:textures/item/feather.png",
+			"text": "origin.thorigin.passive"
+		}
+	],
 
-    "nofalldamage": {
-        "type": "origins:invulnerability",
-        "damage_condition": {
-            "type": "origins:name",
-            "name": "fall"
-        },
-        "condition": {
-            "type": "origins:or",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:fox/thtrackers_no_cd",
-                    "compare_to": 1,
-                    "comparison": "=="
-                },
-                {
-                    "type": "origins:fall_distance",
-                    "comparison": "<",
-                    "compare_to": 24
-                },
-                {
-                    "type": "origins:and",
-                    "conditions": [
-                        {
-                            "type": "origins:fall_distance",
-                            "comparison": "<",
-                            "compare_to": 48
-                        },
-                        {
-                            "type": "origins:status_effect",
-                            "effect": "jump_boost",
-                            "min_amplifier": 0,
-                            "max_amplifier": 0
-                        }
-                    ]
-                },
-                {
-                    "type": "origins:and",
-                    "conditions": [
-                        {
-                            "type": "origins:fall_distance",
-                            "comparison": "<",
-                            "compare_to": 72
-                        },
-                        {
-                            "type": "origins:status_effect",
-                            "effect": "jump_boost",
-                            "min_amplifier": 1,
-                            "max_amplifier": 127
-                        }
-                    ]
-                }
-            ]
-        }
-    },
+	"nofalldamage": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "fall"
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:fox/thtrackers_no_cd",
+					"compare_to": 1,
+					"comparison": "=="
+				},
+				{
+					"type": "origins:fall_distance",
+					"comparison": "<",
+					"compare_to": 24
+				},
+				{
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:fall_distance",
+							"comparison": "<",
+							"compare_to": 48
+						},
+						{
+							"type": "origins:status_effect",
+							"effect": "jump_boost",
+							"min_amplifier": 0,
+							"max_amplifier": 0
+						}
+					]
+				},
+				{
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:fall_distance",
+							"comparison": "<",
+							"compare_to": 72
+						},
+						{
+							"type": "origins:status_effect",
+							"effect": "jump_boost",
+							"min_amplifier": 1,
+							"max_amplifier": 127
+						}
+					]
+				}
+			]
+		}
+	},
 
-    "reducefalldamage": {
-        "type": "origins:modify_damage_taken",
-        "damage_condition": {
-            "type": "origins:name",
-            "name": "fall"
-        },
-        "modifier": {
-            "operation": "multiply_base_multiplicative",
-            "value": -0.8
-        },
-        "condition": {
-            "type": "origins:sneaking"
-        }
-    },
+	"reducefalldamage": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "fall"
+		},
+		"modifier": {
+			"operation": "multiply_base",
+			"value": -0.8
+		},
+		"condition": {
+			"type": "origins:sneaking"
+		}
+	},
 
-    "fast": {
-        "type": "origins:modify_attribute",
-        "attribute": "minecraft:generic.movement_speed",
-        "modifier": {
-            "operation": "multiply_base_multiplicative",
-            "value": 0.4
-        },
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:sprinting"
-                },
-                {
-                    "type": "origins:sneaking",
-                    "inverted": true
-                }
-            ]
-        }
-    },
+	"fast": {
+		"type": "origins:modify_attribute",
+		"attribute": "minecraft:generic.movement_speed",
+		"modifier": {
+			"operation": "multiply_base",
+			"value": 0.4
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sprinting"
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				}
+			]
+		}
+	},
 
-    "jumpy": {
-        "type": "origins:modify_jump",
-        "modifier": {
-            "operation": "multiply_base_multiplicative",
-            "value": 0.4
-        },
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:sprinting"
-                },
-                {
-                    "type": "origins:sneaking",
-                    "inverted": true
-                }
-            ]
-        }
-    }
+	"run_on_all_4": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.movement_speed",
+			"operation": "multiply_total",
+			"value": 0.1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sprinting"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:empty"
+					}
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:empty"
+					}
+				}
+			]
+		}
+	},
+
+	"jumpy": {
+		"type": "origins:modify_jump",
+		"modifier": {
+			"operation": "multiply_base",
+			"value": 0.4
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sprinting"
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				}
+			]
+		}
+	}
 }
