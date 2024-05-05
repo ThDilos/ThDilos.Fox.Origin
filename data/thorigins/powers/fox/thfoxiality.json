@@ -44,7 +44,7 @@
 		},
 		"modifier": {
 			"value": 3,
-			"operation": "multiply_base_multiplicative"
+			"operation": "multiply_base"
 		}
 	},
 
@@ -465,7 +465,7 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base_multiplicative",
+			"operation": "multiply_base",
 			"value": 0.15
 		}
 	},
@@ -492,7 +492,7 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base_multiplicative",
+			"operation": "multiply_base",
 			"value": 0.15
 		}
 	},
