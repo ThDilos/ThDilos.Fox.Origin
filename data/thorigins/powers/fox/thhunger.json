@@ -12,7 +12,7 @@
         "type": "origins:modify_exhaustion",
         "modifier": {
             "name": "Origin modifier",
-            "operation": "multiply_base_multiplicative",
+            "operation": "multiply_base",
             "value": 0.5
         },
         "condition": {
