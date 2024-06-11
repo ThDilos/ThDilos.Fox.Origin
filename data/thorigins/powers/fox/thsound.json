@@ -236,7 +236,7 @@
 		"type": "origins:action_over_time",
 		"entity_action": {
 			"type": "origins:execute_command",
-			"command": "/playsound minecraft:entity.fox.sleep player @s[tag=sleepyfox] ~ ~ ~ 0.7"
+			"command": "/playsound minecraft:entity.fox.sleep player @a ~ ~ ~ 0.7"
 		},
 		"condition": {
 			"type": "origins:and",
@@ -1393,12 +1393,8 @@
 						"actions": [
 							{
 								"action": {
-									"type": "origins:side",
-									"side": "server",
-									"action": {
-										"type": "origins:execute_command",
-										"command": "/playsound thorigins:bonk player @s ~ ~ ~ 0.7 0.8"
-									}
+									"type": "origins:execute_command",
+									"command": "/playsound thorigins:bonk player @a ~ ~ ~ 0.7 0.8"
 								},
 								"condition": {
 									"type": "origins:or",
@@ -1449,12 +1445,8 @@
 							},
 							{
 								"action": {
-									"type": "origins:side",
-									"side": "server",
-									"action": {
-										"type": "origins:execute_command",
-										"command": "/playsound thorigins:bonk player @s ~ ~ ~ 0.7 0.9"
-									}
+									"type": "origins:execute_command",
+									"command": "/playsound thorigins:bonk player @a ~ ~ ~ 0.7 0.9"
 								},
 								"condition": {
 									"type": "origins:or",
@@ -1535,12 +1527,8 @@
 							},
 							{
 								"action": {
-									"type": "origins:side",
-									"side": "server",
-									"action": {
-										"type": "origins:execute_command",
-										"command": "/playsound thorigins:bonk player @s ~ ~ ~ 0.7 1.0"
-									}
+									"type": "origins:execute_command",
+									"command": "/playsound thorigins:bonk player @a ~ ~ ~ 0.7 1.0"
 								},
 								"condition": {
 									"type": "origins:or",
@@ -1626,12 +1614,8 @@
 							},
 							{
 								"action": {
-									"type": "origins:side",
-									"side": "server",
-									"action": {
-										"type": "origins:execute_command",
-										"command": "/playsound thorigins:bonk player @s ~ ~ ~ 0.7 1.05"
-									}
+									"type": "origins:execute_command",
+									"command": "/playsound thorigins:bonk player @a ~ ~ ~ 0.7 1.05"
 								},
 								"condition": {
 									"type": "origins:or",
@@ -1653,12 +1637,8 @@
 							},
 							{
 								"action": {
-									"type": "origins:side",
-									"side": "server",
-									"action": {
-										"type": "origins:execute_command",
-										"command": "/playsound thorigins:bonk player @s ~ ~ ~ 0.7 1.2"
-									}
+									"type": "origins:execute_command",
+									"command": "/playsound thorigins:bonk player @a ~ ~ ~ 0.7 1.2"
 								},
 								"condition": {
 									"type": "origins:or",
@@ -1704,12 +1684,8 @@
 							},
 							{
 								"action": {
-									"type": "origins:side",
-									"side": "server",
-									"action": {
-										"type": "origins:execute_command",
-										"command": "/playsound thorigins:bonk player @s ~ ~ ~ 0.7 1.34"
-									}
+									"type": "origins:execute_command",
+									"command": "/playsound thorigins:bonk player @a ~ ~ ~ 0.7 1.34"
 								},
 								"condition": {
 									"type": "origins:or",
@@ -1731,12 +1707,8 @@
 							},
 							{
 								"action": {
-									"type": "origins:side",
-									"side": "server",
-									"action": {
-										"type": "origins:execute_command",
-										"command": "/playsound thorigins:bonk player @s ~ ~ ~ 0.7 1.57"
-									}
+									"type": "origins:execute_command",
+									"command": "/playsound thorigins:bonk player @a ~ ~ ~ 0.7 1.57"
 								},
 								"condition": {
 									"type": "origins:resource",
@@ -1747,12 +1719,8 @@
 							},
 							{
 								"action": {
-									"type": "origins:side",
-									"side": "server",
-									"action": {
-										"type": "origins:execute_command",
-										"command": "/playsound thorigins:bonk player @s ~ ~ ~ 0.7 1.0"
-									}
+									"type": "origins:execute_command",
+									"command": "/playsound thorigins:bonk player @a ~ ~ ~ 0.7 1.0"
 								},
 								"condition": {
 									"type": "origins:exists"
