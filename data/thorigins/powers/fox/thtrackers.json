@@ -9,6 +9,14 @@
 	],
 	"hidden": true,
 
+	"disable_armor_restriction": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": { "should_render": false }
+	},
+
 	"welcome_msg": {
 		"type": "origins:resource",
 		"min": 0,

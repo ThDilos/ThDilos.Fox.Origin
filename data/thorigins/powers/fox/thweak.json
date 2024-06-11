@@ -1,67 +1,79 @@
 {
-    "type": "origins:multiple",
-    "badges": [
-        {
-            "type": "origins:keybind",
-            "sprite": "minecraft:textures/item/kelp.png",
-            "text": "origin.thorigin.passive"
-        }
-    ],
+	"type": "origins:multiple",
+	"badges": [
+		{
+			"type": "origins:keybind",
+			"sprite": "minecraft:textures/item/kelp.png",
+			"text": "origin.thorigin.passive"
+		},
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "thweak.info"
+		}
+	],
 
-    "disable_shield": {
-        "type": "origins:prevent_item_use",
-        "item_condition": {
-            "type": "origins:ingredient",
-            "ingredient": {
-                "item": "shield"
-            }
-        }
-    },
+	"disable_shield": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "shield"
+			}
+		}
+	},
 
-    "disable_heavy_armor": {
-        "type": "origins:restrict_armor",
-        "head": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 2
-        },
-        "chest": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 6
-        },
-        "legs": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 5
-        },
-        "feet": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 2
-        }
-    },
+	"disable_heavy_armor": {
+		"type": "origins:conditioned_restrict_armor",
+		"tick_rate": 20,
+		"head": {
+			"type": "origins:armor_value",
+			"comparison": ">",
+			"compare_to": 2
+		},
+		"chest": {
+			"type": "origins:armor_value",
+			"comparison": ">",
+			"compare_to": 6
+		},
+		"legs": {
+			"type": "origins:armor_value",
+			"comparison": ">",
+			"compare_to": 5
+		},
+		"feet": {
+			"type": "origins:armor_value",
+			"comparison": ">",
+			"compare_to": 2
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:fox/thtrackers_disable_armor_restriction",
+			"compare_to": 0,
+			"comparison": "=="
+		}
+	},
 
-    "small_lungs": {
-        "type": "origins:action_over_time",
-        "interval": 3,
-        "entity_action": {
-            "type": "origins:gain_air",
-            "value": -2
-        },
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:submerged_in",
-                    "fluid": "minecraft:water"
-                },
-                {
-                    "type": "origins:air",
-                    "compare_to": 0,
-                    "comparison": ">"
-                }
-            ]
-        }
-    }
+	"small_lungs": {
+		"type": "origins:action_over_time",
+		"interval": 3,
+		"entity_action": {
+			"type": "origins:gain_air",
+			"value": -2
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:submerged_in",
+					"fluid": "minecraft:water"
+				},
+				{
+					"type": "origins:air",
+					"compare_to": 0,
+					"comparison": ">"
+				}
+			]
+		}
+	}
 }
