@@ -7,9 +7,9 @@
 		"origins": ">=1.6.2",
 		"minecraft": ">=1.19.4"
 	},
-	"name": "ThDilos' Custom Fox Origins",
+	"name": "ThDilos Fox Origins",
 	"id": "thorigins",
-	"version": "3.8.5",
+	"version": "3.8.6",
 	"description": "ThDilos' Custom Made Fox Origins. Slightly overpowered.",
 	"license": "Unknown",
 	"pack_format": 15,
