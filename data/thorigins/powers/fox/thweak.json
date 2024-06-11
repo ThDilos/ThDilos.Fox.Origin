@@ -17,37 +17,12 @@
             }
         }
     },
-
-    "disable_heavy_armor": {
-        "type": "origins:restrict_armor",
-        "head": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 2
-        },
-        "chest": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 6
-        },
-        "legs": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 5
-        },
-        "feet": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 2
-        }
-    },
-
     "small_lungs": {
         "type": "origins:action_over_time",
-        "interval": 3,
+        "interval": 5,
         "entity_action": {
             "type": "origins:gain_air",
-            "value": -2
+            "value": -4
         },
         "condition": {
             "type": "origins:and",
