@@ -5,6 +5,11 @@
 			"type": "origins:keybind",
 			"sprite": "minecraft:textures/item/feather.png",
 			"text": "origin.thorigin.passive"
+		},
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "thswift.info"
 		}
 	],
 

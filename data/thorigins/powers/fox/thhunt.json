@@ -5,6 +5,11 @@
 			"type": "origins:keybind",
 			"sprite": "minecraft:textures/item/bone.png",
 			"text": "origin.thorigin.sneak"
+		},
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "thhunt.info"
 		}
 	],
 

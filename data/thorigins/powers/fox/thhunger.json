@@ -5,7 +5,12 @@
             "type": "origins:keybind",
             "text": "origin.thorigin.passive",
             "sprite": "minecraft:textures/item/rotten_flesh.png"
-        }
+        },
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "thhunger.info"
+		}
     ],
 
     "base_exhaustion": {

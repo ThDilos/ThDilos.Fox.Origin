@@ -42,6 +42,11 @@
 					"translate": "origin.thorigin.foxrider2"
 				}
 			]
+		},
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "thfoxify.info"
 		}
 	],
 

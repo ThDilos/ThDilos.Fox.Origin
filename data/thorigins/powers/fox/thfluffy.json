@@ -5,6 +5,11 @@
 			"type": "origins:keybind",
 			"text": "origin.thorigin.passive",
 			"sprite": "minecraft:textures/block/white_wool.png"
+		},
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "thfluffy.info"
 		}
 	],
 
