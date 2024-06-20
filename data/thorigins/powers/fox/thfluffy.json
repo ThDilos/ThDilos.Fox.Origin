@@ -624,10 +624,6 @@
 								"comparison": ">"
 							},
 							{
-								"type": "origins:sneaking",
-								"inverted": true
-							},
-							{
 								"type": "origins:nbt",
 								"nbt": "{Health:0.0f}",
 								"inverted": true
@@ -758,6 +754,10 @@
 								"type": "origins:nbt",
 								"nbt": "{Health:0.0f}",
 								"inverted": true
+							},
+							{
+								"type": "origins:sneaking",
+								"inverted": true
 							}
 						]
 					},
@@ -841,30 +841,8 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:resource",
-								"resource": "*:*_timer2",
-								"compare_to": 28,
-								"comparison": "<="
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:*_timer2",
-								"compare_to": 0,
-								"comparison": ">"
-							},
-							{
-								"type": "origins:sneaking",
-								"inverted": true
-							},
-							{
-								"type": "origins:nbt",
-								"nbt": "{Health:0.0f}",
-								"inverted": true
-							}
-						]
+						"type": "origins:power_active",
+						"power": "*:*_shake"
 					},
 					"if_action": {
 						"type": "origins:change_resource",
