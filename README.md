@@ -1,11 +1,11 @@
 # Realistic-Fox-Origin
-A custom-made fox origin mod for Minecraft Fabric Origins Mod.
+A custom-made fox origin mod for Minecraft Fabric Origins Mod.\
 Language available: Simplified Chinese & English
 
 **Needs Fabric**
-(Forge is also possible if you install the datapacks and resourcepacks, but would not be as functional as Fabric)
+(Forge is also possible, but would not be as functional as Fabric)
 
-**Needs Origins Mod, Pehkui Mod to function**
+**Needs Origins Mod (Either Fabric or Forge ver.), Pehkui Mod to function**
 
 Fabric: https://fabricmc.net/use/installer/
 
