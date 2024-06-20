@@ -686,10 +686,6 @@
 								"comparison": ">"
 							},
 							{
-								"type": "origins:sneaking",
-								"inverted": true
-							},
-							{
 								"type": "origins:nbt",
 								"nbt": "{Health:0.0f}",
 								"inverted": true
@@ -759,10 +755,6 @@
 								]
 							},
 							{
-								"type": "origins:sneaking",
-								"inverted": true
-							},
-							{
 								"type": "origins:nbt",
 								"nbt": "{Health:0.0f}",
 								"inverted": true
@@ -798,10 +790,6 @@
 							"resource": "*:*_timer",
 							"compare_to": 0,
 							"comparison": ">"
-						},
-						{
-							"type": "origins:sneaking",
-							"inverted": true
 						}
 					]
 				},
@@ -819,10 +807,6 @@
 							"resource": "*:*_timer2",
 							"compare_to": 0,
 							"comparison": ">"
-						},
-						{
-							"type": "origins:sneaking",
-							"inverted": true
 						},
 						{
 							"type": "origins:nbt",
