@@ -359,10 +359,27 @@
 							{
 								"type": "origins:if_else",
 								"condition": {
-									"type": "origins:resource",
-									"resource": "*:*_tutorial_times",
-									"compare_to": 2,
-									"comparison": "<"
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 0,
+											"comparison": ">="
+										},
+										{
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 3,
+											"comparison": "<="
+										},
+										{
+											"type": "origins:resource",
+											"resource": "*:*_tutorial_times",
+											"compare_to": 2,
+											"comparison": "<"
+										}
+									]
 								},
 								"if_action": {
 									"type": "origins:and",
@@ -520,24 +537,44 @@
 								}
 							},
 							{
-								"type": "origins:delay",
-								"ticks": 1,
-								"action": {
+								"type": "origins:if_else",
+								"condition": {
 									"type": "origins:and",
-									"actions": [
+									"conditions": [
 										{
-											"type": "origins:execute_command",
-											"command": "/scale multiply pehkui:hitbox_height 0.7 @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1]"
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 0,
+											"comparison": ">="
 										},
 										{
-											"type": "origins:execute_command",
-											"command": "/scale multiply pehkui:hitbox_width 0.3 @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1]"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tp @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,distance=..0.2,limit=1] ~ ~ ~ facing ^-0.3 ^ ^-0.15"
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 3,
+											"comparison": "<="
 										}
 									]
+								},
+								"if_action": {
+									"type": "origins:delay",
+									"ticks": 1,
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "/scale multiply pehkui:hitbox_height 0.7 @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1]"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/scale multiply pehkui:hitbox_width 0.3 @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1]"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/tp @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,distance=..0.2,limit=1] ~ ~ ~ facing ^-0.3 ^ ^-0.15"
+											}
+										]
+									}
 								}
 							}
 						]
@@ -559,6 +596,18 @@
 								"command": "/execute if entity @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,distance=..0.2,limit=1]",
 								"compare_to": 0,
 								"comparison": "=="
+							},
+							{
+								"type": "origins:scoreboard",
+								"objective": "foxtype",
+								"compare_to": 0,
+								"comparison": ">="
+							},
+							{
+								"type": "origins:scoreboard",
+								"objective": "foxtype",
+								"compare_to": 3,
+								"comparison": "<="
 							}
 						]
 					},
@@ -626,10 +675,27 @@
 					"if_action": {
 						"type": "origins:if_else",
 						"condition": {
-							"type": "origins:resource",
-							"resource": "*:*_afk_timer",
-							"compare_to": 0,
-							"comparison": "=="
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:scoreboard",
+									"objective": "foxtype",
+									"compare_to": 0,
+									"comparison": ">="
+								},
+								{
+									"type": "origins:scoreboard",
+									"objective": "foxtype",
+									"compare_to": 3,
+									"comparison": "<="
+								},
+								{
+									"type": "origins:resource",
+									"resource": "*:*_afk_timer",
+									"compare_to": 0,
+									"comparison": "=="
+								}
+							]
 						},
 						"if_action": {
 							"type": "origins:change_resource",
@@ -775,10 +841,27 @@
 		"type": "origins:invisibility",
 		"render_armor": false,
 		"condition": {
-			"type": "origins:resource",
-			"resource": "*:*_afk_timer",
-			"compare_to": 0,
-			"comparison": "=="
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:scoreboard",
+					"objective": "foxtype",
+					"compare_to": 0,
+					"comparison": ">="
+				},
+				{
+					"type": "origins:scoreboard",
+					"objective": "foxtype",
+					"compare_to": 3,
+					"comparison": "<="
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_afk_timer",
+					"compare_to": 0,
+					"comparison": "=="
+				}
+			]
 		}
 	},
 
