@@ -1,0 +1,33 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="ARR"
+issueTrackerURL="https://github.com/ThDilos/ThDilos.Fox.Origin/issues"
+description='''
+ThDilos' Custom Made Fox Origins. Slightly overpowered.
+'''
+
+[[mods]]
+modId="thorigins"
+version="3.8.7"
+displayName="ThDilos Fox Origins"
+
+[[dependencies.thorigins]]
+modId="origins"
+mandatory=true
+versionRange="[1.10.0.9,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.thorigins]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.19.4,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.thorigins]]
+modId="pehkui"
+mandatory=true
+versionRange="[3.3.3,)"
+ordering="NONE"
+side="BOTH"
