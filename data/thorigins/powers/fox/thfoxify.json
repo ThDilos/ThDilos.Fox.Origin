@@ -362,16 +362,10 @@
 									"type": "origins:and",
 									"conditions": [
 										{
-											"type": "origins:scoreboard",
-											"objective": "foxtype",
+											"type": "origins:resource",
+											"resource": "*:*_figura_state",
 											"compare_to": 0,
-											"comparison": ">="
-										},
-										{
-											"type": "origins:scoreboard",
-											"objective": "foxtype",
-											"compare_to": 3,
-											"comparison": "<="
+											"comparison": "=="
 										},
 										{
 											"type": "origins:resource",
@@ -542,16 +536,10 @@
 									"type": "origins:and",
 									"conditions": [
 										{
-											"type": "origins:scoreboard",
-											"objective": "foxtype",
+											"type": "origins:resource",
+											"resource": "*:*_figura_state",
 											"compare_to": 0,
-											"comparison": ">="
-										},
-										{
-											"type": "origins:scoreboard",
-											"objective": "foxtype",
-											"compare_to": 3,
-											"comparison": "<="
+											"comparison": "=="
 										}
 									]
 								},
@@ -598,16 +586,10 @@
 								"comparison": "=="
 							},
 							{
-								"type": "origins:scoreboard",
-								"objective": "foxtype",
+								"type": "origins:resource",
+								"resource": "*:*_figura_state",
 								"compare_to": 0,
-								"comparison": ">="
-							},
-							{
-								"type": "origins:scoreboard",
-								"objective": "foxtype",
-								"compare_to": 3,
-								"comparison": "<="
+								"comparison": "=="
 							}
 						]
 					},
@@ -678,16 +660,10 @@
 							"type": "origins:and",
 							"conditions": [
 								{
-									"type": "origins:scoreboard",
-									"objective": "foxtype",
+									"type": "origins:resource",
+									"resource": "*:*_figura_state",
 									"compare_to": 0,
-									"comparison": ">="
-								},
-								{
-									"type": "origins:scoreboard",
-									"objective": "foxtype",
-									"compare_to": 3,
-									"comparison": "<="
+									"comparison": "=="
 								},
 								{
 									"type": "origins:resource",
@@ -844,16 +820,10 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:scoreboard",
-					"objective": "foxtype",
+					"type": "origins:resource",
+					"resource": "*:*_figura_state",
 					"compare_to": 0,
-					"comparison": ">="
-				},
-				{
-					"type": "origins:scoreboard",
-					"objective": "foxtype",
-					"compare_to": 3,
-					"comparison": "<="
+					"comparison": "=="
 				},
 				{
 					"type": "origins:resource",
@@ -863,6 +833,48 @@
 				}
 			]
 		}
+	},
+
+	"set_figura_state": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 0,
+						"comparison": ">="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 3,
+						"comparison": "<="
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_figura_state",
+				"change": -1
+			},
+			"else_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_figura_state",
+				"change": 1
+			}
+		}
+	},
+
+	"figura_state": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": { "should_render": false }
 	},
 
 	"stop_colliding_fox": {
