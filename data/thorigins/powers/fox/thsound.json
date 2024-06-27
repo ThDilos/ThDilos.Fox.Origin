@@ -292,7 +292,7 @@
 				}
 			]
 		},
-		"interval": 60
+		"interval": 180
 	},
 
 	"stop_sleeping_sound": {
