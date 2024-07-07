@@ -13,13 +13,10 @@
 				},
 				{
 					"translate": "origin.thorigin.sleepin2"
-				}
-			]
-		},
-		{
-			"type": "origins:tooltip",
-			"sprite": "origins:textures/gui/badge/active.png",
-			"text": [
+				},
+				{
+					"text": "\n\n"
+				},
 				{
 					"translate": "origin.thorigin.foxhat1"
 				},
@@ -30,7 +27,7 @@
 					"translate": "origin.thorigin.foxhat2"
 				},
 				{
-					"text": "\n"
+					"text": "\n\n"
 				},
 				{
 					"translate": "origin.thorigin.foxrider1"
@@ -44,9 +41,34 @@
 			]
 		},
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": "thfoxify.info"
+			"text": [
+				{
+					"translate": "thfoxify.info_0"
+				},
+				{
+					"translate": "thfoxify.info_1"
+				},
+				{
+					"keybind": "key.sprint"
+				},
+				{
+					"translate": "thfoxify.info_2"
+				},
+				{
+					"translate": "thfoxify.info_1"
+				},
+				{
+					"keybind": "key.saveToolbarActivator"
+				},
+				{
+					"translate": "thfoxify.info_3"
+				},
+				{
+					"translate": "thfoxify.info_4"
+				}
+			]
 		}
 	],
 
@@ -226,21 +248,47 @@
 		}
 	},
 
-	"tutorial_times": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 2,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
 	"afk_fox": {
 		"type": "origins:action_over_time",
 		"interval": 1,
 		"entity_action": {
 			"type": "origins:and",
 			"actions": [
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_afk_timer",
+								"compare_to": 0,
+								"comparison": "=="
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 2,
+										"comparison": "=="
+									},
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 3,
+										"comparison": "=="
+									}
+								]
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "/data modify entity @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] Age set value -100"
+					}
+				},
 				{
 					"type": "origins:if_else",
 					"condition": {
@@ -359,65 +407,6 @@
 							{
 								"type": "origins:if_else",
 								"condition": {
-									"type": "origins:and",
-									"conditions": [
-										{
-											"type": "origins:resource",
-											"resource": "*:*_figura_state",
-											"compare_to": 0,
-											"comparison": "=="
-										},
-										{
-											"type": "origins:resource",
-											"resource": "*:*_tutorial_times",
-											"compare_to": 2,
-											"comparison": "<"
-										}
-									]
-								},
-								"if_action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:execute_command",
-											"command": "/title @s actionbar {\"translate\":\"power.thorigins.sleepin.mode.1\",\"color\":\"yellow\"}"
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 60,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/title @s actionbar [{\"translate\":\"power.thorigins.sleepin.mode.2\",\"color\":\"yellow\"},{\"keybind\":\"key.saveToolbarActivator\",\"color\":\"white\"},{\"translate\":\"power.thorigins.sleepin.mode.4\",\"color\":\"yellow\"}]"
-											}
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 120,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/title @s actionbar [{\"translate\":\"power.thorigins.sleepin.mode.2\",\"color\":\"yellow\"},{\"keybind\":\"key.sprint\",\"color\":\"white\"},{\"translate\":\"power.thorigins.sleepin.mode.3\",\"color\":\"yellow\"}]"
-											}
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 180,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/title @s actionbar [{\"translate\":\"power.thorigins.sleepin.mode.5\",\"color\":\"yellow\"}]"
-											}
-										},
-										{
-											"type": "origins:change_resource",
-											"resource": "*:*_tutorial_times",
-											"change": 1,
-											"operation": "add"
-										}
-									]
-								}
-							},
-							{
-								"type": "origins:if_else",
-								"condition": {
 									"type": "origins:resource",
 									"resource": "*:fox/thsound_sound_sleep",
 									"comparison": "==",
@@ -435,7 +424,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b,cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"thorigins:fox/thsleepin_fox\",Data:{},Sources:[\"thorigins:universal\"]}]}}}"
 											}
 										},
 										{
@@ -447,7 +436,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b,cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"thorigins:fox/thsleepin_fox\",Data:{},Sources:[\"thorigins:universal\"]}]}}}"
 											}
 										},
 										{
@@ -459,7 +448,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b,cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"thorigins:fox/thsleepin_fox\",Data:{},Sources:[\"thorigins:universal\"]}]}}}"
 											}
 										},
 										{
@@ -471,7 +460,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b,cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"thorigins:fox/thsleepin_fox\",Data:{},Sources:[\"thorigins:universal\"]}]}}}"
 											}
 										}
 									]
@@ -488,7 +477,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b,cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"thorigins:fox/thsleepin_fox\",Data:{},Sources:[\"thorigins:universal\"]}]}}}"
 											}
 										},
 										{
@@ -500,7 +489,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b,cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"thorigins:fox/thsleepin_fox\",Data:{},Sources:[\"thorigins:universal\"]}]}}}"
 											}
 										},
 										{
@@ -512,7 +501,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b,cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"thorigins:fox/thsleepin_fox\",Data:{},Sources:[\"thorigins:universal\"]}]}}}"
 											}
 										},
 										{
@@ -524,7 +513,7 @@
 											},
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b}"
+												"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Silent:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b,cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"thorigins:fox/thsleepin_fox\",Data:{},Sources:[\"thorigins:universal\"]}]}}}}"
 											}
 										}
 									]
@@ -533,15 +522,10 @@
 							{
 								"type": "origins:if_else",
 								"condition": {
-									"type": "origins:and",
-									"conditions": [
-										{
-											"type": "origins:resource",
-											"resource": "*:*_figura_state",
-											"compare_to": 0,
-											"comparison": "=="
-										}
-									]
+									"type": "origins:resource",
+									"resource": "*:*_figura_state",
+									"compare_to": 0,
+									"comparison": "=="
 								},
 								"if_action": {
 									"type": "origins:delay",
@@ -598,36 +582,6 @@
 						"resource": "*:*_afk_timer",
 						"change": 1200,
 						"operation": "set"
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:resource",
-								"resource": "*:*_afk_timer",
-								"compare_to": 0,
-								"comparison": "=="
-							},
-							{
-								"type": "origins:command",
-								"command": "/execute if entity @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,distance=..0.2,limit=1]",
-								"compare_to": 1,
-								"comparison": "=="
-							},
-							{
-								"type": "origins:command",
-								"command": "/power has @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] thorigins:fox/thsleepin_fox",
-								"compare_to": 0,
-								"comparison": "=="
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:execute_command",
-						"command": "/power grant @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] thorigins:fox/thsleepin_fox thorigins:universal"
 					}
 				},
 				{
