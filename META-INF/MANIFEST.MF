@@ -3,7 +3,7 @@ Specification-Title: examplemod
 Specification-Vendor: YourNameHere, OtherNameHere
 Specification-Version: 1
 Implementation-Title: forge1.19.4
-Implementation-Version: 3.8.7
+Implementation-Version: 3.8.9
 Implementation-Vendor: YourNameHere, OtherNameHere
 Implementation-Timestamp: 2024-06-15T17:35:14+0800
 
