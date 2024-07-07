@@ -235,8 +235,44 @@
 	"sleeping_sound": {
 		"type": "origins:action_over_time",
 		"entity_action": {
-			"type": "origins:execute_command",
-			"command": "/playsound minecraft:entity.fox.sleep player @a ~ ~ ~ 0.7"
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 2,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 3,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 6,
+						"comparison": "=="
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.sleep",
+				"pitch": 1.3,
+				"volume": 0.8,
+				"category": "players"
+			},
+			"else_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.sleep",
+				"pitch": 1.0,
+				"volume": 0.8,
+				"category": "players"
+			}
 		},
 		"condition": {
 			"type": "origins:or",
@@ -311,9 +347,44 @@
 	"wakeup_sound": {
 		"type": "origins:action_on_wake_up",
 		"entity_action": {
-			"type": "origins:play_sound",
-			"sound": "minecraft:entity.fox.ambient",
-			"volume": 0.7
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 2,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 3,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 6,
+						"comparison": "=="
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.ambient",
+				"pitch": 1.3,
+				"volume": 0.7,
+				"category": "players"
+			},
+			"else_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.ambient",
+				"volume": 0.7,
+				"pitch": 1.0,
+				"category": "players"
+			}
 		},
 		"condition": {
 			"type": "origins:resource",
@@ -326,9 +397,44 @@
 	"eatingsound": {
 		"type": "origins:action_on_item_use",
 		"entity_action": {
-			"type": "origins:play_sound",
-			"sound": "minecraft:entity.fox.eat",
-			"volume": 0.7
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 2,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 3,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 6,
+						"comparison": "=="
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.eat",
+				"volume": 0.85,
+				"pitch": 1.3,
+				"category": "players"
+			},
+			"else_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.eat",
+				"volume": 0.85,
+				"pitch": 1.0,
+				"category": "players"
+			}
 		},
 		"item_condition": {
 			"type": "origins:food"
@@ -348,8 +454,44 @@
 			"block": "cake"
 		},
 		"entity_action": {
-			"type": "origins:play_sound",
-			"sound": "minecraft:entity.fox.eat"
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 2,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 3,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 6,
+						"comparison": "=="
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.eat",
+				"volume": 0.85,
+				"pitch": 1.3,
+				"category": "players"
+			},
+			"else_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.eat",
+				"volume": 0.85,
+				"pitch": 1.0,
+				"category": "players"
+			}
 		},
 		"condition": {
 			"type": "origins:resource",
@@ -362,9 +504,44 @@
 	"hurtsound": {
 		"type": "origins:action_when_damage_taken",
 		"entity_action": {
-			"type": "origins:play_sound",
-			"sound": "minecraft:entity.fox.hurt",
-			"volume": 0.7
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 2,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 3,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 6,
+						"comparison": "=="
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.hurt",
+				"volume": 0.75,
+				"pitch": 1.3,
+				"category": "players"
+			},
+			"else_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.hurt",
+				"volume": 0.75,
+				"pitch": 1.0,
+				"category": "players"
+			}
 		},
 		"condition": {
 			"type": "origins:and",
@@ -462,10 +639,44 @@
 				"comparison": "=="
 			},
 			"if_action": {
-				"type": "origins:play_sound",
-				"sound": "minecraft:entity.fox.aggro",
-				"volume": 0.8,
-				"pitch": 0.7
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:scoreboard",
+							"objective": "foxtype",
+							"compare_to": 2,
+							"comparison": "=="
+						},
+						{
+							"type": "origins:scoreboard",
+							"objective": "foxtype",
+							"compare_to": 3,
+							"comparison": "=="
+						},
+						{
+							"type": "origins:scoreboard",
+							"objective": "foxtype",
+							"compare_to": 6,
+							"comparison": "=="
+						}
+					]
+				},
+				"if_action": {
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.fox.aggro",
+					"volume": 0.65,
+					"pitch": 1.3,
+					"category": "players"
+				},
+				"else_action": {
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.fox.aggro",
+					"volume": 0.65,
+					"pitch": 1.0,
+					"category": "players"
+				}
 			}
 		},
 		"condition": {
@@ -480,9 +691,44 @@
 		"type": "origins:self_action_when_hit",
 		"cooldown": 0,
 		"entity_action": {
-			"type": "origins:play_sound",
-			"sound": "minecraft:entity.fox.death",
-			"volume": 0.7
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 2,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 3,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 6,
+						"comparison": "=="
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.death",
+				"volume": 0.9,
+				"pitch": 1.3,
+				"category": "players"
+			},
+			"else_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.death",
+				"volume": 0.9,
+				"pitch": 1.0,
+				"category": "players"
+			}
 		},
 		"condition": {
 			"type": "origins:and",
@@ -658,8 +904,44 @@
 												"operation": "set"
 											},
 											{
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.fox.eat"
+												"type": "origins:if_else",
+												"condition": {
+													"type": "origins:or",
+													"conditions": [
+														{
+															"type": "origins:scoreboard",
+															"objective": "foxtype",
+															"compare_to": 2,
+															"comparison": "=="
+														},
+														{
+															"type": "origins:scoreboard",
+															"objective": "foxtype",
+															"compare_to": 3,
+															"comparison": "=="
+														},
+														{
+															"type": "origins:scoreboard",
+															"objective": "foxtype",
+															"compare_to": 6,
+															"comparison": "=="
+														}
+													]
+												},
+												"if_action": {
+													"type": "origins:play_sound",
+													"sound": "minecraft:entity.fox.eat",
+													"volume": 0.65,
+													"pitch": 1.3,
+													"category": "players"
+												},
+												"else_action": {
+													"type": "origins:play_sound",
+													"sound": "minecraft:entity.fox.eat",
+													"volume": 0.65,
+													"pitch": 1.0,
+													"category": "players"
+												}
 											},
 											{
 												"type": "origins:feed",
@@ -958,10 +1240,44 @@
 													"comparison": "=="
 												},
 												"if_action": {
-													"type": "origins:play_sound",
-													"sound": "minecraft:entity.cat.purr",
-													"volume": 0.7,
-													"pitch": 1.2
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:or",
+														"conditions": [
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 2,
+																"comparison": "=="
+															},
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 3,
+																"comparison": "=="
+															},
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 6,
+																"comparison": "=="
+															}
+														]
+													},
+													"if_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.cat.purr",
+														"volume": 0.7,
+														"pitch": 1.3,
+														"category": "players"
+													},
+													"else_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.cat.purr",
+														"volume": 0.7,
+														"pitch": 1.0,
+														"category": "players"
+													}
 												}
 											},
 											{
@@ -1295,8 +1611,44 @@
 													"comparison": "=="
 												},
 												"if_action": {
-													"type": "origins:play_sound",
-													"sound": "minecraft:entity.fox.ambient"
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:or",
+														"conditions": [
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 2,
+																"comparison": "=="
+															},
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 3,
+																"comparison": "=="
+															},
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 6,
+																"comparison": "=="
+															}
+														]
+													},
+													"if_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.fox.ambient",
+														"pitch": 1.3,
+														"volume": 1.0,
+														"category": "players"
+													},
+													"else_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.fox.ambient",
+														"pitch": 1.0,
+														"volume": 1.0,
+														"category": "players"
+													}
 												}
 											},
 											{
