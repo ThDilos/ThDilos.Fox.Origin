@@ -229,10 +229,19 @@
 					}
 				},
 				{
-					"type": "origins:play_sound",
-					"sound": "minecraft:entity.fox.sniff",
-					"volume": 1.0,
-					"pitch": 1.0
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:fox/thsound_dash_sniff",
+						"compare_to": 1,
+						"comparison": "=="
+					},
+					"if_action": {
+						"type": "origins:play_sound",
+						"sound": "minecraft:entity.fox.sniff",
+						"volume": 1.0,
+						"pitch": 1.0
+					}
 				},
 				{
 					"type": "origins:exhaust",
