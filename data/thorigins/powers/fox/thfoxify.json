@@ -587,6 +587,36 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_afk_timer",
+								"compare_to": 0,
+								"comparison": "=="
+							},
+							{
+								"type": "origins:command",
+								"command": "/execute if entity @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,distance=..0.2,limit=1]",
+								"compare_to": 1,
+								"comparison": "=="
+							},
+							{
+								"type": "origins:command",
+								"command": "/power has @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] thorigins:fox/thsleepin_fox",
+								"compare_to": 0,
+								"comparison": "=="
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "/power grant @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] thorigins:fox/thsleepin_fox thorigins:universal"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
 						"type": "origins:command",
 						"command": "/data get entity @s SleepTimer",
 						"compare_to": 0,
