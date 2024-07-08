@@ -115,6 +115,8 @@
 				{
 					"type": "origins:block_collision",
 					"offset_y": -2,
+					"offset_x": 0,
+					"offset_z": 0,
 					"block_condition": {
 						"type": "origins:movement_blocking"
 					}
