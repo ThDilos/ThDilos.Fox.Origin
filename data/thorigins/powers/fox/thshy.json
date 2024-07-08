@@ -9,7 +9,17 @@
 		{
 			"type": "origins:keybind",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": "thshy.info"
+			"text": [
+				{
+					"translate": "thshy.info_0"
+				},
+				{
+					"translate": "thfoxify.info_1"
+				},
+				{
+					"translate": "thshy.info_1"
+				}
+			]
 		}
 	],
 

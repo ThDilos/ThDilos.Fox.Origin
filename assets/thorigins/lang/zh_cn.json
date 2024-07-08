@@ -46,7 +46,8 @@
 
 	"power.thorigins.fox/thshy.name": "§c§n胆小",
 	"power.thorigins.fox/thshy.description": "胆小的天性让你惧怕天敌、惧怕死亡、惧怕人群、惧怕极其危险的生物，给你带来诸多不便。不过，大部分恐惧都能想办法克服。",
-	"thshy.info": "[§c-§r]以下情况获得虚弱和速度效果:\n1. 接近北极熊/狼/村民/循声守卫/凋零/末影龙\n2. 打雷\n3. 低生命值\n4. 处于另外两个维度\n5. 接近Human/Enderian/Blazeborn/Shulk起源玩家\n\n大部分恐惧都能被克服",
+	"thshy.info_0": "[§c-§r]以下情况获得虚弱和速度效果:\n1. 接近北极熊/狼/村民/循声守卫/凋零/末影龙\n2. 打雷\n3. 低生命值\n4. 处于另外两个维度\n5. 接近Human/Enderian/Blazeborn/Shulk起源玩家\n\n大部分恐惧都能被克服",
+	"thshy.info_1": ">将不再惧怕一只驯化的狼",
 	"thorigins.wolf_certified_0": "§a好狗狗证书颁发成功",
 	"thorigins.wolf_certified_1": "§a同意了来自[狼]的好友申请",
 	"thorigins.wolf_certified_2": "§a你与这只天敌达成了共识",

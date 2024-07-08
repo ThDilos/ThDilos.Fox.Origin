@@ -46,7 +46,8 @@
 
 	"power.thorigins.fox/thshy.name": "§c§nTimidity",
 	"power.thorigins.fox/thshy.description": "Survival instincts make you fear predators, death, crowds, and danger, but there are ways to conquer the fears.",
-	"thshy.info": "[§c-§r] Get Weakness + Speed effects when:\n1. Near polar bear / wolf / villager / warden / wither / ender dragon\n2. Spawn of lightning\n3. Low health\n4. In the other 2 dimensions\n5. Near Human/Enderian/Blazeborn/Shulk Origin Player\n\nThere are ways to conquer most of these fears",
+	"thshy.info_0": "[§c-§r] Get Weakness + Speed effects when:\n1. Near polar bear / wolf / villager / warden / wither / ender dragon\n2. Spawn of lightning\n3. Low health\n4. In the other 2 dimensions\n5. Near Human/Enderian/Blazeborn/Shulk Origin Player\n\nThere are ways to conquer most of these fears\n\n",
+	"thshy.info_1": "> against a tamed wolf to not fear them",
 	"thorigins.wolf_certified_0": "§aGood boy certification successful",
 	"thorigins.wolf_certified_1": "§aFriend request from Wolf accepted",
 	"thorigins.wolf_certified_2": "§aYou made truce with this predator",
