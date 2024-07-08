@@ -396,51 +396,6 @@
 		}
 	},
 
-	"check_wolf_tame": {
-		"type": "origins:action_on_entity_use",
-		"bientity_condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:target_condition",
-					"condition": {
-						"type": "origins:entity_type",
-						"entity_type": "minecraft:wolf"
-					}
-				},
-				{
-					"type": "origins:target_condition",
-					"condition": {
-						"type": "origins:tamed",
-						"inverted": true
-					}
-				},
-				{
-					"type": "origins:target_condition",
-					"condition": {
-						"type": "origins:command",
-						"command": "/data get entity @s AngerTime",
-						"compare_to": 0,
-						"comparison": "=="
-					}
-				}
-			]
-		},
-		"item_condition": {
-			"type": "origins:ingredient",
-			"ingredient": {
-				"item": "minecraft:bone"
-			}
-		},
-		"bientity_action": {
-			"type": "origins:target_action",
-			"action": {
-				"type": "origins:execute_command",
-				"command": "/power grant @s thorigins:fox/wolf_collar thorigins:universal"
-			}
-		}
-	},
-
 	"bloodtrail": {
 		"type": "origins:action_over_time",
 		"condition": {
