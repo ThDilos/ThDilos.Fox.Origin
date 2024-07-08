@@ -7,7 +7,7 @@
 			"text": "origin.thorigin.passive"
 		},
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
 			"text": [
 				{
