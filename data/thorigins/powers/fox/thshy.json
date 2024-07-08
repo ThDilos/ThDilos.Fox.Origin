@@ -17,6 +17,9 @@
 					"translate": "thfoxify.info_1"
 				},
 				{
+					"keybind": "key.use"
+				},
+				{
 					"translate": "thshy.info_1"
 				}
 			]
