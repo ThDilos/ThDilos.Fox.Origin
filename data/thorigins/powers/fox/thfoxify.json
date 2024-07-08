@@ -590,12 +590,6 @@
 						"type": "origins:and",
 						"conditions": [
 							{
-								"type": "origins:resource",
-								"resource": "*:*_afk_timer",
-								"compare_to": 0,
-								"comparison": "=="
-							},
-							{
 								"type": "origins:command",
 								"command": "/execute if entity @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,distance=..0.2,limit=1]",
 								"compare_to": 1,
