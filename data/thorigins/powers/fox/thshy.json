@@ -449,5 +449,123 @@
 			"type": "origins:execute_command",
 			"command": "/particle dust_color_transition 1 0 0 1.5 0.15 0 0 ~ ~ ~ 0 0 0 0 1 force"
 		}
+	},
+
+	"wolf_certification": {
+		"type": "origins:action_on_entity_use",
+		"item_condition": {
+			"type": "origins:empty"
+		},
+		"bientity_condition": {
+			"type": "origins:target_condition",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:wolf"
+					},
+					{
+						"type": "origins:tamed"
+					},
+					{
+						"type": "origins:nbt",
+						"nbt": "{\"Tags\":[\"foxie_tamed\"]}",
+						"inverted": true
+					},
+					{
+						"type": "origins:command",
+						"command": "/execute if data entity @s AngryAt",
+						"compare_to": 0,
+						"comparison": "=="
+					}
+				]
+			}
+		},
+		"bientity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:actor_action",
+					"action": {
+						"type": "origins:choice",
+						"actions": [
+							{
+								"weight": 1,
+								"element": {
+									"type": "origins:execute_command",
+									"command": "/title @s actionbar {\"translate\":\"thorigins.wolf_certified_0\"}"
+								}
+							},
+							{
+								"weight": 1,
+								"element": {
+									"type": "origins:execute_command",
+									"command": "/title @s actionbar {\"translate\":\"thorigins.wolf_certified_1\"}"
+								}
+							},
+							{
+								"weight": 1,
+								"element": {
+									"type": "origins:execute_command",
+									"command": "/title @s actionbar {\"translate\":\"thorigins.wolf_certified_2\"}"
+								}
+							},
+							{
+								"weight": 1,
+								"element": {
+									"type": "origins:execute_command",
+									"command": "/title @s actionbar {\"translate\":\"thorigins.wolf_certified_3\"}"
+								}
+							},
+							{
+								"weight": 1,
+								"element": {
+									"type": "origins:execute_command",
+									"command": "/title @s actionbar {\"translate\":\"thorigins.wolf_certified_4\"}"
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:target_action",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/tag @s add foxie_tamed"
+							},
+							{
+								"type": "origins:play_sound",
+								"sound": "minecraft:entity.wolf.whine",
+								"volume": 0.7,
+								"pitch": 1.3,
+								"category": "master"
+							}
+						]
+					}
+				}
+			]
+		}
+	},
+
+	"bad_wolf": {
+		"type": "origins:action_when_hit",
+		"bientity_condition": {
+			"type": "origins:target_condition",
+			"condition": {
+				"type": "origins:nbt",
+				"nbt": "{\"Tags\":[\"foxie_tamed\"]}"
+			}
+		},
+		"bientity_action": {
+			"type": "origins:actor_action",
+			"action": {
+				"type": "origins:execute_command",
+				"command": "/tag @s remove foxie_tamed"
+			}
+		}
 	}
 }

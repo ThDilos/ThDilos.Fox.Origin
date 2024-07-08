@@ -47,6 +47,11 @@
 	"power.thorigins.fox/thshy.name": "§c§nTimidity",
 	"power.thorigins.fox/thshy.description": "Survival instincts make you fear predators, death, crowds, and danger, but there are ways to conquer the fears.",
 	"thshy.info": "[§c-§r] Get Weakness + Speed effects when:\n1. Near polar bear / wolf / villager / warden / wither / ender dragon\n2. Spawn of lightning\n3. Low health\n4. In the other 2 dimensions\n5. Near Human/Enderian/Blazeborn/Shulk Origin Player\n\nThere are ways to conquer most of these fears",
+	"thorigins.wolf_certified_0": "§aGood boy certification successful",
+	"thorigins.wolf_certified_1": "§aFriend request from Wolf accepted",
+	"thorigins.wolf_certified_2": "§aYou made truce with this predator",
+	"thorigins.wolf_certified_3": "§aNew Wolf registered as professional good boy",
+	"thorigins.wolf_certified_4": "§aHand shake protocol complete",
 
 	"power.thorigins.fox/thfood.name": "§e§nUnique Taste",
 	"power.thorigins.fox/thfood.description": "Your food preferences are heavily influenced by your nature.",
@@ -86,19 +91,10 @@
 
 	"power.thorigins.wakeup.item": "You Found Something When You Were Asleep!",
 
-	"power.thorigins.fox.aggro.booper": "You are not authorised to boop the fox >:3",
-	"power.thorigins.fox.aggro.1": "Hiss-ed ",
-	"power.thorigins.fox.aggro.booped_2": " for unauthorised booping attempt",
-
-	"power.thorigins.fox.aggro.pet": "You are not authorised to pet the fox >:3",
-	"power.thorigins.fox.aggro.petted_2": " for unauthorised petting attempt >:3",
 	"power.thorigins.fox.petted": "You've being petted by ",
-
 	"power.thorigins.fox.feeder": "You granted the fox with berries as a little treat :3",
 	"power.thorigins.fox.feed": "You are fed by ",
 	"power.thorigins.fox.feed2": ", and receive a positive effect!",
-	"power.thorigins.fox.aggro.feeder": "Your food has been rejected by the fox >:3",
-	"power.thorigins.fox.aggro.feed": " for unauthorised feeding attempt >:3",
 
 	"message.chosen1": "Thank you for choosing this origin!",
 	"message.chosen1.5": "To view the details of all the powers \nof this origin: ",

@@ -47,6 +47,11 @@
 	"power.thorigins.fox/thshy.name": "§c§n胆小",
 	"power.thorigins.fox/thshy.description": "胆小的天性让你惧怕天敌、惧怕死亡、惧怕人群、惧怕极其危险的生物，给你带来诸多不便。不过，大部分恐惧都能想办法克服。",
 	"thshy.info": "[§c-§r]以下情况获得虚弱和速度效果:\n1. 接近北极熊/狼/村民/循声守卫/凋零/末影龙\n2. 打雷\n3. 低生命值\n4. 处于另外两个维度\n5. 接近Human/Enderian/Blazeborn/Shulk起源玩家\n\n大部分恐惧都能被克服",
+	"thorigins.wolf_certified_0": "§a好狗狗证书颁发成功",
+	"thorigins.wolf_certified_1": "§a同意了来自[狼]的好友申请",
+	"thorigins.wolf_certified_2": "§a你与这只天敌达成了共识",
+	"thorigins.wolf_certified_3": "§a狼注册成为了职业好狗狗",
+	"thorigins.wolf_certified_4": "§a握手协议已达成",
 
 	"power.thorigins.fox/thfood.name": "§e§n独特胃口",
 	"power.thorigins.fox/thfood.description": "狐狸对某些食物的偏好被刻入了你的DNA。",
@@ -86,19 +91,10 @@
 
 	"power.thorigins.wakeup.item": "你在睡梦中找到了个小玩意儿!",
 
-	"power.thorigins.fox.aggro.booper": "你没有Boop这只狐狸的犬线 >:3",
-	"power.thorigins.fox.aggro.1": "对",
-	"power.thorigins.fox.aggro.booped_2": "的非法Boop尝试表达了严重不满 >:3",
-
-	"power.thorigins.fox.aggro.pet": "你没有Pet这只狐狸的权限 >:3",
-	"power.thorigins.fox.aggro.petted_2": "的未授权Pet尝试发出了警告 >:3",
 	"power.thorigins.fox.petted": "你被摸头了，是",
-
 	"power.thorigins.fox.feeder": "你给了狐狸一点小零食 :3",
 	"power.thorigins.fox.feed": "你被投喂了，是",
 	"power.thorigins.fox.feed2": "，并且获得了一个随机正面效果！",
-	"power.thorigins.fox.aggro.feeder": "你的投喂被这只狐狸拒绝了>:3",
-	"power.thorigins.fox.aggro.feed": "的非法投喂尝试表达了抗议 >:3",
 
 	"message.chosen1": "欢迎使用狐狸起源",
 	"message.chosen1.5": "如果想知道所有技能的详情，按这里：",
