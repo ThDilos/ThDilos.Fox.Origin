@@ -1,9 +1,5 @@
 {
-    "origins": [
-        "thorigins:fox"
-    ],
-    "enabled": true,
-    "missing_name": "MISSING NAME",
-    "missing_description": "MISSING DESCRIPTION",
-    "allow_random": true
+	"origins": ["thorigins:fox"],
+	"enabled": true,
+	"allow_random": true
 }
