@@ -1,9 +1,9 @@
 {
 	"powers": [
 		"thorigins:fox/thdash",
+		"thorigins:fox/thhunt",
 		"thorigins:fox/thstorage",
 		"thorigins:fox/thfoxify",
-		"thorigins:fox/thhunt",
 		"thorigins:fox/thswift",
 		"thorigins:fox/thfoxiality",
 		"thorigins:fox/thfluffy",
@@ -13,7 +13,8 @@
 		"thorigins:fox/thshy",
 		"thorigins:fox/thweak",
 		"thorigins:fox/thsound",
-		"thorigins:fox/loadin"
+		"thorigins:fox/loadin",
+		"thorigins:fox/ticks"
 	],
 	"icon": "minecraft:sweet_berries",
 	"impact": 3
