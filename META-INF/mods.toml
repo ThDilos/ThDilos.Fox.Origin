@@ -8,7 +8,7 @@ ThDilos' Custom Made Fox Origins. Slightly overpowered.
 
 [[mods]]
 modId="thorigins"
-version="3.8.9"
+version="4.0.0"
 displayName="ThDilos Fox Origins"
 
 [[dependencies.thorigins]]
@@ -21,7 +21,7 @@ side="BOTH"
 [[dependencies.thorigins]]
 modId="minecraft"
 mandatory=true
-versionRange="[1.19.4,)"
+versionRange="[1.19.4,1.20.4]"
 ordering="NONE"
 side="BOTH"
 
