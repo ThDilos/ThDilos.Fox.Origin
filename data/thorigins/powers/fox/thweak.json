@@ -20,37 +20,88 @@
 			"ingredient": {
 				"item": "shield"
 			}
-		}
-	},
-
-	"disable_heavy_armor": {
-		"type": "origins:conditioned_restrict_armor",
-		"tick_rate": 1,
-		"head": {
-			"type": "origins:armor_value",
-			"comparison": ">",
-			"compare_to": 2
-		},
-		"chest": {
-			"type": "origins:armor_value",
-			"comparison": ">",
-			"compare_to": 6
-		},
-		"legs": {
-			"type": "origins:armor_value",
-			"comparison": ">",
-			"compare_to": 5
-		},
-		"feet": {
-			"type": "origins:armor_value",
-			"comparison": ">",
-			"compare_to": 2
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "*:fox/thtrackers_disable_armor_restriction",
-			"compare_to": 0,
+			"resource": "*:fox/universal_settings_shield_restriction",
+			"compare_to": 1,
 			"comparison": "=="
+		}
+	},
+
+	"heavy_armor": {
+		"type": "origins:stacking_status_effect",
+		"duration_per_stack": 15,
+		"min_stacks": -1,
+		"max_stacks": 1,
+		"tick_rate": 10,
+		"effects": [
+			{
+				"effect": "minecraft:slowness",
+				"amplifier": 1,
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true
+			},
+			{
+				"effect": "minecraft:weakness",
+				"amplifier": 0,
+				"is_ambient": true,
+				"show_icon": true,
+				"show_particles": false
+			}
+		],
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:fox/universal_settings_heavy_armor_restriction",
+					"compare_to": 1,
+					"comparison": "=="
+				},
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:equipped_item",
+							"equipment_slot": "head",
+							"item_condition": {
+								"type": "origins:armor_value",
+								"comparison": ">",
+								"compare_to": 2
+							}
+						},
+						{
+							"type": "origins:equipped_item",
+							"equipment_slot": "chest",
+							"item_condition": {
+								"type": "origins:armor_value",
+								"comparison": ">",
+								"compare_to": 6
+							}
+						},
+						{
+							"type": "origins:equipped_item",
+							"equipment_slot": "legs",
+							"item_condition": {
+								"type": "origins:armor_value",
+								"comparison": ">",
+								"compare_to": 5
+							}
+						},
+						{
+							"type": "origins:equipped_item",
+							"equipment_slot": "feet",
+							"item_condition": {
+								"type": "origins:armor_value",
+								"comparison": ">",
+								"compare_to": 2
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 
@@ -72,6 +123,12 @@
 					"type": "origins:air",
 					"compare_to": 0,
 					"comparison": ">"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:fox/universal_settings_oxygen_restriction",
+					"compare_to": 1,
+					"comparison": "=="
 				}
 			]
 		}

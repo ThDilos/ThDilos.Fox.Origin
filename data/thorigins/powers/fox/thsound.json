@@ -1,236 +1,6 @@
 {
 	"type": "origins:multiple",
 	"hidden": true,
-	"badges": [
-		{
-			"type": "origins:keybind",
-			"sprite": "minecraft:textures/item/barrier.png",
-			"text": "origin.thorigin.passive"
-		}
-	],
-
-	"dash_sniff": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"dash_ambient": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"dash_bite": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"dash_eat": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"dash_screech": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"dash_sleep": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"dash_zbwd": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"dash_etu": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"fluffy_shake": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"hunt_eat": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"hunt_zbwd": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"sound_sleep": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"sound_wake_ambient": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"sound_eat": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"sound_hurt": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"sound_death": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"sound_dislike_aggro": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"sound_interaction_ambient": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"sound_interaction_aggro": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"sound_interaction_purr": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"sound_bonk": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 1,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"test_for_sleeping": {
-		"type": "origins:action_over_time",
-		"interval": 1,
-		"condition": {
-			"type": "origins:nbt",
-			"nbt": "{SleepTimer:1s}"
-		},
-		"entity_action": {
-			"type": "origins:execute_command",
-			"command": "/tag @s add sleepyfox"
-		}
-	},
 
 	"sleeping_sound": {
 		"type": "origins:action_over_time",
@@ -315,12 +85,6 @@
 							]
 						},
 						{
-							"type": "origins:resource",
-							"resource": "*:*_sound_sleep",
-							"compare_to": 1,
-							"comparison": "=="
-						},
-						{
 							"type": "origins:nbt",
 							"nbt": "{ \"Tags\": [\"sleepyfox\"] }"
 						}
@@ -329,19 +93,6 @@
 			]
 		},
 		"interval": 180
-	},
-
-	"stop_sleeping_sound": {
-		"type": "origins:action_over_time",
-		"interval": 1,
-		"entity_action": {
-			"type": "origins:execute_command",
-			"command": "/tag @s remove sleepyfox"
-		},
-		"condition": {
-			"type": "origins:nbt",
-			"nbt": "{SleepTimer:0s}"
-		}
 	},
 
 	"wakeup_sound": {
@@ -385,16 +136,10 @@
 				"pitch": 1.0,
 				"category": "players"
 			}
-		},
-		"condition": {
-			"type": "origins:resource",
-			"resource": "*:*_sound_wake_ambient",
-			"compare_to": 1,
-			"comparison": "=="
 		}
 	},
 
-	"eatingsound": {
+	"eating_sound": {
 		"type": "origins:action_on_item_use",
 		"entity_action": {
 			"type": "origins:if_else",
@@ -438,16 +183,10 @@
 		},
 		"item_condition": {
 			"type": "origins:food"
-		},
-		"condition": {
-			"type": "origins:resource",
-			"resource": "*:*_sound_eat",
-			"compare_to": 1,
-			"comparison": "=="
 		}
 	},
 
-	"eatingcakesound": {
+	"eating_cake_sound": {
 		"type": "origins:action_on_block_use",
 		"block_condition": {
 			"type": "origins:block",
@@ -492,16 +231,10 @@
 				"pitch": 1.0,
 				"category": "players"
 			}
-		},
-		"condition": {
-			"type": "origins:resource",
-			"resource": "*:*_sound_eat",
-			"compare_to": 1,
-			"comparison": "=="
 		}
 	},
 
-	"hurtsound": {
+	"hurt_sound": {
 		"type": "origins:action_when_damage_taken",
 		"entity_action": {
 			"type": "origins:if_else",
@@ -547,12 +280,6 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:resource",
-					"resource": "*:*_sound_hurt",
-					"compare_to": 1,
-					"comparison": "=="
-				},
-				{
 					"type": "origins:health",
 					"comparison": ">",
 					"compare_to": 0
@@ -577,7 +304,7 @@
 		"cooldown": 0
 	},
 
-	"eatdislikefoodsound": {
+	"eat_dislike_food_sound": {
 		"type": "origins:modify_food",
 		"item_condition": {
 			"type": "origins:ingredient",
@@ -681,13 +408,13 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "*:*_sound_dislike_aggro",
+			"resource": "*:fox/universal_settings_food_nerfs",
 			"compare_to": 1,
 			"comparison": "=="
 		}
 	},
 
-	"deathsound": {
+	"death_sound": {
 		"type": "origins:self_action_when_hit",
 		"cooldown": 0,
 		"entity_action": {
@@ -731,19 +458,8 @@
 			}
 		},
 		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "*:*_sound_death",
-					"compare_to": 1,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:nbt",
-					"nbt": "{Health:0.0f}"
-				}
-			]
+			"type": "origins:nbt",
+			"nbt": "{Health:0.0f}"
 		}
 	},
 
@@ -821,7 +537,7 @@
 												"conditions": [
 													{
 														"type": "origins:command",
-														"command": "/execute if entity @s[tag=foxietrust]",
+														"command": "/execute if entity @s[tag=foxie_trust]",
 														"compare_to": 0,
 														"comparison": "=="
 													},
@@ -830,7 +546,7 @@
 														"conditions": [
 															{
 																"type": "origins:nbt",
-																"nbt": "{\"Tags\": [\"foxiefear\"]}"
+																"nbt": "{\"Tags\": [\"foxie_fear\"]}"
 															},
 															{
 																"type": "origins:origin",
@@ -858,7 +574,7 @@
 											},
 											"if_action": {
 												"type": "origins:execute_command",
-												"command": "/tag @s add foxietrust"
+												"command": "/tag @s add foxie_trust"
 											}
 										},
 										{
@@ -882,10 +598,8 @@
 									"type": "origins:and",
 									"actions": [
 										{
-											"type": "origins:change_resource",
-											"resource": "*:*_interaction_cooldown",
-											"change": 60,
-											"operation": "set"
+											"type": "origins:trigger_cooldown",
+											"power": "*:*_interaction_cooldown"
 										},
 										{
 											"type": "origins:if_else",
@@ -1131,50 +845,41 @@
 										{
 											"type": "origins:if_else",
 											"condition": {
-												"type": "origins:resource",
-												"resource": "*:*_sound_interaction_purr",
-												"compare_to": 1,
-												"comparison": "=="
+												"type": "origins:or",
+												"conditions": [
+													{
+														"type": "origins:scoreboard",
+														"objective": "foxtype",
+														"compare_to": 2,
+														"comparison": "=="
+													},
+													{
+														"type": "origins:scoreboard",
+														"objective": "foxtype",
+														"compare_to": 3,
+														"comparison": "=="
+													},
+													{
+														"type": "origins:scoreboard",
+														"objective": "foxtype",
+														"compare_to": 6,
+														"comparison": "=="
+													}
+												]
 											},
 											"if_action": {
-												"type": "origins:if_else",
-												"condition": {
-													"type": "origins:or",
-													"conditions": [
-														{
-															"type": "origins:scoreboard",
-															"objective": "foxtype",
-															"compare_to": 2,
-															"comparison": "=="
-														},
-														{
-															"type": "origins:scoreboard",
-															"objective": "foxtype",
-															"compare_to": 3,
-															"comparison": "=="
-														},
-														{
-															"type": "origins:scoreboard",
-															"objective": "foxtype",
-															"compare_to": 6,
-															"comparison": "=="
-														}
-													]
-												},
-												"if_action": {
-													"type": "origins:play_sound",
-													"sound": "minecraft:entity.cat.purr",
-													"volume": 0.7,
-													"pitch": 1.3,
-													"category": "players"
-												},
-												"else_action": {
-													"type": "origins:play_sound",
-													"sound": "minecraft:entity.cat.purr",
-													"volume": 0.7,
-													"pitch": 1.0,
-													"category": "players"
-												}
+												"type": "origins:play_sound",
+												"sound": "minecraft:entity.cat.purr",
+												"volume": 0.7,
+												"pitch": 1.3,
+												"category": "players"
+											},
+											"else_action": {
+												"type": "origins:play_sound",
+												"sound": "minecraft:entity.cat.purr",
+												"volume": 0.7,
+												"pitch": 1.0,
+												"category": "players"
 											}
 										},
 										{
@@ -1182,10 +887,8 @@
 											"command": "/tag @s add petted"
 										},
 										{
-											"type": "origins:change_resource",
-											"resource": "*:*_interaction_cooldown",
-											"change": 60,
-											"operation": "set"
+											"type": "origins:trigger_cooldown",
+											"power": "*:*_interaction_cooldown"
 										},
 										{
 											"type": "origins:if_else",
@@ -1199,21 +902,6 @@
 												"type": "origins:change_resource",
 												"resource": "*:fox/thfoxify_afk_timer",
 												"change": -600
-											},
-											"else_action": {
-												"type": "origins:if_else",
-												"condition": {
-													"type": "origins:resource",
-													"resource": "*:fox/thfoxify_afk_timer",
-													"compare_to": 3,
-													"comparison": ">"
-												},
-												"if_action": {
-													"type": "origins:change_resource",
-													"resource": "*:fox/thfoxify_afk_timer",
-													"change": 3,
-													"operation": "set"
-												}
 											}
 										},
 										{
@@ -1271,7 +959,7 @@
 												"conditions": [
 													{
 														"type": "origins:command",
-														"command": "/execute if entity @s[tag=foxietrust]",
+														"command": "/execute if entity @s[tag=foxie_trust]",
 														"compare_to": 0,
 														"comparison": "=="
 													},
@@ -1280,7 +968,7 @@
 														"conditions": [
 															{
 																"type": "origins:nbt",
-																"nbt": "{\"Tags\": [\"foxiefear\"]}"
+																"nbt": "{\"Tags\": [\"foxie_fear\"]}"
 															},
 															{
 																"type": "origins:origin",
@@ -1308,7 +996,7 @@
 											},
 											"if_action": {
 												"type": "origins:execute_command",
-												"command": "/tag @s add foxietrust"
+												"command": "/tag @s add foxie_trust"
 											}
 										}
 									]
@@ -1360,7 +1048,7 @@
 												"conditions": [
 													{
 														"type": "origins:command",
-														"command": "/execute if entity @s[tag=foxietrust]",
+														"command": "/execute if entity @s[tag=foxie_trust]",
 														"compare_to": 0,
 														"comparison": "=="
 													},
@@ -1369,7 +1057,7 @@
 														"conditions": [
 															{
 																"type": "origins:nbt",
-																"nbt": "{\"Tags\": [\"foxiefear\"]}"
+																"nbt": "{\"Tags\": [\"foxie_fear\"]}"
 															},
 															{
 																"type": "origins:origin",
@@ -1397,7 +1085,7 @@
 											},
 											"if_action": {
 												"type": "origins:execute_command",
-												"command": "/tag @s add foxietrust"
+												"command": "/tag @s add foxie_trust"
 											}
 										},
 										{
@@ -1415,57 +1103,46 @@
 										{
 											"type": "origins:if_else",
 											"condition": {
-												"type": "origins:resource",
-												"resource": "*:*_sound_interaction_ambient",
-												"compare_to": 1,
-												"comparison": "=="
+												"type": "origins:or",
+												"conditions": [
+													{
+														"type": "origins:scoreboard",
+														"objective": "foxtype",
+														"compare_to": 2,
+														"comparison": "=="
+													},
+													{
+														"type": "origins:scoreboard",
+														"objective": "foxtype",
+														"compare_to": 3,
+														"comparison": "=="
+													},
+													{
+														"type": "origins:scoreboard",
+														"objective": "foxtype",
+														"compare_to": 6,
+														"comparison": "=="
+													}
+												]
 											},
 											"if_action": {
-												"type": "origins:if_else",
-												"condition": {
-													"type": "origins:or",
-													"conditions": [
-														{
-															"type": "origins:scoreboard",
-															"objective": "foxtype",
-															"compare_to": 2,
-															"comparison": "=="
-														},
-														{
-															"type": "origins:scoreboard",
-															"objective": "foxtype",
-															"compare_to": 3,
-															"comparison": "=="
-														},
-														{
-															"type": "origins:scoreboard",
-															"objective": "foxtype",
-															"compare_to": 6,
-															"comparison": "=="
-														}
-													]
-												},
-												"if_action": {
-													"type": "origins:play_sound",
-													"sound": "minecraft:entity.fox.ambient",
-													"pitch": 1.3,
-													"volume": 1.0,
-													"category": "players"
-												},
-												"else_action": {
-													"type": "origins:play_sound",
-													"sound": "minecraft:entity.fox.ambient",
-													"pitch": 1.0,
-													"volume": 1.0,
-													"category": "players"
-												}
+												"type": "origins:play_sound",
+												"sound": "minecraft:entity.fox.ambient",
+												"pitch": 1.3,
+												"volume": 1.0,
+												"category": "players"
+											},
+											"else_action": {
+												"type": "origins:play_sound",
+												"sound": "minecraft:entity.fox.ambient",
+												"pitch": 1.0,
+												"volume": 1.0,
+												"category": "players"
 											}
 										},
 										{
-											"type": "origins:change_resource",
-											"resource": "*:*_interaction_cooldown",
-											"change": 60,
-											"operation": "set"
+											"type": "origins:trigger_cooldown",
+											"power": "*:*_interaction_cooldown"
 										},
 										{
 											"type": "origins:execute_command",
@@ -1503,10 +1180,8 @@
 						"change": 1
 					},
 					{
-						"type": "origins:change_resource",
-						"resource": "*:*_bonk_reset",
-						"change": 31,
-						"operation": "set"
+						"type": "origins:trigger_cooldown",
+						"power": "*:*_bonk_reset"
 					},
 					{
 						"type": "origins:if_else_list",
@@ -1852,78 +1527,23 @@
 			}
 		},
 		"bientity_condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:actor_condition",
-					"condition": {
-						"type": "origins:equipped_item",
-						"equipment_slot": "mainhand",
-						"item_condition": {
-							"type": "origins:ingredient",
-							"ingredient": {
-								"item": "stick"
-							}
-						}
-					}
-				},
-				{
-					"type": "origins:target_condition",
-					"condition": {
-						"type": "origins:resource",
-						"resource": "*:*_sound_bonk",
-						"compare_to": 1,
-						"comparison": "=="
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "stick"
 					}
 				}
-			]
-		}
-	},
-
-	"auto_decrement": {
-		"type": "origins:action_over_time",
-		"interval": 1,
-		"entity_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:change_resource",
-					"resource": "*:*_bonk_reset",
-					"change": -1
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:*_interaction_cooldown",
-					"change": -1
-				}
-			]
+			}
 		}
 	},
 
 	"bonk_reset": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 31,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
-	"bonk_resetter": {
-		"type": "origins:action_over_time",
-		"interval": 1,
-		"entity_action": {
-			"type": "origins:change_resource",
-			"resource": "*:*_bonk_counter",
-			"change": -4,
-			"operation": "set"
-		},
-		"condition": {
-			"type": "origins:resource",
-			"resource": "*:*_bonk_reset",
-			"compare_to": 1,
-			"comparison": "=="
-		}
+		"type": "origins:cooldown",
+		"cooldown": 31
 	},
 
 	"bonk_counter": {
@@ -1942,12 +1562,8 @@
 	},
 
 	"interaction_cooldown": {
-		"type": "origins:resource",
-		"hud_render": {
-			"should_render": false
-		},
-		"max": 60,
-		"min": 0
+		"type": "origins:cooldown",
+		"cooldown": 60
 	},
 
 	"no_longer_trust": {
@@ -1961,7 +1577,7 @@
 			"type": "origins:actor_action",
 			"action": {
 				"type": "origins:execute_command",
-				"command": "/tag @s[tag=foxietrust] remove foxietrust"
+				"command": "/tag @s[tag=foxie_trust] remove foxie_trust"
 			}
 		}
 	}

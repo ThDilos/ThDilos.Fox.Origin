@@ -2,6 +2,15 @@
 	"type": "origins:multiple",
 	"hidden": true,
 
+	"reset_exit_for_forge": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:change_resource",
+			"resource": "*:*_exit",
+			"change": -1
+		}
+	},
+
 	"fall_dmg_ignore": {
 		"type": "origins:invulnerability",
 		"damage_condition": {
@@ -34,6 +43,32 @@
 			"type": "origins:and",
 			"actions": [
 				{
+					"type": "origins:change_resource",
+					"resource": "*:*_exit",
+					"change": 1
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_exit",
+						"change": -1
+					}
+				}
+			]
+		}
+	},
+
+	"exit": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
 					"type": "origins:execute_command",
 					"command": "/data merge entity @s {NoAI:0b}"
 				},
@@ -43,31 +78,27 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/scale divide pehkui:hitbox_height 0.1 @e[tag=hatting,type=fox,limit=1,sort=nearest]"
+					"command": "/scale divide pehkui:hitbox_height 0.1 @s"
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/scale divide pehkui:hitbox_width 0.7 @e[tag=hatting,type=fox,limit=1,sort=nearest]"
+					"command": "/scale divide pehkui:hitbox_width 0.7 @s"
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/scale divide pehkui:model_height 0.7 @e[tag=hatting,type=fox,limit=1,sort=nearest]"
+					"command": "/scale divide pehkui:model_height 0.7 @s"
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/scale divide pehkui:model_width 0.7 @e[tag=hatting,type=fox,limit=1,sort=nearest]"
+					"command": "/scale divide pehkui:model_width 0.7 @s"
 				},
 				{
 					"type": "origins:execute_command",
 					"command": "/tag @s remove hatting"
 				},
 				{
-					"type": "origins:delay",
-					"ticks": 1,
-					"action": {
-						"type": "origins:execute_command",
-						"command": "/power clear @s"
-					}
+					"type": "origins:execute_command",
+					"command": "/power remove @s thorigins:fox/thhat"
 				}
 			]
 		}

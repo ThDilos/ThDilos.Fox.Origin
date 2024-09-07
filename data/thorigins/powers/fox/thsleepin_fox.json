@@ -2,6 +2,26 @@
 	"type": "origins:multiple",
 	"hidden": true,
 
+	"invis_timer": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 50,
+		"start_value": 50,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"shake_timer": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 3,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
 	"synchronized_shake": {
 		"type": "origins:shaking",
 		"condition": {
@@ -29,16 +49,6 @@
 					"change": -1
 				}
 			]
-		}
-	},
-
-	"shake_timer": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 3,
-		"start_value": 0,
-		"hud_render": {
-			"should_render": false
 		}
 	},
 
@@ -289,16 +299,6 @@
 		}
 	},
 
-	"invis_timer": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 50,
-		"start_value": 50,
-		"hud_render": {
-			"should_render": false
-		}
-	},
-
 	"anger_reset": {
 		"type": "origins:action_on_callback",
 		"entity_action_added": {
@@ -359,23 +359,64 @@
 		}
 	},
 
-	"self_destruct": {
+	"ticks": {
 		"type": "origins:action_over_time",
 		"interval": 1,
 		"entity_action": {
 			"type": "origins:and",
 			"actions": [
 				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:riding",
+								"inverted": true
+							},
+							{
+								"type": "origins:passenger",
+								"compare_to": 0,
+								"comparison": ">"
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:passenger_action",
+						"action": {
+							"type": "origins:dismount"
+						}
+					}
+				},
+				{
 					"type": "origins:execute_command",
-					"command": "/execute unless entity @p[tag=foxie,limit=1,sort=nearest,distance=..0.2] run tag @s add disposed"
+					"command": "/execute unless entity @p[tag=foxie,limit=1,sort=nearest,distance=..2] run tag @s add disposed"
 				},
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:command",
-						"command": "/resource get @p[tag=foxie,limit=1,sort=nearest,distance=..0.2] thorigins:fox/thfoxify_afk_timer",
-						"compare_to": 1,
-						"comparison": ">"
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:riding"
+									},
+									{
+										"type": "origins:passenger",
+										"compare_to": 0,
+										"comparison": "=="
+									}
+								]
+							},
+							{
+								"type": "origins:command",
+								"command": "/resource get @p[tag=foxie,limit=1,sort=nearest,distance=..2] thorigins:fox/thfoxify_afk_timer",
+								"compare_to": 0,
+								"comparison": ">"
+							}
+						]
 					},
 					"if_action": {
 						"type": "origins:execute_command",
@@ -386,7 +427,7 @@
 					"type": "origins:if_else",
 					"condition": {
 						"type": "origins:command",
-						"command": "/execute if entity @s[tag=disposed,tag=sleepin,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},type=fox]",
+						"command": "/execute if entity @s[tag=disposed,tag=sleepin,nbt={NoAI:1b,NoGravity:1b},type=fox]",
 						"compare_to": 1,
 						"comparison": "=="
 					},
@@ -394,15 +435,73 @@
 						"type": "origins:and",
 						"actions": [
 							{
-								"type": "origins:execute_command",
-								"command": "/tp @s[tag=disposed,tag=sleepin,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},type=fox] ~ ~500 ~"
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:riding"
+								},
+								"if_action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:riding_action",
+											"action": {
+												"type": "origins:execute_command",
+												"command": "/tag @s add to_be_ridden"
+											}
+										},
+										{
+											"type": "origins:passenger_action",
+											"action": {
+												"type": "origins:area_of_effect",
+												"radius": 3,
+												"bientity_condition": {
+													"type": "origins:target_condition",
+													"condition": {
+														"type": "origins:nbt",
+														"nbt": "{\"Tags\":[\"to_be_ridden\"]}"
+													}
+												},
+												"bientity_action": {
+													"type": "origins:mount"
+												}
+											}
+										},
+										{
+											"type": "origins:riding_action",
+											"action": {
+												"type": "origins:execute_command",
+												"command": "/tag @s remove to_be_ridden"
+											}
+										},
+										{
+											"type": "origins:dismount"
+										}
+									]
+								}
 							},
 							{
-								"type": "origins:delay",
-								"ticks": 5,
-								"action": {
-									"type": "origins:execute_command",
-									"command": "/kill @s[tag=disposed,tag=sleepin,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},type=fox]"
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:passenger",
+									"compare_to": 0,
+									"comparison": "=="
+								},
+								"if_action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:execute_command",
+											"command": "/tp @s[tag=disposed,tag=sleepin,nbt={NoAI:1b,NoGravity:1b},type=fox] ~ ~500 ~"
+										},
+										{
+											"type": "origins:delay",
+											"ticks": 5,
+											"action": {
+												"type": "origins:execute_command",
+												"command": "/kill @s[tag=disposed,tag=sleepin,nbt={NoAI:1b,NoGravity:1b},type=fox]"
+											}
+										}
+									]
 								}
 							}
 						]

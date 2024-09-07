@@ -12,8 +12,8 @@
 			"text": "thsmol.info"
 		}
 	],
-	
-	"adjustsize": {
+
+	"adjust_size": {
 		"type": "origins:action_on_callback",
 		"entity_action_gained": {
 			"type": "origins:delay",
@@ -27,44 +27,13 @@
 					"comparison": "=="
 				},
 				"if_action": {
-					"type": "origins:and",
-					"actions": [
-						{
-							"type": "origins:change_resource",
-							"resource": "*:fox/thtrackers_scale_modified",
-							"change": 1,
-							"operation": "set"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/scale persist set true @s"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/scale multiply pehkui:width 0.7 @s"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/scale multiply pehkui:height 0.7 @s"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/scale multiply pehkui:drops 0.7 @s"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/scale multiply pehkui:visibility 0.8 @s"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/scale easing set pehkui:height pehkui:exponential_out @s"
-						}
-					]
+					"type": "origins:change_resource",
+					"resource": "*:fox/thtrackers_scale_modified",
+					"change": 1
 				}
 			}
 		}
 	},
-
 	"max_health": {
 		"type": "origins:attribute",
 		"modifier": {

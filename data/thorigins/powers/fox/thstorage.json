@@ -1,8 +1,26 @@
 {
-    "type": "origins:inventory",
-    "container_type": "hopper",
-    "drop_on_death": false,
-    "recoverable": true,
-    "key": "key.origins.secondary_active",
-    "title": "thorigins.fox.container.inventory"
+	"type": "origins:inventory",
+	"container_type": "hopper",
+	"drop_on_death": false,
+	"recoverable": true,
+	"key": "key.origins.secondary_active",
+	"title": "thorigins.fox.container.inventory",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/active.png",
+			"text": [
+				{
+					"translate": "thorigins.press"
+				},
+				{
+					"keybind": "key.origins.secondary_active",
+					"color": "aqua"
+				},
+				{
+					"translate": "thorigins.thstorage.key"
+				}
+			]
+		}
+	]
 }

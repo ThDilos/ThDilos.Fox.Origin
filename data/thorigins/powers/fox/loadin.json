@@ -2,10 +2,123 @@
 	"type": "origins:multiple",
 	"hidden": true,
 
-	"__ticks__": {
-		"type": "origins:action_over_time",
-		"interval": 1,
-		"entity_action": {
+	"__init__": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/origin set @s thorigins:origin thorigins:default_fox"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:power",
+						"power": "thorigins:fox/thtrackers",
+						"source": "thorigins:universal",
+						"inverted": true
+					},
+					"if_action": {
+						"type": "origins:grant_power",
+						"power": "thorigins:fox/thtrackers",
+						"source": "thorigins:universal"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:power",
+						"power": "thorigins:fox/universal_settings",
+						"source": "thorigins:universal",
+						"inverted": true
+					},
+					"if_action": {
+						"type": "origins:grant_power",
+						"power": "thorigins:fox/universal_settings",
+						"source": "thorigins:universal"
+					}
+				}
+			]
+		},
+		"entity_action_chosen": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:power_active",
+							"power": "*:fox/thtrackers_welcome_msg",
+							"inverted": true
+						},
+						"if_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:execute_command",
+									"command": "/tellraw @s [{\"text\":\"\\n================================\\n\",\"color\":\"gold\"},{\"translate\":\"message.chosen1\",\"color\":\"green\"},{\"text\":\"\\n\"},{\"translate\":\"message.chosen2\",\"color\":\"aqua\"},{\"text\":\"[Wiki]\",\"underlined\":\"true\",\"color\":\"yellow\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://github.com/ThDilos/ThDilos.Fox.Origin/wiki\"}},{\"text\":\"\\n================================\",\"color\":\"gold\"}]"
+								},
+								{
+									"type": "origins:toggle",
+									"power": "*:fox/thtrackers_welcome_msg"
+								}
+							]
+						}
+					}
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:fox/thfluffy_timer",
+					"change": -30
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:fox/thfluffy_timer2",
+					"change": -30
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:fox/thdash_dash0",
+					"change": -30
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:fox/thdash_dash1",
+					"change": -30
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "*:fox/thhunt_prepare_stage"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:fox/thhunt_hunt_stage",
+					"change": -100
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "*:fox/thfoxify_afk_timer"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @s add foxie"
+				},
+				{
+					"type": "origins:grant_power",
+					"power": "thorigins:fox/thtrackers",
+					"source": "thorigins:universal"
+				},
+				{
+					"type": "origins:grant_power",
+					"power": "*:fox/universal_settings",
+					"source": "thorigins:universal"
+				}
+			]
+		},
+		"entity_action_respawned": {
 			"type": "origins:and",
 			"actions": [
 				{
@@ -23,178 +136,18 @@
 					}
 				},
 				{
-					"type": "origins:execute_command",
-					"command": "/scoreboard objectives add foxtype trigger \"FoxType\""
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scoreboard players enable @s foxtype"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scoreboard players set @s[scores={foxtype=4}] foxtype 0"
-				}
-			]
-		}
-	},
-
-	"__init__": {
-		"type": "origins:action_on_callback",
-		"entity_action_added": {
-			"type": "origins:execute_command",
-			"command": "/origin set @s thorigins:origin thorigins:default_fox"
-		},
-		"entity_action_chosen": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:delay",
-					"ticks": 1,
-					"action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:resource",
-							"resource": "*:fox/thtrackers_welcome_msg",
-							"compare_to": 0,
-							"comparison": "=="
-						},
-						"if_action": {
-							"type": "origins:and",
-							"actions": [
-								{
-									"type": "origins:execute_command",
-									"command": "/tellraw @s [{\"text\":\"\\n================================\\n\",\"color\":\"gold\"},{\"translate\":\"message.chosen1\",\"color\":\"aqua\"},{\"text\":\"\\n\"},{\"translate\":\"message.chosen1.5\",\"color\":\"aqua\"},{\"text\":\"[Wiki]\",\"underlined\":\"true\",\"color\":\"yellow\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://github.com/ThDilos/Realistic-Fox-Origin/wiki\"}},{\"text\":\"\\n\"},{\"translate\":\"message.chosen2\",\"color\":\"red\"},{\"text\":\"\\n\"},{\"text\":\"[/function thorigins:fox_setting]\",\"color\":\"yellow\",\"underlined\":\"true\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/function thorigins:fox_setting\"}},{\"text\":\"\\n\"},{\"translate\":\"message.chosen3\",\"bold\":\"true\",\"color\":\"white\"},{\"text\":\"\\n================================\\n\",\"color\":\"gold\"}]"
-								},
-								{
-									"type": "origins:change_resource",
-									"resource": "*:fox/thtrackers_welcome_msg",
-									"change": 1,
-									"operation": "add"
-								}
-							]
-						}
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:power",
+						"power": "thorigins:fox/universal_settings",
+						"source": "thorigins:universal",
+						"inverted": true
+					},
+					"if_action": {
+						"type": "origins:grant_power",
+						"power": "thorigins:fox/universal_settings",
+						"source": "thorigins:universal"
 					}
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thfluffy_timer",
-					"change": 30,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thfluffy_timer2",
-					"change": 30,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thdash_dashmain",
-					"change": 30,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thdash_dash2",
-					"change": 30,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thdash_rotation_status",
-					"change": 3,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thhunt_timer",
-					"change": 50,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thhunt_timer2",
-					"change": 100,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thshy_shakingtimer",
-					"change": 160,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thfoxify_afk_timer",
-					"change": 0,
-					"operation": "set"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/tag @s add foxie"
-				}
-			]
-		}
-	},
-
-	"fix_startup": {
-		"type": "origins:action_on_callback",
-		"entity_action_chosen": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thfluffy_timer",
-					"change": 0,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thfluffy_timer2",
-					"change": 0,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thdash_dashmain",
-					"change": 30,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thdash_dash2",
-					"change": 30,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thdash_rotation_status",
-					"change": 3,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thhunt_timer",
-					"change": 50,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thhunt_timer2",
-					"change": 0,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thshy_shakingtimer",
-					"change": 0,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thfoxify_afk_timer",
-					"change": 1200,
-					"operation": "set"
 				}
 			]
 		}
@@ -219,7 +172,7 @@
 							},
 							{
 								"type": "origins:command",
-								"command": "/execute if entity @e[type=fox,nbt={Sleeping:1b,NoAI:1b},tag=sleepin,distance=..0.2,limit=1]",
+								"command": "/execute if entity @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..0.2,limit=1]",
 								"compare_to": 1,
 								"comparison": "=="
 							},
@@ -228,7 +181,7 @@
 								"conditions": [
 									{
 										"type": "origins:resource",
-										"resource": "*:fox/thshy_shakingtimer",
+										"resource": "*:fox/thshy_fear_timer",
 										"comparison": ">",
 										"compare_to": 0
 									},
@@ -272,7 +225,7 @@
 					},
 					"if_action": {
 						"type": "origins:execute_command",
-						"command": "/resource set @e[type=fox,nbt={Sleeping:1b,NoAI:1b},tag=sleepin,distance=..0.2,limit=1] thorigins:fox/thsleepin_fox_shake_timer 3"
+						"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1] thorigins:fox/thsleepin_fox_shake_timer 3"
 					}
 				},
 				{
@@ -287,12 +240,12 @@
 						"type": "origins:if_else",
 						"condition": {
 							"type": "origins:power_active",
-							"power": "*:fox/thhunt_le_switch",
+							"power": "*:fox/thhunt_switch",
 							"inverted": true
 						},
 						"if_action": {
 							"type": "origins:execute_command",
-							"command": "/resource set @e[type=fox,nbt={Sleeping:1b,NoAI:1b},tag=sleepin,distance=..0.2,limit=1] thorigins:fox/thsleepin_fox_invis_timer 50"
+							"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1] thorigins:fox/thsleepin_fox_invis_timer 50"
 						}
 					}
 				}

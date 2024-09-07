@@ -18,33 +18,8 @@
 		"bientity_condition": {
 			"type": "origins:target_condition",
 			"condition": {
-				"type": "origins:or",
-				"conditions": [
-					{
-						"type": "origins:entity_type",
-						"entity_type": "rabbit"
-					},
-					{
-						"type": "origins:entity_type",
-						"entity_type": "chicken"
-					},
-					{
-						"type": "origins:entity_type",
-						"entity_type": "cod"
-					},
-					{
-						"type": "origins:entity_type",
-						"entity_type": "salmon"
-					},
-					{
-						"type": "origins:entity_type",
-						"entity_type": "tropical_fish"
-					},
-					{
-						"type": "origins:entity_type",
-						"entity_type": "turtle"
-					}
-				]
+				"type": "origins:in_tag",
+				"tag": "thorigins:prey"
 			}
 		},
 		"modifier": {
@@ -53,132 +28,38 @@
 		}
 	},
 
-	"mob_neutralities": {
-		"type": "origins:action_over_time",
-		"interval": 1,
-		"entity_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:resource",
-								"resource": "*:fox/thhunt_timer",
-								"compare_to": 25,
-								"comparison": "<=",
-								"inverted": true
-							},
-							{
-								"type": "origins:gamemode",
-								"gamemode": "survival"
-							}
-						]
+	"predator_effective": {
+		"type": "origins:modify_damage_taken",
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:wolf"
 					},
-					"if_action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:resource",
-							"resource": "*:fox/thfoxify_afk_timer",
-							"compare_to": 1,
-							"comparison": ">"
-						},
-						"if_action": {
-							"type": "origins:and",
-							"actions": [
-								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
-								},
-								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-								}
-							]
-						}
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:polar_bear"
 					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:resource",
-								"resource": "*:fox/thhunt_timer",
-								"compare_to": 25,
-								"comparison": "<=",
-								"inverted": true
-							},
-							{
-								"type": "origins:gamemode",
-								"gamemode": "survival"
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:resource",
-							"resource": "*:fox/thfoxify_afk_timer",
-							"compare_to": 1,
-							"comparison": ">"
-						},
-						"if_action": {
-							"type": "origins:and",
-							"actions": [
-								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
-								},
-								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-								}
-							]
-						}
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:command",
-								"command": "/power has @e[type=minecraft:fox,distance=..15,tag=!sleepin,tag=!foxie_trust,tag=!hatting] thorigins:fox/thfoxie_trust",
-								"compare_to": 0,
-								"comparison": "=="
-							},
-							{
-								"type": "origins:command",
-								"command": "/execute if entity @e[type=minecraft:fox,distance=..15,tag=!sleepin,tag=!foxie_trust]",
-								"compare_to": 0,
-								"comparison": ">"
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:execute_command",
-						"command": "/execute as @e[tag=!sleepin,tag=!foxie_trust,tag=!hatting,type=minecraft:fox,distance=..15] run power grant @s thorigins:fox/thfoxie_trust thorigins:universal"
-					}
-				}
-			]
+				]
+			}
+		},
+		"modifier": {
+			"value": 1,
+			"operation": "multiply_total"
 		}
 	},
 
-	"nightvision": {
+	"passive_nightvision": {
 		"type": "origins:toggle_night_vision",
 		"active_by_default": true,
 		"strength": 0.5,
-		"key": {
-			"key": "nuh.uh"
-		}
+		"key": "nuh.uh"
 	},
 
-	"giveitemwhenwakeup": {
+	"wake_up_surprise": {
 		"type": "origins:action_on_wake_up",
 		"entity_action": {
 			"type": "origins:and",
@@ -266,130 +147,7 @@
 		}
 	},
 
-	"get_fox_item": {
-		"type": "origins:action_on_entity_use",
-		"bientity_action": {
-			"type": "origins:if_else",
-			"condition": {
-				"type": "origins:actor_condition",
-				"condition": {
-					"type": "origins:sneaking"
-				}
-			},
-			"if_action": {
-				"type": "origins:if_else",
-				"condition": {
-					"type": "origins:target_condition",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:command",
-								"command": "/data get entity @s NoAI",
-								"compare_to": 0,
-								"comparison": "=="
-							}
-						]
-					}
-				},
-				"if_action": {
-					"type": "origins:and",
-					"actions": [
-						{
-							"type": "origins:target_action",
-							"action": {
-								"type": "origins:grant_power",
-								"power": "thorigins:fox/thforce_sit",
-								"source": "thorigins:universal"
-							}
-						},
-						{
-							"type": "origins:target_action",
-							"action": {
-								"type": "origins:execute_command",
-								"command": "/data merge entity @s {Sitting:1b,NoAI:1b}"
-							}
-						}
-					]
-				},
-				"else_action": {
-					"type": "origins:and",
-					"actions": [
-						{
-							"type": "origins:target_action",
-							"action": {
-								"type": "origins:execute_command",
-								"command": "/data merge entity @s {Sitting:0b,NoAI:0b}"
-							}
-						},
-						{
-							"type": "origins:target_action",
-							"action": {
-								"type": "origins:revoke_power",
-								"power": "thorigins:fox/thforce_sit",
-								"source": "thorigins:universal"
-							}
-						}
-					]
-				}
-			},
-			"else_action": {
-				"type": "origins:if_else",
-				"condition": {
-					"type": "origins:target_condition",
-					"condition": {
-						"type": "origins:equipped_item",
-						"equipment_slot": "mainhand",
-						"item_condition": {
-							"type": "origins:empty",
-							"inverted": true
-						}
-					}
-				},
-				"if_action": {
-					"type": "origins:target_action",
-					"action": {
-						"type": "origins:drop_inventory",
-						"slot": "weapon.mainhand",
-						"inventory_type": "inventory"
-					}
-				}
-			}
-		},
-		"hands": ["main_hand"],
-		"item_condition": {
-			"type": "origins:empty"
-		},
-		"bientity_condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:target_condition",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:entity_type",
-								"entity_type": "minecraft:fox"
-							},
-							{
-								"type": "origins:power",
-								"power": "thorigins:fox/thsleepin_fox",
-								"inverted": true
-							},
-							{
-								"type": "origins:power",
-								"power": "thorigins:fox/thhat",
-								"inverted": true
-							}
-						]
-					}
-				}
-			]
-		}
-	},
-
-	"sleepundershade": {
+	"sleep_under_shade": {
 		"type": "origins:prevent_sleep",
 		"block_condition": {
 			"type": "origins:exposed_to_sky"
@@ -429,13 +187,13 @@
 			"conditions": [
 				{
 					"type": "origins:resource",
-					"resource": "*:fox/thhunt_timer",
-					"compare_to": 48,
+					"resource": "*:fox/thhunt_prepare_stage",
+					"compare_to": 98,
 					"comparison": "<"
 				},
 				{
 					"type": "origins:resource",
-					"resource": "*:fox/thhunt_timer2",
+					"resource": "*:fox/thhunt_hunt_stage",
 					"compare_to": 0,
 					"comparison": ">"
 				}
