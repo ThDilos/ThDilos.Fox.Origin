@@ -1,5 +1,7 @@
 {
 	"type": "origins:multiple",
+	"name": "power.thorigins.fox.thswift.name",
+	"description": "power.thorigins.fox.thswift.description",
 	"badges": [
 		{
 			"type": "origins:keybind",

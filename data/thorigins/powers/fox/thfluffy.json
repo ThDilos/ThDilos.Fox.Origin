@@ -1,5 +1,7 @@
 {
 	"type": "origins:multiple",
+	"name": "power.thorigins.fox.thfluffy.name",
+	"description": "power.thorigins.fox.thfluffy.description",
 	"badges": [
 		{
 			"type": "origins:keybind",

@@ -1,5 +1,7 @@
 {
 	"type": "origins:multiple",
+	"name": "power.thorigins.fox.thsound.name",
+	"description": "power.thorigins.fox.thdash.description",
 	"hidden": true,
 
 	"sleeping_sound": {
@@ -665,7 +667,7 @@
 												"actions": [
 													{
 														"type": "origins:execute_command",
-														"command": "/tellraw @s {\"text\":\"power.thorigins.fox.feed\",\"extra\":[{\"translate\":\"\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=feeder]\",\"color\":\"aqua\"},{\"translate\":\"power.thorigins.fox.feed2\",\"color\":\"light_purple\"}]}"
+														"command": "/tellraw @s {\"text\":\"power.thorigins.fox.thfeed\",\"extra\":[{\"translate\":\"\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=feeder]\",\"color\":\"aqua\"},{\"translate\":\"power.thorigins.fox.thfeed2\",\"color\":\"light_purple\"}]}"
 													},
 													{
 														"type": "origins:choice",
@@ -806,7 +808,7 @@
 											},
 											"fail_action": {
 												"type": "origins:execute_command",
-												"command": "/tellraw @s {\"text\":\"power.thorigins.fox.feed\",\"extra\":[{\"translate\":\"\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=feeder]\",\"color\":\"aqua\"}]}"
+												"command": "/tellraw @s {\"text\":\"power.thorigins.fox.thfeed\",\"extra\":[{\"translate\":\"\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=feeder]\",\"color\":\"aqua\"}]}"
 											}
 										}
 									]
@@ -909,7 +911,7 @@
 											"ticks": 1,
 											"action": {
 												"type": "origins:execute_command",
-												"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"power.thorigins.fox.petted\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=pet]\",\"color\":\"aqua\"}]}"
+												"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"power.thorigins.fox.thpetted\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=pet]\",\"color\":\"aqua\"}]}"
 											}
 										},
 										{

@@ -1,5 +1,7 @@
 {
 	"type": "origins:multiple",
+	"name": "power.thorigins.fox.thdash.name",
+	"description": "power.thorigins.fox.thdash.description",
 	"badges": [
 		{
 			"type": "origins:tooltip",

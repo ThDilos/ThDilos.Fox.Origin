@@ -1,5 +1,7 @@
 {
 	"type": "origins:multiple",
+	"name": "power.thorigins.fox.thfood.name",
+	"description": "power.thorigins.fox.thfood.description",
 	"badges": [
 		{
 			"type": "origins:keybind",
