@@ -99,8 +99,9 @@
 					"change": -100
 				},
 				{
-					"type": "origins:trigger_cooldown",
-					"power": "*:fox/thfoxify_afk_timer"
+					"type": "origins:change_resource",
+					"resource": "*:fox/thfoxify_afk_timer",
+					"change": 1200
 				},
 				{
 					"type": "origins:execute_command",
