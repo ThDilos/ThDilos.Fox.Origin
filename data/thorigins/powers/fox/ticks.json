@@ -23,90 +23,87 @@
 			{
 				"type": "origins:if_else",
 				"condition": {
-					"type": "origins:resource",
-					"resource": "*:fox/thdash_coyote_grace",
-					"compare_to": 0,
-					"comparison": "=="
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:resource",
+							"resource": "*:fox/thdash_coyote_grace",
+							"compare_to": 0,
+							"comparison": "=="
+						},
+						{
+							"type": "origins:or",
+							"conditions": [
+								{
+									"type": "origins:on_block"
+								},
+								{
+									"type": "origins:in_block_anywhere",
+									"compare_to": 0,
+									"comparison": ">",
+									"block_condition": {
+										"type": "origins:or",
+										"inverted": true,
+										"conditions": [
+											{
+												"type": "origins:block",
+												"block": "air"
+											},
+											{
+												"type": "origins:movement_blocking",
+												"inverted": true
+											}
+										]
+									}
+								},
+								{
+									"type": "origins:climbing"
+								},
+								{
+									"type": "origins:fluid_height",
+									"fluid": "minecraft:water",
+									"compare_to": 0,
+									"comparison": ">"
+								},
+								{
+									"type": "origins:fluid_height",
+									"fluid": "minecraft:lava",
+									"compare_to": 0,
+									"comparison": ">"
+								}
+							]
+						}
+					]
 				},
 				"if_action": {
 					"type": "origins:and",
 					"actions": [
 						{
-							"type": "origins:if_else",
-							"condition": {
-								"type": "origins:or",
-								"conditions": [
-									{
-										"type": "origins:on_block"
-									},
-									{
-										"type": "origins:in_block_anywhere",
-										"compare_to": 0,
-										"comparison": ">",
-										"block_condition": {
-											"type": "origins:or",
-											"inverted": true,
-											"conditions": [
-												{
-													"type": "origins:block",
-													"block": "air"
-												},
-												{
-													"type": "origins:movement_blocking",
-													"inverted": true
-												}
-											]
-										}
-									},
-									{
-										"type": "origins:climbing"
-									},
-									{
-										"type": "origins:fluid_height",
-										"fluid": "minecraft:water",
-										"compare_to": 0,
-										"comparison": ">"
-									},
-									{
-										"type": "origins:fluid_height",
-										"fluid": "minecraft:lava",
-										"compare_to": 0,
-										"comparison": ">"
-									}
-								]
-							},
-							"if_action": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:change_resource",
-										"resource": "*:fox/thdash_left_ground",
-										"change": 0,
-										"operation": "set"
-									},
-									{
-										"type": "apoli:change_resource",
-										"resource": "*:fox/thdash_falling",
-										"change": 0,
-										"operation": "set"
-									},
-									{
-										"type": "origins:execute_command",
-										"command": "/scale reset pehkui:reach @s"
-									},
-									{
-										"type": "origins:change_resource",
-										"resource": "*:fox/thdash_max_jump_count",
-										"change": 2
-									},
-									{
-										"type": "origins:change_resource",
-										"resource": "*:fox/thdash_magnetoreception_direction",
-										"change": 0,
-										"operation": "set"
-									}
-								]
-							}
+							"type": "origins:change_resource",
+							"resource": "*:fox/thdash_left_ground",
+							"change": 0,
+							"operation": "set"
+						},
+						{
+							"type": "apoli:change_resource",
+							"resource": "*:fox/thdash_falling",
+							"change": 0,
+							"operation": "set"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/scale reset pehkui:reach @s"
+						},
+						{
+							"type": "origins:change_resource",
+							"resource": "*:fox/thdash_max_jump_count",
+							"change": 2
+						},
+						{
+							"type": "origins:change_resource",
+							"resource": "*:fox/thdash_magnetoreception_direction",
+							"change": 0,
+							"operation": "set"
 						}
 					]
 				}
@@ -438,30 +435,27 @@
 						{
 							"type": "origins:gamemode",
 							"gamemode": "survival"
+						},
+						{
+							"type": "origins:resource",
+							"resource": "*:fox/thfoxify_afk_timer",
+							"compare_to": 1,
+							"comparison": ">"
 						}
 					]
 				},
 				"if_action": {
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:resource",
-						"resource": "*:fox/thfoxify_afk_timer",
-						"compare_to": 1,
-						"comparison": ">"
-					},
-					"if_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:execute_command",
-								"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-							}
-						]
-					}
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:execute_command",
+							"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+						}
+					]
 				}
 			},
 			{
@@ -2061,30 +2055,21 @@
 					"comparison": "=="
 				},
 				"if_action": {
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:resource",
-						"resource": "*:fox/thfoxify_ride_status",
-						"compare_to": 1,
-						"comparison": "=="
-					},
-					"if_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:execute_command",
-								"command": "/execute at @e[tag=hatting,type=fox,limit=1,sort=nearest,distance=..1.5,nbt={Sleeping:0b,Sitting:1b}] run tp @e[tag=mounted,type=armor_stand,limit=1,sort=nearest,distance=..1.5] ~ ~ ~ facing ^ ^ ^1"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/tp @e[tag=hatting,type=fox,limit=1,sort=nearest,distance=..2,nbt={Sleeping:1b}] ~ ~ ~ facing ^0.01 ^ ^-1"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/tp @e[tag=hatting,type=fox,limit=1,sort=nearest,distance=..2,nbt={Sleeping:0b,Sitting:1b}] ~ ~ ~ facing ^ ^ ^1"
-							}
-						]
-					}
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:execute_command",
+							"command": "/execute at @e[tag=hatting,type=fox,limit=1,sort=nearest,distance=..1.5,nbt={Sleeping:0b,Sitting:1b}] run tp @e[tag=mounted,type=armor_stand,limit=1,sort=nearest,distance=..1.5] ~ ~ ~ facing ^ ^ ^1"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/tp @e[tag=hatting,type=fox,limit=1,sort=nearest,distance=..2,nbt={Sleeping:1b}] ~ ~ ~ facing ^0.01 ^ ^-1"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/tp @e[tag=hatting,type=fox,limit=1,sort=nearest,distance=..2,nbt={Sleeping:0b,Sitting:1b}] ~ ~ ~ facing ^ ^ ^1"
+						}
+					]
 				},
 				"else_action": {
 					"type": "origins:passenger_action",
