@@ -167,7 +167,7 @@
 			"conditions": [
 				{
 					"type": "origins:resource",
-					"resource": "*:fox/thshy_fear",
+					"resource": "*:fox/thshy_fear_timer",
 					"compare_to": 0,
 					"comparison": ">"
 				},
