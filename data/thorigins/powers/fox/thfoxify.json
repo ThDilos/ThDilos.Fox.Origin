@@ -559,7 +559,7 @@
 			"conditions": [
 				{
 					"type": "origins:distance",
-					"compare_to": 0.2,
+					"compare_to": 1,
 					"comparison": "<="
 				},
 				{
