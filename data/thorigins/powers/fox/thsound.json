@@ -1,7 +1,7 @@
 {
 	"type": "origins:multiple",
 	"name": "power.thorigins.fox.thsound.name",
-	"description": "power.thorigins.fox.thdash.description",
+	"description": "power.thorigins.fox.thsound.description",
 	"hidden": true,
 
 	"sleeping_sound": {
