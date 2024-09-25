@@ -36,6 +36,7 @@
 			}
 		}
 	},
+
 	"max_health": {
 		"type": "origins:attribute",
 		"modifier": {
@@ -44,5 +45,23 @@
 			"value": -4
 		},
 		"update_health": true
+	},
+
+	"thtrackers_keepalive": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:power",
+				"power": "thorigins:fox/thtrackers",
+				"inverted": true
+			},
+			"if_action": {
+				"type": "origins:grant_power",
+				"power": "thorigins:fox/thtrackers",
+				"source": "thorigins:universal"
+			}
+		}
 	}
 }
