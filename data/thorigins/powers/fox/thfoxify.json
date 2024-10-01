@@ -1751,7 +1751,10 @@
 							"comparison": ">"
 						},
 						{
-							"type": "origins:riding"
+							"type": "origins:resource",
+							"resource": "*:*_afk_timer",
+							"compare_to": 0,
+							"comparison": "=="
 						}
 					]
 				}
