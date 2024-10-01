@@ -17,7 +17,7 @@
 
 	"ticks": {
 		"type": "origins:action_over_time",
-		"interval": 1,
+		"interval": 2,
 		"entity_action": {
 			"type": "origins:and",
 			"actions": [
@@ -27,10 +27,20 @@
 						"type": "origins:and",
 						"conditions": [
 							{
-								"type": "origins:resource",
-								"resource": "*:fox/thhunt_prepare_stage",
-								"compare_to": 25,
-								"comparison": ">"
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thhunt_prepare_stage",
+										"compare_to": 25,
+										"comparison": ">"
+									},
+									{
+										"type": "origins:power",
+										"power": "*:fox/thhunt",
+										"inverted": true
+									}
+								]
 							},
 							{
 								"type": "origins:gamemode",
@@ -51,17 +61,27 @@
 								"type": "origins:execute_command",
 								"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
 							},
-							{
-								"type": "origins:execute_command",
-								"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-							},
+
 							{
 								"type": "origins:execute_command",
 								"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
 							},
 							{
-								"type": "origins:execute_command",
-								"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+								"type": "origins:delay",
+								"ticks": 1,
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:execute_command",
+											"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+										}
+									]
+								}
 							}
 						]
 					}
