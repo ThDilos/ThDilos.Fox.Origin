@@ -70,8 +70,21 @@
 						"type": "origins:and",
 						"conditions": [
 							{
-								"type": "origins:power",
-								"power": "*:fox/thswift"
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:command",
+										"command": "/origin has @s origins:origin thorigins:element_fox",
+										"compare_to": 0,
+										"comparison": "!="
+									},
+									{
+										"type": "origins:command",
+										"command": "/origin has @s origins:origin thorigins:fox",
+										"compare_to": 0,
+										"comparison": "!="
+									}
+								]
 							},
 							{
 								"type": "origins:nbt",
@@ -91,9 +104,16 @@
 						"type": "origins:and",
 						"conditions": [
 							{
-								"type": "origins:power",
-								"power": "*:fox/thswift",
-								"inverted": true
+								"type": "origins:command",
+								"command": "/origin has @s origins:origin thorigins:element_fox",
+								"compare_to": 0,
+								"comparison": "=="
+							},
+							{
+								"type": "origins:command",
+								"command": "/origin has @s origins:origin thorigins:fox",
+								"compare_to": 0,
+								"comparison": "=="
 							},
 							{
 								"type": "origins:nbt",
