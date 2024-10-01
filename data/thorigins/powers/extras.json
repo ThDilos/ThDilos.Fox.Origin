@@ -1,0 +1,295 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+
+	"figura": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2,
+		"start_value": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_figura",
+					"change": 1,
+					"operation": "set"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[tag=foxie,distance=..5] run title @s actionbar {\"text\": \"Figura avatar mode ON, your hitbox and eye height is shrink according to the fox avatar\",\"color\":\"aqua\"}"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[tag=foxie,distance=..5] run scale reset @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[tag=foxie,distance=..5] run scale set pehkui:eye_height 0.3 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[tag=foxie,distance=..5] run scale set pehkui:hitbox_height 0.35 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[tag=foxie,distance=..5] run trigger foxtype set 5"
+				}
+			]
+		},
+		"min_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_figura",
+					"change": 1,
+					"operation": "set"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[tag=foxie,distance=..5] run title @s actionbar {\"text\": \"Figura avatar mode OFF, your hitbox and eye height is resetted\",\"color\":\"aqua\"}"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[tag=foxie,distance=..5] run trigger foxtype set 0"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:fox/thtrackers_scale_modified",
+					"change": 2
+				}
+			]
+		}
+	},
+
+    "refresh_settings":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_refresh_settings",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/reload"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/power remove @a[tag=foxie] thorigins:fox/universal_settings"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/power grant @a[tag=foxie] thorigins:fox/universal_settings thorigins:universal"
+                }
+            ]
+        }
+    },
+
+	"0": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_0",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/give @s minecraft:iron_sword{Enchantments:[{id:looting,lvl:10}],AttributeModifiers:[{Operation:1,AttributeName:\"generic.attack_speed\",Amount:0.2,UUID:[I;1383660865,-176667386,-1593722361,-16175263],Name:\"fast\",Slot:\"mainhand\"},{Slot:\"mainhand\",AttributeName:\"generic.attack_damage\",Name:\"nah\",Operation:0,Amount:5,UUID:[I;1383660865,-176667386,-1593722361,-16175263]},{Slot:\"mainhand\",AttributeName:\"generic.movement_speed\",Name:\"Nah\",Operation:1,Amount:1,UUID:[I;1383660865,-176667386,-1593722361,-16175263]},{AttributeName:\"generic.luck\",Name:\"meh\",Slot:\"mainhand\",Operation:1,Amount:1,UUID:[I;1383660865,-176667386,-1593722361,-16175263]}],display:{Name:'[{\"text\":\"Swifty Edge\",\"color\":\"white\",\"italic\":false,\"bold\":true}]',Lore:['[{\"text\":\"\"}]','[{\"text\":\"Item Ability: \",\"color\":\"green\",\"italic\":false,\"bold\":true},{\"text\":\"Sneaky Thief\",\"color\":\"white\",\"italic\":false,\"bold\":true}]','[{\"text\":\"Mobs Drop More When Killed by This Dagger\",\"color\":\"aqua\",\"italic\":false}]','[{\"text\":\"\"}]','[{\"text\":\"“A Short Knife\",\"italic\":true,\"color\":\"gray\"}]','[{\"text\":\"Sacrificed Its Damage For More Flexible and Unpredictable Moves”\",\"italic\":true,\"color\":\"gray\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"COMMON WEAPON\",\"color\":\"white\",\"italic\":false,\"bold\":true}]']},Unbreakable:1}"
+				}
+			]
+		}
+	},
+
+	"1": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_1",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/give @s minecraft:trident{Enchantments:[{id:riptide,lvl:9}],Unbreakable:1,display:{Name:'[{\"text\":\"Empowered\",\"color\":\"green\",\"italic\":false,\"bold\":true},{\"text\":\" Trident\",\"italic\":false,\"bold\":false,\"color\":\"yellow\"}]',Lore:['[{\"text\":\"\"}]','[{\"text\":\"Item Ability: \",\"italic\":false,\"bold\":true,\"color\":\"green\"},{\"text\":\"Aqua Thrust\",\"italic\":false,\"bold\":true,\"color\":\"green\"}]','[{\"text\":\"Hold \",\"italic\":false,\"bold\":false,\"color\":\"aqua\"},{\"text\":\"RIGHT CLICK\",\"italic\":false,\"bold\":true,\"color\":\"yellow\"},{\"text\":\" To Gain A Thrust Towards Where You‘re Facing\",\"Italic\":false,\"bold\":false,\"color\":\"auqa\"}]','[{\"text\":\"You Can Only Use This Ability In The \",\"color\":\"aqua\",\"italic\":false,\"bold\":false},{\"text\":\"Water\",\"italic\":false,\"bold\":true,\"color\":\"blue\"},{\"text\":\" or \",\"italic\":false,\"bold\":false,\"color\":\"aqua\"},{\"text\":\"Rain\",\"italic\":false,\"bold\":true,\"color\":\"blue\"}]','[{\"text\":\"\"}]','[{\"text\":\"“Tripled Riptide, Tripled Happiness”\",\"italic\":true,\"bold\":false,\"color\":\"gray\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"UNCOMMON WEAPON\",\"italic\":false,\"bold\":true,\"color\":\"green\"}]']}}"
+				}
+			]
+		}
+	},
+
+	"2": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_2",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/give @s stick{Enchantments:[{id:knockback,lvl:30}],display:{Name:'[{\"text\":\"Shooting\",\"color\":\"blue\",\"bold\":true},{\"text\":\" Stick\",\"italic\":false,\"color\":\"yellow\",\"bold\":false}]',Lore:['[{\"text\":\"\"}]','[{\"text\":\"Item Ability: \",\"italic\":false,\"bold\":true,\"color\":\"green\"},{\"text\":\"Enermy Disappearal Service\",\"color\":\"blue\",\"italic\":false}]','[{\"text\":\"Left Click\",\"italic\":false,\"bold\":true,\"color\":\"yellow\"},{\"text\":\" To Launch The Mob You Hit\",\"color\":\"aqua\",\"italic\":false,\"bold\":false}]','[{\"text\":\"\"}]','[{\"text\":\"“The Stick of Peace”\",\"color\":\"gray\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"RARE WEAPON\",\"color\":\"blue\",\"bold\":true,\"italic\":false}]']},AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"puss\",Amount:-0.99999,Operation:0.99,Slot:'mainhand',UUID:[I;1383660865,-176667386,-1593722361,-161765263]}]}"
+				}
+			]
+		}
+	},
+
+	"3": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_3",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/give @s minecraft:netherite_hoe{AttributeModifiers:[{Operation:0,Slot:'mainhand',UUID:[I;1383660865,-176667386,-1593722361,-161765263],AttributeName:'generic.attack_damage',Name:'Hurt',Amount:400000000},{Slot:'mainhand',Operation:0,AttributeName:'generic.attack_speed',Name:'fast',Amount:400000000,UUID:[I;1383660865,-176667386,-1593722361,-161765263]},{Slot:'mainhand',Operation:0,AttributeName:'generic.luck',Name:'fortune',Amount:400000000,UUID:[I;1383660865,-176667386,-1593722361,-161765263]},{Slot:'offhand',Operation:0,AttributeName:'generic.knockback_resistance',Name:'Steady',UUID:[I;1383660865,-176667386,-1593722361,-161765263],Amount:40000000},{Slot:'offhand',Operation:0,UUID:[I;1383660865,-176667386,-1593722361,-161765263],AttributeName:'generic.max_health',Name:'HP',Amount:40},{Slot:'offhand',Operation:1,AttributeName:'generic.movement_speed',Name:'swifty',Amount:1,UUID:[I;1383660865,-176667386,-1593722361,-161765263]},{Slot:'offhand',Operation:0,AttributeName:'generic.armor',Name:'tough',Amount:400000000,UUID:[I;1383660865,-176667386,-1593722361,-161765263]},{Slot:'offhand',Operation:0,AttributeName:'generic.armor_toughness',Name:'idk',Amount:400000000,UUID:[I;1383660865,-176667386,-1593722361,-161765263]},{Slot:'offhand',Operation:0,AttributeName:'generic.luck',Name:'fortune',Amount:400000000,UUID:[I;1383660865,-176667386,-1593722361,-161765263]}],Unbreakable:1,display:{Name:'[{\"text\":\"Withered\",\"Italic\":false,\"bold\":true,\"color\":\"red\"},{\"text\":\" Scythe\",\"color\":\"yellow\",\"italic\":false,\"bold\":false}]',Lore:['[{\"text\":\"\"}]','[{\"text\":\"Item Ability: \",\"italic\":false,\"color\":\"green\",\"bold\":true},{\"text\":\"Life Deprivation\",\"color\":\"red\",\"italic\":false,\"bold\":true}]','[{\"text\":\"LEFT CLICK\",\"italic\":false,\"color\":\"yellow\",\"bold\":true},{\"text\":\" To Deal\",\"italic\":false,\"bold\":false,\"color\":\"aqua\"},{\"text\":\" 400 Million\",\"color\":\"red\",\"italic\":false,\"bold\":true},{\"text\":\" Damage\",\"color\":\"aqua\",\"italic\":false,\"bold\":false}]','[{\"text\":\"\"}]','[{\"text\":\"Passive Ability:\",\"color\":\"green\",\"italic\":false,\"bold\":true},{\"text\":\" Undead Blessing\",\"italic\":false,\"bold\":true,\"color\":\"red\"}]','[{\"text\":\"When Held In\",\"color\":\"aqua\",\"italic\":false,\"bold\":false},{\"text\":\" OffHand\",\"color\":\"white\",\"bold\":true,\"italic\":false},{\"text\":\",\",\"color\":\"aqua\",\"italic\":false}]','[{\"text\":\"Increase Your Stats Slightly\",\"italic\":false,\"bold\":false,\"color\":\"aqua\"}]','[{\"text\":\"\"}]','[{\"text\":\"“Any Strategy Is Useless\",\"color\":\"gray\"}]','[{\"text\":\" When You Possess The Absolute Power”\",\"color\":\"gray\"}]','[{\"text\":\"\"}]','[{\"text\":\"                                      --Unknown\",\"italic\":false}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"SUPREME WEAPON\",\"color\":\"red\",\"bold\":true,\"italic\":false}]',]},Enchantments:[{id:looting,lvl:10}]}"
+				}
+			]
+		}
+	},
+
+	"4": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_4",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/give @s minecraft:crossbow{Enchantments:[{id:piercing,lvl:1},{id:quick_charge,lvl:5},{id:multishot,lvl:1}],Unbreakable:1,display:{Name:'[{\"text\":\"Faster \",\"bold\":true,\"color\":\"dark_purple\"},{\"text\":\"Crossbow\",\"italic\":false,\"color\":\"yellow\",\"bold\":false}]',Lore:['[{\"text\":\"\"}]','[{\"text\":\"Item Abililty:\",\"color\":\"green\",\"italic\":false,\"bold\":true},{\"text\":\" Suppressive Fire\",\"color\":\"dark_purple\",\"italic\":false,\"bold\":true}]','[{\"text\":\"Spam\",\"color\":\"aqua\",\"italic\":false},{\"text\":\" RIGHT CLICK \",\"italic\":false,\"color\":\"yellow\",\"bold\":true},{\"text\":\"to Use Machine Gun\",\"color\":\"aqua\"}]','[{\"text\":\"\"}]','[{\"text\":\"“As Fast As You Want...”\",\"color\":\"gray\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"EPIC WEAPON\",\"bold\":true,\"italic\":false}]']}}"
+				}
+			]
+		}
+	},
+
+	"5": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_5",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/give @s minecraft:stone_axe{AttributeModifiers:[{AttributeName:'generic.movement_speed',Name:'Slower',Operation:1,Amount:-0.4,UUID:[I;1383660865,-176667386,-1593722361,-161765263],Slot:'mainhand'},{AttributeName:'generic.attack_damage',Name:'Hurt',Operation:0,Amount:15,Slot:'mainhand',UUID:[I;1383660865,-176667386,-1593722361,-161765263]},{AttributeName:'generic.attack_speed',Name:'Slow',Operation:1,Amount:-0.8,UUID:[I;1383660865,-176667386,-1593722361,-161765263],Slot:'mainhand'},{AttributeName:'generic.luck',Name:'lucky',Operation:0,Amount:147,Slot:'mainhand',UUID:[I;1383660865,-176667386,-1593722361,-161765263]}],Unbreakable:1,Enchantments:[{id:smite,lvl:8},{id:looting,lvl:3}],display:{Name:'[{\"text\":\"Axecutioner\",\"italic\":false,\"bold\":true,\"color\":\"gold\"}]',Lore:['[{\"text\":\"\"}]','[{\"text\":\"Item Ability: \",\"italic\":false,\"bold\":true,\"color\":\"green\"},{\"text\":\"Dreamon Hunter\",\"italic\":false,\"bold\":true,\"color\":\"gold\"}]','[{\"text\":\"Deal\",\"italic\":false,\"bold\":false,\"color\":\"aqua\"},{\"text\":\" TONS \",\"color\":\"red\",\"italic\":false,\"bold\":true},{\"text\":\"Of Damage To \",\"color\":\"aqua\",\"italic\":false},{\"text\":\"Undead\",\"color\":\"dark_gray\",\"italic\":false,\"bold\":true},{\"text\":\" Monsters\",\"color\":\"aqua\",\"italic\":false}]','[{\"text\":\"\"}]','[{\"text\":\"“Stoppable, yet Unstoppable”\",\"color\":\"gray\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"LEGENDARY WEAPON\",\"color\":\"gold\",\"italic\":false,\"bold\":true}]']}}"
+				}
+			]
+		}
+	},
+
+	"6": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_6",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/give @s bow{Enchantments:[{id:\"power\",lvl:255},{id:'punch',lvl:10}],Unbreakable:1,display:{Name:'{\"text\":\"BOwO\",\"italic\":false,\"bold\":true,\"color\":\"red\"}',Lore:['[{\"text\":\"\"}]','[{\"text\":\"Dis bowo is giwen \",\"italic\":\"false\",\"color\":\"aqua\"},{\"text\":\"MAXed \",\"italic\":\"false\",\"bold\":\"true\",\"color\":\"red\"},{\"text\":\"Powoer \",\"italic\":\"false\",\"bold\":\"true\",\"color\":\"gold\"},{\"text\":\"Enchwantment.\",\"italic\":\"false\",\"bold\":\"false\",\"color\":\"aqua\"}]','[{\"text\":\"(Power lvl.255 to be specific...)\",\"italic\":\"true\",\"bold\":\"true\",\"color\":\"gray\"}]','[{\"text\":\"A uwuseful towol to kwill something dramatically withwout twyping commands. owo!!!\",\"color\":\"aqua\",\"italic\":\"false\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"wIf you hav dis bowo buat you wa nowt an advivistrwatowr,\",\"color\":\"red\",\"italic\":\"false\"}]','[{\"text\":\"pwease contact \",\"color\":\"red\",\"italic\":\"false\"},{\"text\":\"ThDilos\",\"color\":\"yellow\"},{\"text\":\" and expwain how owo earth ya gowot dis itewm.\",\"color\":\"red\",\"italic\":\"false\"}]','[{\"text\":\"tqsm uwu\",\"color\":\"red\",\"italic\":\"false\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"UwU?OwO! WEAPON\",\"color\":\"light_purple\",\"italic\":\"false\",\"bold\":\"true\"}]']},HideFlags:7}"
+				}
+			]
+		}
+	},
+
+	"7": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_7",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/give @s leather_helmet{Enchantments:[{id:\"respiration\",lvl:2147483647},{id:\"aqua_affinity\",lvl:2147483647}],display:{color:3381759,Name:'[{\"text\":\"Froggy Helm\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]',Lore:['[{\"text\":\"\"}]','[{\"text\":\"Item Ability: \",\"italic\":false,\"bold\":true,\"color\":\"green\"},{\"text\":\"Skin Breather\",\"color\":\"light_purple\",\"italic\":false}]','[{\"text\":\"When Equipped\",\"italic\":false,\"bold\":true,\"color\":\"yellow\"},{\"text\":\", You Are Able To Breath Underwater\",\"color\":\"aqua\",\"italic\":false,\"bold\":false}]','[{\"text\":\"\"}]','[{\"text\":\"Hiden Ability:\",\"color\":\"green\",\"bold\":\"true\",\"italic\":\"false\"},{\"text\":\" Water Affinity\",\"color\":\"light_purple\",\"italic\":\"false\",\"bold\":\"true\"}]','[{\"text\":\"When Equipped\",\"color\":\"yellow\",\"italic\":\"false\",\"bold\":\"true\"},{\"text\":\", You Are Able To Mine As Fast As You Can Normally.\",\"color\":\"aqua\",\"italic\":\"false\",\"bold\":\"false\"}]','[{\"text\":\"\"}]','[{\"text\":\"Just Wondering......\",\"color\":\"aqua\",\"italic\":\"false\"}]','[{\"text\":\"Will A Zombie Turn Into A Drowned Wearing This?\",\"color\":\"aqua\",\"italic\":\"false\"}]','[{\"text\":\"\"}]','[{\"text\":\"“Blurb”\",\"color\":\"gray\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"MYTHIC HELMET\",\"color\":\"light_purple\",\"bold\":true,\"italic\":false}]']},Unbreakable:1,HideFlags:7}"
+				}
+			]
+		}
+	},
+
+	"8": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_8",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/give @s leather_boots{Enchantments:[{id:feather_falling,lvl:2147483647}],display:{color:3381759,Name:'[{\"text\":\"Catto Paws\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]',Lore:['[{\"text\":\"\"}]','[{\"text\":\"Item Ability: \",\"italic\":false,\"bold\":true,\"color\":\"green\"},{\"text\":\"Always Land On Four\",\"color\":\"light_purple\",\"italic\":false}]','[{\"text\":\"When Equipped\",\"italic\":false,\"bold\":true,\"color\":\"yellow\"},{\"text\":\", Neglecting Most Of The Fall Damage You Take\",\"color\":\"aqua\",\"italic\":false,\"bold\":false}]','[{\"text\":\"\"}]','[{\"text\":\"Hidden Ability:\",\"color\":\"green\",\"bold\":\"true\",\"italic\":\"false\"},{\"text\":\" Light Steps\",\"color\":\"light_purple\",\"italic\":\"false\",\"bold\":\"true\"}]','[{\"text\":\"When Equipped\",\"color\":\"yellow\",\"italic\":\"false\",\"bold\":\"true\"},{\"text\":\", Being Able To Walk On Powered Snow.\",\"color\":\"aqua\",\"bold\":\"false\",\"italic\":\"false\"}]','[{\"text\":\"\"}]','[{\"text\":\"You Won’t Have Nine Lives\",\"color\":\"aqua\",\"italic\":\"false\"}]','[{\"text\":\"But You‘ve Conquered The Height.\",\"color\":\"aqua\",\"italic\":\"false\"}]','[{\"text\":\"\"}]','[{\"text\":\"“Fall Damage? I Hardly Know Her!”\",\"color\":\"gray\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"\"}]','[{\"text\":\"MYTHIC BOOTS\",\"color\":\"light_purple\",\"bold\":true,\"italic\":false}]']},Unbreakable:1,HideFlags:7}"
+				}
+			]
+		}
+	},
+
+	"9": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_9",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/give @p golden_sword{display:{Name:'[\"\",{\"text\":\"Synchronized Nanite Sword\",\"italic\":false,\"color\":\"dark_purple\",\"bold\":true}]',Lore:['[\"\"]','[\"\",{\"text\":\"Forged with calibrated nanites.\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\"It effortlessly cuts through even the toughest material with precision and stability.\",\"italic\":false,\"color\":\"gray\"}]','[\"\"]','[\"\",{\"text\":\"Item Ability: Nanite Infusion \",\"italic\":false,\"color\":\"gold\"},{\"text\":\"HOLD RIGHT CLICK\",\"italic\":false,\"bold\":true,\"color\":\"yellow\"}]','[\"\",{\"text\":\"Infuse nanites into the sword to extend its lifespan\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\"Nanite Cost: \",\"italic\":false,\"color\":\"dark_gray\"},{\"text\":\"5%\",\"italic\":false,\"color\":\"dark_aqua\"}]','[\"\",{\"text\":\"Cooldown: \",\"italic\":false,\"color\":\"dark_gray\"},{\"text\":\"5s\",\"italic\":false,\"color\":\"green\"}]','[\"\"]','[{\"text\":\"Item Ability: Nanite Infestation \",\"color\":\"gold\",\"italic\":false},{\"text\":\"CLICK PRIMARY KEY [G]\",\"italic\":false,\"color\": \"yellow\",\"bold\":true}]','[\"\",{\"text\":\"Inject nanites for continuous damage to body and equipments with your next attack\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\"Nanite Cost: \",\"italic\":false,\"color\":\"dark_gray\"},{\"text\":\"2%\",\"italic\":false,\"color\":\"dark_aqua\"}]','[\"\",{\"text\":\"Cooldown: \",\"italic\":false,\"color\":\"dark_gray\"},{\"text\":\"3s\",\"italic\":false,\"color\":\"green\"}]','[\"\",{\"text\":\"Effect Range: \",\"italic\":false,\"color\":\"dark_gray\"},{\"text\":\"128 Blocks\",\"italic\":false,\"color\":\"aqua\"}]','[\"\"]','[{\"text\":\"Item Ability: Salvaging \",\"color\":\"gold\",\"italic\":false},{\"text\":\"SNEAK + HOLD PRIMARY KEY [G]\",\"italic\":false,\"color\": \"yellow\",\"bold\":true}]','[\"\",{\"text\":\"Disintegrate this sword and repurpose part of the nanites\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\"Nanite Cost: \",\"italic\":false,\"color\":\"dark_gray\"},{\"text\":\"-20%\",\"italic\":false,\"color\":\"dark_aqua\"}]','[\"\"]','[\"\",{\"text\":\"Warning: It can only be used properly by Protogen!\",\"italic\":false,\"color\":\"dark_red\",\"bold\":true}]','[\"\"]','[\"\",{\"text\":\"EPIC SWORD\",\"italic\":false,\"color\":\"dark_purple\",\"bold\":true}]']},Enchantments:[{lvl:10,id:sharpness},{lvl:10,id:unbreaking},{lvl:3,id:loyalty},{lvl:1,id:looting},{lvl:1,id:sweeping}],\"nanite_sword_lvl\":2,HideFlags:4,Powers:[{Slot:\"mainhand\",Hidden:1b,Negative:0b,Power:\"thorigins:protogen/nanite_sword_power\"}],CustomModelData:159754}"
+				}
+			]
+		}
+	}
+}
