@@ -1,7 +1,7 @@
 {
 	"type": "origins:multiple",
-	"name": "power.thorigins.fox.thswift.name",
-	"description": "power.thorigins.fox.thswift.description",
+	"name": "fox.thswift.name",
+	"description": "fox.thswift.description",
 	"badges": [
 		{
 			"type": "origins:keybind",
@@ -15,12 +15,82 @@
 		}
 	],
 
+	"ticks": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:fall_distance",
+						"compare_to": 3,
+						"comparison": ">"
+					},
+					{
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:fall_distance",
+										"compare_to": 70,
+										"comparison": "<"
+									},
+									{
+										"type": "origins:status_effect",
+										"effect": "jump_boost",
+										"min_amplifier": 1,
+										"max_amplifier": 127
+									}
+								]
+							},
+							{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:fall_distance",
+										"compare_to": 47,
+										"comparison": "<"
+									},
+									{
+										"type": "origins:status_effect",
+										"effect": "jump_boost",
+										"min_amplifier": 0,
+										"max_amplifier": 0
+									}
+								]
+							},
+							{
+								"type": "origins:fall_distance",
+								"compare_to": 22,
+								"comparison": "<"
+							}
+						]
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_fall_threshold",
+				"change": 0,
+				"operation": "set"
+			},
+			"else_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_fall_threshold",
+				"change": 1,
+				"operation": "set"
+			}
+		}
+	},
+
 	"fall_threshold": {
 		"type": "origins:resource",
 		"min": 0,
-		"max": 1,
-		"start_value": 0,
-		"hud_render": { "should_render": false }
+		"max": 1
 	},
 
 	"remove_fall_sound": {
