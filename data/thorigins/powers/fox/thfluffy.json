@@ -15,6 +15,538 @@
 		}
 	],
 
+	"ticks": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:fluid_height",
+								"fluid": "minecraft:water",
+								"compare_to": 0.15,
+								"comparison": ">="
+							},
+							{
+								"type": "origins:in_block_anywhere",
+								"block_condition": {
+									"type": "origins:fluid",
+									"fluid_condition": {
+										"type": "origins:in_tag",
+										"tag": "minecraft:water"
+									}
+								},
+								"compare_to": 1,
+								"comparison": "=="
+							},
+							{
+								"type": "origins:swimming"
+							},
+							{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:in_block",
+										"block_condition": {
+											"type": "origins:block_state",
+											"property": "level",
+											"compare_to": 1,
+											"comparison": ">"
+										}
+									},
+									{
+										"type": "origins:in_block",
+										"block_condition": {
+											"type": "origins:block",
+											"block": "water_cauldron"
+										}
+									}
+								]
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_wetness",
+						"change": 25
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:in_rain"
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_wetness",
+						"change": 1
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:in_block",
+								"block_condition": {
+									"type": "origins:block",
+									"block": "powder_snow"
+								}
+							},
+							{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:in_block",
+										"block_condition": {
+											"type": "origins:block_state",
+											"property": "level",
+											"compare_to": 1,
+											"comparison": ">"
+										}
+									},
+									{
+										"type": "origins:in_block",
+										"block_condition": {
+											"type": "origins:block",
+											"block": "powder_snow_cauldron"
+										}
+									}
+								]
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_snowness",
+						"change": 10
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:in_snow"
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_snowness",
+						"change": 1
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_wetness",
+								"compare_to": 20,
+								"comparison": ">="
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:*_snowness",
+								"compare_to": 20,
+								"comparison": ">="
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_avoid_spamming_water",
+										"compare_to": 1,
+										"comparison": "=="
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_avoid_spamming_snow",
+										"compare_to": 1,
+										"comparison": "=="
+									}
+								]
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:trigger_cooldown",
+								"power": "*:*_timer"
+							},
+							{
+								"type": "origins:trigger_cooldown",
+								"power": "*:*_timer2"
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:power_active",
+						"power": "*:*_shake"
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_is_shaking",
+						"change": 1
+					},
+					"else_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_is_shaking",
+						"change": -1
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_avoid_spamming_water",
+						"compare_to": 1,
+						"comparison": "=="
+					},
+					"if_action": {
+						"type": "origins:trigger_cooldown",
+						"power": "*:*_timer"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_avoid_spamming_snow",
+						"compare_to": 1,
+						"comparison": "=="
+					},
+					"if_action": {
+						"type": "origins:trigger_cooldown",
+						"power": "*:*_timer2"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_wetness",
+						"compare_to": 100,
+						"comparison": "<"
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_avoid_spamming_water",
+						"change": -10
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_snowness",
+						"compare_to": 100,
+						"comparison": "<"
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_avoid_spamming_snow",
+						"change": -10
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:in_snow"
+					},
+					"if_action": {
+						"type": "origins:trigger_cooldown",
+						"power": "*:*_avoid_spamming_snow"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_wetness",
+								"comparison": ">=",
+								"compare_to": 100
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:in_rain"
+									},
+									{
+										"type": "origins:fluid_height",
+										"fluid": "minecraft:water",
+										"compare_to": 0.25,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:swimming"
+									},
+									{
+										"type": "origins:and",
+										"conditions": [
+											{
+												"type": "origins:in_block",
+												"block_condition": {
+													"type": "origins:block_state",
+													"property": "level",
+													"compare_to": 1,
+													"comparison": ">"
+												}
+											},
+											{
+												"type": "origins:in_block",
+												"block_condition": {
+													"type": "origins:block",
+													"block": "water_cauldron"
+												}
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:trigger_cooldown",
+						"power": "*:*_avoid_spamming_water"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:fox/thfluffy_timer",
+								"compare_to": 28,
+								"comparison": "<="
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:fox/thfluffy_timer",
+								"compare_to": 0,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:nbt",
+								"nbt": "{Health:0.0f}",
+								"inverted": true
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "*:fox/thfoxify_afk_timer",
+							"compare_to": 1,
+							"comparison": ">"
+						},
+						"if_action": {
+							"type": "origins:execute_command",
+							"command": "/particle minecraft:splash ~ ~0.8 ~ 0.3 0.25 0.3 0 5"
+						},
+						"else_action": {
+							"type": "origins:execute_command",
+							"command": "/particle minecraft:splash ~ ~0.2 ~ 0.7 0.1 0.7 0.01 8"
+						}
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:fox/thfluffy_timer2",
+								"compare_to": 28,
+								"comparison": "<="
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:fox/thfluffy_timer2",
+								"compare_to": 0,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:nbt",
+								"nbt": "{Health:0.0f}",
+								"inverted": true
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "*:fox/thfoxify_afk_timer",
+							"compare_to": 1,
+							"comparison": ">"
+						},
+						"if_action": {
+							"type": "origins:execute_command",
+							"command": "/particle minecraft:snowflake ~ ~0.7 ~ 0.3 0.25 0.3 0 5"
+						},
+						"else_action": {
+							"type": "origins:execute_command",
+							"command": "/particle minecraft:snowflake ~ ~0.2 ~ 0.7 0.1 0.7 0.01 8"
+						}
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_timer",
+										"comparison": "==",
+										"compare_to": 27
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_timer2",
+										"comparison": "==",
+										"compare_to": 27
+									}
+								]
+							},
+							{
+								"type": "origins:nbt",
+								"nbt": "{Health:0.0f}",
+								"inverted": true
+							},
+							{
+								"type": "origins:sneaking",
+								"inverted": true
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:play_sound",
+						"sound": "entity.wolf.shake",
+						"volume": 0.5
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:power_active",
+						"power": "*:*_shake"
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:change_resource",
+								"resource": "*:*_wetness",
+								"change": 0,
+								"operation": "set"
+							},
+							{
+								"type": "origins:change_resource",
+								"resource": "*:*_snowness",
+								"change": 0,
+								"operation": "set"
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_avoid_spamming_water",
+								"compare_to": 2,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:moving"
+									},
+									{
+										"type": "origins:creative_flying"
+									}
+								]
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:*_wetness",
+								"compare_to": 100,
+								"comparison": ">="
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:trigger_cooldown",
+						"power": "*:*_avoid_spamming_water"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_avoid_spamming_snow",
+								"compare_to": 2,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:moving"
+									},
+									{
+										"type": "origins:creative_flying"
+									}
+								]
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:*_snowness",
+								"compare_to": 100,
+								"comparison": ">="
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:trigger_cooldown",
+						"power": "*:*_avoid_spamming_snow"
+					}
+				}
+			]
+		}
+	},
+
 	"is_shaking": {
 		"type": "origins:resource",
 		"min": 0,

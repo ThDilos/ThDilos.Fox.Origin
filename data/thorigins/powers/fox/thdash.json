@@ -28,6 +28,192 @@
 		}
 	],
 
+	
+	"ticks": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:fall_distance",
+						"compare_to": 0.5,
+						"comparison": ">="
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_falling",
+						"change": 1,
+						"operation": "set"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_coyote_grace",
+								"compare_to": 0,
+								"comparison": "=="
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:on_block"
+									},
+									{
+										"type": "origins:in_block_anywhere",
+										"compare_to": 0,
+										"comparison": ">",
+										"block_condition": {
+											"type": "origins:or",
+											"inverted": true,
+											"conditions": [
+												{
+													"type": "origins:block",
+													"block": "air"
+												},
+												{
+													"type": "origins:movement_blocking",
+													"inverted": true
+												}
+											]
+										}
+									},
+									{
+										"type": "origins:climbing"
+									},
+									{
+										"type": "origins:fluid_height",
+										"fluid": "minecraft:water",
+										"compare_to": 0,
+										"comparison": ">"
+									},
+									{
+										"type": "origins:fluid_height",
+										"fluid": "minecraft:lava",
+										"compare_to": 0,
+										"comparison": ">"
+									}
+								]
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:change_resource",
+								"resource": "*:*_left_ground",
+								"change": 0,
+								"operation": "set"
+							},
+							{
+								"type": "apoli:change_resource",
+								"resource": "*:*_falling",
+								"change": 0,
+								"operation": "set"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/scale reset pehkui:reach @s"
+							},
+							{
+								"type": "origins:change_resource",
+								"resource": "*:*_max_jump_count",
+								"change": 2
+							},
+							{
+								"type": "origins:change_resource",
+								"resource": "*:*_magnetoreception_direction",
+								"change": 0,
+								"operation": "set"
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:sneaking"
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thhunt_hunt_stage",
+										"compare_to": 0,
+										"comparison": ">"
+									}
+								]
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:*_left_ground",
+								"compare_to": 0,
+								"comparison": "=="
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition": {
+									"type": "origins:command",
+									"command": "/execute if entity @s[y_rotation=-160..-135]",
+									"compare_to": 1,
+									"comparison": "=="
+								},
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_magnetoreception_direction",
+									"change": 2,
+									"operation": "set"
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:command",
+									"command": "/execute if entity @s[y_rotation=-340..-315]",
+									"compare_to": 1,
+									"comparison": "=="
+								},
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_magnetoreception_direction",
+									"change": 1,
+									"operation": "set"
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:constant",
+									"value": true
+								},
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_magnetoreception_direction",
+									"change": 0,
+									"operation": "set"
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	},
+
 	"max_jump_count": {
 		"type": "origins:resource",
 		"min": 0,
@@ -99,11 +285,6 @@
 		"type": "origins:resource",
 		"min": 0,
 		"max": 1
-	},
-
-	"reach_modified": {
-		"type": "origins:toggle",
-		"key": "nuh.uh"
 	},
 
 	"munch_cd": {
@@ -273,8 +454,8 @@
 				{
 					"type": "origins:resource",
 					"resource": "*:*_max_jump_count",
-					"comparison": "==",
-					"compare_to": 2
+					"comparison": ">",
+					"compare_to": 1
 				}
 			]
 		}
@@ -802,8 +983,8 @@
 										},
 										{
 											"type": "origins:feed",
-											"saturation": 2,
-											"nutrition": 2
+											"nutrition": 2,
+											"saturation": 2
 										},
 										{
 											"type": "origins:change_resource",
@@ -829,15 +1010,6 @@
 					"type": "origins:amount",
 					"compare_to": 1,
 					"comparison": ">"
-				},
-				{
-					"type": "origins:attacker",
-					"entity_condition": {
-						"type": "origins:resource",
-						"resource": "*:*_falling",
-						"compare_to": 1,
-						"comparison": "=="
-					}
 				}
 			]
 		},
@@ -849,6 +1021,12 @@
 					{
 						"type": "origins:resource",
 						"resource": "*:*_left_ground",
+						"compare_to": 1,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:resource",
+						"resource": "*:*_falling",
 						"compare_to": 1,
 						"comparison": "=="
 					},
@@ -989,10 +1167,6 @@
 					"resource": "*:*_magnetoreception_direction",
 					"compare_to": 2,
 					"comparison": "=="
-				},
-				{
-					"type": "origins:sneaking",
-					"inverted": true
 				}
 			]
 		}
@@ -1020,10 +1194,6 @@
 					"resource": "*:*_magnetoreception_direction",
 					"compare_to": 1,
 					"comparison": "=="
-				},
-				{
-					"type": "origins:sneaking",
-					"inverted": true
 				}
 			]
 		}

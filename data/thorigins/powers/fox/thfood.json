@@ -15,6 +15,40 @@
 		}
 	],
 
+	"ticks": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:gamemode",
+						"gamemode": "creative"
+					},
+					"if_action": {
+						"type": "origins:feed",
+						"nutrition": 1,
+						"saturation": 1
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:food_level",
+						"compare_to": 5,
+						"comparison": "<="
+					},
+					"if_action": {
+						"type": "origins:trigger_cooldown",
+						"power": "*:*_emergency_hunger_nullify"
+					}
+				}
+			]
+		}
+	},
+	
 	"sweet_berries": {
 		"type": "origins:modify_food",
 		"item_condition": {
@@ -34,181 +68,164 @@
 			"amount": 8.0
 		},
 		"entity_action": {
-			"type": "origins:and",
+			"type": "origins:choice",
 			"actions": [
 				{
-					"type": "origins:apply_effect",
-					"effect": {
-						"id": "regeneration",
-						"amplifier": 0,
-						"duration": 60,
-						"show_icon": true,
-						"show_particles": true,
-						"is_ambient": false
+					"weight": 75,
+					"element": {
+						"type": "origins:nothing"
 					}
 				},
 				{
-					"type": "origins:choice",
-					"actions": [
-						{
-							"weight": 75,
-							"element": {
-								"type": "origins:nothing"
-							}
+					"weight": 20,
+					"element": {
+						"type": "origins:give",
+						"stack": {
+							"id": "sweet_berries"
 						},
-						{
-							"weight": 20,
-							"element": {
-								"type": "origins:give",
-								"stack": {
-									"id": "sweet_berries"
-								},
-								"preferred_slot": "mainhand"
-							}
-						},
-						{
-							"weight": 5,
-							"element": {
-								"type": "origins:choice",
-								"actions": [
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "strength",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "absorption",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "haste",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "instant_health",
-												"amplifier": 0,
-												"duration": 1,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "jump_boost",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "speed",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "luck",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "resistance",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "saturation",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "regeneration",
-												"amplifier": 1,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
+						"preferred_slot": "mainhand"
+					}
+				},
+				{
+					"weight": 5,
+					"element": {
+						"type": "origins:choice",
+						"actions": [
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "strength",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
 									}
-								]
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "absorption",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "haste",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "instant_health",
+										"amplifier": 0,
+										"duration": 1,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "jump_boost",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "speed",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "luck",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "resistance",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "saturation",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "regeneration",
+										"amplifier": 1,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
 							}
-						}
-					]
+						]
+					}
 				}
 			]
-		},
-		"always_edible": true
+		}
 	},
 
 	"glow_berries": {
@@ -230,254 +247,178 @@
 			"amount": 8.0
 		},
 		"entity_action": {
-			"type": "origins:and",
+			"type": "origins:choice",
 			"actions": [
 				{
-					"type": "origins:apply_effect",
-					"effect": {
-						"id": "regeneration",
-						"amplifier": 0,
-						"duration": 60,
-						"show_icon": true,
-						"show_particles": true,
-						"is_ambient": false
-					}
+					"element": {
+						"type": "origins:nothing"
+					},
+					"weight": 70
 				},
 				{
-					"type": "origins:choice",
-					"actions": [
-						{
-							"element": {
-								"type": "origins:nothing"
-							},
-							"weight": 70
-						},
-						{
-							"element": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:give",
-										"stack": {
-											"id": "glow_berries"
-										},
-										"preferred_slot": "mainhand"
-									}
-								]
-							},
-							"weight": 20
-						},
-						{
-							"weight": 10,
-							"element": {
-								"type": "origins:choice",
-								"actions": [
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "strength",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "absorption",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "haste",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "instant_health",
-												"amplifier": 0,
-												"duration": 1,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "jump_boost",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "speed",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "luck",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "resistance",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "saturation",
-												"amplifier": 0,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									},
-									{
-										"weight": 10,
-										"element": {
-											"type": "origins:apply_effect",
-											"effect": {
-												"id": "regeneration",
-												"amplifier": 1,
-												"duration": 600,
-												"show_particles": false,
-												"is_ambient": false
-											}
-										}
-									}
-								]
+					"element": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:give",
+								"stack": {
+									"id": "glow_berries"
+								},
+								"preferred_slot": "mainhand"
 							}
-						}
-					]
+						]
+					},
+					"weight": 20
+				},
+				{
+					"weight": 10,
+					"element": {
+						"type": "origins:choice",
+						"actions": [
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "strength",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "absorption",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "haste",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "instant_health",
+										"amplifier": 0,
+										"duration": 1,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "jump_boost",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "speed",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "luck",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "resistance",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "saturation",
+										"amplifier": 0,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							},
+							{
+								"weight": 10,
+								"element": {
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "regeneration",
+										"amplifier": 1,
+										"duration": 600,
+										"show_particles": false,
+										"is_ambient": false
+									}
+								}
+							}
+						]
+					}
 				}
 			]
-		},
-		"always_edible": true
+		}
 	},
 
-	"meat": {
+	"regen_foods": {
 		"type": "origins:modify_food",
 		"item_condition": {
-			"type": "origins:or",
-			"conditions": [
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "chicken"
-					}
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "rabbit"
-					}
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "cooked_chicken"
-					}
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "cooked_rabbit"
-					}
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "cod"
-					}
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "salmon"
-					}
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "cooked_cod"
-					}
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "cooked_salmon"
-					}
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "tropical_fish"
-					}
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "rabbit_stew"
-					}
-				}
-			]
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "thorigins:regen_foods"
+			}
 		},
 		"food_modifier": {
 			"name": "Origin modifier",
@@ -500,8 +441,7 @@
 				"show_particles": true,
 				"is_ambient": false
 			}
-		},
-		"always_edible": true
+		}
 	},
 
 	"neutral_food": {
@@ -524,54 +464,9 @@
 		"type": "origins:modify_food",
 		"item_condition": {
 			"type": "origins:ingredient",
-			"inverted": true,
-			"ingredient": [
-				{
-					"item": "minecraft:sweet_berries"
-				},
-				{
-					"item": "minecraft:glow_berries"
-				},
-				{
-					"item": "minecraft:chicken"
-				},
-				{
-					"item": "minecraft:rabbit"
-				},
-				{
-					"item": "minecraft:cooked_chicken"
-				},
-				{
-					"item": "minecraft:cod"
-				},
-				{
-					"item": "minecraft:salmon"
-				},
-				{
-					"item": "minecraft:cooked_cod"
-				},
-				{
-					"item": "minecraft:cooked_salmon"
-				},
-				{
-					"item": "minecraft:tropical_fish"
-				},
-				{
-					"item": "minecraft:rabbit_stew"
-				},
-				{
-					"item": "minecraft:golden_apple"
-				},
-				{
-					"item": "minecraft:golden_carrot"
-				},
-				{
-					"item": "minecraft:apple"
-				},
-				{
-					"item": "minecraft:rotten_flesh"
-				}
-			]
+			"ingredient": {
+				"tag": "thorigins:disliked_foods"
+			}
 		},
 		"food_modifier": {
 			"name": "Origin modifier",
@@ -606,54 +501,9 @@
 		"type": "origins:modify_food",
 		"item_condition": {
 			"type": "origins:ingredient",
-			"inverted": true,
-			"ingredient": [
-				{
-					"item": "minecraft:sweet_berries"
-				},
-				{
-					"item": "minecraft:glow_berries"
-				},
-				{
-					"item": "minecraft:chicken"
-				},
-				{
-					"item": "minecraft:rabbit"
-				},
-				{
-					"item": "minecraft:cooked_chicken"
-				},
-				{
-					"item": "minecraft:cod"
-				},
-				{
-					"item": "minecraft:salmon"
-				},
-				{
-					"item": "minecraft:cooked_cod"
-				},
-				{
-					"item": "minecraft:cooked_salmon"
-				},
-				{
-					"item": "minecraft:tropical_fish"
-				},
-				{
-					"item": "minecraft:rabbit_stew"
-				},
-				{
-					"item": "minecraft:golden_apple"
-				},
-				{
-					"item": "minecraft:golden_carrot"
-				},
-				{
-					"item": "minecraft:apple"
-				},
-				{
-					"item": "minecraft:rotten_flesh"
-				}
-			]
+			"ingredient": {
+				"tag": "thorigins:disliked_foods"
+			}
 		},
 		"entity_action": {
 			"type": "origins:apply_effect",

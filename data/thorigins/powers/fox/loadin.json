@@ -59,7 +59,7 @@
 							"actions": [
 								{
 									"type": "origins:execute_command",
-									"command": "/tellraw @s [{\"text\":\"\\n================================\\n\",\"color\":\"gold\"},{\"translate\":\"message.chosen1\",\"color\":\"green\"},{\"text\":\"\\n\"},{\"translate\":\"message.chosen2\",\"color\":\"aqua\"},{\"text\":\"[Wiki]\",\"underlined\":\"true\",\"color\":\"yellow\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://github.com/ThDilos/ThDilos.Fox.Origin/wiki\"}},{\"text\":\"\\n================================\",\"color\":\"gold\"}]"
+									"command": "/tellraw @s [{\"text\":\"\\n================================\\n\",\"color\":\"gold\"},{\"translate\":\"message.chosen1\",\"color\":\"aqua\"},{\"text\":\"\\n\"},{\"translate\":\"message.chosen2\",\"color\":\"aqua\"},{\"text\":\"[Wiki]\",\"underlined\":true,\"color\":\"yellow\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://github.com/ThDilos/Realistic-Fox-Origin/wiki\"}},{\"text\":\"\\n\"},{\"translate\":\"message.chosen3\",\"color\":\"red\"},{\"text\":\"\\n\"},{\"text\":\"[/function thorigins:fox_setting]\",\"color\":\"yellow\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/function thorigins:fox_setting\"}},{\"text\":\"\\nFor 1.21.x, use [/reload] if functions do not exist\"},{\"text\":\"\\n\"},{\"translate\":\"message.chosen4\",\"bold\":true,\"color\":\"white\"},{\"text\":\"\\n================================\",\"color\":\"gold\"}]"
 								},
 								{
 									"type": "origins:toggle",

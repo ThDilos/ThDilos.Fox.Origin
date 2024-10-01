@@ -13,8 +13,7 @@
 		"thorigins:fox/thshy",
 		"thorigins:fox/thweak",
 		"thorigins:fox/thsound",
-		"thorigins:fox/loadin",
-		"thorigins:fox/ticks"
+		"thorigins:fox/loadin"
 	],
 	"icon": {
 		"id": "minecraft:sweet_berries"

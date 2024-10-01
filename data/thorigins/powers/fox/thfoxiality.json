@@ -15,6 +15,74 @@
 		}
 	],
 
+	"ticks": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:fox/thhunt_prepare_stage",
+								"compare_to": 25,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:gamemode",
+								"gamemode": "survival"
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:fox/thfoxify_afk_timer",
+								"compare_to": 1,
+								"comparison": ">"
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:command",
+						"command": "/execute if entity @e[type=minecraft:fox,distance=..15,tag=!sleepin,tag=!hatting]",
+						"compare_to": 0,
+						"comparison": ">"
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "/execute as @e[type=minecraft:fox,distance=3..15,tag=!sleepin,tag=!hatting] run data modify entity @s Trusted append from entity @p[tag=foxie] UUID"
+					}
+				}
+			]
+		}
+	},
+
 	"against_preys": {
 		"type": "origins:modify_damage_dealt",
 		"bientity_condition": {
@@ -143,7 +211,7 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/title @s actionbar {\"translate\":\"power.thorigins.wakeup.item\",\"color\":\"gold\",\"bold\":true}"
+					"command": "/title @s actionbar {\"translate\":\"fox.wakeup.item\",\"color\":\"gold\",\"bold\":true}"
 				}
 			]
 		}
@@ -154,14 +222,14 @@
 		"block_condition": {
 			"type": "origins:exposed_to_sky"
 		},
-		"message": { "translate": "origin.thorigin.cant_sleep_shade" },
+		"message": { "translate": "fox.cant_sleep_shade" },
 		"set_spawn_point": true
 	},
 
 	"sleep_near_fear": {
 		"type": "origins:prevent_sleep",
 		"set_spawn_point": true,
-		"message": { "translate": "origin.thorigin.cant_sleep_fear" },
+		"message": { "translate": "fox.cant_sleep_fear" },
 		"condition": {
 			"type": "origins:and",
 			"conditions": [
@@ -183,7 +251,7 @@
 	"sleep_hunt": {
 		"type": "origins:prevent_sleep",
 		"set_spawn_point": true,
-		"message": { "translate": "origin.thorigin.cant_sleep_hunt" },
+		"message": { "translate": "fox.cant_sleep_hunt" },
 		"condition": {
 			"type": "origins:or",
 			"conditions": [
