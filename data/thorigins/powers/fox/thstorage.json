@@ -1,7 +1,7 @@
 {
 	"type": "origins:inventory",
-	"name": "fox.thstorage.name",
-	"description": "fox.thstorage.description",
+	"name": { "translate": "fox.thstorage.name" },
+	"description": { "translate": "fox.thstorage.description" },
 	"container_type": "hopper",
 	"drop_on_death": false,
 	"recoverable": true,

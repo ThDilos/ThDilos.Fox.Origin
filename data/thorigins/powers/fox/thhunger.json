@@ -1,7 +1,7 @@
 {
 	"type": "origins:multiple",
-	"name": "fox.thhunger.name",
-	"description": "fox.thhunger.description",
+	"name": { "translate": "fox.thhunger.name" },
+	"description": { "translate": "fox.thhunger.description" },
 	"badges": [
 		{
 			"type": "origins:keybind",
@@ -19,8 +19,8 @@
 		"type": "origins:modify_exhaustion",
 		"modifier": {
 			"name": "Origin modifier",
-			"operation": "multiply_base",
-			"value": 0.5
+			"operation": "multiply_base_additive",
+			"amount": 0.5
 		},
 		"condition": {
 			"type": "origins:and",
@@ -44,8 +44,9 @@
 		"type": "origins:attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.attack_speed",
-			"operation": "multiply_base",
-			"value": 0.25
+			"id": "thorigins:fox/thhunger",
+			"operation": "add_multiplied_base",
+			"amount": 0.25
 		}
 	},
 
@@ -57,8 +58,8 @@
 			"comparison": "=="
 		},
 		"modifier": {
-			"value": 0.05,
-			"operation": "multiply_total"
+			"amount": 0.05,
+			"operation": "multiply_total_multiplicative"
 		}
 	},
 
@@ -80,8 +81,8 @@
 			]
 		},
 		"modifier": {
-			"value": -0.1,
-			"operation": "multiply_total"
+			"amount": -0.1,
+			"operation": "multiply_total_multiplicative"
 		}
 	},
 
@@ -103,8 +104,8 @@
 			]
 		},
 		"modifier": {
-			"value": -0.2,
-			"operation": "multiply_total"
+			"amount": -0.2,
+			"operation": "multiply_total_multiplicative"
 		}
 	},
 
@@ -126,8 +127,8 @@
 			]
 		},
 		"modifier": {
-			"value": -0.3,
-			"operation": "multiply_total"
+			"amount": -0.3,
+			"operation": "multiply_total_multiplicative"
 		}
 	},
 
@@ -149,8 +150,8 @@
 			]
 		},
 		"modifier": {
-			"value": -0.4,
-			"operation": "multiply_total"
+			"amount": -0.4,
+			"operation": "multiply_total_multiplicative"
 		}
 	},
 
@@ -172,8 +173,8 @@
 			]
 		},
 		"modifier": {
-			"value": -0.5,
-			"operation": "multiply_total"
+			"amount": -0.5,
+			"operation": "multiply_total_multiplicative"
 		}
 	},
 
@@ -185,8 +186,8 @@
 			"comparison": "<"
 		},
 		"modifier": {
-			"value": -0.6,
-			"operation": "multiply_total"
+			"amount": -0.6,
+			"operation": "multiply_total_multiplicative"
 		}
 	}
 }

@@ -1,7 +1,7 @@
 {
 	"type": "origins:multiple",
-	"name": "fox.thweak.name",
-	"description": "fox.thweak.description",
+	"name": { "translate": "fox.thweak.name" },
+	"description": { "translate": "fox.thweak.description" },
 	"badges": [
 		{
 			"type": "origins:keybind",
@@ -9,9 +9,13 @@
 			"text": "origin.thorigin.passive"
 		},
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": "thweak.info"
+			"text": [
+				{
+					"translate": "thweak.info"
+				}
+			]
 		}
 	],
 
@@ -39,14 +43,14 @@
 		"tick_rate": 10,
 		"effects": [
 			{
-				"effect": "minecraft:slowness",
+				"id": "minecraft:slowness",
 				"amplifier": 1,
 				"is_ambient": true,
 				"show_particles": false,
 				"show_icon": true
 			},
 			{
-				"effect": "minecraft:weakness",
+				"id": "minecraft:weakness",
 				"amplifier": 0,
 				"is_ambient": true,
 				"show_icon": true,
@@ -134,5 +138,133 @@
 				}
 			]
 		}
+	},
+
+	"mace_nerf": {
+		"type": "origins:modify_damage_dealt",
+		"modifier": {
+			"operation": "multiply_total_multiplicative",
+			"amount": -0.825
+		},
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:mace"
+					}
+				}
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:fox/universal_settings_mace_nerf",
+			"compare_to": 1,
+			"comparison": "=="
+		}
+	},
+
+	"mace_nerf2": {
+		"type": "origins:stacking_status_effect",
+		"duration_per_stack": 20,
+		"min_stacks": -1,
+		"max_stacks": 1,
+		"tick_rate": 10,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:fox/universal_settings_mace_nerf",
+					"compare_to": 1,
+					"comparison": "=="
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:mace"
+						}
+					}
+				}
+			]
+		},
+		"effect": {
+			"id": "minecraft:slowness",
+			"duration": 20,
+			"show_particles": false,
+			"show_icon": true,
+			"is_ambient": true,
+			"amplifier": 4
+		}
+	},
+
+	"mace_nerf3": {
+		"type": "origins:action_on_hit",
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:mace"
+					}
+				}
+			}
+		},
+		"bientity_action": {
+			"type": "origins:actor_action",
+			"action": {
+				"type": "origins:choice",
+				"actions": [
+					{
+						"element": {
+							"type": "origins:execute_command",
+							"command": "/damage @s 10 minecraft:fly_into_wall"
+						},
+						"weight": 10
+					},
+					{
+						"element": {
+							"type": "origins:execute_command",
+							"command": "/damage @s 50 minecraft:fly_into_wall"
+						},
+						"weight": 5
+					},
+					{
+						"element": {
+							"type": "origins:drop_inventory",
+							"inventory_type": "inventory",
+							"slots": ["weapon.mainhand", "weapon.offhand"]
+						},
+						"weight": 30
+					},
+					{
+						"weight": 20,
+						"element": {
+							"type": "origins:nothing"
+						}
+					}
+				]
+			}
+		},
+		"damage_condition": {
+			"type": "origins:amount",
+			"compare_to": 50,
+			"comparison": ">="
+		}
+	},
+	"condition": {
+		"type": "origins:resource",
+		"resource": "*:fox/universal_settings_mace_nerf",
+		"compare_to": 1,
+		"comparison": "=="
 	}
 }

@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Specification-Title: thoriogins
+Specification-Title: thorigins
 Specification-Vendor: ThDilos
 Specification-Version: 1
 Implementation-Title: forge1.19.4

@@ -1,7 +1,7 @@
 {
 	"type": "origins:multiple",
-	"name": "fox.thdash.name",
-	"description": "fox.thdash.description",
+	"name": { "translate": "fox.thdash.name" },
+	"description": { "translate": "fox.thdash.description" },
 	"badges": [
 		{
 			"type": "origins:tooltip",
@@ -27,191 +27,6 @@
 			}
 		}
 	],
-
-	"ticks": {
-		"type": "origins:action_over_time",
-		"interval": 1,
-		"entity_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:fall_distance",
-						"compare_to": 0.5,
-						"comparison": ">="
-					},
-					"if_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_falling",
-						"change": 1,
-						"operation": "set"
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:resource",
-								"resource": "*:*_coyote_grace",
-								"compare_to": 0,
-								"comparison": "=="
-							},
-							{
-								"type": "origins:or",
-								"conditions": [
-									{
-										"type": "origins:on_block"
-									},
-									{
-										"type": "origins:in_block_anywhere",
-										"compare_to": 0,
-										"comparison": ">",
-										"block_condition": {
-											"type": "origins:or",
-											"inverted": true,
-											"conditions": [
-												{
-													"type": "origins:block",
-													"block": "air"
-												},
-												{
-													"type": "origins:movement_blocking",
-													"inverted": true
-												}
-											]
-										}
-									},
-									{
-										"type": "origins:climbing"
-									},
-									{
-										"type": "origins:fluid_height",
-										"fluid": "minecraft:water",
-										"compare_to": 0,
-										"comparison": ">"
-									},
-									{
-										"type": "origins:fluid_height",
-										"fluid": "minecraft:lava",
-										"compare_to": 0,
-										"comparison": ">"
-									}
-								]
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:change_resource",
-								"resource": "*:*_left_ground",
-								"change": 0,
-								"operation": "set"
-							},
-							{
-								"type": "apoli:change_resource",
-								"resource": "*:*_falling",
-								"change": 0,
-								"operation": "set"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/scale reset pehkui:reach @s"
-							},
-							{
-								"type": "origins:change_resource",
-								"resource": "*:*_max_jump_count",
-								"change": 2
-							},
-							{
-								"type": "origins:change_resource",
-								"resource": "*:*_magnetoreception_direction",
-								"change": 0,
-								"operation": "set"
-							}
-						]
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:or",
-								"conditions": [
-									{
-										"type": "origins:sneaking"
-									},
-									{
-										"type": "origins:resource",
-										"resource": "*:fox/thhunt_hunt_stage",
-										"compare_to": 0,
-										"comparison": ">"
-									}
-								]
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:*_left_ground",
-								"compare_to": 0,
-								"comparison": "=="
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:if_else_list",
-						"actions": [
-							{
-								"condition": {
-									"type": "origins:command",
-									"command": "/execute if entity @s[y_rotation=-160..-135]",
-									"compare_to": 1,
-									"comparison": "=="
-								},
-								"action": {
-									"type": "origins:change_resource",
-									"resource": "*:*_magnetoreception_direction",
-									"change": 2,
-									"operation": "set"
-								}
-							},
-							{
-								"condition": {
-									"type": "origins:command",
-									"command": "/execute if entity @s[y_rotation=-340..-315]",
-									"compare_to": 1,
-									"comparison": "=="
-								},
-								"action": {
-									"type": "origins:change_resource",
-									"resource": "*:*_magnetoreception_direction",
-									"change": 1,
-									"operation": "set"
-								}
-							},
-							{
-								"condition": {
-									"type": "origins:constant",
-									"value": true
-								},
-								"action": {
-									"type": "origins:change_resource",
-									"resource": "*:*_magnetoreception_direction",
-									"change": 0,
-									"operation": "set"
-								}
-							}
-						]
-					}
-				}
-			]
-		}
-	},
 
 	"max_jump_count": {
 		"type": "origins:resource",
@@ -284,6 +99,11 @@
 		"type": "origins:resource",
 		"min": 0,
 		"max": 1
+	},
+
+	"reach_modified": {
+		"type": "origins:toggle",
+		"key": "nuh.uh"
 	},
 
 	"munch_cd": {
@@ -399,17 +219,8 @@
 					]
 				},
 				{
-					"type": "origins:spawn_particles",
-					"particle": "minecraft:snowflake",
-					"count": 30,
-					"speed": 0,
-					"force": false,
-					"offset_y": 0,
-					"spread": {
-						"x": 0.8,
-						"y": 0.15,
-						"z": 0.8
-					}
+					"type": "origins:execute_command",
+					"command": "/particle minecraft:snowflake ~ ~ ~ 0.8 0.15 0.8 0 30"
 				},
 				{
 					"type": "origins:play_sound",
@@ -462,8 +273,8 @@
 				{
 					"type": "origins:resource",
 					"resource": "*:*_max_jump_count",
-					"comparison": ">",
-					"compare_to": 1
+					"comparison": "==",
+					"compare_to": 2
 				}
 			]
 		}
@@ -564,17 +375,8 @@
 					]
 				},
 				{
-					"type": "origins:spawn_particles",
-					"particle": "minecraft:snowflake",
-					"count": 30,
-					"speed": 0,
-					"force": false,
-					"offset_y": 0,
-					"spread": {
-						"x": 0.8,
-						"y": 0.15,
-						"z": 0.8
-					}
+					"type": "origins:execute_command",
+					"command": "/particle minecraft:snowflake ~ ~ ~ 0.8 0.15 0.8 0 30"
 				},
 				{
 					"type": "origins:play_sound",
@@ -693,18 +495,17 @@
 	"crits": {
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
-			"operation": "multiply_base",
-			"value": 0.5,
+			"operation": "multiply_base_additive",
+			"amount": 0.5,
 			"modifier": {
-				"operation": "multiply_base",
-				"value": -1,
+				"operation": "multiply_base_additive",
+				"amount": -1,
 				"modifier": {
-					"operation": "addition",
+					"operation": "add_base_early",
 					"resource": "*:fox/universal_settings_op_ness",
-					"value": 0,
 					"modifier": {
-						"value": -0.99,
-						"operation": "multiply_base"
+						"amount": -0.99,
+						"operation": "multiply_base_additive"
 					}
 				}
 			}
@@ -768,18 +569,17 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base",
-			"value": 0.33,
+			"operation": "multiply_base_additive",
+			"amount": 0.33,
 			"modifier": {
-				"operation": "multiply_base",
-				"value": -1,
+				"operation": "multiply_base_additive",
+				"amount": -1,
 				"modifier": {
-					"operation": "addition",
+					"operation": "add_base_early",
 					"resource": "*:fox/universal_settings_op_ness",
-					"value": 0,
 					"modifier": {
-						"value": -0.99,
-						"operation": "multiply_base"
+						"amount": -0.99,
+						"operation": "multiply_base_additive"
 					}
 				}
 			}
@@ -962,7 +762,7 @@
 										"type": "origins:apply_effect",
 										"effects": [
 											{
-												"effect": "minecraft:weakness",
+												"id": "minecraft:weakness",
 												"duration": 60,
 												"amplifier": 0,
 												"is_ambient": false,
@@ -970,7 +770,7 @@
 												"show_particles": false
 											},
 											{
-												"effect": "minecraft:nausea",
+												"id": "minecraft:nausea",
 												"duration": 100,
 												"amplifier": 0,
 												"is_ambient": false,
@@ -1002,8 +802,8 @@
 										},
 										{
 											"type": "origins:feed",
-											"food": 2,
-											"saturation": 2
+											"saturation": 2,
+											"nutrition": 2
 										},
 										{
 											"type": "origins:change_resource",
@@ -1029,6 +829,15 @@
 					"type": "origins:amount",
 					"compare_to": 1,
 					"comparison": ">"
+				},
+				{
+					"type": "origins:attacker",
+					"entity_condition": {
+						"type": "origins:resource",
+						"resource": "*:*_falling",
+						"compare_to": 1,
+						"comparison": "=="
+					}
 				}
 			]
 		},
@@ -1040,12 +849,6 @@
 					{
 						"type": "origins:resource",
 						"resource": "*:*_left_ground",
-						"compare_to": 1,
-						"comparison": "=="
-					},
-					{
-						"type": "origins:resource",
-						"resource": "*:*_falling",
 						"compare_to": 1,
 						"comparison": "=="
 					},
@@ -1073,18 +876,17 @@
 	"magnetoreception_ne": {
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
-			"operation": "multiply_base",
-			"value": 0.0625,
+			"operation": "multiply_base_additive",
+			"amount": 0.0625,
 			"modifier": {
-				"operation": "multiply_base",
-				"value": -1,
+				"operation": "multiply_base_additive",
+				"amount": -1,
 				"modifier": {
-					"operation": "addition",
+					"operation": "add_base_early",
 					"resource": "*:fox/universal_settings_op_ness",
-					"value": 0,
 					"modifier": {
-						"value": -0.99,
-						"operation": "multiply_base"
+						"amount": -0.99,
+						"operation": "multiply_base_additive"
 					}
 				}
 			}
@@ -1121,18 +923,17 @@
 	"magnetoreception_sw": {
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
-			"operation": "multiply_base",
-			"value": 0.0375,
+			"operation": "multiply_base_additive",
+			"amount": 0.0375,
 			"modifier": {
-				"operation": "multiply_base",
-				"value": -1,
+				"operation": "multiply_base_additive",
+				"amount": -1,
 				"modifier": {
-					"operation": "addition",
+					"operation": "add_base_early",
 					"resource": "*:fox/universal_settings_op_ness",
-					"value": 0,
 					"modifier": {
-						"value": -0.99,
-						"operation": "multiply_base"
+						"amount": -0.99,
+						"operation": "multiply_base_additive"
 					}
 				}
 			}
@@ -1168,7 +969,7 @@
 
 	"mgt_overlay_ne": {
 		"type": "origins:overlay",
-		"texture": "minecraft:textures/misc/nausea.png",
+		"sprite": "origins:phantomize_overlay",
 		"draw_mode": "nausea",
 		"draw_phase": "below_hud",
 		"blue": 0.1,
@@ -1188,6 +989,10 @@
 					"resource": "*:*_magnetoreception_direction",
 					"compare_to": 2,
 					"comparison": "=="
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
 				}
 			]
 		}
@@ -1195,7 +1000,7 @@
 
 	"mgt_overlay_sw": {
 		"type": "origins:overlay",
-		"texture": "minecraft:textures/misc/nausea.png",
+		"sprite": "origins:phantomize_overlay",
 		"draw_mode": "nausea",
 		"draw_phase": "below_hud",
 		"blue": 0.2,
@@ -1215,6 +1020,10 @@
 					"resource": "*:*_magnetoreception_direction",
 					"compare_to": 1,
 					"comparison": "=="
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
 				}
 			]
 		}
