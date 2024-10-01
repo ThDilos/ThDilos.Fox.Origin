@@ -1,7 +1,7 @@
 {
 	"type": "origins:multiple",
-	"name": "power.thorigins.fox.thsmol.name",
-	"description": "power.thorigins.fox.thsmol.description",
+	"name": "fox.thsmol.name",
+	"description": "fox.thsmol.description",
 	"badges": [
 		{
 			"type": "origins:keybind",
@@ -31,7 +31,7 @@
 				"if_action": {
 					"type": "origins:change_resource",
 					"resource": "*:fox/thtrackers_scale_modified",
-					"change": 1
+					"change": 2
 				}
 			}
 		}
