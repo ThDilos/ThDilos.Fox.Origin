@@ -1,5 +1,6 @@
 {
 	"type": "origins:action_when_damage_taken",
+	"hidden": true,
 	"damage_condition": {
 		"type": "origins:constant",
 		"value": true

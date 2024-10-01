@@ -1,7 +1,7 @@
 {
 	"type": "origins:multiple",
-	"name": "power.thorigins.fox.thweak.name",
-	"description": "power.thorigins.fox.thweak.description",
+	"name": "fox.thweak.name",
+	"description": "fox.thweak.description",
 	"badges": [
 		{
 			"type": "origins:keybind",
