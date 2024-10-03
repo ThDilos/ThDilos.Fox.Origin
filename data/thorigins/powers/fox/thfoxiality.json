@@ -61,7 +61,6 @@
 								"type": "origins:execute_command",
 								"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
 							},
-
 							{
 								"type": "origins:execute_command",
 								"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
