@@ -48,7 +48,7 @@
 			]
 		}
 	},
-	
+
 	"sweet_berries": {
 		"type": "origins:modify_food",
 		"item_condition": {
@@ -60,12 +60,12 @@
 		"food_modifier": {
 			"name": "Origin modifier",
 			"operation": "addition",
-			"value": 4.0
+			"value": 1.0
 		},
 		"saturation_modifier": {
 			"name": "Origin modifier",
 			"operation": "addition",
-			"value": 8.0
+			"value": 2.0
 		},
 		"entity_action": {
 			"type": "origins:choice",
@@ -239,12 +239,12 @@
 		"food_modifier": {
 			"name": "Origin modifier",
 			"operation": "addition",
-			"value": 4.0
+			"value": 1.0
 		},
 		"saturation_modifier": {
 			"name": "Origin modifier",
 			"operation": "addition",
-			"value": 8.0
+			"value": 2.0
 		},
 		"entity_action": {
 			"type": "origins:choice",
