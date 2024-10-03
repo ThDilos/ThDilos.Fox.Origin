@@ -8,7 +8,7 @@
 			"sprite": "origins:textures/gui/badge/active.png",
 			"text": [
 				{
-					"translate": "thorigins.press"
+					"translate": "thorigins.press0"
 				},
 				{
 					"keybind": "key.origins.primary_active",

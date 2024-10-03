@@ -15,21 +15,21 @@
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_0"
+					"translate": "thfoxify.key0"
 				},
 				{
 					"keybind": "key.sprint",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_1"
+					"translate": "thfoxify.key1"
 				},
 				{
 					"keybind": "key.sprint",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_2"
+					"translate": "thfoxify.key2"
 				},
 				{
 					"text": "\n\n"
@@ -39,41 +39,41 @@
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_3"
+					"translate": "thfoxify.key3"
 				},
 				{
 					"keybind": "key.use",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_4"
+					"translate": "thfoxify.key4"
 				},
 				{
 					"keybind": "key.drop",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_5"
+					"translate": "thfoxify.key5"
 				},
 				{
-					"translate": "thfoxify.key_8"
+					"translate": "thfoxify.key8"
 				},
 				{
 					"keybind": "key.use",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_9"
+					"translate": "thfoxify.key9"
 				},
 				{
-					"translate": "thfoxify.info_1"
+					"translate": "thorigins.press1"
 				},
 				{
 					"keybind": "key.saveToolbarActivator",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_10"
+					"translate": "thfoxify.key10"
 				},
 				{
 					"text": "\n\n"
@@ -83,14 +83,14 @@
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_6"
+					"translate": "thfoxify.key6"
 				},
 				{
 					"keybind": "key.saveToolbarActivator",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_7"
+					"translate": "thfoxify.key7"
 				}
 			]
 		},
@@ -99,61 +99,59 @@
 			"sprite": "origins:textures/gui/badge/info.png",
 			"text": [
 				{
-					"translate": "thfoxify.info_0"
+					"translate": "thfoxify.info0"
 				},
 				{
 					"text": "1. ",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_1"
+					"translate": "thorigins.press1"
 				},
 				{
 					"keybind": "key.sprint",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_2"
+					"translate": "thfoxify.info1"
 				},
 				{
 					"text": "2. ",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_1"
+					"translate": "thorigins.press1"
 				},
 				{
 					"keybind": "key.swapOffhand",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_3"
+					"translate": "thfoxify.info2"
 				},
 				{
 					"text": "3. ",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_1"
+					"translate": "thorigins.press1"
 				},
 				{
 					"keybind": "key.saveToolbarActivator",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_5"
+					"translate": "thfoxify.info3"
 				},
 				{
-					"translate": "thfoxify.info_4"
+					"translate": "thfoxify.info4"
 				}
 			]
 		},
 		{
-			"type": "origins:tooltip",
+			"type": "origins:keybind",
 			"sprite": "origins:textures/gui/badge/arrow_up.png",
-			"text": {
-				"translate": "thfoxify.keybind.info"
-			}
+			"text": "thfoxify.keybind.info"
 		}
 	],
 

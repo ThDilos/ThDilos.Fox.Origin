@@ -13,17 +13,17 @@
 			"sprite": "origins:textures/gui/badge/info.png",
 			"text": [
 				{
-					"translate": "thshy.info_0"
+					"translate": "thshy.info0"
 				},
 				{
-					"translate": "thfoxify.info_1"
+					"translate": "thorigins.press1"
 				},
 				{
 					"keybind": "key.use",
 					"color": "aqua"
 				},
 				{
-					"translate": "thshy.info_1"
+					"translate": "thshy.info1"
 				}
 			]
 		},
@@ -31,7 +31,7 @@
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
 			"text": {
-				"translate": "thshy.info_2"
+				"translate": "thshy.info2"
 			}
 		}
 	],
