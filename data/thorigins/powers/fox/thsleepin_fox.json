@@ -327,35 +327,57 @@
 		}
 	},
 
-	"damage_back_wolf": {
-		"type": "origins:action_when_damage_taken",
-		"cooldown": 1,
-		"damage_condition": {
-			"type": "origins:attacker",
-			"entity_condition": {
-				"type": "origins:entity_type",
-				"entity_type": "minecraft:wolf"
+	"damage_back_wolf_polar_bear": {
+		"type": "origins:action_when_hit",
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:wolf"
+					},
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:polar_bear"
+					}
+				]
 			}
 		},
-		"entity_action": {
-			"type": "origins:execute_command",
-			"command": "/damage @p[tag=foxie,distance=..0.2,limit=1,sort=nearest] 3 minecraft:mob_attack by @e[type=wolf,limit=1,sort=nearest] from @e[type=wolf,limit=1,sort=nearest]"
-		}
-	},
-
-	"damage_back_polar_bear": {
-		"type": "origins:action_when_damage_taken",
-		"cooldown": 1,
-		"damage_condition": {
-			"type": "origins:attacker",
-			"entity_condition": {
-				"type": "origins:entity_type",
-				"entity_type": "minecraft:polar_bear"
+		"bientity_action": {
+			"type": "origins:actor_action",
+			"action": {
+				"type": "origins:area_of_effect",
+				"radius": 2.5,
+				"shape": "sphere",
+				"bientity_condition": {
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:power",
+								"power": "thorigins:fox/thfoxify"
+							},
+							{
+								"type": "origins:resource",
+								"resource": "thorigins:fox/thfoxifly_afk_timer",
+								"compare_to": 0,
+								"comparison": "=="
+							}
+						]
+					}
+				},
+				"bientity_action": {
+					"type": "origins:damage",
+					"amount": 6,
+					"damage_type": "minecraft:mob_attack",
+					"source": {
+						"name": "mob"
+					}
+				}
 			}
-		},
-		"entity_action": {
-			"type": "origins:execute_command",
-			"command": "/damage @p[tag=foxie,distance=..0.2,limit=1,sort=nearest] 3 minecraft:mob_attack by @e[type=polar_bear,limit=1,sort=nearest] from @e[type=polar_bear,limit=1,sort=nearest]"
 		}
 	},
 
