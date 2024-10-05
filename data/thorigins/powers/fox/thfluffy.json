@@ -243,7 +243,8 @@
 					"if_action": {
 						"type": "origins:change_resource",
 						"resource": "*:*_avoid_spamming_water",
-						"change": -10
+						"change": 10,
+						"operation": "set"
 					}
 				},
 				{
@@ -257,13 +258,70 @@
 					"if_action": {
 						"type": "origins:change_resource",
 						"resource": "*:*_avoid_spamming_snow",
-						"change": -10
+						"change": 10,
+						"operation": "set"
 					}
 				},
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:in_snow"
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_snowness",
+								"comparison": ">=",
+								"compare_to": 100
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_avoid_spamming_snow",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_wetness",
+										"comparison": ">=",
+										"compare_to": 100
+									},
+									{
+										"type": "origins:in_block",
+										"block_condition": {
+											"type": "origins:block",
+											"block": "powder_snow"
+										}
+									},
+									{
+										"type": "origins:and",
+										"conditions": [
+											{
+												"type": "origins:in_block",
+												"block_condition": {
+													"type": "origins:block_state",
+													"property": "level",
+													"compare_to": 1,
+													"comparison": ">"
+												}
+											},
+											{
+												"type": "origins:in_block",
+												"block_condition": {
+													"type": "origins:block",
+													"block": "powder_snow_cauldron"
+												}
+											}
+										]
+									},
+									{
+										"type": "origins:in_snow"
+									}
+								]
+							}
+						]
 					},
 					"if_action": {
 						"type": "origins:trigger_cooldown",
@@ -285,35 +343,52 @@
 								"type": "origins:or",
 								"conditions": [
 									{
-										"type": "origins:in_rain"
+										"type": "origins:resource",
+										"resource": "*:*_avoid_spamming_water",
+										"comparison": "==",
+										"compare_to": 0
 									},
 									{
-										"type": "origins:fluid_height",
-										"fluid": "minecraft:water",
-										"compare_to": 0.25,
-										"comparison": ">="
+										"type": "origins:resource",
+										"resource": "*:*_wetness",
+										"comparison": ">=",
+										"compare_to": 100
 									},
 									{
-										"type": "origins:swimming"
-									},
-									{
-										"type": "origins:and",
+										"type": "origins:or",
 										"conditions": [
 											{
-												"type": "origins:in_block",
-												"block_condition": {
-													"type": "origins:block_state",
-													"property": "level",
-													"compare_to": 1,
-													"comparison": ">"
-												}
+												"type": "origins:in_rain"
 											},
 											{
-												"type": "origins:in_block",
-												"block_condition": {
-													"type": "origins:block",
-													"block": "water_cauldron"
-												}
+												"type": "origins:fluid_height",
+												"fluid": "minecraft:water",
+												"compare_to": 0.25,
+												"comparison": ">="
+											},
+											{
+												"type": "origins:swimming"
+											},
+											{
+												"type": "origins:and",
+												"conditions": [
+													{
+														"type": "origins:in_block",
+														"block_condition": {
+															"type": "origins:block_state",
+															"property": "level",
+															"compare_to": 1,
+															"comparison": ">"
+														}
+													},
+													{
+														"type": "origins:in_block",
+														"block_condition": {
+															"type": "origins:block",
+															"block": "water_cauldron"
+														}
+													}
+												]
 											}
 										]
 									}
@@ -333,13 +408,13 @@
 						"conditions": [
 							{
 								"type": "origins:resource",
-								"resource": "*:fox/thfluffy_timer",
+								"resource": "*:*_timer",
 								"compare_to": 28,
 								"comparison": "<="
 							},
 							{
 								"type": "origins:resource",
-								"resource": "*:fox/thfluffy_timer",
+								"resource": "*:*_timer",
 								"compare_to": 0,
 								"comparison": ">"
 							},
@@ -375,13 +450,13 @@
 						"conditions": [
 							{
 								"type": "origins:resource",
-								"resource": "*:fox/thfluffy_timer2",
+								"resource": "*:*_timer2",
 								"compare_to": 28,
 								"comparison": "<="
 							},
 							{
 								"type": "origins:resource",
-								"resource": "*:fox/thfluffy_timer2",
+								"resource": "*:*_timer2",
 								"compare_to": 0,
 								"comparison": ">"
 							},

@@ -11,9 +11,14 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": {
+			"text": [
+				{
 					"translate": "thweak.info"
+				},
+				{
+					"translate": "thweak.info1"
 				}
+			]
 		}
 	],
 

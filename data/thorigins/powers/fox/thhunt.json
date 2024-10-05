@@ -26,7 +26,6 @@
 		}
 	],
 
-	
 	"ticks": {
 		"type": "origins:action_over_time",
 		"interval": 1,
@@ -188,6 +187,87 @@
 						"resource": "*:*_hunt_stage",
 						"change": 1
 					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:fox/universal_settings_can_adapt_dimensions",
+								"comparison": "==",
+								"compare_to": 1
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:dimension",
+										"dimension": "minecraft:the_nether"
+									},
+									{
+										"type": "origins:dimension",
+										"dimension": "minecraft:the_end"
+									}
+								]
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:or",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "*:*_prepare_stage",
+									"compare_to": 98,
+									"comparison": "<"
+								},
+								{
+									"type": "origins:resource",
+									"resource": "*:*_hunt_stage",
+									"compare_to": 0,
+									"comparison": ">"
+								}
+							]
+						},
+						"if_action": {
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:dimension",
+								"dimension": "minecraft:the_nether"
+							},
+							"if_action": {
+								"type": "origins:change_resource",
+								"resource": "*:fox/thtrackers_time_in_nether",
+								"change": 2
+							},
+							"else_action": {
+								"type": "origins:change_resource",
+								"resource": "*:fox/thtrackers_time_in_end",
+								"change": 2
+							}
+						},
+						"else_action": {
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:dimension",
+								"dimension": "minecraft:the_nether"
+							},
+							"if_action": {
+								"type": "origins:change_resource",
+								"resource": "*:fox/thtrackers_time_in_nether",
+								"change": 1
+							},
+							"else_action": {
+								"type": "origins:change_resource",
+								"resource": "*:fox/thtrackers_time_in_end",
+								"change": 1
+							}
+						}
+					}
 				}
 			]
 		}
@@ -223,8 +303,8 @@
 					{
 						"type": "origins:resource",
 						"resource": "*:*_prepare_stage",
-						"compare_to": 1,
-						"comparison": ">"
+						"compare_to": 98,
+						"comparison": "<"
 					}
 				]
 			}
@@ -347,22 +427,64 @@
 
 	"damage_bonus_day": {
 		"type": "origins:modify_damage_dealt",
-		"modifier": {
-			"operation": "multiply_base_additive",
-			"amount": 0.0625,
-			"modifier": {
+		"modifiers": [
+			{
 				"operation": "multiply_base_additive",
-				"amount": -1,
+				"amount": 0.0625,
 				"modifier": {
-					"operation": "add_base_early",
-					"resource": "*:fox/universal_settings_op_ness",
+					"operation": "multiply_base_additive",
+					"amount": -1,
 					"modifier": {
-						"amount": -0.99,
-						"operation": "multiply_base_additive"
+						"operation": "add_base_early",
+						"resource": "*:fox/universal_settings_op_ness",
+						"modifier": {
+							"operation": "multiply_base_additive",
+							"amount": -0.99,
+							"modifier": {
+								"operation": "add_base_early",
+								"amount": -0.01,
+								"modifier": {
+									"operation": "multiply_base_additive",
+									"amount": -1,
+									"modifier": {
+										"operation": "add_base_early",
+										"resource": "*:fox/universal_settings_damage_muffler"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			{
+				"operation": "add_base_early",
+				"amount": 0.5,
+				"modifier": {
+					"operation": "multiply_base_additive",
+					"amount": -1,
+					"modifier": {
+						"operation": "add_base_early",
+						"resource": "*:fox/universal_settings_op_ness",
+						"modifier": {
+							"operation": "multiply_base_additive",
+							"amount": -0.99,
+							"modifier": {
+								"operation": "add_base_early",
+								"amount": -0.01,
+								"modifier": {
+									"operation": "multiply_base_additive",
+									"resource": "*:fox/universal_settings_damage_muffler",
+									"modifier": {
+										"operation": "multiply_base_additive",
+										"amount": -2
+									}
+								}
+							}
+						}
 					}
 				}
 			}
-		},
+		],
 		"condition": {
 			"type": "origins:and",
 			"conditions": [
@@ -433,27 +555,73 @@
 					]
 				}
 			]
+		},
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "player"
 		}
 	},
 
 	"damage_bonus_midnight": {
 		"type": "origins:modify_damage_dealt",
-		"modifier": {
-			"operation": "multiply_base_additive",
-			"amount": 0.125,
-			"modifier": {
+		"modifiers": [
+			{
 				"operation": "multiply_base_additive",
-				"amount": -1,
+				"amount": 0.125,
 				"modifier": {
-					"operation": "add_base_early",
-					"resource": "*:fox/universal_settings_op_ness",
+					"operation": "multiply_base_additive",
+					"amount": -1,
 					"modifier": {
-						"amount": -0.99,
-						"operation": "multiply_base_additive"
+						"operation": "add_base_early",
+						"resource": "*:fox/universal_settings_op_ness",
+						"modifier": {
+							"operation": "multiply_base_additive",
+							"amount": -0.99,
+							"modifier": {
+								"operation": "add_base_early",
+								"amount": -0.01,
+								"modifier": {
+									"operation": "multiply_base_additive",
+									"amount": -1,
+									"modifier": {
+										"operation": "add_base_early",
+										"resource": "*:fox/universal_settings_damage_muffler"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			{
+				"operation": "add_base_early",
+				"amount": 1,
+				"modifier": {
+					"operation": "multiply_base_additive",
+					"amount": -1,
+					"modifier": {
+						"operation": "add_base_early",
+						"resource": "*:fox/universal_settings_op_ness",
+						"modifier": {
+							"operation": "multiply_base_additive",
+							"amount": -0.99,
+							"modifier": {
+								"operation": "add_base_early",
+								"amount": -0.01,
+								"modifier": {
+									"operation": "multiply_base_additive",
+									"resource": "*:fox/universal_settings_damage_muffler",
+									"modifier": {
+										"operation": "multiply_base_additive",
+										"amount": -2
+									}
+								}
+							}
+						}
 					}
 				}
 			}
-		},
+		],
 		"condition": {
 			"type": "origins:and",
 			"conditions": [
@@ -536,6 +704,10 @@
 					]
 				}
 			]
+		},
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "player"
 		}
 	},
 
@@ -1040,28 +1212,25 @@
 														}
 													},
 													{
-														"type": "origins:target_action",
-														"action": {
-															"type": "origins:choice",
-															"actions": [
-																{
-																	"weight": 50,
-																	"element": {
-																		"type": "origins:damage",
-																		"amount": 3,
-																		"damage_type": "thorigins:foxie_bite"
-																	}
-																},
-																{
-																	"weight": 50,
-																	"element": {
-																		"type": "origins:damage",
-																		"amount": 3,
-																		"damage_type": "thorigins:foxie_bite_2"
-																	}
+														"type": "origins:choice",
+														"actions": [
+															{
+																"weight": 50,
+																"element": {
+																	"type": "origins:damage",
+																	"amount": 3,
+																	"damage_type": "thorigins:foxie_bite"
 																}
-															]
-														}
+															},
+															{
+																"weight": 50,
+																"element": {
+																	"type": "origins:damage",
+																	"amount": 3,
+																	"damage_type": "thorigins:foxie_bite_2"
+																}
+															}
+														]
 													}
 												]
 											},
@@ -1069,12 +1238,9 @@
 												"type": "origins:and",
 												"actions": [
 													{
-														"type": "origins:target_action",
-														"action": {
-															"type": "origins:damage",
-															"amount": 3,
-															"damage_type": "thorigins:foxie_bite_item"
-														}
+														"type": "origins:damage",
+														"amount": 3,
+														"damage_type": "thorigins:foxie_bite_item"
 													},
 													{
 														"type": "origins:actor_action",

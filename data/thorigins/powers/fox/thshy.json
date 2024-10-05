@@ -13,17 +13,17 @@
 			"sprite": "origins:textures/gui/badge/info.png",
 			"text": [
 				{
-					"translate": "thshy.info_0"
+					"translate": "thshy.info0"
 				},
 				{
-					"translate": "thfoxify.info_1"
+					"translate": "thorigins.press1"
 				},
 				{
 					"keybind": "key.use",
 					"color": "aqua"
 				},
 				{
-					"translate": "thshy.info_1"
+					"translate": "thshy.info1"
 				}
 			]
 		},
@@ -31,11 +31,10 @@
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
 			"text": {
-				"translate": "thshy.info_2"
+				"translate": "thshy.info2"
 			}
 		}
 	],
-
 	"ticks": {
 		"type": "origins:action_over_time",
 		"interval": 1,
@@ -79,13 +78,13 @@
 						"conditions": [
 							{
 								"type": "origins:command",
-								"command": "/execute if entity @e[type=wolf,distance=..18,tag=!foxie_tamed]",
+								"command": "/execute if entity @e[type=wolf,distance=..18,tag=!foxie_tamed,tag=!foxie_trust]",
 								"compare_to": 0,
 								"comparison": ">"
 							},
 							{
 								"type": "origins:command",
-								"command": "/execute if entity @e[type=polar_bear,distance=..16]",
+								"command": "/execute if entity @e[type=polar_bear,distance=..16,tag=!foxie_trust]",
 								"compare_to": 0,
 								"comparison": ">"
 							},
@@ -99,7 +98,7 @@
 									},
 									{
 										"type": "origins:command",
-										"command": "/execute if entity @e[type=villager,distance=..16]",
+										"command": "/execute if entity @e[type=villager,distance=..16,tag=!foxie_trust]",
 										"compare_to": 0,
 										"comparison": ">"
 									}
@@ -116,7 +115,7 @@
 									},
 									{
 										"type": "origins:command",
-										"command": "/execute if entity @e[type=warden,distance=..30]",
+										"command": "/execute if entity @e[type=warden,distance=..30,tag=!foxie_trust]",
 										"compare_to": 0,
 										"comparison": ">"
 									}
@@ -133,7 +132,7 @@
 									},
 									{
 										"type": "origins:command",
-										"command": "/execute if entity @e[type=wither,distance=..50]",
+										"command": "/execute if entity @e[type=wither,distance=..50,tag=!foxie_trust]",
 										"compare_to": 0,
 										"comparison": ">"
 									}
@@ -150,7 +149,7 @@
 									},
 									{
 										"type": "origins:command",
-										"command": "/execute if entity @e[type=ender_dragon,distance=..150]",
+										"command": "/execute if entity @e[type=ender_dragon,distance=..150,tag=!foxie_trust]",
 										"compare_to": 0,
 										"comparison": ">"
 									}
@@ -292,9 +291,8 @@
 						]
 					},
 					"if_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_fear_timer",
-						"change": 100
+						"type": "origins:trigger_cooldown",
+						"power": "*:*_fear_timer"
 					}
 				},
 				{
@@ -342,9 +340,8 @@
 					"bientity_action": {
 						"type": "origins:actor_action",
 						"action": {
-							"type": "origins:change_resource",
-							"resource": "*:*_fear_timer",
-							"change": 100
+							"type": "origins:trigger_cooldown",
+							"power": "*:*_fear_timer"
 						}
 					}
 				},
@@ -370,21 +367,8 @@
 					"if_action": {
 						"type": "origins:change_resource",
 						"resource": "*:*_fear_timer",
-						"change": -100
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:resource",
-						"resource": "*:*_fear_timer",
-						"comparison": ">",
-						"compare_to": 0
-					},
-					"if_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_fear_timer",
-						"change": -1
+						"change": 100,
+						"operation": "set"
 					}
 				}
 			]
@@ -392,9 +376,9 @@
 	},
 
 	"fear_timer": {
-		"type": "origins:resource",
-		"max": 100,
-		"min": 0
+		"type": "origins:cooldown",
+		"cooldown": 100,
+		"hud_render": { "should_render": false }
 	},
 
 	"shaking_of_fear": {

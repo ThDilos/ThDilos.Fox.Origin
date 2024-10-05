@@ -15,12 +15,68 @@
 		}
 	],
 
-	"ticks": {
+	"ticks_20": {
 		"type": "origins:action_over_time",
-		"interval": 2,
+		"interval": 20,
 		"entity_action": {
 			"type": "origins:and",
 			"actions": [
+				{
+					"type": "origins:area_of_effect",
+					"shape": "cube",
+					"radius": 15,
+					"bientity_condition": {
+						"type": "origins:target_condition",
+						"condition": {
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:nbt",
+									"nbt": "{\"Tags\":[\"hatting\"]}",
+									"inverted": true
+								},
+								{
+									"type": "origins:nbt",
+									"nbt": "{\"Tags\":[\"sleepin\"]}",
+									"inverted": true
+								},
+								{
+									"type": "origins:nbt",
+									"nbt": "{\"Tags\":[\"uuidappended\"]}",
+									"inverted": true
+								},
+								{
+									"type": "origins:entity_type",
+									"entity_type": "minecraft:fox"
+								}
+							]
+						}
+					},
+					"bientity_action": {
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:execute_command",
+									"command": "/data modify entity @s Trusted append from entity @p[tag=foxie] UUID"
+								},
+								{
+									"type": "origins:delay",
+									"ticks": 1,
+									"action": {
+										"type": "origins:execute_command",
+										"command": "/tag @s add uuidappended"
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @e[type=fox,tag=uuidappended,tag=!hatting,tag=!sleepin] at @s unless entity @a[distance=..15,tag=foxie] run tag @s remove uuidappended"
+				},
 				{
 					"type": "origins:if_else",
 					"condition": {
@@ -30,15 +86,15 @@
 								"type": "origins:or",
 								"conditions": [
 									{
+										"type": "origins:power",
+										"power": "*:fox/thhunt",
+										"inverted": true
+									},
+									{
 										"type": "origins:resource",
 										"resource": "*:fox/thhunt_prepare_stage",
 										"compare_to": 25,
 										"comparison": ">"
-									},
-									{
-										"type": "origins:power",
-										"power": "*:fox/thhunt",
-										"inverted": true
 									}
 								]
 							},
@@ -59,12 +115,11 @@
 						"actions": [
 							{
 								"type": "origins:execute_command",
-								"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
+								"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
 							},
-
 							{
 								"type": "origins:execute_command",
-								"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngerTime set value 4"
+								"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
 							},
 							{
 								"type": "origins:delay",
@@ -85,19 +140,6 @@
 							}
 						]
 					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:command",
-						"command": "/execute if entity @e[type=minecraft:fox,distance=..15,tag=!sleepin,tag=!hatting]",
-						"compare_to": 0,
-						"comparison": ">"
-					},
-					"if_action": {
-						"type": "origins:execute_command",
-						"command": "/execute as @e[type=minecraft:fox,distance=3..15,tag=!sleepin,tag=!hatting] run data modify entity @s Trusted append from entity @p[tag=foxie] UUID"
-					}
 				}
 			]
 		}
@@ -115,6 +157,10 @@
 		"modifier": {
 			"amount": 3,
 			"operation": "multiply_base_additive"
+		},
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "player"
 		}
 	},
 
@@ -139,6 +185,10 @@
 		"modifier": {
 			"amount": 1,
 			"operation": "multiply_total_additive"
+		},
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "player"
 		}
 	},
 
@@ -320,6 +370,10 @@
 		"modifier": {
 			"operation": "multiply_base_additive",
 			"amount": 0.15
+		},
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "player"
 		}
 	},
 

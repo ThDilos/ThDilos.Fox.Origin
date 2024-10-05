@@ -112,3 +112,22 @@ Player can turn into a disguise sleeping fox.
 
 10. "mace_nerf"
 Player receives panelties when using Mace.
+
+11. "damage_muffler"
+Whether to use a much more TAMED damage bonus system for the two active skills [Pounce] and [Hunt] that is way less OP.
+If you have mods that DIRECTLY ADD BASE DAMAGE, turn on this for NERF.
+
+Deeper Explanation:
+    In default way of damage buff, the buff is [DIRECT MULTIPLY], meaning that even a small addition to base damage will cause it to be magnified many times more.
+
+    Let's see an example: 
+        In Vanilla, if you have Strength 2, your fist damage with Crit will deal 10.5 Damage. (1 Fist Damage + 6 Strength Added Damage) * 1.5 Crit Modifier = 10.5 [Simple Math]
+
+    By default*, in the most optimal way*, this damage is magnified to ~45 Damage, MORE THAN 4x! Enough to kill TWO players with no gear!
+    How is it calculated? Refers to the Wiki for more information ;)
+
+    The new damage bonus system will use [FINAL ADDITION] instead, still brings a damage bonus but is MUCH LESS than before, and it does not get influenced by other factors easily.
+    In the same senario, the damage will only be 26.925 ( + 3 for extra strike ), still quite a lot, but can be reduced by lowering the "op_ness" above, and each Op Level lowered is equal to 3.75 Damage Lowered (About 2 hearts of damage)
+
+*Default Op Level is 4, "damage_muffler" OFF
+*The optimal way refers to the perfect triggering of the best damage buff: Midnight + Facing NORTH EAST + Pounce + Full Hunger

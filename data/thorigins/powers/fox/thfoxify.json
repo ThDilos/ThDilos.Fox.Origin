@@ -15,21 +15,21 @@
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_0"
+					"translate": "thfoxify.key0"
 				},
 				{
 					"keybind": "key.sprint",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_1"
+					"translate": "thfoxify.key1"
 				},
 				{
 					"keybind": "key.sprint",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_2"
+					"translate": "thfoxify.key2"
 				},
 				{
 					"text": "\n\n"
@@ -39,41 +39,41 @@
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_3"
+					"translate": "thfoxify.key3"
 				},
 				{
 					"keybind": "key.use",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_4"
+					"translate": "thfoxify.key4"
 				},
 				{
 					"keybind": "key.drop",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_5"
+					"translate": "thfoxify.key5"
 				},
 				{
-					"translate": "thfoxify.key_8"
+					"translate": "thfoxify.key8"
 				},
 				{
 					"keybind": "key.use",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_9"
+					"translate": "thfoxify.key9"
 				},
 				{
-					"translate": "thfoxify.info_1"
+					"translate": "thorigins.press1"
 				},
 				{
 					"keybind": "key.saveToolbarActivator",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_10"
+					"translate": "thfoxify.key10"
 				},
 				{
 					"text": "\n\n"
@@ -83,14 +83,14 @@
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_6"
+					"translate": "thfoxify.key6"
 				},
 				{
 					"keybind": "key.saveToolbarActivator",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.key_7"
+					"translate": "thfoxify.key7"
 				}
 			]
 		},
@@ -99,61 +99,59 @@
 			"sprite": "origins:textures/gui/badge/info.png",
 			"text": [
 				{
-					"translate": "thfoxify.info_0"
+					"translate": "thfoxify.info0"
 				},
 				{
 					"text": "1. ",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_1"
+					"translate": "thorigins.press1"
 				},
 				{
 					"keybind": "key.sprint",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_2"
+					"translate": "thfoxify.info1"
 				},
 				{
 					"text": "2. ",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_1"
+					"translate": "thorigins.press1"
 				},
 				{
 					"keybind": "key.swapOffhand",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_3"
+					"translate": "thfoxify.info2"
 				},
 				{
 					"text": "3. ",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_1"
+					"translate": "thorigins.press1"
 				},
 				{
 					"keybind": "key.saveToolbarActivator",
 					"color": "aqua"
 				},
 				{
-					"translate": "thfoxify.info_5"
+					"translate": "thfoxify.info3"
 				},
 				{
-					"translate": "thfoxify.info_4"
+					"translate": "thfoxify.info4"
 				}
 			]
 		},
 		{
-			"type": "origins:tooltip",
+			"type": "origins:keybind",
 			"sprite": "origins:textures/gui/badge/arrow_up.png",
-			"text": {
-				"translate": "thfoxify.keybind.info"
-			}
+			"text": "thfoxify.keybind.info"
 		}
 	],
 
@@ -273,7 +271,16 @@
 								"comparison": "<"
 							},
 							{
-								"type": "origins:moving"
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:riding",
+										"inverted": true
+									},
+									{
+										"type": "origins:moving"
+									}
+								]
 							},
 							{
 								"type": "origins:fall_distance",
@@ -320,28 +327,10 @@
 						]
 					},
 					"if_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:change_resource",
-								"resource": "*:*_afk_timer",
-								"change": 1200,
-								"operation": "set"
-							},
-							{
-								"type": "origins:if_else",
-								"condition": {
-									"type": "origins:resource",
-									"resource": "*:*_figura_state",
-									"compare_to": 0,
-									"comparison": "=="
-								},
-								"if_action": {
-									"type": "origins:execute_command",
-									"command": "/scale reset pehkui:hitbox_height @s"
-								}
-							}
-						]
+						"type": "origins:change_resource",
+						"resource": "*:*_afk_timer",
+						"change": 1200,
+						"operation": "set"
 					}
 				},
 				{
@@ -509,10 +498,6 @@
 						"actions": [
 							{
 								"type": "origins:execute_command",
-								"command": "/execute at @e[tag=hatting,type=fox,limit=1,sort=nearest,distance=..1.5,nbt={Sleeping:0b,Sitting:1b}] run tp @e[tag=mounted,type=armor_stand,limit=1,sort=nearest,distance=..1.5] ~ ~ ~ facing ^ ^ ^1"
-							},
-							{
-								"type": "origins:execute_command",
 								"command": "/tp @e[tag=hatting,type=fox,limit=1,sort=nearest,distance=..2,nbt={Sleeping:1b}] ~ ~ ~ facing ^0.01 ^ ^-1"
 							},
 							{
@@ -651,7 +636,7 @@
 							},
 							"action": {
 								"type": "origins:execute_command",
-								"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b,cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"thorigins:fox/thsleepin_fox\",Data:{},Sources:[\"thorigins:universal\"]}]}}}"
+								"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandDropChances:[f],CanPickUpLoot:0b}"
 							}
 						},
 						{
@@ -663,7 +648,7 @@
 							},
 							"action": {
 								"type": "origins:execute_command",
-								"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],CanPickUpLoot:0b,cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"thorigins:fox/thsleepin_fox\",Data:{},Sources:[\"thorigins:universal\"]}]}}}"
+								"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandDropChances:[f],CanPickUpLoot:0b}"
 							}
 						},
 						{
@@ -675,7 +660,7 @@
 							},
 							"action": {
 								"type": "origins:execute_command",
-								"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandItems:[{id:air,Count:1}],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b,cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"thorigins:fox/thsleepin_fox\",Data:{},Sources:[\"thorigins:universal\"]}]}}}"
+								"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],HandDropChances:[f],Age:-6000,ForcedAge:-100,CanPickUpLoot:0b}"
 							}
 						},
 						{
@@ -829,9 +814,7 @@
 		"type": "origins:resource",
 		"min": 0,
 		"max": 10,
-		"hud_render": {
-			"should_render": false
-		}
+		"hud_render": { "should_render": false }
 	},
 
 	"hiding_fox": {
@@ -844,9 +827,7 @@
 		"type": "origins:resource",
 		"min": 0,
 		"max": 1,
-		"hud_render": {
-			"should_render": false
-		}
+		"hud_render": { "should_render": false }
 	},
 
 	"sleepin_mode_status": {
@@ -858,7 +839,11 @@
 			"actions": [
 				{
 					"type": "origins:execute_command",
-					"command": "/scale reset pehkui:hitbox_height @s"
+					"command": "/scale divide pehkui:hitbox_height 0.6 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scale delay set pehkui:hitbox_height 0 @s"
 				},
 				{
 					"type": "origins:execute_command",
@@ -874,15 +859,12 @@
 			"type": "origins:and",
 			"actions": [
 				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:riding",
-						"inverted": true
-					},
-					"if_action": {
-						"type": "origins:execute_command",
-						"command": "/scale multiply pehkui:hitbox_height 0.6 @s"
-					}
+					"type": "origins:execute_command",
+					"command": "/scale multiply pehkui:hitbox_height 0.6 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scale delay set pehkui:hitbox_height 0 @s"
 				},
 				{
 					"type": "origins:execute_command",
@@ -1142,46 +1124,42 @@
 		"key": "key.drop",
 		"cooldown": 1,
 		"entity_action": {
-			"type": "origins:if_else_list",
-			"actions": [
-				{
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:equipped_item",
-								"equipment_slot": "mainhand",
-								"item_condition": {
-									"type": "origins:empty"
-								}
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:*_ride_status",
-								"compare_to": 1,
-								"comparison": "=="
-							}
-						]
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:empty"
+						}
 					},
-					"action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:passenger_action",
-								"action": {
-									"type": "origins:dismount"
-								}
-							},
-							{
-								"type": "origins:change_resource",
-								"resource": "*:*_ride_status",
-								"change": 0,
-								"operation": "set"
-							}
-						]
+					{
+						"type": "origins:resource",
+						"resource": "*:*_ride_status",
+						"compare_to": 1,
+						"comparison": "=="
 					}
-				}
-			]
+				]
+			},
+			"if_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:passenger_action",
+						"action": {
+							"type": "origins:dismount"
+						}
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "*:*_ride_status",
+						"change": 0,
+						"operation": "set"
+					}
+				]
+			}
 		}
 	},
 
@@ -1455,211 +1433,83 @@
 						{
 							"type": "origins:actor_action",
 							"action": {
-								"type": "origins:change_resource",
-								"resource": "*:*_ride_status",
-								"change": 1,
-								"operation": "set"
-							}
-						},
-						{
-							"type": "origins:actor_action",
-							"action": {
-								"type": "origins:change_resource",
-								"resource": "*:*_perspective_check",
-								"change": 0,
-								"operation": "set"
-							}
-						},
-						{
-							"type": "origins:target_action",
-							"action": {
-								"type": "origins:execute_command",
-								"command": "/summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Silent:1b,Tags:[\"mount_point\"]}"
-							}
-						},
-						{
-							"type": "origins:target_action",
-							"action": {
-								"type": "origins:execute_command",
-								"command": "/power grant @e[type=armor_stand,limit=1,sort=nearest,tag=mount_point] thorigins:fox/seat thorigins:universal"
-							}
-						},
-						{
-							"type": "origins:delay",
-							"ticks": 1,
-							"action": {
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:area_of_effect",
-									"radius": 2,
-									"bientity_condition": {
-										"type": "origins:target_condition",
-										"condition": {
-											"type": "origins:and",
-											"conditions": [
-												{
-													"type": "origins:entity_type",
-													"entity_type": "minecraft:armor_stand"
-												},
-												{
-													"type": "origins:nbt",
-													"nbt": "{\"Tags\":[\"mount_point\"]}"
-												}
-											]
-										}
-									},
-									"bientity_action": {
-										"type": "origins:and",
-										"actions": [
-											{
-												"type": "origins:target_action",
-												"action": {
-													"type": "origins:and",
-													"actions": [
-														{
-															"type": "origins:execute_command",
-															"command": "/tag @s remove mount_point"
-														},
-														{
-															"type": "origins:execute_command",
-															"command": "/tag @s add mount_point_setted"
-														}
-													]
-												}
-											}
-										]
-									}
-								}
-							}
-						},
-						{
-							"type": "origins:delay",
-							"ticks": 2,
-							"action": {
 								"type": "origins:and",
 								"actions": [
 									{
-										"type": "origins:invert",
-										"action": {
-											"type": "origins:mount"
-										}
+										"type": "origins:change_resource",
+										"resource": "*:*_ride_status",
+										"change": 1,
+										"operation": "set"
 									},
 									{
-										"type": "origins:target_action",
-										"action": {
-											"type": "origins:and",
-											"actions": [
-												{
-													"type": "origins:execute_command",
-													"command": "/tag @s add hatting"
-												},
-												{
-													"type": "origins:execute_command",
-													"command": "/power grant @s thorigins:fox/thhat thorigins:universal"
-												},
-												{
-													"type": "origins:execute_command",
-													"command": "/scale easing set pehkui:hitbox_height pehkui:exponential_out @s"
-												},
-												{
-													"type": "origins:execute_command",
-													"command": "/scale easing set pehkui:hitbox_width pehkui:exponential_out @s"
-												},
-												{
-													"type": "origins:execute_command",
-													"command": "/scale easing set pehkui:model_height pehkui:exponential_out @s"
-												},
-												{
-													"type": "origins:execute_command",
-													"command": "/scale easing set pehkui:model_width pehkui:exponential_out @s"
-												},
-												{
-													"type": "origins:execute_command",
-													"command": "/data merge entity @s {NoAI:1b}"
-												},
-												{
-													"type": "origins:execute_command",
-													"command": "/data modify entity @s Sitting set value 1"
-												},
-												{
-													"type": "origins:execute_command",
-													"command": "/scale multiply pehkui:hitbox_height 0.1 @s"
-												},
-												{
-													"type": "origins:execute_command",
-													"command": "/scale multiply pehkui:hitbox_width 0.7 @s"
-												},
-												{
-													"type": "origins:execute_command",
-													"command": "/scale multiply pehkui:model_height 0.7 @s"
-												},
-												{
-													"type": "origins:execute_command",
-													"command": "/scale multiply pehkui:model_width 0.7 @s"
-												}
-											]
-										}
+										"type": "origins:change_resource",
+										"resource": "*:*_perspective_check",
+										"change": 0,
+										"operation": "set"
 									}
 								]
 							}
 						},
 						{
-							"type": "origins:delay",
-							"ticks": 2,
+							"type": "origins:invert",
 							"action": {
-								"type": "origins:actor_action",
-								"action": {
-									"type": "origins:area_of_effect",
-									"radius": 5,
-									"bientity_condition": {
-										"type": "origins:and",
-										"conditions": [
-											{
-												"type": "origins:target_condition",
-												"condition": {
-													"type": "origins:and",
-													"conditions": [
-														{
-															"type": "origins:entity_type",
-															"entity_type": "minecraft:armor_stand"
-														},
-														{
-															"type": "origins:nbt",
-															"nbt": "{\"Tags\":[\"mount_point_setted\"]}"
-														}
-													]
-												}
-											}
-										]
+								"type": "origins:mount"
+							}
+						},
+						{
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/tag @s add hatting"
 									},
-									"bientity_action": {
-										"type": "origins:and",
-										"actions": [
-											{
-												"type": "origins:invert",
-												"action": {
-													"type": "origins:mount"
-												}
-											},
-											{
-												"type": "origins:target_action",
-												"action": {
-													"type": "origins:and",
-													"actions": [
-														{
-															"type": "origins:execute_command",
-															"command": "/tag @s remove mount_point_setted"
-														},
-														{
-															"type": "origins:execute_command",
-															"command": "/tag @s add mounted"
-														}
-													]
-												}
-											}
-										]
+									{
+										"type": "origins:execute_command",
+										"command": "/power grant @s thorigins:fox/thhat thorigins:universal"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/scale easing set pehkui:hitbox_height pehkui:exponential_out @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/scale easing set pehkui:hitbox_width pehkui:exponential_out @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/scale easing set pehkui:model_height pehkui:exponential_out @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/scale easing set pehkui:model_width pehkui:exponential_out @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/data merge entity @s {NoAI:1b}"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/data modify entity @s Sitting set value 1"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/scale multiply pehkui:hitbox_height 0.1 @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/scale multiply pehkui:hitbox_width 0.7 @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/scale multiply pehkui:model_height 0.7 @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/scale multiply pehkui:model_width 0.7 @s"
 									}
-								}
+								]
 							}
 						}
 					]
@@ -1715,6 +1565,14 @@
 								"inverted": true
 							}
 						]
+					}
+				},
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:passenger",
+						"compare_to": 0,
+						"comparison": "=="
 					}
 				}
 			]
@@ -1829,12 +1687,25 @@
 		"max": 1,
 		"start_value": 0,
 		"min_action": {
-			"type": "origins:execute_command",
-			"command": "/scale set pehkui:height 0.001 @e[type=armor_stand,limit=1,sort=nearest,tag=mounted,distance=..2]"
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:execute_command",
+				"command": "/scale reset pehkui:hitbox_height @s"
+			}
 		},
 		"max_action": {
-			"type": "origins:execute_command",
-			"command": "/scale set pehkui:height 0.2 @e[type=armor_stand,limit=1,sort=nearest,tag=mounted,distance=..2]"
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/scale multiply pehkui:hitbox_height 0.6 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scale delay set pehkui:hitbox_height 0 @s"
+				}
+			]
 		}
 	},
 

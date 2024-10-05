@@ -70,21 +70,6 @@
 					}
 				},
 				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thhunt_prepare_stage",
-					"change": 100
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thhunt_hunt_stage",
-					"change": -100
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thfoxify_afk_timer",
-					"change": 1200
-				},
-				{
 					"type": "origins:execute_command",
 					"command": "/tag @s add foxie"
 				},
