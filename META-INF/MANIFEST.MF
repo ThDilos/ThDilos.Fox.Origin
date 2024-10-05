@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Specification-Title: thoriogins
-Specification-Vendor: ThDilos
-Specification-Version: 1
-Implementation-Title: forge1.19.4
-Implementation-Version: 4.0.1
-Implementation-Vendor: YourNameHere, OtherNameHere
-Implementation-Timestamp: 2024-06-15T17:35:14+0800
-
