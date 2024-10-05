@@ -362,7 +362,7 @@
 							},
 							{
 								"type": "origins:resource",
-								"resource": "thorigins:fox/thfoxifly_afk_timer",
+								"resource": "thorigins:fox/thfoxify_afk_timer",
 								"compare_to": 0,
 								"comparison": "=="
 							}
