@@ -90,6 +90,11 @@
 					"change": -30
 				},
 				{
+					"type": "origins:change_resource",
+					"resource": "*:fox/thshy_fear_timer",
+					"change": -100
+				},
+				{
 					"type": "origins:trigger_cooldown",
 					"power": "*:fox/thhunt_prepare_stage"
 				},

@@ -22,42 +22,60 @@
 			"type": "origins:and",
 			"actions": [
 				{
-					"type": "origins:delay",
-					"ticks": 1,
-					"action": {
-						"type": "origins:area_of_effect",
-						"shape": "\"cube\"",
-						"radius": 15,
-						"bientity_condition": {
-							"type": "origins:target_condition",
-							"condition": {
-								"type": "origins:and",
-								"conditions": [
-									{
-										"type": "origins:nbt",
-										"nbt": "{\"Tags\":[\"hatting\"]}",
-										"inverted": true
-									},
-									{
-										"type": "origins:nbt",
-										"nbt": "{\"Tags\":[\"sleepin\"]}",
-										"inverted": true
-									},
-									{
-										"type": "origins:entity_type",
-										"entity_type": "minecraft:fox"
+					"type": "origins:area_of_effect",
+					"shape": "cube",
+					"radius": 15,
+					"bientity_condition": {
+						"type": "origins:target_condition",
+						"condition": {
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:nbt",
+									"nbt": "{\"Tags\":[\"hatting\"]}",
+									"inverted": true
+								},
+								{
+									"type": "origins:nbt",
+									"nbt": "{\"Tags\":[\"sleepin\"]}",
+									"inverted": true
+								},
+								{
+									"type": "origins:nbt",
+									"nbt": "{\"Tags\":[\"uuidappended\"]}",
+									"inverted": true
+								},
+								{
+									"type": "origins:entity_type",
+									"entity_type": "minecraft:fox"
+								}
+							]
+						}
+					},
+					"bientity_action": {
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:execute_command",
+									"command": "/data modify entity @s Trusted append from entity @p[tag=foxie] UUID"
+								},
+								{
+									"type": "origins:delay",
+									"ticks": 1,
+									"action": {
+										"type": "origins:execute_command",
+										"command": "/tag @s add uuidappended"
 									}
-								]
-							}
-						},
-						"bientity_action": {
-							"type": "origins:actor_action",
-							"action": {
-								"type": "origins:execute_command",
-								"command": "/execute as @e[type=minecraft:fox,distance=..15,tag=!sleepin,tag=!hatting] run data modify entity @s Trusted append from entity @p[tag=foxie] UUID"
-							}
+								}
+							]
 						}
 					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @e[type=fox,tag=uuidappended,tag=!hatting,tag=!sleepin] at @s unless entity @a[distance=..15,tag=foxie] run tag @s remove uuidappended"
 				},
 				{
 					"type": "origins:if_else",
@@ -139,6 +157,10 @@
 		"modifier": {
 			"value": 3,
 			"operation": "multiply_base"
+		},
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "player"
 		}
 	},
 
@@ -344,6 +366,10 @@
 		"modifier": {
 			"operation": "multiply_base",
 			"value": 0.15
+		},
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "player"
 		}
 	},
 
