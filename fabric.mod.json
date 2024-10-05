@@ -4,7 +4,7 @@
 	"depends": {
 		"fabric-api-base": "*",
 		"fabric": "*",
-		"origins": ">=1.12.0",
+		"origins": "1.13.0-alpha.8+mc.1.21.x",
 		"pehkui": ">=3.3.3",
 		"minecraft": ">=1.21"
 	},
