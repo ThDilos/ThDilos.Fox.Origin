@@ -1,7 +1,7 @@
 reload
 resource set @s thorigins:fox/thtrackers_scale_modified 0
 origin set @s origins:origin origins:human
-origin set @s thorigins:origin thorigins:not_fox
+origin set @s thorigins:origin origins:empty
 power clear @s
 scale reset @s
 origin gui @s

@@ -133,8 +133,8 @@
 							"conditions": [
 								{
 									"type": "origins:resource",
-									"resource": "*:*_disable_sleepin",
-									"compare_to": 1,
+									"resource": "*:fox/universal_settings_enable_sleepin_mode",
+									"compare_to": 0,
 									"comparison": "=="
 								},
 								{
