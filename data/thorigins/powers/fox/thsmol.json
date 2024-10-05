@@ -41,7 +41,7 @@
 		"type": "origins:attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.max_health",
-			"id": "thorigins:fox/thsmol",
+			"id": "thorigins:fox/thsmol_max_health",
 			"operation": "add_value",
 			"amount": -4
 		},

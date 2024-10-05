@@ -674,7 +674,7 @@
 
 	"crits": {
 		"type": "origins:modify_damage_dealt",
-			"modifiers": [
+		"modifiers": [
 			{
 				"operation": "multiply_base_additive",
 				"amount": 0.5,
@@ -835,7 +835,8 @@
 				{
 					"type": "origins:change_resource",
 					"resource": "*:*_dash1",
-					"change": -30
+					"change": 0,
+					"operation": "set"
 				},
 				{
 					"type": "origins:play_sound",
@@ -1195,7 +1196,6 @@
 					"modifier": {
 						"operation": "add_base_early",
 						"resource": "*:fox/universal_settings_op_ness",
-						"amount": 0,
 						"modifier": {
 							"operation": "multiply_base_additive",
 							"amount": -0.99,
@@ -1207,8 +1207,7 @@
 									"amount": -1,
 									"modifier": {
 										"operation": "add_base_early",
-										"resource": "*:fox/universal_settings_damage_muffler",
-										"amount": 0
+										"resource": "*:fox/universal_settings_damage_muffler"
 									}
 								}
 							}
@@ -1225,7 +1224,6 @@
 					"modifier": {
 						"operation": "add_base_early",
 						"resource": "*:fox/universal_settings_op_ness",
-						"amount": 0,
 						"modifier": {
 							"operation": "multiply_base_additive",
 							"amount": -0.99,
@@ -1235,7 +1233,6 @@
 								"modifier": {
 									"operation": "multiply_base_additive",
 									"resource": "*:fox/universal_settings_damage_muffler",
-									"amount": 0,
 									"modifier": {
 										"operation": "multiply_base_additive",
 										"amount": -2

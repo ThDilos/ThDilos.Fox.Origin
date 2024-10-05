@@ -211,7 +211,7 @@
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.movement_speed",
-			"id": "thorigins:fox/thswift",
+			"id": "thorigins:fox/thswift_run_on_all_4",
 			"operation": "add_multiplied_base",
 			"amount": 0.1
 		},

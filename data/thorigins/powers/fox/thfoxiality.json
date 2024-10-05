@@ -211,7 +211,7 @@
 							"element": {
 								"type": "origins:give",
 								"stack": {
-									"id": "emerald",
+									"id": "minecraft:emerald",
 									"amount": 1
 								}
 							},
@@ -221,7 +221,7 @@
 							"element": {
 								"type": "origins:give",
 								"stack": {
-									"id": "rabbit_foot",
+									"id": "minecraft:rabbit_foot",
 									"amount": 1
 								}
 							},
@@ -231,7 +231,7 @@
 							"element": {
 								"type": "origins:give",
 								"stack": {
-									"id": "rabbit_hide",
+									"id": "minecraft:rabbit_hide",
 									"amount": 1
 								}
 							},
@@ -241,7 +241,7 @@
 							"element": {
 								"type": "origins:give",
 								"stack": {
-									"id": "egg",
+									"id": "minecraft:egg",
 									"amount": 1
 								}
 							},
@@ -251,7 +251,7 @@
 							"element": {
 								"type": "origins:give",
 								"stack": {
-									"id": "wheat",
+									"id": "minecraft:wheat",
 									"amount": 1
 								}
 							},
@@ -261,7 +261,7 @@
 							"element": {
 								"type": "origins:give",
 								"stack": {
-									"id": "leather",
+									"id": "minecraft:leather",
 									"amount": 1
 								}
 							},
@@ -271,7 +271,7 @@
 							"element": {
 								"type": "origins:give",
 								"stack": {
-									"id": "feather",
+									"id": "minecraft:feather",
 									"amount": 1
 								}
 							},

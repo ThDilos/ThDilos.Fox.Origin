@@ -304,7 +304,7 @@
 		"entity_action_added": {
 			"type": "origins:apply_effect",
 			"effect": {
-				"id": "regeneration",
+				"id": "minecraft:regeneration",
 				"amplifier": 9,
 				"duration": 1000000,
 				"is_ambient": true,

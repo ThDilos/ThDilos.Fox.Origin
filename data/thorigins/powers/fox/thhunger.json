@@ -44,7 +44,7 @@
 		"type": "origins:attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.attack_speed",
-			"id": "thorigins:fox/thhunger",
+			"id": "thorigins:fox/thhunger_faster_attack",
 			"operation": "add_multiplied_base",
 			"amount": 0.25
 		}
