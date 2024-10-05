@@ -4,8 +4,8 @@
 	"depends": {
 		"fabric-api-base": "*",
 		"fabric": "*",
-		"origins": ">=1.6.2",
-		"pehkui": ">=3.3.3",
+		"origins": ">=1.9.0",
+		"pehkui": ">=3.6.0",
 		"minecraft": ">=1.19.4 <=1.20.4"
 	},
 	"name": "ThDilos Fox Origins",
