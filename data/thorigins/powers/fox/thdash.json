@@ -916,7 +916,7 @@
 				},
 				{
 					"type": "origins:delay",
-					"ticks": 4,
+					"ticks": 10,
 					"action": {
 						"type": "origins:and",
 						"actions": [
@@ -950,7 +950,10 @@
 													"element": {
 														"type": "origins:damage",
 														"amount": 3,
-														"damage_type": "thorigins:foxie_bite"
+														"damage_type": "thorigins:foxie_bite",
+														"source": {
+															"name": "thorigins:foxie_bite"
+														}
 													}
 												},
 												{
@@ -958,7 +961,10 @@
 													"element": {
 														"type": "origins:damage",
 														"amount": 3,
-														"damage_type": "thorigins:foxie_bite_2"
+														"damage_type": "thorigins:foxie_bite_2",
+														"source": {
+															"name": "thorigins:foxie_bite_2"
+														}
 													}
 												}
 											]
@@ -971,7 +977,10 @@
 										{
 											"type": "origins:damage",
 											"amount": 3,
-											"damage_type": "thorigins:foxie_bite_item"
+											"damage_type": "thorigins:foxie_bite_item",
+											"source": {
+												"name": "thorigins:foxie_bite_item"
+											}
 										},
 										{
 											"type": "origins:actor_action",

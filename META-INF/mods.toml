@@ -14,20 +14,20 @@ displayName="ThDilos Fox Origins"
 [[dependencies.thorigins]]
 modId="origins"
 mandatory=true
-versionRange="[1.10.0.9,)"
+versionRange="[1.6.2,)"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.thorigins]]
 modId="minecraft"
 mandatory=true
-versionRange="[1.19.4,1.20.4]"
+versionRange="[1.19,1.19.3]"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.thorigins]]
 modId="pehkui"
 mandatory=true
-versionRange="[3.3.3,)"
+versionRange="[3.6.0,)"
 ordering="NONE"
 side="BOTH"
