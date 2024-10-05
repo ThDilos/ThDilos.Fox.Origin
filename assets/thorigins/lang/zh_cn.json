@@ -90,13 +90,13 @@
 	"fox.cant_sleep_fear": "你现在不能睡觉, 周围有令你恐惧的东西!",
 	"fox.cant_sleep_hunt": "你正在狩猎!别偷懒!",
 
-	"death.attack.thorigins:foxie_bite": "%1$s被撕成了碎片。",
-	"death.attack.thorigins:foxie_bite_2": "%1$s被撕成了碎片。",
-	"death.attack.thorigins:foxie_bite_item": "%1$s被撕成了碎片。",
+	"death.attack.thorigins:foxie_bite": "%1$s被%2$s活活咬死。",
+	"death.attack.thorigins:foxie_bite_2": "%1$s被%2$s咬断了喉咙。",
+	"death.attack.thorigins:foxie_bite_item": "%1$s无法抵挡%2$s的尖牙利爪。",
 
-	"death.attack.thorigins:foxie_bite.player": "%1$s被%2$s咬断了喉咙。",
-	"death.attack.thorigins:foxie_bite_2.player": "%1$s无法抵挡%2$s的尖牙利爪。",
-	"death.attack.thorigins:foxie_bite_item.player": "%1$s被%2$s活活咬死。",
+	"death.attack.thorigins:foxie_bite.player": "%1$s无法抵挡%2$s的尖牙利爪。",
+	"death.attack.thorigins:foxie_bite_2.player": "%1$s被%2$s活活咬死。",
+	"death.attack.thorigins:foxie_bite_item.player": "%1$s被%2$s咬断了喉咙。",
 
 	"death.attack.thorigins:foxie_bite.item": "%1$s被%2$s咬断了喉咙。",
 	"death.attack.thorigins:foxie_bite_2.item": "%1$s无法抵挡%2$s的尖牙利爪。",

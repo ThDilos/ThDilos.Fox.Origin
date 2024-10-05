@@ -90,17 +90,17 @@
 	"fox.cant_sleep_fear": "You're too scared to fall asleep!",
 	"fox.cant_sleep_hunt": "You're in the middle of hunting!",
 
-	"death.attack.thorigins:foxie_bite": "%1$s got torn apart.",
-	"death.attack.thorigins:foxie_bite_2": "%1$s got torn apart.",
-	"death.attack.thorigins:foxie_bite_item": "%1$s got torn apart.",
+	"death.attack.thorigins:foxie_bite": "%1$s underestimated how feral %2$s can be in a fight.",
+	"death.attack.thorigins:foxie_bite_2": "%1$s is mauled to death by %2$s.",
+	"death.attack.thorigins:foxie_bite_item": "%1$s couldn't handle the claws and fangs of %2$s.",
 
 	"death.attack.thorigins:foxie_bite.player": "%1$s couldn't handle the claws and fangs of %2$s.",
 	"death.attack.thorigins:foxie_bite_2.player": "%1$s underestimated how feral %2$s can be in a fight.",
 	"death.attack.thorigins:foxie_bite_item.player": "%1$s is mauled to death by %2$s.",
 
-	"death.attack.thorigins:foxie_bite.item": "%1$s underestimated how feral %2$s can be in a fight.",
+	"death.attack.thorigins:foxie_bite.item": "%1$s is mauled to death by %2$s.",
 	"death.attack.thorigins:foxie_bite_2.item": "%1$s couldn't handle the claws and fangs of %2$s.",
-	"death.attack.thorigins:foxie_bite_item.item": "%1$s is mauled to death by %2$s.",
+	"death.attack.thorigins:foxie_bite_item.item": "%1$s underestimated how feral %2$s can be in a fight.",
 
 	"fox.wakeup.item": "You Found Something When You Were Asleep!",
 
