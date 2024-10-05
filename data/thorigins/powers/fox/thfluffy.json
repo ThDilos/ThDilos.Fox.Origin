@@ -332,88 +332,72 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:or",
+						"type": "origins:and",
 						"conditions": [
 							{
-								"type": "origins:and",
+								"type": "origins:resource",
+								"resource": "*:*_snowness",
+								"comparison": ">=",
+								"compare_to": 100
+							},
+							{
+								"type": "origins:or",
 								"conditions": [
-									{
-										"type": "origins:resource",
-										"resource": "*:*_snowness",
-										"comparison": ">=",
-										"compare_to": 100
-									},
 									{
 										"type": "origins:resource",
 										"resource": "*:*_avoid_spamming_snow",
 										"comparison": "==",
 										"compare_to": 0
-									}
-								]
-							},
-							{
-								"type": "origins:and",
-								"conditions": [
-									{
-										"type": "origins:resource",
-										"resource": "*:*_snowness",
-										"comparison": ">=",
-										"compare_to": 100
 									},
 									{
-										"type": "origins:or",
+										"type": "origins:in_block",
+										"block_condition": {
+											"type": "origins:block",
+											"block": "powder_snow"
+										}
+									},
+									{
+										"type": "origins:and",
 										"conditions": [
 											{
 												"type": "origins:in_block",
 												"block_condition": {
-													"type": "origins:block",
-													"block": "powder_snow"
+													"type": "origins:block_state",
+													"property": "level",
+													"compare_to": 1,
+													"comparison": ">"
 												}
 											},
 											{
-												"type": "origins:and",
-												"conditions": [
-													{
-														"type": "origins:in_block",
-														"block_condition": {
-															"type": "origins:block_state",
-															"property": "level",
-															"compare_to": 1,
-															"comparison": ">"
-														}
-													},
-													{
-														"type": "origins:in_block",
-														"block_condition": {
-															"type": "origins:block",
-															"block": "powder_snow_cauldron"
-														}
-													}
-												]
+												"type": "origins:in_block",
+												"block_condition": {
+													"type": "origins:block",
+													"block": "powder_snow_cauldron"
+												}
+											}
+										]
+									},
+									{
+										"type": "origins:and",
+										"conditions": [
+											{
+												"type": "origins:predicate",
+												"predicate": "thorigins:weather/is_raining"
 											},
 											{
-												"type": "origins:and",
-												"conditions": [
-													{
-														"type": "origins:predicate",
-														"predicate": "thorigins:weather/is_raining"
-													},
-													{
-														"type": "origins:in_rain",
-														"inverted": true
-													},
-													{
-														"type": "origins:exposed_to_sky"
-													},
-													{
-														"type": "origins:biome",
-														"condition": {
-															"type": "origins:in_tag",
-															"tag": "minecraft:snownt",
-															"inverted": true
-														}
-													}
-												]
+												"type": "origins:in_rain",
+												"inverted": true
+											},
+											{
+												"type": "origins:exposed_to_sky"
+											},
+											{
+												"type": "origins:biome",
+												"condition": {
+													"type": "origins:in_tag",
+													"tag": "minecraft:snownt",
+													"inverted": true
+												}
 											}
 										]
 									}
@@ -429,69 +413,53 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:or",
+						"type": "origins:and",
 						"conditions": [
 							{
-								"type": "origins:and",
+								"type": "origins:resource",
+								"resource": "*:*_wetness",
+								"comparison": ">=",
+								"compare_to": 100
+							},
+							{
+								"type": "origins:or",
 								"conditions": [
-									{
-										"type": "origins:resource",
-										"resource": "*:*_wetness",
-										"comparison": ">=",
-										"compare_to": 100
-									},
 									{
 										"type": "origins:resource",
 										"resource": "*:*_avoid_spamming_water",
 										"comparison": "==",
 										"compare_to": 0
-									}
-								]
-							},
-							{
-								"type": "origins:and",
-								"conditions": [
-									{
-										"type": "origins:resource",
-										"resource": "*:*_wetness",
-										"comparison": ">=",
-										"compare_to": 100
 									},
 									{
-										"type": "origins:or",
+										"type": "origins:in_rain"
+									},
+									{
+										"type": "origins:fluid_height",
+										"fluid": "minecraft:water",
+										"compare_to": 0.25,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:swimming"
+									},
+									{
+										"type": "origins:and",
 										"conditions": [
 											{
-												"type": "origins:in_rain"
+												"type": "origins:in_block",
+												"block_condition": {
+													"type": "origins:block_state",
+													"property": "level",
+													"compare_to": 1,
+													"comparison": ">"
+												}
 											},
 											{
-												"type": "origins:fluid_height",
-												"fluid": "minecraft:water",
-												"compare_to": 0.25,
-												"comparison": ">="
-											},
-											{
-												"type": "origins:swimming"
-											},
-											{
-												"type": "origins:and",
-												"conditions": [
-													{
-														"type": "origins:in_block",
-														"block_condition": {
-															"type": "origins:block_state",
-															"property": "level",
-															"compare_to": 1,
-															"comparison": ">"
-														}
-													},
-													{
-														"type": "origins:in_block",
-														"block_condition": {
-															"type": "origins:block",
-															"block": "water_cauldron"
-														}
-													}
-												]
+												"type": "origins:in_block",
+												"block_condition": {
+													"type": "origins:block",
+													"block": "water_cauldron"
+												}
 											}
 										]
 									}
