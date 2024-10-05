@@ -397,23 +397,68 @@
 
 	"damage_bonus_day": {
 		"type": "origins:modify_damage_dealt",
-		"modifier": {
-			"operation": "multiply_base",
-			"value": 0.0625,
-			"modifier": {
+		"modifiers": [
+			{
 				"operation": "multiply_base",
-				"value": -1,
+				"value": 0.0625,
 				"modifier": {
-					"operation": "addition",
-					"resource": "*:fox/universal_settings_op_ness",
-					"value": 0,
+					"operation": "multiply_base",
+					"value": -1,
 					"modifier": {
-						"value": -0.99,
-						"operation": "multiply_base"
+						"operation": "addition",
+						"resource": "*:fox/universal_settings_op_ness",
+						"value": 0,
+						"modifier": {
+							"operation": "multiply_base",
+							"value": -0.99,
+							"modifier": {
+								"operation": "addition",
+								"value": -0.01,
+								"modifier": {
+									"operation": "multiply_base",
+									"value": -1,
+									"modifier": {
+										"operation": "addition",
+										"resource": "*:fox/universal_settings_damage_muffler",
+										"value": 0
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			{
+				"operation": "addition",
+				"value": 0.5,
+				"modifier": {
+					"operation": "multiply_base",
+					"value": -1,
+					"modifier": {
+						"operation": "addition",
+						"resource": "*:fox/universal_settings_op_ness",
+						"value": 0,
+						"modifier": {
+							"operation": "multiply_base",
+							"value": -0.99,
+							"modifier": {
+								"operation": "addition",
+								"value": -0.01,
+								"modifier": {
+									"operation": "multiply_base",
+									"resource": "*:fox/universal_settings_damage_muffler",
+									"value": 0,
+									"modifier": {
+										"operation": "multiply_base",
+										"value": -2
+									}
+								}
+							}
+						}
 					}
 				}
 			}
-		},
+		],
 		"condition": {
 			"type": "origins:and",
 			"conditions": [
@@ -484,28 +529,77 @@
 					]
 				}
 			]
+		},
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "player"
 		}
 	},
 
 	"damage_bonus_midnight": {
 		"type": "origins:modify_damage_dealt",
-		"modifier": {
-			"operation": "multiply_base",
-			"value": 0.125,
-			"modifier": {
+		"modifiers": [
+			{
 				"operation": "multiply_base",
-				"value": -1,
+				"value": 0.125,
 				"modifier": {
-					"operation": "addition",
-					"resource": "*:fox/universal_settings_op_ness",
-					"value": 0,
+					"operation": "multiply_base",
+					"value": -1,
 					"modifier": {
-						"value": -0.99,
-						"operation": "multiply_base"
+						"operation": "addition",
+						"resource": "*:fox/universal_settings_op_ness",
+						"value": 0,
+						"modifier": {
+							"operation": "multiply_base",
+							"value": -0.99,
+							"modifier": {
+								"operation": "addition",
+								"value": -0.01,
+								"modifier": {
+									"operation": "multiply_base",
+									"value": -1,
+									"modifier": {
+										"operation": "addition",
+										"resource": "*:fox/universal_settings_damage_muffler",
+										"value": 0
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			{
+				"operation": "addition",
+				"value": 1,
+				"modifier": {
+					"operation": "multiply_base",
+					"value": -1,
+					"modifier": {
+						"operation": "addition",
+						"resource": "*:fox/universal_settings_op_ness",
+						"value": 0,
+						"modifier": {
+							"operation": "multiply_base",
+							"value": -0.99,
+							"modifier": {
+								"operation": "addition",
+								"value": -0.01,
+								"modifier": {
+									"operation": "multiply_base",
+									"resource": "*:fox/universal_settings_damage_muffler",
+									"value": 0,
+									"modifier": {
+										"operation": "multiply_base",
+										"value": -2
+									}
+								}
+							}
+						}
 					}
 				}
 			}
-		},
+		],
 		"condition": {
 			"type": "origins:and",
 			"conditions": [
@@ -588,6 +682,10 @@
 					]
 				}
 			]
+		},
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "player"
 		}
 	},
 
