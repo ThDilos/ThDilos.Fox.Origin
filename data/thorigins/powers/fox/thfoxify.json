@@ -434,21 +434,6 @@
 							"change": 1,
 							"operation": "add"
 						}
-					},
-					"else_action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:resource",
-							"resource": "*:*_sleepin_in_wall_check",
-							"compare_to": 0,
-							"comparison": ">"
-						},
-						"if_action": {
-							"type": "origins:change_resource",
-							"resource": "*:*_sleepin_in_wall_check",
-							"change": -1,
-							"operation": "add"
-						}
 					}
 				},
 				{

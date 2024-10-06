@@ -262,12 +262,12 @@
 			"type": "origins:amount",
 			"compare_to": 50,
 			"comparison": ">="
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:fox/universal_settings_mace_nerf",
+			"compare_to": 1,
+			"comparison": "=="
 		}
-	},
-	"condition": {
-		"type": "origins:resource",
-		"resource": "*:fox/universal_settings_mace_nerf",
-		"compare_to": 1,
-		"comparison": "=="
 	}
 }
