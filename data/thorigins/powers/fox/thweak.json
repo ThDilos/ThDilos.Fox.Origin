@@ -33,10 +33,10 @@
 
 	"heavy_armor": {
 		"type": "origins:stacking_status_effect",
-		"duration_per_stack": 15,
-		"min_stacks": -1,
+		"duration_per_stack": 21,
+		"min_stacks": 0,
 		"max_stacks": 1,
-		"tick_rate": 10,
+		"tick_rate": 20,
 		"effects": [
 			{
 				"effect": "minecraft:slowness",
