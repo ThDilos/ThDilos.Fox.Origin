@@ -28,10 +28,6 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/scale delay set pehkui:eye_height 0 @s"
-				},
-				{
-					"type": "origins:execute_command",
 					"command": "/scale persist set true @s"
 				},
 				{
@@ -58,9 +54,9 @@
 		}
 	},
 
-	"ticks": {
+	"ticks_20": {
 		"type": "origins:action_over_time",
-		"interval": 1,
+		"interval": 20,
 		"entity_action": {
 			"type": "origins:if_else",
 			"condition": {

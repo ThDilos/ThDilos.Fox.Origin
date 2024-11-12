@@ -97,8 +97,9 @@
 					"command": "/tag @s remove hatting"
 				},
 				{
-					"type": "origins:execute_command",
-					"command": "/power remove @s thorigins:fox/thhat"
+					"type": "origins:revoke_power",
+					"power": "*:fox/thhat",
+					"source": "thorigins:temp"
 				}
 			]
 		}

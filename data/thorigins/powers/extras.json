@@ -30,7 +30,11 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/execute as @a[tag=foxie,distance=..5] run scale set pehkui:hitbox_height 0.35 @s"
+					"command": "/execute as @a[tag=foxie,distance=..5] run scale set pehkui:hitbox_height 0.31 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[tag=foxie,distance=..5] run scale set pehkui:held_item 0.8"
 				},
 				{
 					"type": "origins:execute_command",
@@ -64,34 +68,34 @@
 		}
 	},
 
-    "refresh_settings":{
-        "type": "origins:resource",
-        "min": 0,
-        "max": 1,
-        "start_value": 0,
-        "max_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_refresh_settings",
-                    "change": -1
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "/reload"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "/power remove @a[tag=foxie] thorigins:fox/universal_settings"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "/power grant @a[tag=foxie] thorigins:fox/universal_settings thorigins:universal"
-                }
-            ]
-        }
-    },
+	"refresh_settings": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_refresh_settings",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/reload"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/power revoke @a[tag=foxie] thorigins:fox/universal_settings thorigins:universal"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/power grant @a[tag=foxie] thorigins:fox/universal_settings thorigins:universal"
+				}
+			]
+		}
+	},
 
 	"0": {
 		"type": "origins:resource",

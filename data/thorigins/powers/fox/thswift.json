@@ -112,7 +112,16 @@
 					"offset_x": 0,
 					"offset_z": 0,
 					"block_condition": {
-						"type": "origins:movement_blocking"
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:block",
+								"block": "minecraft:powder_snow"
+							},
+							{
+								"type": "origins:movement_blocking"
+							}
+						]
 					}
 				}
 			]

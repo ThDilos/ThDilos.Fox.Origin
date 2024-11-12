@@ -15,8 +15,8 @@
 			},
 			{
 				"type": "origins:revoke_power",
-				"power": "thorigins:fox/thforce_sit",
-				"source": "thorigins:universal"
+				"power": "*:fox/thforce_sit",
+				"source": "thorigins:temp"
 			}
 		]
 	}

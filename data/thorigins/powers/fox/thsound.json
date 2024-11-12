@@ -4,34 +4,12 @@
 	"description": "fox.thsound.description",
 	"hidden": true,
 
-	"ticks": {
+	"ticks_20": {
 		"type": "origins:action_over_time",
-		"interval": 1,
+		"interval": 20,
 		"entity_action": {
 			"type": "origins:and",
 			"actions": [
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:nbt",
-						"nbt": "{SleepTimer:1s}"
-					},
-					"if_action": {
-						"type": "origins:execute_command",
-						"command": "/tag @s add sleepyfox"
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:nbt",
-						"nbt": "{SleepTimer:0s}"
-					},
-					"if_action": {
-						"type": "origins:execute_command",
-						"command": "/tag @s remove sleepyfox"
-					}
-				},
 				{
 					"type": "origins:execute_command",
 					"command": "/scoreboard objectives add foxtype trigger \"FoxType\""
@@ -45,19 +23,9 @@
 					"command": "/scoreboard players set @s[scores={foxtype=4}] foxtype 0"
 				},
 				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:resource",
-						"resource": "*:*_bonk_reset",
-						"compare_to": 1,
-						"comparison": "=="
-					},
-					"if_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_bonk_counter",
-						"change": -4,
-						"operation": "set"
-					}
+					"type": "origins:change_resource",
+					"resource": "*:*_bonk_reset",
+					"change": -20
 				}
 			]
 		}
@@ -65,6 +33,7 @@
 
 	"sleeping_sound": {
 		"type": "origins:action_over_time",
+		"interval": 180,
 		"entity_action": {
 			"type": "origins:if_else",
 			"condition": {
@@ -146,14 +115,15 @@
 							]
 						},
 						{
-							"type": "origins:nbt",
-							"nbt": "{ \"Tags\": [\"sleepyfox\"] }"
+							"type": "origins:command",
+							"command": "/data get entity @s SleepTimer",
+							"compare_to": 0,
+							"comparison": ">"
 						}
 					]
 				}
 			]
-		},
-		"interval": 180
+		}
 	},
 
 	"wakeup_sound": {
@@ -325,14 +295,14 @@
 			"if_action": {
 				"type": "origins:play_sound",
 				"sound": "minecraft:entity.fox.hurt",
-				"volume": 0.75,
+				"volume": 0.5,
 				"pitch": 1.3,
 				"category": "players"
 			},
 			"else_action": {
 				"type": "origins:play_sound",
 				"sound": "minecraft:entity.fox.hurt",
-				"volume": 0.75,
+				"volume": 0.5,
 				"pitch": 1.0,
 				"category": "players"
 			}
@@ -362,7 +332,7 @@
 				}
 			]
 		},
-		"cooldown": 0
+		"cooldown": 1
 	},
 
 	"eat_dislike_food_sound": {
@@ -376,50 +346,41 @@
 		"entity_action": {
 			"type": "origins:if_else",
 			"condition": {
-				"type": "origins:resource",
-				"resource": "*:fox/thfood_emergency_hunger_nullify",
-				"compare_to": 0,
-				"comparison": "=="
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 2,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 3,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 6,
+						"comparison": "=="
+					}
+				]
 			},
 			"if_action": {
-				"type": "origins:if_else",
-				"condition": {
-					"type": "origins:or",
-					"conditions": [
-						{
-							"type": "origins:scoreboard",
-							"objective": "foxtype",
-							"compare_to": 2,
-							"comparison": "=="
-						},
-						{
-							"type": "origins:scoreboard",
-							"objective": "foxtype",
-							"compare_to": 3,
-							"comparison": "=="
-						},
-						{
-							"type": "origins:scoreboard",
-							"objective": "foxtype",
-							"compare_to": 6,
-							"comparison": "=="
-						}
-					]
-				},
-				"if_action": {
-					"type": "origins:play_sound",
-					"sound": "minecraft:entity.fox.aggro",
-					"volume": 0.65,
-					"pitch": 1.3,
-					"category": "players"
-				},
-				"else_action": {
-					"type": "origins:play_sound",
-					"sound": "minecraft:entity.fox.aggro",
-					"volume": 0.65,
-					"pitch": 1.0,
-					"category": "players"
-				}
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.aggro",
+				"volume": 0.65,
+				"pitch": 1.3,
+				"category": "players"
+			},
+			"else_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.fox.aggro",
+				"volume": 0.65,
+				"pitch": 1.0,
+				"category": "players"
 			}
 		},
 		"condition": {
@@ -461,14 +422,14 @@
 			"if_action": {
 				"type": "origins:play_sound",
 				"sound": "minecraft:entity.fox.death",
-				"volume": 0.9,
+				"volume": 0.5,
 				"pitch": 1.3,
 				"category": "players"
 			},
 			"else_action": {
 				"type": "origins:play_sound",
 				"sound": "minecraft:entity.fox.death",
-				"volume": 0.9,
+				"volume": 0.5,
 				"pitch": 1.0,
 				"category": "players"
 			}
@@ -482,705 +443,632 @@
 	"interactions": {
 		"type": "origins:action_on_being_used",
 		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:riding",
-					"inverted": true
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:*_interaction_cooldown",
-					"comparison": "==",
-					"compare_to": 0
-				}
-			]
+			"type": "origins:resource",
+			"resource": "*:*_interaction_cooldown",
+			"comparison": "==",
+			"compare_to": 0
+		},
+		"bientity_condition": {
+			"type": "origins:invert",
+			"inverted": true,
+			"condition": {
+				"type": "origins:riding"
+			}
 		},
 		"bientity_action": {
-			"type": "origins:if_else_list",
+			"type": "origins:and",
 			"actions": [
 				{
-					"condition": {
-						"type": "origins:actor_condition",
-						"condition": {
-							"type": "origins:equipped_item",
-							"equipment_slot": "mainhand",
-							"item_condition": {
-								"type": "origins:ingredient",
-								"ingredient": [
-									{
-										"item": "minecraft:sweet_berries"
-									},
-									{
-										"item": "minecraft:glow_berries"
-									}
-								]
-							}
-						}
-					},
+					"type": "origins:actor_action",
 					"action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:actor_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:modify_inventory",
-											"item_action": {
-												"type": "origins:consume",
-												"amount": 1
-											},
-											"inventory_type": "inventory",
-											"slot": "weapon.mainhand",
-											"item_condition": {
-												"type": "origins:ingredient",
-												"ingredient": [
-													{
-														"item": "minecraft:sweet_berries"
-													},
-													{
-														"item": "minecraft:glow_berries"
-													}
-												]
-											}
-										},
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:and",
-												"conditions": [
-													{
-														"type": "origins:command",
-														"command": "/execute if entity @s[tag=foxie_trust]",
-														"compare_to": 0,
-														"comparison": "=="
-													},
-													{
-														"type": "origins:or",
-														"conditions": [
-															{
-																"type": "origins:nbt",
-																"nbt": "{\"Tags\": [\"foxie_fear\"]}"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:human",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:enderian",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:shulk",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:blazeborn",
-																"layer": "origins:origin"
-															}
-														]
-													}
-												]
-											},
-											"if_action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s add foxie_trust"
-											}
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add feeder"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tellraw @s {\"translate\":\"fox.feeder\"}" 
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 2,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s remove feeder"
-											}
-										}
-									]
-								}
-							},
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:trigger_cooldown",
-											"power": "*:*_interaction_cooldown"
-										},
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:or",
-												"conditions": [
-													{
-														"type": "origins:scoreboard",
-														"objective": "foxtype",
-														"compare_to": 2,
-														"comparison": "=="
-													},
-													{
-														"type": "origins:scoreboard",
-														"objective": "foxtype",
-														"compare_to": 3,
-														"comparison": "=="
-													},
-													{
-														"type": "origins:scoreboard",
-														"objective": "foxtype",
-														"compare_to": 6,
-														"comparison": "=="
-													}
-												]
-											},
-											"if_action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.fox.eat",
-												"volume": 0.65,
-												"pitch": 1.3,
-												"category": "players"
-											},
-											"else_action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.fox.eat",
-												"volume": 0.65,
-												"pitch": 1.0,
-												"category": "players"
-											}
-										},
-										{
-											"type": "origins:feed",
-											"food": 6,
-											"saturation": 20
-										},
-										{
-											"type": "origins:apply_effect",
-											"effect": {
-												"effect": "regeneration",
-												"amplifier": 0,
-												"duration": 100,
-												"show_icon": true,
-												"show_particles": true,
-												"is_ambient": false
-											}
-										},
-										{
-											"type": "origins:chance",
-											"chance": 0.2,
-											"action": {
-												"type": "origins:and",
-												"actions": [
-													{
-														"type": "origins:execute_command",
-														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=feeder]\",\"color\":\"aqua\"},{\"translate\":\"fox.feed2\",\"color\":\"light_purple\"}]}"
-													},
-													{
-														"type": "origins:choice",
-														"actions": [
-															{
-																"weight": 10,
-																"element": {
-																	"type": "origins:apply_effect",
-																	"effect": {
-																		"effect": "strength",
-																		"amplifier": 0,
-																		"duration": 600,
-																		"show_particles": false,
-																		"is_ambient": false
-																	}
-																}
-															},
-															{
-																"weight": 10,
-																"element": {
-																	"type": "origins:apply_effect",
-																	"effect": {
-																		"effect": "absorption",
-																		"amplifier": 0,
-																		"duration": 600,
-																		"show_particles": false,
-																		"is_ambient": false
-																	}
-																}
-															},
-															{
-																"weight": 10,
-																"element": {
-																	"type": "origins:apply_effect",
-																	"effect": {
-																		"effect": "haste",
-																		"amplifier": 0,
-																		"duration": 600,
-																		"show_particles": false,
-																		"is_ambient": false
-																	}
-																}
-															},
-															{
-																"weight": 10,
-																"element": {
-																	"type": "origins:apply_effect",
-																	"effect": {
-																		"effect": "instant_health",
-																		"amplifier": 0,
-																		"duration": 1,
-																		"show_particles": false,
-																		"is_ambient": false
-																	}
-																}
-															},
-															{
-																"weight": 10,
-																"element": {
-																	"type": "origins:apply_effect",
-																	"effect": {
-																		"effect": "jump_boost",
-																		"amplifier": 0,
-																		"duration": 600,
-																		"show_particles": false,
-																		"is_ambient": false
-																	}
-																}
-															},
-															{
-																"weight": 10,
-																"element": {
-																	"type": "origins:apply_effect",
-																	"effect": {
-																		"effect": "speed",
-																		"amplifier": 0,
-																		"duration": 600,
-																		"show_particles": false,
-																		"is_ambient": false
-																	}
-																}
-															},
-															{
-																"weight": 10,
-																"element": {
-																	"type": "origins:apply_effect",
-																	"effect": {
-																		"effect": "luck",
-																		"amplifier": 0,
-																		"duration": 600,
-																		"show_particles": false,
-																		"is_ambient": false
-																	}
-																}
-															},
-															{
-																"weight": 10,
-																"element": {
-																	"type": "origins:apply_effect",
-																	"effect": {
-																		"effect": "resistance",
-																		"amplifier": 0,
-																		"duration": 600,
-																		"show_particles": false,
-																		"is_ambient": false
-																	}
-																}
-															},
-															{
-																"weight": 10,
-																"element": {
-																	"type": "origins:apply_effect",
-																	"effect": {
-																		"effect": "saturation",
-																		"amplifier": 0,
-																		"duration": 600,
-																		"show_particles": false,
-																		"is_ambient": false
-																	}
-																}
-															},
-															{
-																"weight": 10,
-																"element": {
-																	"type": "origins:apply_effect",
-																	"effect": {
-																		"effect": "regeneration",
-																		"amplifier": 1,
-																		"duration": 600,
-																		"show_particles": false,
-																		"is_ambient": false
-																	}
-																}
-															}
-														]
-													}
-												]
-											},
-											"fail_action": {
-												"type": "origins:execute_command",
-												"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=feeder]\",\"color\":\"aqua\"}]}"
-											}
-										}
-									]
-								}
-							}
-						]
-					}
-				},
-				{
-					"condition": {
-						"type": "origins:actor_condition",
+						"type": "origins:if_else",
 						"condition": {
 							"type": "origins:and",
 							"conditions": [
 								{
+									"type": "origins:nbt",
+									"nbt": "{\"Tags\":[\"foxie_trust\"]}",
+									"inverted": true
+								},
+								{
+									"type": "origins:or",
+									"conditions": [
+										{
+											"type": "origins:nbt",
+											"nbt": "{\"Tags\":[\"foxie_fear\"]}"
+										},
+										{
+											"type": "origins:origin",
+											"origin": "origins:human",
+											"layer": "origins:origin"
+										},
+										{
+											"type": "origins:origin",
+											"origin": "origins:enderian",
+											"layer": "origins:origin"
+										},
+										{
+											"type": "origins:origin",
+											"origin": "origins:shulk",
+											"layer": "origins:origin"
+										},
+										{
+											"type": "origins:origin",
+											"origin": "origins:blazeborn",
+											"layer": "origins:origin"
+										}
+									]
+								}
+							]
+						},
+						"if_action": {
+							"type": "origins:execute_command",
+							"command": "/tag @s add foxie_trust"
+						}
+					}
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:actor_condition",
+								"condition": {
+									"type": "origins:equipped_item",
+									"equipment_slot": "mainhand",
+									"item_condition": {
+										"type": "origins:ingredient",
+										"ingredient": [
+											{
+												"item": "minecraft:sweet_berries"
+											},
+											{
+												"item": "minecraft:glow_berries"
+											}
+										]
+									}
+								}
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:actor_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:modify_inventory",
+													"item_action": {
+														"type": "origins:consume",
+														"amount": 1
+													},
+													"inventory_type": "inventory",
+													"slot": "weapon.mainhand",
+													"item_condition": {
+														"type": "origins:ingredient",
+														"ingredient": [
+															{
+																"item": "minecraft:sweet_berries"
+															},
+															{
+																"item": "minecraft:glow_berries"
+															}
+														]
+													}
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/tag @s add feeder"
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 1,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feeder\"},{\"selector\":\"@e[tag=fed,limit=1,sort=nearest]\",\"color\":\"aqua\"},{\"translate\":\"fox.feeder2\"}]}"
+													}
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 1,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tag @s remove feeder"
+													}
+												}
+											]
+										}
+									},
+									{
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tag @s add fed"
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 1,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tag @s remove fed"
+													}
+												},
+												{
+													"type": "origins:trigger_cooldown",
+													"power": "*:*_interaction_cooldown"
+												},
+												{
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:or",
+														"conditions": [
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 2,
+																"comparison": "=="
+															},
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 3,
+																"comparison": "=="
+															},
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 6,
+																"comparison": "=="
+															}
+														]
+													},
+													"if_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.fox.eat",
+														"volume": 0.65,
+														"pitch": 1.3,
+														"category": "players"
+													},
+													"else_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.fox.eat",
+														"volume": 0.65,
+														"pitch": 1.0,
+														"category": "players"
+													}
+												},
+												{
+													"type": "origins:feed",
+													"food": 6,
+													"saturation": 20
+												},
+												{
+													"type": "origins:apply_effect",
+													"effect": {
+														"effect": "regeneration",
+														"amplifier": 0,
+														"duration": 100,
+														"show_icon": true,
+														"show_particles": true,
+														"is_ambient": false
+													}
+												},
+												{
+													"type": "origins:chance",
+													"chance": 0.2,
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:execute_command",
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\"},{\"selector\":\"@e[tag=feeder,limit=1,sort=nearest]\",\"color\":\"aqua\"},{\"translate\":\"fox.feed2\",\"color\":\"light_purple\"}]}"
+															},
+															{
+																"type": "origins:choice",
+																"actions": [
+																	{
+																		"weight": 10,
+																		"element": {
+																			"type": "origins:apply_effect",
+																			"effect": {
+																				"effect": "strength",
+																				"amplifier": 0,
+																				"duration": 600,
+																				"show_particles": false,
+																				"is_ambient": false
+																			}
+																		}
+																	},
+																	{
+																		"weight": 10,
+																		"element": {
+																			"type": "origins:apply_effect",
+																			"effect": {
+																				"effect": "absorption",
+																				"amplifier": 0,
+																				"duration": 600,
+																				"show_particles": false,
+																				"is_ambient": false
+																			}
+																		}
+																	},
+																	{
+																		"weight": 10,
+																		"element": {
+																			"type": "origins:apply_effect",
+																			"effect": {
+																				"effect": "haste",
+																				"amplifier": 0,
+																				"duration": 600,
+																				"show_particles": false,
+																				"is_ambient": false
+																			}
+																		}
+																	},
+																	{
+																		"weight": 10,
+																		"element": {
+																			"type": "origins:apply_effect",
+																			"effect": {
+																				"effect": "instant_health",
+																				"amplifier": 0,
+																				"duration": 1,
+																				"show_particles": false,
+																				"is_ambient": false
+																			}
+																		}
+																	},
+																	{
+																		"weight": 10,
+																		"element": {
+																			"type": "origins:apply_effect",
+																			"effect": {
+																				"effect": "jump_boost",
+																				"amplifier": 0,
+																				"duration": 600,
+																				"show_particles": false,
+																				"is_ambient": false
+																			}
+																		}
+																	},
+																	{
+																		"weight": 10,
+																		"element": {
+																			"type": "origins:apply_effect",
+																			"effect": {
+																				"effect": "speed",
+																				"amplifier": 0,
+																				"duration": 600,
+																				"show_particles": false,
+																				"is_ambient": false
+																			}
+																		}
+																	},
+																	{
+																		"weight": 10,
+																		"element": {
+																			"type": "origins:apply_effect",
+																			"effect": {
+																				"effect": "luck",
+																				"amplifier": 0,
+																				"duration": 600,
+																				"show_particles": false,
+																				"is_ambient": false
+																			}
+																		}
+																	},
+																	{
+																		"weight": 10,
+																		"element": {
+																			"type": "origins:apply_effect",
+																			"effect": {
+																				"effect": "resistance",
+																				"amplifier": 0,
+																				"duration": 600,
+																				"show_particles": false,
+																				"is_ambient": false
+																			}
+																		}
+																	},
+																	{
+																		"weight": 10,
+																		"element": {
+																			"type": "origins:apply_effect",
+																			"effect": {
+																				"effect": "saturation",
+																				"amplifier": 0,
+																				"duration": 600,
+																				"show_particles": false,
+																				"is_ambient": false
+																			}
+																		}
+																	},
+																	{
+																		"weight": 10,
+																		"element": {
+																			"type": "origins:apply_effect",
+																			"effect": {
+																				"effect": "regeneration",
+																				"amplifier": 1,
+																				"duration": 600,
+																				"show_particles": false,
+																				"is_ambient": false
+																			}
+																		}
+																	}
+																]
+															}
+														]
+													},
+													"fail_action": {
+														"type": "origins:execute_command",
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\"},{\"selector\":\"@e[tag=feeder,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}"
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:actor_condition",
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:equipped_item",
+											"equipment_slot": "mainhand",
+											"item_condition": {
+												"type": "origins:empty"
+											}
+										},
+										{
+											"type": "origins:sneaking"
+										}
+									]
+								}
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:actor_action",
+										"action": {
+											"type": "apoli:and",
+											"actions": [
+												{
+													"type": "origins:swing_hand",
+													"hand": "MAIN_HAND"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/tag @s add pet"
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 1,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Petted \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@e[tag=petted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}"
+													}
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 2,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tag @s remove pet"
+													}
+												}
+											]
+										}
+									},
+									{
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:or",
+														"conditions": [
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 2,
+																"comparison": "=="
+															},
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 3,
+																"comparison": "=="
+															},
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 6,
+																"comparison": "=="
+															}
+														]
+													},
+													"if_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.cat.purr",
+														"volume": 0.7,
+														"pitch": 1.3,
+														"category": "players"
+													},
+													"else_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.cat.purr",
+														"volume": 0.7,
+														"pitch": 1.0,
+														"category": "players"
+													}
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/tag @s add petted"
+												},
+												{
+													"type": "origins:trigger_cooldown",
+													"power": "*:*_interaction_cooldown"
+												},
+												{
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:resource",
+														"resource": "*:fox/thfoxify_afk_timer",
+														"compare_to": 602,
+														"comparison": ">"
+													},
+													"if_action": {
+														"type": "origins:change_resource",
+														"resource": "*:fox/thfoxify_afk_timer",
+														"change": -600
+													}
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 1,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petted\",\"color\":\"light_purple\"},{\"selector\":\"@e[tag=pet,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}"
+													}
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 2,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tag @s remove petted"
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:actor_condition",
+								"condition": {
 									"type": "origins:equipped_item",
 									"equipment_slot": "mainhand",
 									"item_condition": {
 										"type": "origins:empty"
 									}
-								},
-								{
-									"type": "origins:sneaking"
-								}
-							]
-						}
-					},
-					"action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:or",
-												"conditions": [
-													{
-														"type": "origins:scoreboard",
-														"objective": "foxtype",
-														"compare_to": 2,
-														"comparison": "=="
-													},
-													{
-														"type": "origins:scoreboard",
-														"objective": "foxtype",
-														"compare_to": 3,
-														"comparison": "=="
-													},
-													{
-														"type": "origins:scoreboard",
-														"objective": "foxtype",
-														"compare_to": 6,
-														"comparison": "=="
-													}
-												]
-											},
-											"if_action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.cat.purr",
-												"volume": 0.7,
-												"pitch": 1.3,
-												"category": "players"
-											},
-											"else_action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.cat.purr",
-												"volume": 0.7,
-												"pitch": 1.0,
-												"category": "players"
-											}
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add petted"
-										},
-										{
-											"type": "origins:trigger_cooldown",
-											"power": "*:*_interaction_cooldown"
-										},
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:resource",
-												"resource": "*:fox/thfoxify_afk_timer",
-												"compare_to": 602,
-												"comparison": ">"
-											},
-											"if_action": {
-												"type": "origins:change_resource",
-												"resource": "*:fox/thfoxify_afk_timer",
-												"change": -600
-											}
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 1,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petted\",\"color\":\"light_purple\"},{\"selector\":\"@p[tag=pet]\",\"color\":\"aqua\"}]}"
-											}
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 2,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s remove petted"
-											}
-										}
-									]
 								}
 							},
-							{
-								"type": "origins:actor_action",
-								"action": {
-									"type": "apoli:and",
-									"actions": [
-										{
-											"type": "origins:swing_hand",
-											"hand": "MAIN_HAND"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add pet"
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 1,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Petted \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@p[tag=petted,tag=foxie]\",\"color\":\"aqua\"}]}"
-											}
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 2,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s remove pet"
-											}
-										},
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:and",
-												"conditions": [
-													{
-														"type": "origins:command",
-														"command": "/execute if entity @s[tag=foxie_trust]",
-														"compare_to": 0,
-														"comparison": "=="
-													},
-													{
-														"type": "origins:or",
-														"conditions": [
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:actor_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:delay",
+													"ticks": 1,
+													"action": {
+														"type": "origins:and",
+														"actions": [
 															{
-																"type": "origins:nbt",
-																"nbt": "{\"Tags\": [\"foxie_fear\"]}"
+																"type": "origins:execute_command",
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Booped \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@e[tag=booped,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}"
 															},
 															{
-																"type": "origins:origin",
-																"origin": "origins:human",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:enderian",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:shulk",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:blazeborn",
-																"layer": "origins:origin"
+																"type": "origins:execute_command",
+																"command": "/tellraw @e[tag=booped,limit=1,sort=nearest] {\"text\":\"\",\"color\":\"white\",\"bold\":\"true\",\"italic\":\"false\",\"extra\":[{\"selector\":\"@s\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
 															}
 														]
 													}
-												]
-											},
-											"if_action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s add foxie_trust"
-											}
+												},
+												{
+													"type": "origins:swing_hand",
+													"hand": "MAIN_HAND"
+												}
+											]
 										}
-									]
-								}
-							}
-						]
-					}
-				},
-				{
-					"condition": {
-						"type": "origins:actor_condition",
-						"condition": {
-							"type": "origins:equipped_item",
-							"equipment_slot": "mainhand",
-							"item_condition": {
-								"type": "origins:empty"
-							}
-						}
-					},
-					"action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:actor_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:delay",
-											"ticks": 1,
-											"action": {
-												"type": "origins:and",
-												"actions": [
-													{
-														"type": "origins:execute_command",
-														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Boop-ed \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@p[tag=booped]\",\"color\":\"aqua\"}]}"
-													},
-													{
-														"type": "origins:execute_command",
-														"command": "/tellraw @p[tag=booped] {\"text\":\"\",\"color\":\"white\",\"bold\":\"true\",\"italic\":\"false\",\"extra\":[{\"selector\":\"@s\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
-													}
-												]
-											}
-										},
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:and",
-												"conditions": [
-													{
-														"type": "origins:command",
-														"command": "/execute if entity @s[tag=foxie_trust]",
-														"compare_to": 0,
-														"comparison": "=="
-													},
-													{
+									},
+									{
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:if_else",
+													"condition": {
 														"type": "origins:or",
 														"conditions": [
 															{
-																"type": "origins:nbt",
-																"nbt": "{\"Tags\": [\"foxie_fear\"]}"
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 2,
+																"comparison": "=="
 															},
 															{
-																"type": "origins:origin",
-																"origin": "origins:human",
-																"layer": "origins:origin"
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 3,
+																"comparison": "=="
 															},
 															{
-																"type": "origins:origin",
-																"origin": "origins:enderian",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:shulk",
-																"layer": "origins:origin"
-															},
-															{
-																"type": "origins:origin",
-																"origin": "origins:blazeborn",
-																"layer": "origins:origin"
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 6,
+																"comparison": "=="
 															}
 														]
-													}
-												]
-											},
-											"if_action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s add foxie_trust"
-											}
-										},
-										{
-											"type": "origins:swing_hand",
-											"hand": "MAIN_HAND"
-										}
-									]
-								}
-							},
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:or",
-												"conditions": [
-													{
-														"type": "origins:scoreboard",
-														"objective": "foxtype",
-														"compare_to": 2,
-														"comparison": "=="
 													},
-													{
-														"type": "origins:scoreboard",
-														"objective": "foxtype",
-														"compare_to": 3,
-														"comparison": "=="
+													"if_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.fox.ambient",
+														"pitch": 1.3,
+														"volume": 1.0,
+														"category": "players"
 													},
-													{
-														"type": "origins:scoreboard",
-														"objective": "foxtype",
-														"compare_to": 6,
-														"comparison": "=="
+													"else_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.fox.ambient",
+														"pitch": 1.0,
+														"volume": 1.0,
+														"category": "players"
 													}
-												]
-											},
-											"if_action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.fox.ambient",
-												"pitch": 1.3,
-												"volume": 1.0,
-												"category": "players"
-											},
-											"else_action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.fox.ambient",
-												"pitch": 1.0,
-												"volume": 1.0,
-												"category": "players"
-											}
-										},
-										{
-											"type": "origins:trigger_cooldown",
-											"power": "*:*_interaction_cooldown"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add booped"
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 2,
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s remove booped"
-											}
+												},
+												{
+													"type": "origins:trigger_cooldown",
+													"power": "*:*_interaction_cooldown"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/tag @s add booped"
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 2,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tag @s remove booped"
+													}
+												}
+											]
 										}
-									]
-								}
+									}
+								]
 							}
-						]
-					}
+						}
+					]
 				}
 			]
 		}
@@ -1200,8 +1088,9 @@
 						"change": 1
 					},
 					{
-						"type": "origins:trigger_cooldown",
-						"power": "*:*_bonk_reset"
+						"type": "origins:change_resource",
+						"resource": "*:*_bonk_reset",
+						"change": 40
 					},
 					{
 						"type": "origins:if_else_list",
@@ -1562,8 +1451,15 @@
 	},
 
 	"bonk_reset": {
-		"type": "origins:cooldown",
-		"cooldown": 31
+		"type": "origins:resource",
+		"min": 0,
+		"max": 40,
+		"min_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_bonk_counter",
+			"change": -4,
+			"operation": "set"
+		}
 	},
 
 	"bonk_counter": {

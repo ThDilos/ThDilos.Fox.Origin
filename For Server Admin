@@ -1,44 +1,46 @@
 Some Changable Tags:
 Go to /data/thorigins/tags/ for all the tags you can change
+
 1. danger.json
-    This is used in Active Skill [Hunt], where the dangerous entities are highlighted RED
+   This is used in Active Skill [Hunt], where the dangerous entities are highlighted RED
 2. prey.json
-    This is used in Passive Skill [Foxiality], entities in this type list will receive 4x damages from this origin
+   This is used in Passive Skill [Foxiality], entities in this type list will receive 4x damages from this origin
 3. ridable.json
-    This file controls what entities this origin can ride using [Save Hotbar Activator] in Active Skill [Foxify]
+   This file controls what entities this origin can ride using [Save Hotbar Activator] in Active Skill [Foxify]
 4. disliked_foods.json
-    Foods that only give you half the food points and saturation upon consuming. And a fox hiss sound is played
+   Foods that only give you half the food points and saturation upon consuming. And a fox hiss sound is played
 5. regen_foods.json
-    Foods that will give you regeneration 1 for 3s upon consuming
+   Foods that will give you regeneration 1 for 3s upon consuming
 6. fox_foods.json
-    Foods that does not cause the foodpoints and saturation debuffs, and not trigger the fox hiss sound effect
+   Foods that does not cause the foodpoints and saturation debuffs, and not trigger the fox hiss sound effect
 
 Tip: Use { /execute as [Player] run [Command] } to run the command as that player.
 Functions Explanation:
+
 1. thorigins:reset_all
-    Target: Yourself
-    Function:
-        1.1 Reload the Datapacks
-        1.2 Set your origin to human
-        1.3 Remove Any Existing Powers
-        1.4 Reset your Pehkui Scale
-        1.5 Kill any potential errorous entities from this origin in 5 blocks range (Disguise Sleeping Fox / Hat Fox)
-        1.6 Open up Origin GUI for you to choose
-    Explanation:
-        This is to be used if you think some part of this origin is not functioning correctly.
-        The Tracker Power (Time in nether / Death Count / Times being ThunderStructed etc.) will also be wiped.
-        Essentially a Factory reset.
+   Target: Yourself
+   Function:
+   1.1 Reload the Datapacks
+   1.2 Set your origin to human
+   1.3 Remove Any Existing Powers
+   1.4 Reset your Pehkui Scale
+   1.5 Kill any potential errorous entities from this origin in 5 blocks range (Disguise Sleeping Fox / Hat Fox)
+   1.6 Open up Origin GUI for you to choose
+   Explanation:
+   This is to be used if you think some part of this origin is not functioning correctly.
+   The Tracker Power (Time in nether / Death Count / Times being ThunderStructed etc.) will also be wiped.
+   Essentially a Factory reset.
 
 2. fox_settings
-    Target: Different players in your 5 blocks range
-    Function:
-        Give you the [Fox Setting Book]
-    Explanation:
-        This book more information about certain mechanics
-        This book contains useful one-time change for you to quickly execute on everyone within range (including yourself)
-        This book can totally replace the [Universal Settings] if there won't be any new player choosing this origin in the future
+   Target: Different players in your 5 blocks range
+   Function:
+   Give you the [Fox Setting Book]
+   Explanation:
+   This book more information about certain mechanics
+   This book contains useful one-time change for you to quickly execute on everyone within range (including yourself)
+   This book can totally replace the [Universal Settings] if there won't be any new player choosing this origin in the future
 
-Go to /data/thorigins/powers/fox/universal_settings.json for all the pre-implemented things you can change 
+Go to /data/thorigins/powers/fox/universal_settings.json for all the pre-implemented things you can change
 
 After you changed the settings, the current online players will not be affected!
 
@@ -51,9 +53,9 @@ and is straightup USELESS for those who has already chosen this origin.
 To change their settings, the only way is for you to MANUALLY do:
 /resource set [Player] [Power] [Value]
 Fill the [Player] with the person you want to change, or use @a[tag=foxie] to change for every existing fox origin player
-Replace [Power] with thorigins:fox/universal_settings_[Setting Name]
+Replace [Power] with thorigins:fox/universal*settings*[Setting Name]
 Replace [Value] with a numeric value
-E.g. 
+E.g.
 /resource set @a[tag=foxie] thorigins:fox/universal_settings_op_ness 0
 This command will set the op_ness of all current fox origin players to 0.
 
@@ -63,14 +65,13 @@ This will disable second pounce for the person who is using this command.
 
 Of course Fabric can also use this manual commands, if you want different fox origin players to have different settings.
 
-
 Here are the explanations for the settings:
 
 ---
 
 1. "op_ness"
-The higher the "start_value", the more damage will be dealt.
-For detailed damage explanation, visit https://github.com/ThDilos/ThDilos.Fox.Origin/wiki/For-Server-Admins#if-you-think-this-origin-is-dealing-an-unusual-amount-of-damage
+   The higher the "start_value", the more damage will be dealt.
+   For detailed damage explanation, visit https://github.com/ThDilos/ThDilos.Fox.Origin/wiki/For-Server-Admins#if-you-think-this-origin-is-dealing-an-unusual-amount-of-damage
 
 OP Level is a conventional way to refer to the "How OP is this Origin",
 while op_ness is what it is defined in the code file.
@@ -82,30 +83,48 @@ E.g By default, op_ness is 400, which is OP Level 4
 For all the other settings, the "start_value" can only be either 0 or 1
 0 means OFF
 1 means ON
-By default, everything is ON
 
 2. "allow_second_pounce"
-The First Active Ability [Pounce] allows the player to pounce twice, at the cost of more exhaustion.
+   By default: ON
+   The First Active Ability [Pounce] allows the player to pounce twice, at the cost of more exhaustion.
 
 3. "pounce_add_reach"
-The First Active Ability [Pounce] will multiply player's reach by 1.15, reset to 1 when the pounce is over.
+   By default: ON
+   The First Active Ability [Pounce] will multiply player's reach by 1.15, reset to 1 when the pounce is over.
 
 4. "can_adapt_dimensions"
-Player will receive penalties from Passive Ability [Timidity] for being in the end or the nether.
-However, by default, if they stay in the respective dimension for 10 minutes, the penalty is permanently removed. (Foxes have strong Adaptation ability)
-If this option is set to OFF, player will always receive penalties in the other dimensions without proper protections (Elytra, fire protection etc.) (Given they havn't died 8 times)
+   By default: ON
+   Player will receive penalties from Passive Ability [Timidity] for being in the end or the nether.
+   However, by default, if they stay in the respective dimension for 10 minutes, the penalty is permanently removed. (Foxes have strong Adaptation ability)
+   If this option is set to OFF, player will always receive penalties in the other dimensions without proper protections (Elytra, fire protection etc.) (Given they havn't died 8 times)
 
 5. "food_nerfs"
-Player will receive half of the foodpoints and saturations if they eat anything that is not berries / golden foods / small preys meat etc. And there will be a fox.aggro sound being played.
+   By default: ON
+   Player will receive half of the foodpoints and saturations if they eat anything that is not berries / golden foods / small preys meat etc. And there will be a fox.aggro sound being played.
 
 6. "shield_restriction"
-Prevent Player from using shield.
+   By default: ON
+   Prevent Player from using shield.
 
 7. "heavy_armor_restriction"
-Give player penalties for wearing heavy armors.
+   By default: ON
+   Give player penalties for wearing heavy armors.
 
 8. "oxygen_restriction"
-Player consume oxygen faster when under water.
+   By default: ON
+   Player consume oxygen faster when under water.
 
 9. "enable_sleepin_mode"
-Player can turn into a disguise sleeping fox.
+   By default: ON
+   Player can turn into a disguise sleeping fox.
+
+10. "modifier_mode"
+    By default: OFF (Multiplication)
+    Whether to use Addition damage bonus system for the two active skills [Pounce] and [Hunt] that has less max possible damage.
+    If you have mods that DIRECTLY ADD BASE DAMAGE, turn on this for NERF.
+
+11. "destroy_terrain"
+    By default: ON
+    For [ThDilos Expanded Fox].
+    Whether Fire Fox and Lightning Fox's Explosive Skills can destroy terrain.
+    Does not get rid of the fires.
