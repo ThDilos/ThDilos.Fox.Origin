@@ -354,28 +354,14 @@
 				"bientity_condition": {
 					"type": "origins:target_condition",
 					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:power",
-								"power": "thorigins:fox/thfoxify"
-							},
-							{
-								"type": "origins:resource",
-								"resource": "thorigins:fox/thfoxify_afk_timer",
-								"compare_to": 0,
-								"comparison": "=="
-							}
-						]
+						"type": "origins:power",
+						"power": "*:fox/thfoxify"
 					}
 				},
 				"bientity_action": {
 					"type": "origins:damage",
 					"amount": 6,
-					"damage_type": "minecraft:mob_attack",
-					"source": {
-						"name": "mob"
-					}
+					"damage_type": "minecraft:mob_attack"
 				}
 			}
 		}
