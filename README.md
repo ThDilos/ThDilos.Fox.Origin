@@ -12,9 +12,6 @@ Functions that are **different** from the Main version (1.19.4-1.20.4) are:
 ### View the main branch [here](https://github.com/ThDilos/ThDilos.Fox.Origin/)
 ---
 
-Added Origin:
-Fox
-
 ## Power Index
 * Active Skills
 >1. [Pounce](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Active-Skills#pounce)
