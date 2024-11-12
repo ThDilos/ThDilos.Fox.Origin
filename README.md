@@ -1,33 +1,15 @@
 # Realistic-Fox-Origin
-A custom-made fox origin mod for Minecraft Fabric Origins Mod.\
-Language available: Simplified Chinese & English
 
-**Needs Fabric**
-(Forge is also possible, but would not be as functional as Fabric)
+You are not viewing the main branch, but a branch for 1.21+
 
-**Needs Origins Mod (Either Fabric or Forge ver.), Pehkui Mod to function**
+In this higher version, some functionalities are added to make this origin less OP / more performant
 
-Fabric: https://fabricmc.net/use/installer/
-
-Origins Mod: https://www.curseforge.com/minecraft/mc-mods/origins
-
-Pehkui Mod: https://www.curseforge.com/minecraft/mc-mods/pehkui
-
-This is my first time writing a mod.
-
-Technically it's not a mod, I just created the datapack first (also my first time) and added the fabric header file then converted it to .jar to make it work in mods folder.
-
-Therefore, in case something breaks, you can add in the comment section, if there's any...
-but do not expect too much from me cuz I'm literally new to any of these xwx
-
-I just signed up for github today whats all these buttons do?
-
-Anyways, hope you have fun with this mod ;)
+Functions that are **different** from the Main version (1.19.4-1.20.4) are:
+1. Added Mace restriction into Weak Skill
+2. Removed Predicates, and the whole chunk of codes in Fluffy, as origins:in_snow can be used in higher version to check standing under snowfall
 
 ---
-
-I tried to recall everything I've added to this origin, maybe there are ones I forget about.
-
+### View the main branch [here](https://github.com/ThDilos/ThDilos.Fox.Origin/)
 ---
 
 Added Origin:
