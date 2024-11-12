@@ -22,25 +22,24 @@ This is also my first Origin, I just kept adding new stuff into it and fixing bu
 Anyways, hope you have fun with this mod ;)
 
 ---
-## NOTE
-
-This Origin is intended for both **Single** AND **Multi** Player environment.
-However, due to the **sheer amount of skills** it has, it _WILL_ bring lag to a less-optimal server.
-Since V4.0, my main focus has shifted from _adding new stuff_ into _maximising performance_, if there is new stuff to be added, it has to be not causing lag as well.
+### Before you install:
+This Origin is intended for both **Single** AND **Multi** Player environment.\
+However, due to the **sheer amount of skills** it has, it _WILL_ bring lag to a less-optimal server.\
+Since V4.0, my main focus has shifted from _adding new stuff_ into _maximising performance_, if there is new stuff to be added, it has to be not causing lag as well.\
 Because of this, you won't see the me adding stuff like "**Walk on Powder Snow**". I may even have achieved them via Origins and Minecraft Commands, but they are abandoned due to performance cost.
 
-I will try to use Minecraft Fabric / Forge Coding to achieve the powers that should be added but couldn't because of performance issue when I have time and motivation.
+I will try to use Minecraft Fabric / Forge Coding to achieve the powers that should be added but couldn't because of performance issue when I have time and motivation.\
 Minecraft Java Modding is a new thing to me, which I have tried to learn in the past but failed as I couldn't understand the existing tutorials.
 
-For now, this Origin is **BEST** to be used in Single Player. If in multiplayer, make sure:
-1. **NOT MANY MODS**
+For now, this Origin is **BEST** to be used in Single Player. It usually has **NO** performance problem when in Single Player.\
+If in multiplayer, make sure:
+1. **THERE IS NOT MANY MODS**
 2. Server is mid-high config
-3. Not many people
-
+3. There is not many people playing
 ---
 
-This mod / datapack add this single Origin into your world:
-***Fox***
+This mod / datapack add this single Origin into your world:\
+**Fox**
 
 Here is a quick reference to a skill the Origin has, in case the Origin GUI's badges and infos aren't clear enough
 ## Power Index
