@@ -22,7 +22,12 @@
 		{
 			"type": "origins:keybind",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": "thhunt.info"
+			"text": "thhunt.info0"
+		},
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/arrow_up.png",
+			"text": "thhunt.info1"
 		}
 	],
 
@@ -32,26 +37,6 @@
 		"entity_action": {
 			"type": "origins:and",
 			"actions": [
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:power_active",
-								"power": "*:*_switch"
-							},
-							{
-								"type": "origins:sneaking",
-								"inverted": true
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:toggle",
-						"power": "*:*_switch"
-					}
-				},
 				{
 					"type": "origins:if_else",
 					"condition": {
@@ -128,21 +113,6 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:resource",
-						"resource": "*:*_hunt_stage",
-						"compare_to": 0,
-						"comparison": "=="
-					},
-					"if_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_hit_counter",
-						"change": 0,
-						"operation": "set"
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
 						"type": "origins:and",
 						"conditions": [
 							{
@@ -163,6 +133,31 @@
 						"type": "origins:change_resource",
 						"resource": "*:*_hunt_stage",
 						"change": 1
+					}
+				}
+			]
+		}
+	},
+
+	"ticks_20": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_hunt_stage",
+						"compare_to": 0,
+						"comparison": "=="
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_hit_counter",
+						"change": 0,
+						"operation": "set"
 					}
 				},
 				{
@@ -219,12 +214,12 @@
 							"if_action": {
 								"type": "origins:change_resource",
 								"resource": "*:fox/thtrackers_time_in_nether",
-								"change": 2
+								"change": 40
 							},
 							"else_action": {
 								"type": "origins:change_resource",
 								"resource": "*:fox/thtrackers_time_in_end",
-								"change": 2
+								"change": 40
 							}
 						},
 						"else_action": {
@@ -236,12 +231,12 @@
 							"if_action": {
 								"type": "origins:change_resource",
 								"resource": "*:fox/thtrackers_time_in_nether",
-								"change": 1
+								"change": 20
 							},
 							"else_action": {
 								"type": "origins:change_resource",
 								"resource": "*:fox/thtrackers_time_in_end",
-								"change": 1
+								"change": 20
 							}
 						}
 					}
@@ -257,8 +252,12 @@
 
 	"switch": {
 		"type": "origins:toggle",
+		"key": "nuh.uh",
 		"active_by_default": false,
-		"key": "nuh.uh"
+		"retain_state": false,
+		"condition": {
+			"type": "origins:sneaking"
+		}
 	},
 
 	"prepare_stage": {
@@ -337,15 +336,6 @@
 		}
 	},
 
-	"reset_taking_dmg": {
-		"type": "origins:action_when_damage_taken",
-		"entity_action": {
-			"type": "origins:trigger_cooldown",
-			"power": "*:*_prepare_stage"
-		},
-		"cooldown": 0
-	},
-
 	"attack_reveal": {
 		"type": "origins:action_on_hit",
 		"interval": 1,
@@ -362,36 +352,42 @@
 		}
 	},
 
-	"hunt_end_forcefully": {
-		"type": "origins:action_when_hit",
-		"cooldown": 10,
-		"bientity_condition": {
-			"type": "origins:target_condition",
-			"condition": {
-				"type": "origins:and",
-				"conditions": [
-					{
-						"type": "origins:resource",
-						"resource": "*:*_hunt_stage",
-						"compare_to": 0,
-						"comparison": ">"
+	"refresh_force_end": {
+		"type": "origins:action_when_damage_taken",
+		"cooldown": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "*:*_prepare_stage"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_hunt_stage",
+								"compare_to": 0,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:*_hunt_stage",
+								"compare_to": 100,
+								"comparison": "<"
+							}
+						]
 					},
-					{
-						"type": "origins:resource",
+					"if_action": {
+						"type": "origins:change_resource",
 						"resource": "*:*_hunt_stage",
-						"compare_to": 100,
-						"comparison": "<"
+						"change": -10
 					}
-				]
-			}
-		},
-		"bientity_action": {
-			"type": "origins:target_action",
-			"action": {
-				"type": "origins:change_resource",
-				"resource": "*:*_hunt_stage",
-				"change": -10
-			}
+				}
+			]
 		}
 	},
 
@@ -419,7 +415,7 @@
 									"value": -1,
 									"modifier": {
 										"operation": "addition",
-										"resource": "*:fox/universal_settings_damage_muffler",
+										"resource": "*:fox/universal_settings_modifier_mode",
 										"value": 0
 									}
 								}
@@ -446,7 +442,7 @@
 								"value": -0.01,
 								"modifier": {
 									"operation": "multiply_base",
-									"resource": "*:fox/universal_settings_damage_muffler",
+									"resource": "*:fox/universal_settings_modifier_mode",
 									"value": 0,
 									"modifier": {
 										"operation": "multiply_base",
@@ -560,7 +556,7 @@
 									"value": -1,
 									"modifier": {
 										"operation": "addition",
-										"resource": "*:fox/universal_settings_damage_muffler",
+										"resource": "*:fox/universal_settings_modifier_mode",
 										"value": 0
 									}
 								}
@@ -587,7 +583,7 @@
 								"value": -0.01,
 								"modifier": {
 									"operation": "multiply_base",
-									"resource": "*:fox/universal_settings_damage_muffler",
+									"resource": "*:fox/universal_settings_modifier_mode",
 									"value": 0,
 									"modifier": {
 										"operation": "multiply_base",
@@ -1118,203 +1114,141 @@
 	"munch": {
 		"type": "origins:action_on_hit",
 		"bientity_action": {
-			"type": "origins:if_else_list",
-			"actions": [
-				{
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:actor_condition",
 					"condition": {
-						"type": "origins:actor_condition",
-						"condition": {
-							"type": "origins:resource",
-							"resource": "*:*_hit_counter",
-							"compare_to": 2,
-							"comparison": "<"
-						}
-					},
-					"action": {
-						"type": "origins:actor_action",
-						"action": {
-							"type": "origins:change_resource",
-							"resource": "*:*_hit_counter",
-							"change": 1
-						}
+						"type": "origins:resource",
+						"resource": "*:*_hit_counter",
+						"compare_to": 2,
+						"comparison": "<"
 					}
 				},
-				{
-					"condition": {
-						"type": "origins:actor_condition",
-						"condition": {
-							"type": "origins:resource",
-							"resource": "*:*_hit_counter",
-							"compare_to": 2,
-							"comparison": "=="
-						}
-					},
+				"if_action": {
+					"type": "origins:actor_action",
 					"action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:actor_action",
-								"action": {
-									"type": "origins:change_resource",
-									"resource": "*:*_hit_counter",
-									"change": 0,
-									"operation": "set"
-								}
-							},
-							{
-								"type": "origins:delay",
-								"ticks": 4,
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:actor_condition",
-												"condition": {
-													"type": "origins:equipped_item",
-													"equipment_slot": "mainhand",
-													"item_condition": {
-														"type": "origins:empty"
-													}
-												}
-											},
-											"if_action": {
-												"type": "origins:and",
-												"actions": [
-													{
-														"type": "origins:actor_action",
-														"action": {
-															"type": "origins:swing_hand",
-															"hand": "MAIN_HAND"
-														}
+						"type": "origins:change_resource",
+						"resource": "*:*_hit_counter",
+						"change": 1
+					}
+				},
+				"else_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:actor_action",
+							"action": {
+								"type": "origins:change_resource",
+								"resource": "*:*_hit_counter",
+								"change": 0,
+								"operation": "set"
+							}
+						},
+						{
+							"type": "origins:delay",
+							"ticks": 3,
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:actor_action",
+										"action": {
+											"type": "origins:swing_hand",
+											"hand": "OFF_HAND"
+										}
+									},
+									{
+										"type": "origins:damage",
+										"amount": 2,
+										"damage_type": "thorigins:foxie_bite"
+									},
+									{
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:play_sound",
+											"sound": "minecraft:entity.zombie.break_wooden_door",
+											"volume": 0.3,
+											"pitch": 1.5
+										}
+									},
+									{
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:entity_type",
+														"entity_type": "creeper",
+														"inverted": true
 													},
-													{
-														"type": "origins:choice",
-														"actions": [
+													"if_action": {
+														"type": "origins:apply_effect",
+														"effects": [
 															{
-																"weight": 50,
-																"element": {
-																	"type": "origins:damage",
-																	"amount": 3,
-																	"damage_type": "thorigins:foxie_bite"
-																}
+																"effect": "minecraft:weakness",
+																"duration": 60,
+																"amplifier": 0,
+																"is_ambient": false,
+																"show_icon": true,
+																"show_particles": false
 															},
 															{
-																"weight": 50,
-																"element": {
-																	"type": "origins:damage",
-																	"amount": 3,
-																	"damage_type": "thorigins:foxie_bite_2"
-																}
+																"effect": "minecraft:nausea",
+																"duration": 100,
+																"amplifier": 0,
+																"is_ambient": false,
+																"show_icon": true,
+																"show_particles": false
 															}
 														]
 													}
-												]
-											},
-											"else_action": {
-												"type": "origins:and",
-												"actions": [
-													{
-														"type": "origins:damage",
-														"amount": 3,
-														"damage_type": "thorigins:foxie_bite_item"
-													},
-													{
-														"type": "origins:actor_action",
-														"action": {
-															"type": "origins:swing_hand",
-															"hand": "OFF_HAND"
-														}
-													}
-												]
-											}
-										},
-										{
-											"type": "origins:target_action",
-											"action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.zombie.break_wooden_door",
-												"volume": 0.3,
-												"pitch": 1.5
-											}
-										},
-										{
-											"type": "origins:target_action",
-											"action": {
-												"type": "origins:and",
-												"actions": [
-													{
-														"type": "origins:if_else",
-														"condition": {
-															"type": "origins:entity_type",
-															"entity_type": "creeper",
-															"inverted": true
-														},
-														"if_action": {
-															"type": "origins:apply_effect",
-															"effects": [
-																{
-																	"effect": "minecraft:weakness",
-																	"duration": 60,
-																	"amplifier": 0,
-																	"is_ambient": false,
-																	"show_icon": true,
-																	"show_particles": false
-																},
-																{
-																	"effect": "minecraft:nausea",
-																	"duration": 100,
-																	"amplifier": 0,
-																	"is_ambient": false,
-																	"show_icon": true,
-																	"show_particles": false
-																}
-															]
-														}
-													}
-												]
-											}
-										},
-										{
-											"type": "origins:actor_action",
-											"action": {
-												"type": "origins:and",
-												"actions": [
-													{
-														"type": "origins:play_sound",
-														"sound": "minecraft:entity.fox.eat",
-														"pitch": 1.2,
-														"volume": 1.0
-													},
-													{
-														"type": "origins:execute_command",
-														"command": "/particle dust_color_transition 1 0 0 1.2 0.15 0 0 ^ ^1.1 ^0.4 0.1 0.1 0.1 5 8 force"
-													},
-													{
-														"type": "origins:execute_command",
-														"command": "/particle dust_color_transition 1 0 0 0.5 0.15 0 0 ^ ^1.1 ^0.4 0.15 0.15 0.15 10 16 force"
-													},
-													{
-														"type": "origins:feed",
-														"food": 2,
-														"saturation": 2
-													},
-													{
-														"type": "origins:change_resource",
-														"resource": "*:*_hunt_stage",
-														"change": 30
-													}
-												]
-											}
+												}
+											]
 										}
-									]
-								}
+									},
+									{
+										"type": "origins:actor_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:play_sound",
+													"sound": "minecraft:entity.fox.eat",
+													"pitch": 1.2,
+													"volume": 1.0
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/particle dust_color_transition 1 0 0 1.2 0.15 0 0 ^ ^1.1 ^0.4 0.1 0.1 0.1 5 8 force"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/particle dust_color_transition 1 0 0 0.5 0.15 0 0 ^ ^1.1 ^0.4 0.15 0.15 0.15 10 16 force"
+												},
+												{
+													"type": "origins:feed",
+													"food": 2,
+													"saturation": 2
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "*:*_hunt_stage",
+													"change": 30
+												}
+											]
+										}
+									}
+								]
 							}
-						]
-					}
+						}
+					]
 				}
-			]
+			}
 		},
 		"bientity_condition": {
 			"type": "origins:and",
@@ -1347,6 +1281,29 @@
 				{
 					"type": "origins:amount",
 					"compare_to": 1,
+					"comparison": ">"
+				}
+			]
+		}
+	},
+
+	"sleep_when_hunt": {
+		"type": "origins:prevent_sleep",
+		"set_spawn_point": true,
+		"message": "fox.cant_sleep_hunt",
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_prepare_stage",
+					"compare_to": 98,
+					"comparison": "<"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_hunt_stage",
+					"compare_to": 0,
 					"comparison": ">"
 				}
 			]
