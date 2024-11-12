@@ -13,26 +13,36 @@ Origins Mod: https://www.curseforge.com/minecraft/mc-mods/origins
 
 Pehkui Mod: https://www.curseforge.com/minecraft/mc-mods/pehkui
 
-This is my first time writing a mod.
+This was my first time writing a mod.
 
 Technically it's not a mod, I just created the datapack first (also my first time) and added the fabric header file then converted it to .jar to make it work in mods folder.
 
-Therefore, in case something breaks, you can add in the comment section, if there's any...
-but do not expect too much from me cuz I'm literally new to any of these xwx
-
-I just signed up for github today whats all these buttons do?
+This is also my first Origin, I just kept adding new stuff into it and fixing bugs for more than a year.
 
 Anyways, hope you have fun with this mod ;)
 
 ---
+## NOTE
 
-I tried to recall everything I've added to this origin, maybe there are ones I forget about.
+This Origin is intended for both **Single** AND **Multi** Player environment.
+However, due to the **sheer amount of skills** it has, it _WILL_ bring lag to a less-optimal server.
+Since V4.0, my main focus has shifted from _adding new stuff_ into _maximising performance_, if there is new stuff to be added, it has to be not causing lag as well.
+Because of this, you won't see the me adding stuff like "**Walk on Powder Snow**". I may even have achieved them via Origins and Minecraft Commands, but they are abandoned due to performance cost.
+
+I will try to use Minecraft Fabric / Forge Coding to achieve the powers that should be added but couldn't because of performance issue when I have time and motivation.
+Minecraft Java Modding is a new thing to me, which I have tried to learn in the past but failed as I couldn't understand the existing tutorials.
+
+For now, this Origin is **BEST** to be used in Single Player. If in multiplayer, make sure:
+1. **NOT MANY MODS**
+2. Server is mid-high config
+3. Not many people
 
 ---
 
-Added Origin:
-Fox
+This mod / datapack add this single Origin into your world:
+***Fox***
 
+Here is a quick reference to a skill the Origin has, in case the Origin GUI's badges and infos aren't clear enough
 ## Power Index
 * Active Skills
 >1. [Pounce](https://github.com/ThDilos/Realistic-Fox-Origin/wiki/Active-Skills#pounce)
