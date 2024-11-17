@@ -213,6 +213,7 @@
 
 	"vicious_wolves_bears": {
 		"type": "origins:action_when_hit",
+		"cooldown": 4,
 		"bientity_condition": {
 			"type": "origins:actor_condition",
 			"condition": {
@@ -236,6 +237,11 @@
 		"damage_condition": {
 			"type": "origins:and",
 			"conditions": [
+				{
+					"type": "origins:amount",
+					"compare_to": 2,
+					"comparison": ">="
+				},
 				{
 					"type": "origins:projectile",
 					"inverted": true
