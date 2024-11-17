@@ -109,10 +109,10 @@
 
 	"small_lungs": {
 		"type": "origins:action_over_time",
-		"interval": 3,
+		"interval": 18,
 		"entity_action": {
 			"type": "origins:gain_air",
-			"value": -2
+			"value": -12
 		},
 		"condition": {
 			"type": "origins:and",
