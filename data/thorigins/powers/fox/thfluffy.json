@@ -605,21 +605,16 @@
 					"inverted": true
 				},
 				{
-					"type": "origins:and",
-					"conditions": [
-						{
-							"type": "origins:resource",
-							"resource": "*:*_effect_timer",
-							"compare_to": 28,
-							"comparison": "<="
-						},
-						{
-							"type": "origins:resource",
-							"resource": "*:*_effect_timer",
-							"compare_to": 0,
-							"comparison": ">"
-						}
-					]
+					"type": "origins:resource",
+					"resource": "*:*_effect_timer",
+					"compare_to": 28,
+					"comparison": "<="
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_effect_timer",
+					"compare_to": 0,
+					"comparison": ">"
 				}
 			]
 		}
