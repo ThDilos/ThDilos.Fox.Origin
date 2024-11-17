@@ -77,5 +77,19 @@
 		"type": "origins:resource",
 		"min": 0,
 		"max": 1
+	},
+
+	"optional_mute_fallsound": {
+		"start_value": 1,
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1
+	},
+
+	"optional_walk_on_powdered_snow": {
+		"start_value": 1,
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1
 	}
 }
