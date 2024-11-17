@@ -19,16 +19,13 @@
 		"type": "origins:action_over_time",
 		"interval": 20,
 		"entity_action": {
-			"type": "origins:if_else",
-			"condition": {
-				"type": "origins:gamemode",
-				"gamemode": "creative"
-			},
-			"if_action": {
-				"type": "origins:feed",
-				"food": 20,
-				"saturation": 20
-			}
+			"type": "origins:feed",
+			"food": 20,
+			"saturation": 20
+		},
+		"condition": {
+			"type": "origins:gamemode",
+			"gamemode": "creative"
 		}
 	},
 

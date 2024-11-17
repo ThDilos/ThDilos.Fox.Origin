@@ -10,13 +10,13 @@
 
 	"fox.thdash.name": "§6§l§n掠袭",
 	"fox.thdash.description": "暂时放弃防御, 向前上方冲刺一段距离, 并在下落时加成攻击力。",
-	"thdash.key": "] 向前跳跃",
+	"thdash.key": "] 向前跳跃\n\n§8用到的键位:\n起源 - 主动能力(首要按键)",
 	"thdash.info": "§4合适时机§r, §9合适角度§r使用该技能能§o进一步§r提升你的攻击\n\n§8§o据说, 狐狸能利用地球§l磁§r§8§o场在§l狩猎时§r§8§o更精准地扑击",
 
 	"fox.thstorage.name": "§6§l§n叼住",
 	"fox.thstorage.description": "把东西存在嘴里, 死了也能带走。",
 	"thorigins.fox.container.inventory": "别咽下去了",
-	"thorigins.thstorage.key": "] 把物品存放在嘴里。",
+	"thorigins.thstorage.key": "] 把物品存放在嘴里。\n\n§8用到的键位:\n起源 - 主动能力(备用按键)",
 	"thstorage.info": "储存的物品死亡不掉落",
 
 	"fox.thfoxify.name": "§6§l§n狐化",
@@ -42,12 +42,13 @@
 	"thfoxify.keybind.info2": "]\n§a3§r. 使用 - [",
 	"thfoxify.keybind.info3": "]\n§a4§r. 保存物品栏 - [",
 	"thfoxify.keybind.info4": "]\n§a5§r. 交换副手物品 - [",
+	"thfoxify.error": "§c检测到错误尺寸, 狐化被迫结束",
 
 	"fox.thhunt.name": "§6§l§n狩猎",
 	"fox.thhunt.description": "通过下蹲保持隐蔽, 蓄力后进入猎杀状态, 短时间内提升攻击力。",
 	"thhunt.key": "] 开始准备狩猎。",
 	"thhunt.info0": "狩猎阶段, 你造成的伤害提升, 并能触发§5§l爪牙连击§r\n\n§8§o只要足够隐蔽, 你的天敌就不会注意到你",
-	"thhunt.info1": "你的§5§l爪牙连击§r有以下效果:\n§b1§r. 给目标施加虚弱+反胃效果\n§b2§r. 给目标造成固定量的❂§l真实伤害§r\n§b3§r. 自己获得饱食度和饥饿值\n§b4§r. 延长狩猎时间",
+	"thhunt.info1": "你的§5§l爪牙连击§r有以下效果:\n§b1§r. 给目标施加虚弱+反胃效果\n§b2§r. 给目标造成少量的❂§l真实伤害§r\n§b3§r. 自己获得饱食度和饥饿值\n§b4§r. 延长狩猎时间",
 
 	"fox.thswift.name": "§a§n灵跃",
 	"fox.thswift.description": "轻盈的身体让你能轻松跨越障碍物, 不惧摔伤。",
@@ -99,7 +100,7 @@
 	"fox.cant_sleep_hunt": "你正在狩猎!别偷懒!",
 
 	"death.attack.thorigins:foxie_bite": "%1$s被撕成了碎片。",
-	"death.attack.thorigins:predator_bite": "%1$s被%2$s撕成了碎片。",
+	"death.attack.thorigins:predator_bite": "%1$s被%2$s开膛破肚。",
 
 	"death.attack.thorigins:foxie_bite.player": "%1$被%2$s活活咬死。",
 	"death.attack.thorigins:predator_bite.player": "%1$s无法逃脱%2$s的爪牙。",
