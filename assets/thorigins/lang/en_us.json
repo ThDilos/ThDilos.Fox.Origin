@@ -10,13 +10,13 @@
 
 	"fox.thdash.name": "§6§l§nPounce",
 	"fox.thdash.description": "By sacrificing defence, pounce forward and boost your attack while falling down.",
-	"thdash.key": "] to pounce forward",
+	"thdash.key": "] to pounce forward\n\n§8Keybind Used:\nOrigins - Active Power (Primary)",
 	"thdash.info": "§6§lPounce§r during §4right time§r at §9right angle§r §fwill boost your attack §oeven more§r\n\n§8§oFoxes are believed to pounce more accurately §lwhen hunting§r §8§oif they are aligned with the Earth's §lmagnet§r§8§oic field§r",
 
 	"fox.thstorage.name": "§6§l§nMouth Pouch",
 	"fox.thstorage.description": "Hide items in your mouth",
 	"thorigins.fox.container.inventory": "Do Not Swallow",
-	"thorigins.thstorage.key": "] to store items in your mouth",
+	"thorigins.thstorage.key": "] to store items in your mouth\n\n§8Keybind Used:\nOrigins - Active Power (Secondary)",
 	"thstorage.info": "Stored items won't drop upon death",
 
 	"fox.thfoxify.name": "§6§l§nFoxify",
@@ -42,12 +42,13 @@
 	"thfoxify.keybind.info2": "]\n§a3§r. Use - [",
 	"thfoxify.keybind.info3": "]\n§a4§r. Save Hotbar Activator - [",
 	"thfoxify.keybind.info4": "]\n§a5§r. Swap Item With Offhand - [",
+	"thfoxify.error": "§cError Sizes Detected, Foxification is forced to end",
 
 	"fox.thhunt.name": "§6§l§nHunt",
 	"fox.thhunt.description": "Hide yourself by crouching and enter a hunting phase after much preparation.",
 	"thhunt.key": "] to start preparing for a hunt",
 	"thhunt.info0": "In Hunt Phase, you deal increased damage and are able to perform §5§lEXTRA STRIKE§r\n\n§8§oIf you're sneaky enough, even your predators won't notice you",
-	"thhunt.info1": "Your §5§lEXTRA STRIKE§r has the following effects:\n§b1§r. Applies Weakness + Nausea to your target\n§b2§r. Deals a fixed amount of ❂§lTRUE DAMAGE§r\n§b3§r. Feeds you Foodpoints and Saturation\n§b4§r. Extends the Hunt",
+	"thhunt.info1": "Your §5§lEXTRA STRIKE§r has the following effects:\n§b1§r. Applies Weakness + Nausea to your target\n§b2§r. Deals a small amount of ❂§lTRUE DAMAGE§r\n§b3§r. Feeds you Foodpoints and Saturation\n§b4§r. Extends the Hunt",
 
 	"fox.thswift.name": "§a§nAgility",
 	"fox.thswift.description": "You have specialized limbs that enhance sprinting and jumping abilities, and you're more resilient to fall damage.",
@@ -99,7 +100,7 @@
 	"fox.cant_sleep_hunt": "You're hunting! Don't slack it off!",
 
 	"death.attack.thorigins:foxie_bite": "%1$s was torn apart.",
-	"death.attack.thorigins:predator_bite": "%1$s was ripped apart by %2$s.",
+	"death.attack.thorigins:predator_bite": "%1$s was disemboweled by %2$s.",
 
 	"death.attack.thorigins:foxie_bite.player": "%1$s was mauled by %2$s.",
 	"death.attack.thorigins:predator_bite.player": "%1$s couldn't escape the claws and fangs of %2$s.",
