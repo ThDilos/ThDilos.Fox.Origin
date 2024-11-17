@@ -35,20 +35,6 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:fall_distance",
-						"compare_to": 0.5,
-						"comparison": ">="
-					},
-					"if_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_falling",
-						"change": 1,
-						"operation": "set"
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
 						"type": "origins:and",
 						"conditions": [
 							{
@@ -263,12 +249,6 @@
 			"type": "origins:and",
 			"actions": [
 				{
-					"type": "apoli:change_resource",
-					"resource": "*:*_falling",
-					"change": 0,
-					"operation": "set"
-				},
-				{
 					"type": "origins:execute_command",
 					"command": "/scale reset pehkui:reach @s"
 				},
@@ -285,12 +265,6 @@
 	"coyote_grace": {
 		"type": "origins:cooldown",
 		"cooldown": 5
-	},
-
-	"falling": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1
 	},
 
 	"magnetoreception_direction": {
@@ -762,12 +736,6 @@
 				{
 					"type": "origins:resource",
 					"resource": "*:*_left_ground",
-					"compare_to": 1,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:*_falling",
 					"compare_to": 1,
 					"comparison": "=="
 				},
