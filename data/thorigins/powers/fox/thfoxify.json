@@ -1709,99 +1709,6 @@
 							"slot": "weapon.mainhand",
 							"inventory_type": "inventory"
 						}
-					},
-					"else_action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:actor_condition",
-							"condition": {
-								"type": "origins:resource",
-								"resource": "*:fox/thsound_interaction_cooldown",
-								"compare_to": 0,
-								"comparison": "=="
-							}
-						},
-						"if_action": {
-							"type": "origins:and",
-							"actions": [
-								{
-									"type": "origins:actor_action",
-									"action": {
-										"type": "origins:and",
-										"actions": [
-											{
-												"type": "origins:delay",
-												"ticks": 1,
-												"action": {
-													"type": "origins:and",
-													"actions": [
-														{
-															"type": "origins:execute_command",
-															"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Booped \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@e[tag=booped,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}"
-														},
-														{
-															"type": "origins:execute_command",
-															"command": "/tellraw @e[tag=booped,limit=1,sort=nearest] {\"text\":\"\",\"color\":\"white\",\"bold\":\"true\",\"italic\":\"false\",\"extra\":[{\"selector\":\"@s\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
-														}
-													]
-												}
-											},
-											{
-												"type": "origins:swing_hand",
-												"hand": "MAIN_HAND"
-											},
-											{
-												"type": "origins:trigger_cooldown",
-												"power": "*:fox/thsound_interaction_cooldown"
-											}
-										]
-									}
-								},
-								{
-									"type": "origins:target_action",
-									"action": {
-										"type": "origins:and",
-										"actions": [
-											{
-												"type": "origins:if_else",
-												"condition": {
-													"type": "origins:command",
-													"command": "/data get entity @s Age",
-													"compare_to": 0,
-													"comparison": "<"
-												},
-												"if_action": {
-													"type": "origins:play_sound",
-													"sound": "minecraft:entity.fox.ambient",
-													"pitch": 1.3,
-													"volume": 1.0,
-													"category": "neutral"
-												},
-												"else_action": {
-													"type": "origins:play_sound",
-													"sound": "minecraft:entity.fox.ambient",
-													"pitch": 1.0,
-													"volume": 1.0,
-													"category": "neutral"
-												}
-											},
-											{
-												"type": "origins:execute_command",
-												"command": "/tag @s add booped"
-											},
-											{
-												"type": "origins:delay",
-												"ticks": 2,
-												"action": {
-													"type": "origins:execute_command",
-													"command": "/tag @s remove booped"
-												}
-											}
-										]
-									}
-								}
-							]
-						}
 					}
 				}
 			},
@@ -1824,6 +1731,99 @@
 						"type": "origins:drop_inventory",
 						"slot": "weapon.mainhand",
 						"inventory_type": "inventory"
+					}
+				},
+				"else_action": {
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:actor_condition",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "*:fox/thsound_interaction_cooldown",
+							"compare_to": 0,
+							"comparison": "=="
+						}
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:delay",
+											"ticks": 1,
+											"action": {
+												"type": "origins:and",
+												"actions": [
+													{
+														"type": "origins:execute_command",
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Booped \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@e[tag=booped,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}"
+													},
+													{
+														"type": "origins:execute_command",
+														"command": "/tellraw @e[tag=booped,limit=1,sort=nearest] {\"text\":\"\",\"color\":\"white\",\"bold\":\"true\",\"italic\":\"false\",\"extra\":[{\"selector\":\"@s\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
+													}
+												]
+											}
+										},
+										{
+											"type": "origins:swing_hand",
+											"hand": "MAIN_HAND"
+										},
+										{
+											"type": "origins:trigger_cooldown",
+											"power": "*:fox/thsound_interaction_cooldown"
+										}
+									]
+								}
+							},
+							{
+								"type": "origins:target_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:if_else",
+											"condition": {
+												"type": "origins:command",
+												"command": "/data get entity @s Age",
+												"compare_to": 0,
+												"comparison": "<"
+											},
+											"if_action": {
+												"type": "origins:play_sound",
+												"sound": "minecraft:entity.fox.ambient",
+												"pitch": 1.3,
+												"volume": 1.0,
+												"category": "neutral"
+											},
+											"else_action": {
+												"type": "origins:play_sound",
+												"sound": "minecraft:entity.fox.ambient",
+												"pitch": 1.0,
+												"volume": 1.0,
+												"category": "neutral"
+											}
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/tag @s add booped"
+										},
+										{
+											"type": "origins:delay",
+											"ticks": 2,
+											"action": {
+												"type": "origins:execute_command",
+												"command": "/tag @s remove booped"
+											}
+										}
+									]
+								}
+							}
+						]
 					}
 				}
 			}
