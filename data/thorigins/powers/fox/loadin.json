@@ -120,26 +120,15 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:and",
+						"type": "origins:or",
 						"conditions": [
 							{
-								"type": "origins:command",
-								"command": "/execute if entity @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..0.2,limit=1]",
-								"compare_to": 1,
-								"comparison": "=="
+								"type": "origins:power_active",
+								"power": "*:fox/thshy_shaking_of_fear"
 							},
 							{
-								"type": "origins:or",
-								"conditions": [
-									{
-										"type": "origins:power_active",
-										"power": "*:fox/thshy_shaking_of_fear"
-									},
-									{
-										"type": "origins:power_active",
-										"power": "*:fox/thfluffy_shake"
-									}
-								]
+								"type": "origins:power_active",
+								"power": "*:fox/thfluffy_shake"
 							}
 						]
 					},
