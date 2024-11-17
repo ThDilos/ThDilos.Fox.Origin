@@ -45,6 +45,7 @@
 		"modifier": {
 			"attribute": "minecraft:generic.attack_speed",
 			"operation": "multiply_base",
+			"name": "thorigins.fox.faster_attack",
 			"value": 0.25
 		}
 	},
