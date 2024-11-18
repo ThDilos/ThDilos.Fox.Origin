@@ -88,6 +88,11 @@
 										"type": "origins:change_resource",
 										"resource": "*:*_snowness",
 										"change": -4
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_is_shaking",
+										"change": 1
 									}
 								]
 							},
@@ -176,6 +181,11 @@
 								}
 							}
 						]
+					},
+					"else_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_is_shaking",
+						"change": -1
 					}
 				},
 				{
@@ -513,6 +523,13 @@
 				}
 			]
 		}
+	},
+
+	"is_shaking": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0
 	},
 
 	"effect_timer": {
