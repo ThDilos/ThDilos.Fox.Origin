@@ -153,12 +153,36 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:block_collision",
-					"block_condition": {
-						"type": "origins:block",
-						"block": "minecraft:powder_snow"
-					},
-					"offset_y": -0.3
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:block_collision",
+							"block_condition": {
+								"type": "origins:block",
+								"block": "minecraft:powder_snow"
+							},
+							"offset_y": -0.3
+						},
+						{
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:block_collision",
+									"block_condition": {
+										"type": "origins:block",
+										"block": "minecraft:powder_snow"
+									},
+									"offset_y": -0.8
+								},
+								{
+									"type": "origins:resource",
+									"resource": "*:fox/thfoxify_figura_mode",
+									"compare_to": 1,
+									"comparison": "=="
+								}
+							]
+						}
+					]
 				},
 				{
 					"type": "origins:block_collision",
@@ -195,21 +219,70 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:block_collision",
-					"block_condition": {
-						"type": "origins:block",
-						"block": "minecraft:powder_snow"
-					},
-					"offset_y": -0.3
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:block_collision",
+							"block_condition": {
+								"type": "origins:block",
+								"block": "minecraft:powder_snow"
+							},
+							"offset_y": -0.3
+						},
+						{
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:block_collision",
+									"block_condition": {
+										"type": "origins:block",
+										"block": "minecraft:powder_snow"
+									},
+									"offset_y": -0.8
+								},
+								{
+									"type": "origins:resource",
+									"resource": "*:fox/thfoxify_figura_mode",
+									"compare_to": 1,
+									"comparison": "=="
+								}
+							]
+						}
+					]
 				},
 				{
-					"type": "origins:block_collision",
-					"inverted": true,
-					"block_condition": {
-						"type": "origins:block",
-						"block": "minecraft:powder_snow"
-					},
-					"offset_y": 0.3
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:block_collision",
+							"inverted": true,
+							"block_condition": {
+								"type": "origins:block",
+								"block": "minecraft:powder_snow"
+							},
+							"offset_y": 0.3
+						},
+						{
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:block_collision",
+									"inverted": true,
+									"block_condition": {
+										"type": "origins:block",
+										"block": "minecraft:powder_snow"
+									},
+									"offset_y": 0.8
+								},
+								{
+									"type": "origins:resource",
+									"resource": "*:fox/thfoxify_figura_mode",
+									"compare_to": 1,
+									"comparison": "=="
+								}
+							]
+						}
+					]
 				},
 				{
 					"type": "origins:resource",
