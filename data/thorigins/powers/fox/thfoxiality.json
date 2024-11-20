@@ -239,7 +239,7 @@
 			"conditions": [
 				{
 					"type": "origins:amount",
-					"compare_to": 2,
+					"compare_to": 2.5,
 					"comparison": ">="
 				},
 				{
