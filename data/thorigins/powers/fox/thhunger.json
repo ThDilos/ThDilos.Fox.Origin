@@ -18,7 +18,6 @@
 	"base_exhaustion": {
 		"type": "origins:modify_exhaustion",
 		"modifier": {
-			"name": "Origin modifier",
 			"operation": "multiply_base",
 			"value": 0.5
 		},
@@ -45,7 +44,6 @@
 		"modifier": {
 			"attribute": "minecraft:generic.attack_speed",
 			"operation": "multiply_base",
-			"name": "thorigins.fox.faster_attack",
 			"value": 0.25
 		}
 	},

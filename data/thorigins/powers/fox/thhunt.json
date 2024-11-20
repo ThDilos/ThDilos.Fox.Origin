@@ -1180,38 +1180,33 @@
 									{
 										"type": "origins:target_action",
 										"action": {
-											"type": "origins:and",
-											"actions": [
-												{
-													"type": "origins:if_else",
-													"condition": {
-														"type": "origins:entity_type",
-														"entity_type": "creeper",
-														"inverted": true
+											"type": "origins:if_else",
+											"condition": {
+												"type": "origins:entity_type",
+												"entity_type": "creeper",
+												"inverted": true
+											},
+											"if_action": {
+												"type": "origins:apply_effect",
+												"effects": [
+													{
+														"effect": "minecraft:weakness",
+														"duration": 60,
+														"amplifier": 0,
+														"is_ambient": false,
+														"show_icon": true,
+														"show_particles": false
 													},
-													"if_action": {
-														"type": "origins:apply_effect",
-														"effects": [
-															{
-																"effect": "minecraft:weakness",
-																"duration": 60,
-																"amplifier": 0,
-																"is_ambient": false,
-																"show_icon": true,
-																"show_particles": false
-															},
-															{
-																"effect": "minecraft:nausea",
-																"duration": 100,
-																"amplifier": 0,
-																"is_ambient": false,
-																"show_icon": true,
-																"show_particles": false
-															}
-														]
+													{
+														"effect": "minecraft:nausea",
+														"duration": 100,
+														"amplifier": 0,
+														"is_ambient": false,
+														"show_icon": true,
+														"show_particles": false
 													}
-												}
-											]
+												]
+											}
 										}
 									},
 									{
