@@ -134,6 +134,31 @@
 						"resource": "*:*_hunt_stage",
 						"change": 1
 					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_prepare_stage",
+								"compare_to": 98,
+								"comparison": "<"
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:*_hunt_stage",
+								"compare_to": 0,
+								"comparison": ">"
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:fox/thshy_fear_timer",
+						"change": -100
+					}
 				}
 			]
 		}

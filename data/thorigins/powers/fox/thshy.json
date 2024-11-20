@@ -40,65 +40,23 @@
 		"type": "origins:action_over_time",
 		"interval": 1,
 		"entity_action": {
+			"type": "origins:trigger_cooldown",
+			"power": "*:*_fear_timer"
+		},
+		"condition": {
 			"type": "origins:and",
-			"actions": [
+			"conditions": [
 				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:resource",
-								"resource": "*:fox/thtrackers_thunderstruck",
-								"comparison": "<",
-								"compare_to": 16
-							},
-							{
-								"type": "origins:command",
-								"command": "/execute if entity @e[type=lightning_bolt]",
-								"compare_to": 0,
-								"comparison": ">"
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:trigger_cooldown",
-						"power": "*:*_fear_timer"
-					}
+					"type": "origins:resource",
+					"resource": "*:fox/thtrackers_thunderstruck",
+					"comparison": "<",
+					"compare_to": 16
 				},
 				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:power",
-								"power": "*:fox/thhunt"
-							},
-							{
-								"type": "origins:or",
-								"conditions": [
-									{
-										"type": "origins:resource",
-										"resource": "*:fox/thhunt_prepare_stage",
-										"compare_to": 98,
-										"comparison": "<"
-									},
-									{
-										"type": "origins:resource",
-										"resource": "*:fox/thhunt_hunt_stage",
-										"compare_to": 0,
-										"comparison": ">"
-									}
-								]
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_fear_timer",
-						"change": -100
-					}
+					"type": "origins:command",
+					"command": "/execute if entity @e[type=lightning_bolt]",
+					"compare_to": 0,
+					"comparison": ">"
 				}
 			]
 		}
@@ -352,7 +310,6 @@
 			{
 				"effect": "speed",
 				"amplifier": 0,
-				"duration": 20,
 				"show_icon": true,
 				"show_particles": false,
 				"is_ambient": true
@@ -360,7 +317,6 @@
 			{
 				"effect": "weakness",
 				"amplifier": 0,
-				"duration": 20,
 				"show_icon": true,
 				"show_particles": false,
 				"is_ambient": true
