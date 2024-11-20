@@ -42,7 +42,6 @@
 		"modifier": {
 			"attribute": "minecraft:generic.max_health",
 			"operation": "addition",
-			"name": "thorigins.fox.less_health",
 			"value": -4
 		},
 		"update_health": true

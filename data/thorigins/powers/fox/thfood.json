@@ -38,12 +38,10 @@
 			}
 		},
 		"food_modifier": {
-			"name": "Origin modifier",
 			"operation": "addition",
 			"value": 1.0
 		},
 		"saturation_modifier": {
-			"name": "Origin modifier",
 			"operation": "addition",
 			"value": 2.0
 		},
@@ -217,12 +215,10 @@
 			}
 		},
 		"food_modifier": {
-			"name": "Origin modifier",
 			"operation": "addition",
 			"value": 1.0
 		},
 		"saturation_modifier": {
-			"name": "Origin modifier",
 			"operation": "addition",
 			"value": 2.0
 		},
@@ -237,16 +233,11 @@
 				},
 				{
 					"element": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:give",
-								"stack": {
-									"item": "glow_berries"
-								},
-								"preferred_slot": "mainhand"
-							}
-						]
+						"type": "origins:give",
+						"stack": {
+							"item": "glow_berries"
+						},
+						"preferred_slot": "mainhand"
 					},
 					"weight": 20
 				},
@@ -401,12 +392,10 @@
 			}
 		},
 		"food_modifier": {
-			"name": "Origin modifier",
 			"operation": "addition",
 			"value": 2.0
 		},
 		"saturation_modifier": {
-			"name": "Origin modifier",
 			"operation": "addition",
 			"value": 5.0
 		},
@@ -449,12 +438,10 @@
 			}
 		},
 		"food_modifier": {
-			"name": "Origin modifier",
 			"operation": "multiply_base",
 			"value": -0.5
 		},
 		"saturation_modifier": {
-			"name": "Origin modifier",
 			"operation": "multiply_base",
 			"value": -0.5
 		},
