@@ -1,12 +1,12 @@
 {
-    "type": "origins:multiple",
+	"type": "origins:multiple",
 
 	"disable_api": {
 		"type": "origins:resource",
 		"min": 0,
 		"max": 1
 	},
-    
+
 	"ticks": {
 		"type": "origins:action_over_time",
 		"interval": 1,
@@ -107,22 +107,56 @@
 					"comparison": "=="
 				},
 				{
-					"type": "origins:block_collision",
-					"offset_y": -2,
-					"offset_x": 0,
-					"offset_z": 0,
-					"block_condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:movement_blocking"
-                            },
-                            {
-                                "type": "origins:block",
-                                "block": "minecraft:powder_snow"
-                            }
-                        ]
-                    }
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:block_collision",
+							"offset_y": -1,
+							"offset_x": 0,
+							"offset_z": 0,
+							"block_condition": {
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:movement_blocking"
+									},
+									{
+										"type": "origins:block",
+										"block": "minecraft:powder_snow"
+									}
+								]
+							}
+						},
+						{
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "*:fox/thfoxify_figura_state",
+									"compare_to": 1,
+									"comparison": "=="
+								},
+								{
+									"type": "origins:block_collision",
+									"offset_y": -2,
+									"offset_x": 0,
+									"offset_z": 0,
+									"block_condition": {
+										"type": "origins:or",
+										"conditions": [
+											{
+												"type": "origins:movement_blocking"
+											},
+											{
+												"type": "origins:block",
+												"block": "minecraft:powder_snow"
+											}
+										]
+									}
+								}
+							]
+						}
+					]
 				}
 			]
 		}

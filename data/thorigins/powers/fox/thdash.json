@@ -238,10 +238,6 @@
 						"type": "origins:execute_command",
 						"command": "/scale multiply pehkui:reach 1.2 @s"
 					}
-				},
-				{
-					"type": "origins:trigger_cooldown",
-					"power": "*:fox/thfoxiality_jumping"
 				}
 			]
 		},

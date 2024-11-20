@@ -94,10 +94,21 @@
 								"gamemode": "survival"
 							},
 							{
-								"type": "origins:resource",
-								"resource": "*:fox/thfoxify_afk_timer",
-								"compare_to": 1,
-								"comparison": ">"
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thfoxify_afk_timer",
+										"compare_to": 1,
+										"comparison": ">"
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thfoxify_figura_state",
+										"compare_to": 1,
+										"comparison": "=="
+									}
+								]
 							}
 						]
 					},
