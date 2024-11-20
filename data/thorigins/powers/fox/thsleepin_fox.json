@@ -51,6 +51,7 @@
 			"type": "origins:attacker",
 			"entity_condition": {
 				"type": "origins:or",
+				"inverted": true,
 				"conditions": [
 					{
 						"type": "origins:entity_type",
