@@ -176,7 +176,7 @@
 								},
 								{
 									"type": "origins:resource",
-									"resource": "*:fox/thfoxify_figura_mode",
+									"resource": "*:fox/thfoxify_figura_state",
 									"compare_to": 1,
 									"comparison": "=="
 								}
@@ -242,7 +242,7 @@
 								},
 								{
 									"type": "origins:resource",
-									"resource": "*:fox/thfoxify_figura_mode",
+									"resource": "*:fox/thfoxify_figura_state",
 									"compare_to": 1,
 									"comparison": "=="
 								}
@@ -276,7 +276,7 @@
 								},
 								{
 									"type": "origins:resource",
-									"resource": "*:fox/thfoxify_figura_mode",
+									"resource": "*:fox/thfoxify_figura_state",
 									"compare_to": 1,
 									"comparison": "=="
 								}
