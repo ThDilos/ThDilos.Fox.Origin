@@ -40,10 +40,10 @@
 
 	"heavy_armor": {
 		"type": "origins:stacking_status_effect",
-		"duration_per_stack": 15,
-		"min_stacks": -1,
+		"duration_per_stack": 21,
+		"min_stacks": 0,
 		"max_stacks": 1,
-		"tick_rate": 10,
+		"tick_rate": 20,
 		"effects": [
 			{
 				"id": "minecraft:slowness",
@@ -61,7 +61,7 @@
 			}
 		],
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:resource",
@@ -70,7 +70,7 @@
 					"comparison": "=="
 				},
 				{
-					"type": "origins:or",
+					"type": "origins:any_of",
 					"conditions": [
 						{
 							"type": "origins:equipped_item",
@@ -116,13 +116,13 @@
 
 	"small_lungs": {
 		"type": "origins:action_over_time",
-		"interval": 3,
+		"interval": 18,
 		"entity_action": {
 			"type": "origins:gain_air",
-			"value": -2
+			"value": -12
 		},
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:submerged_in",
@@ -147,19 +147,29 @@
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
 			"operation": "multiply_total_multiplicative",
-			"amount": -0.825
+			"amount": -0.5
 		},
 		"bientity_condition": {
 			"type": "origins:actor_condition",
 			"condition": {
-				"type": "origins:equipped_item",
-				"equipment_slot": "mainhand",
-				"item_condition": {
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "minecraft:mace"
+				"type": "origins:all_of",
+				"conditions": [
+					{
+						"type": "origins:fall_distance",
+						"compare_to": 5,
+						"comparison": ">"
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:mace"
+							}
+						}
 					}
-				}
+				]
 			}
 		},
 		"condition": {
@@ -177,7 +187,7 @@
 		"max_stacks": 1,
 		"tick_rate": 10,
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:resource",
@@ -224,43 +234,65 @@
 		},
 		"bientity_action": {
 			"type": "origins:actor_action",
-			"action": {
-				"type": "origins:choice",
-				"actions": [
-					{
-						"element": {
-							"type": "origins:execute_command",
-							"command": "/damage @s 10 minecraft:fly_into_wall"
-						},
-						"weight": 10
-					},
-					{
-						"element": {
-							"type": "origins:execute_command",
-							"command": "/damage @s 50 minecraft:fly_into_wall"
-						},
-						"weight": 5
-					},
-					{
-						"element": {
-							"type": "origins:drop_inventory",
-							"inventory_type": "inventory",
-							"slots": ["weapon.mainhand", "weapon.offhand"]
-						},
-						"weight": 30
-					},
-					{
-						"weight": 20,
-						"element": {
-							"type": "origins:nothing"
-						}
+			"action": [
+				{
+					"type": "origins:chance",
+					"chance": 0.05,
+					"success_action": {
+						"type": "origins:execute_command",
+						"command": "/damage @s 50 minecraft:fly_into_wall"
 					}
-				]
-			}
+				},
+				{
+					"type": "origins:chance",
+					"chance": 0.2,
+					"success_action": {
+						"type": "origins:execute_command",
+						"command": "/damage @s 20 minecraft:fly_into_wall"
+					}
+				},
+				{
+					"type": "origins:chance",
+					"chance": 0.3,
+					"success_action": {
+						"type": "origins:drop_inventory",
+						"inventory_type": "inventory",
+						"slots": ["weapon.mainhand", "weapon.offhand"]
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:add_velocity",
+						"y": 20.0
+					}
+				},
+				{
+					"type": "origins:apply_effect",
+					"effect": {
+						"id": "minecraft:weakness",
+						"duration": 100,
+						"amplitude": 4,
+						"show_particles": false
+					}
+				},
+				{
+					"type": "origins:chance",
+					"chance": 0.25,
+					"success_action": {
+						"type": "origins:add_velocity",
+						"z": 10,
+						"space": "local",
+						"client": true,
+						"server": true
+					}
+				}
+			]
 		},
 		"damage_condition": {
 			"type": "origins:amount",
-			"compare_to": 50,
+			"compare_to": 20,
 			"comparison": ">="
 		},
 		"condition": {
