@@ -1243,11 +1243,11 @@
 											},
 											{
 												"type": "origins:execute_command",
-												"command": "/particle dust_color_transition 1 0 0 1.2 0.15 0 0 ^ ^1.1 ^0.4 0.1 0.1 0.1 5 8 force"
+												"command": "/particle dust_color_transition{from_color:[1.0,0.0,0.0],to_color:[1.2,0.15,0.0],scale:1} ~ ~1.2 ~ 0.1 0.1 0.1 5 8 force"
 											},
 											{
 												"type": "origins:execute_command",
-												"command": "/particle dust_color_transition 1 0 0 0.5 0.15 0 0 ^ ^1.1 ^0.4 0.15 0.15 0.15 10 16 force"
+												"command": "/particle dust_color_transition{from_color:[1.0,0.0,0.0],to_color:[0.5,0.15,0.0],scale:1} ~ ~1.2 ~ 0.15 0.15 0.15 10 16 force"
 											},
 											{
 												"type": "origins:feed",
