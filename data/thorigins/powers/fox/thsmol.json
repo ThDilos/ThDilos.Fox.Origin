@@ -55,12 +55,12 @@
 			"type": "origins:if_else",
 			"condition": {
 				"type": "origins:power",
-				"power": "thorigins:fox/thtrackers",
+				"power": "*:fox/thtrackers",
 				"inverted": true
 			},
 			"if_action": {
 				"type": "origins:grant_power",
-				"power": "thorigins:fox/thtrackers",
+				"power": "*:fox/thtrackers",
 				"source": "thorigins:universal"
 			}
 		}

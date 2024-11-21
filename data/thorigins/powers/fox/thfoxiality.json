@@ -9,140 +9,176 @@
 			"sprite": "minecraft:textures/item/sweet_berries.png"
 		},
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": "thfoxiality.info"
+			"text": [
+				{
+					"translate": "thfoxiality.info"
+				},
+				{
+					"translate": "thfoxiality.info1"
+				}
+			]
 		}
 	],
 
 	"ticks_20": {
 		"type": "origins:action_over_time",
 		"interval": 20,
-		"entity_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:area_of_effect",
-					"shape": "cube",
-					"radius": 15,
-					"bientity_condition": {
-						"type": "origins:target_condition",
-						"condition": {
-							"type": "origins:and",
-							"conditions": [
-								{
-									"type": "origins:nbt",
-									"nbt": "{\"Tags\":[\"hatting\"]}",
-									"inverted": true
-								},
-								{
-									"type": "origins:nbt",
-									"nbt": "{\"Tags\":[\"sleepin\"]}",
-									"inverted": true
-								},
-								{
-									"type": "origins:nbt",
-									"nbt": "{\"Tags\":[\"uuidappended\"]}",
-									"inverted": true
-								},
-								{
-									"type": "origins:entity_type",
-									"entity_type": "minecraft:fox"
-								}
-							]
-						}
-					},
-					"bientity_action": {
-						"type": "origins:target_action",
-						"action": {
-							"type": "origins:and",
-							"actions": [
-								{
-									"type": "origins:execute_command",
-									"command": "/data modify entity @s Trusted append from entity @p[tag=foxie] UUID"
-								},
-								{
-									"type": "origins:delay",
-									"ticks": 1,
-									"action": {
-										"type": "origins:execute_command",
-										"command": "/tag @s add uuidappended"
-									}
-								}
-							]
-						}
-					}
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute as @e[type=fox,tag=uuidappended,tag=!hatting,tag=!sleepin] at @s unless entity @a[distance=..15,tag=foxie] run tag @s remove uuidappended"
-				},
-				{
-					"type": "origins:if_else",
+		"entity_action": [
+			{
+				"type": "origins:area_of_effect",
+				"shape": "cube",
+				"radius": 15,
+				"bientity_condition": {
+					"type": "origins:target_condition",
 					"condition": {
-						"type": "origins:and",
+						"type": "origins:all_of",
 						"conditions": [
 							{
-								"type": "origins:or",
-								"conditions": [
-									{
-										"type": "origins:power",
-										"power": "*:fox/thhunt",
-										"inverted": true
-									},
-									{
-										"type": "origins:resource",
-										"resource": "*:fox/thhunt_prepare_stage",
-										"compare_to": 25,
-										"comparison": ">"
-									}
-								]
+								"type": "origins:entity_type",
+								"entity_type": "minecraft:fox"
 							},
 							{
-								"type": "origins:gamemode",
-								"gamemode": "survival"
+								"type": "origins:nbt",
+								"nbt": "{\"Tags\":[\"hatting\"]}",
+								"inverted": true
 							},
 							{
-								"type": "origins:resource",
-								"resource": "*:fox/thfoxify_afk_timer",
-								"compare_to": 1,
-								"comparison": ">"
+								"type": "origins:nbt",
+								"nbt": "{\"Tags\":[\"sleepin\"]}",
+								"inverted": true
+							},
+							{
+								"type": "origins:nbt",
+								"nbt": "{\"Tags\":[\"uuidappended\"]}",
+								"inverted": true
 							}
 						]
-					},
-					"if_action": {
+					}
+				},
+				"bientity_action": {
+					"type": "origins:target_action",
+					"action": {
 						"type": "origins:and",
 						"actions": [
 							{
 								"type": "origins:execute_command",
-								"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
+								"command": "/data modify entity @s Trusted append from entity @p[tag=foxie] UUID"
 							},
 							{
 								"type": "origins:delay",
 								"ticks": 1,
 								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:execute_command",
-											"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-										}
-									]
+									"type": "origins:execute_command",
+									"command": "/tag @s add uuidappended"
 								}
 							}
 						]
 					}
 				}
-			]
-		}
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/execute as @e[type=fox,tag=uuidappended,tag=!hatting,tag=!sleepin] at @s unless entity @a[distance=..15,tag=foxie] run tag @s remove uuidappended"
+			},
+			{
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:all_of",
+					"conditions": [
+						{
+							"type": "origins:gamemode",
+							"gamemode": "survival"
+						},
+						{
+							"type": "origins:any_of",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "*:fox/thfoxify_afk_timer",
+									"compare_to": 1,
+									"comparison": ">"
+								},
+								{
+									"type": "origins:resource",
+									"resource": "*:fox/thfoxify_figura_state",
+									"compare_to": 1,
+									"comparison": "=="
+								}
+							]
+						}
+					]
+				},
+				"if_action": {
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:any_of",
+						"conditions": [
+							{
+								"type": "origins:power",
+								"power": "*:fox/thhunt",
+								"inverted": true
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:fox/thhunt_prepare_stage",
+								"compare_to": 25,
+								"comparison": ">"
+							}
+						]
+					},
+					"if_action": [
+						{
+							"type": "origins:execute_command",
+							"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
+						},
+						{
+							"type": "origins:delay",
+							"ticks": 1,
+							"action": [
+								{
+									"type": "origins:execute_command",
+									"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+								}
+							]
+						}
+					]
+				},
+				"else_action": [
+					{
+						"type": "origins:execute_command",
+						"command": "/execute as @e[type=wolf,distance=..2] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/execute as @e[type=polar_bear,distance=..2] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
+					},
+					{
+						"type": "origins:delay",
+						"ticks": 1,
+						"action": [
+							{
+								"type": "origins:execute_command",
+								"command": "/execute as @e[type=wolf,distance=..2] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/execute as @e[type=polar_bear,distance=..2] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+							}
+						]
+					}
+				]
+			}
+		]
 	},
 
 	"against_preys": {
@@ -164,12 +200,20 @@
 		}
 	},
 
-	"predator_effective": {
-		"type": "origins:modify_damage_taken",
+	"predator_bite_threshold": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 100,
+		"start_value": 100
+	},
+
+	"vicious_wolves_bears": {
+		"type": "origins:action_when_hit",
+		"cooldown": 4,
 		"bientity_condition": {
 			"type": "origins:actor_condition",
 			"condition": {
-				"type": "origins:or",
+				"type": "origins:any_of",
 				"conditions": [
 					{
 						"type": "origins:entity_type",
@@ -178,18 +222,263 @@
 					{
 						"type": "origins:entity_type",
 						"entity_type": "minecraft:polar_bear"
+					},
+					{
+						"type": "origins:nbt",
+						"nbt": "{\"Tags\":[\"foxie_predator\"]}"
 					}
 				]
 			}
 		},
-		"modifier": {
-			"amount": 1,
-			"operation": "multiply_total_additive"
-		},
 		"damage_condition": {
-			"type": "origins:name",
-			"name": "player"
-		}
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:projectile",
+					"inverted": true
+				},
+				{
+					"type": "origins:in_tag",
+					"tag": "minecraft:bypasses_cooldown",
+					"inverted": true
+				}
+			]
+		},
+		"bientity_action": [
+			{
+				"type": "origins:target_action",
+				"action": [
+					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:equipped_item",
+							"equipment_slot": "head",
+							"item_condition": {
+								"type": "origins:empty",
+								"inverted": true
+							}
+						},
+						"if_action": {
+							"type": "origins:chance",
+							"chance": 0.314,
+							"success_action": {
+								"type": "origins:change_resource",
+								"resource": "*:*_predator_bite_threshold",
+								"change": -8
+							},
+							"fail_action": {
+								"type": "origins:nothing"
+							}
+						}
+					},
+					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:equipped_item",
+							"equipment_slot": "chest",
+							"item_condition": {
+								"type": "origins:empty",
+								"inverted": true
+							}
+						},
+						"if_action": {
+							"type": "origins:chance",
+							"chance": 0.314,
+							"success_action": {
+								"type": "origins:change_resource",
+								"resource": "*:*_predator_bite_threshold",
+								"change": -15
+							},
+							"fail_action": {
+								"type": "origins:nothing"
+							}
+						}
+					},
+					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:equipped_item",
+							"equipment_slot": "legs",
+							"item_condition": {
+								"type": "origins:empty",
+								"inverted": true
+							}
+						},
+						"if_action": {
+							"type": "origins:chance",
+							"chance": 0.314,
+							"success_action": {
+								"type": "origins:change_resource",
+								"resource": "*:*_predator_bite_threshold",
+								"change": -10
+							},
+							"fail_action": {
+								"type": "origins:nothing"
+							}
+						}
+					},
+					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:equipped_item",
+							"equipment_slot": "feet",
+							"item_condition": {
+								"type": "origins:empty",
+								"inverted": true
+							}
+						},
+						"if_action": {
+							"type": "origins:chance",
+							"chance": 0.314,
+							"success_action": {
+								"type": "origins:change_resource",
+								"resource": "*:*_predator_bite_threshold",
+								"change": -5
+							},
+							"fail_action": {
+								"type": "origins:nothing"
+							}
+						}
+					},
+					{
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition": {
+									"type": "origins:status_effect",
+									"effect": "minecraft:resistance",
+									"min_amplifier": 3
+								},
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_predator_bite_threshold",
+									"change": -20
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:status_effect",
+									"effect": "minecraft:resistance",
+									"min_amplifier": 2
+								},
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_predator_bite_threshold",
+									"change": -12
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:status_effect",
+									"effect": "minecraft:resistance",
+									"min_amplifier": 1
+								},
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_predator_bite_threshold",
+									"change": -7
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:status_effect",
+									"effect": "minecraft:resistance"
+								},
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_predator_bite_threshold",
+									"change": -5
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_predator_bite_threshold",
+						"compare_to": 80,
+						"comparison": ">"
+					}
+				},
+				"if_action": {
+					"type": "origins:delay",
+					"ticks": 4,
+					"action": [
+						{
+							"type": "origins:damage",
+							"amount": 3,
+							"damage_type": "thorigins:predator_bite"
+						},
+						{
+							"type": "origins:target_action",
+							"action": [
+								{
+									"type": "origins:execute_command",
+									"command": "/particle dust_color_transition 1 0 0 1.2 0.15 0 0 ~ ~0.6 ~ 0.1 0.1 0.1 5 8 force"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/particle dust_color_transition 1 0 0 0.5 0.15 0 0 ~ ~0.6 ~ 0.15 0.15 0.15 10 16 force"
+								},
+								{
+									"type": "origins:play_sound",
+									"sound": "minecraft:entity.zombie.break_wooden_door",
+									"volume": 0.3,
+									"pitch": 1.5
+								},
+								{
+									"type": "origins:apply_effect",
+									"effects": [
+										{
+											"id": "minecraft:weakness",
+											"duration": 100,
+											"amplifier": 2,
+											"is_ambient": false,
+											"show_icon": true,
+											"show_particles": false
+										},
+										{
+											"id": "minecraft:nausea",
+											"duration": 100,
+											"amplifier": 0,
+											"is_ambient": false,
+											"show_icon": true,
+											"show_particles": false
+										},
+										{
+											"id": "minecraft:slowness",
+											"duration": 30,
+											"amplifier": 4,
+											"is_ambient": false,
+											"show_icon": true,
+											"show_particles": false
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:target_action",
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_predator_bite_threshold",
+						"change": 100,
+						"operation": "set"
+					}
+				}
+			}
+		]
 	},
 
 	"passive_nightvision": {
@@ -201,90 +490,87 @@
 
 	"wake_up_surprise": {
 		"type": "origins:action_on_wake_up",
-		"entity_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:choice",
-					"actions": [
-						{
-							"element": {
-								"type": "origins:give",
-								"stack": {
-									"id": "minecraft:emerald",
-									"amount": 1
-								}
-							},
-							"weight": 5
+		"entity_action": [
+			{
+				"type": "origins:choice",
+				"actions": [
+					{
+						"element": {
+							"type": "origins:give",
+							"stack": {
+								"id": "minecraft:emerald",
+								"amount": 1
+							}
 						},
-						{
-							"element": {
-								"type": "origins:give",
-								"stack": {
-									"id": "minecraft:rabbit_foot",
-									"amount": 1
-								}
-							},
-							"weight": 10
+						"weight": 5
+					},
+					{
+						"element": {
+							"type": "origins:give",
+							"stack": {
+								"id": "minecraft:rabbit_foot",
+								"amount": 1
+							}
 						},
-						{
-							"element": {
-								"type": "origins:give",
-								"stack": {
-									"id": "minecraft:rabbit_hide",
-									"amount": 1
-								}
-							},
-							"weight": 10
+						"weight": 10
+					},
+					{
+						"element": {
+							"type": "origins:give",
+							"stack": {
+								"id": "minecraft:rabbit_hide",
+								"amount": 1
+							}
 						},
-						{
-							"element": {
-								"type": "origins:give",
-								"stack": {
-									"id": "minecraft:egg",
-									"amount": 1
-								}
-							},
-							"weight": 15
+						"weight": 10
+					},
+					{
+						"element": {
+							"type": "origins:give",
+							"stack": {
+								"id": "minecraft:egg",
+								"amount": 1
+							}
 						},
-						{
-							"element": {
-								"type": "origins:give",
-								"stack": {
-									"id": "minecraft:wheat",
-									"amount": 1
-								}
-							},
-							"weight": 20
+						"weight": 15
+					},
+					{
+						"element": {
+							"type": "origins:give",
+							"stack": {
+								"id": "minecraft:wheat",
+								"amount": 1
+							}
 						},
-						{
-							"element": {
-								"type": "origins:give",
-								"stack": {
-									"id": "minecraft:leather",
-									"amount": 1
-								}
-							},
-							"weight": 20
+						"weight": 20
+					},
+					{
+						"element": {
+							"type": "origins:give",
+							"stack": {
+								"id": "minecraft:leather",
+								"amount": 1
+							}
 						},
-						{
-							"element": {
-								"type": "origins:give",
-								"stack": {
-									"id": "minecraft:feather",
-									"amount": 1
-								}
-							},
-							"weight": 20
-						}
-					]
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/title @s actionbar {\"translate\":\"fox.wakeup.item\",\"color\":\"gold\",\"bold\":true}"
-				}
-			]
-		}
+						"weight": 20
+					},
+					{
+						"element": {
+							"type": "origins:give",
+							"stack": {
+								"id": "minecraft:feather",
+								"amount": 1
+							}
+						},
+						"weight": 20
+					}
+				]
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/title @s actionbar {\"translate\":\"fox.wakeup.item\",\"color\":\"gold\",\"bold\":true}"
+			}
+		]
 	},
 
 	"sleep_under_shade": {
@@ -296,57 +582,12 @@
 		"set_spawn_point": true
 	},
 
-	"sleep_near_fear": {
-		"type": "origins:prevent_sleep",
-		"set_spawn_point": true,
-		"message": { "translate": "fox.cant_sleep_fear" },
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "*:fox/thshy_fear_timer",
-					"compare_to": 0,
-					"comparison": ">"
-				},
-				{
-					"type": "origins:health",
-					"compare_to": 6,
-					"comparison": ">"
-				}
-			]
-		}
-	},
-
-	"sleep_hunt": {
-		"type": "origins:prevent_sleep",
-		"set_spawn_point": true,
-		"message": { "translate": "fox.cant_sleep_hunt" },
-		"condition": {
-			"type": "origins:or",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "*:fox/thhunt_prepare_stage",
-					"compare_to": 98,
-					"comparison": "<"
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:fox/thhunt_hunt_stage",
-					"compare_to": 0,
-					"comparison": ">"
-				}
-			]
-		}
-	},
-
 	"super-effective": {
 		"type": "origins:modify_damage_dealt",
 		"bientity_condition": {
 			"type": "origins:target_condition",
 			"condition": {
-				"type": "origins:or",
+				"type": "origins:any_of",
 				"conditions": [
 					{
 						"type": "origins:origin",
@@ -359,10 +600,8 @@
 						"layer": "origins:origin"
 					},
 					{
-						"type": "origins:command",
-						"command": "/execute if entity @s[tag=foxie_prey]",
-						"compare_to": 1,
-						"comparison": "=="
+						"type": "origins:nbt",
+						"nbt": "{\"Tags\":[\"foxie_prey\"]}"
 					}
 				]
 			}
@@ -382,7 +621,7 @@
 		"bientity_condition": {
 			"type": "origins:actor_condition",
 			"condition": {
-				"type": "origins:or",
+				"type": "origins:any_of",
 				"conditions": [
 					{
 						"type": "origins:origin",
@@ -390,10 +629,8 @@
 						"layer": "origins:origin"
 					},
 					{
-						"type": "origins:command",
-						"command": "/execute if entity @s[tag=foxie_predator]",
-						"compare_to": 1,
-						"comparison": "=="
+						"type": "origins:nbt",
+						"nbt": "{\"Tags\":[\"foxie_predator\"]}"
 					}
 				]
 			}
@@ -432,16 +669,29 @@
 		"render_type": "none"
 	},
 
+	"dig_berries_up": {
+		"type": "origins:action_on_block_break",
+		"block_condition": {
+			"type": "origins:block",
+			"block": "minecraft:sweet_berry_bush"
+		},
+		"entity_action": {
+			"type": "origins:give",
+			"stack": {
+				"id": "minecraft:sweet_berries",
+				"amount": 1
+			}
+		}
+	},
+
 	"powder_snow_climbing": {
 		"type": "origins:climbing",
 		"condition": {
-			"type": "origins:in_block_anywhere",
+			"type": "origins:in_block",
 			"block_condition": {
 				"type": "origins:block",
 				"block": "powder_snow"
-			},
-			"comparison": "!=",
-			"compare_to": 0
+			}
 		}
 	}
 }

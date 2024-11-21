@@ -8,6 +8,57 @@
 		"key": "nuh.uh"
 	},
 
+	"optional_powers": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "*:fox/universal_settings_optional_walk_on_powdered_snow",
+							"compare_to": 1,
+							"comparison": "=="
+						},
+						"if_action": {
+							"type": "origins:grant_power",
+							"power": "*:optional_power/thpowdersnow",
+							"source": "thorigins:universal"
+						},
+						"else_action": {
+							"type": "origins:revoke_power",
+							"power": "*:optional_power/thpowdersnow",
+							"source": "thorigins:universal"
+						}
+					},
+					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "*:fox/universal_settings_optional_mute_fallsound",
+							"compare_to": 1,
+							"comparison": "=="
+						},
+						"if_action": {
+							"type": "origins:grant_power",
+							"power": "*:optional_power/thfallsound",
+							"source": "thorigins:universal"
+						},
+						"else_action": {
+							"type": "origins:revoke_power",
+							"power": "*:optional_power/thfallsound",
+							"source": "thorigins:universal"
+						}
+					}
+				]
+			}
+		}
+	},
+
 	"scale_modified": {
 		"type": "origins:resource",
 		"start_value": 0,
@@ -25,10 +76,6 @@
 				{
 					"type": "origins:execute_command",
 					"command": "/scale reset @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scale delay set pehkui:eye_height 0 @s"
 				},
 				{
 					"type": "origins:execute_command",
@@ -58,13 +105,13 @@
 		}
 	},
 
-	"ticks": {
+	"ticks_20": {
 		"type": "origins:action_over_time",
-		"interval": 1,
+		"interval": 20,
 		"entity_action": {
 			"type": "origins:if_else",
 			"condition": {
-				"type": "origins:and",
+				"type": "origins:all_of",
 				"conditions": [
 					{
 						"type": "origins:command",

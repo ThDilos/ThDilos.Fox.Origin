@@ -7,61 +7,59 @@
 		"min": 0,
 		"max": 2,
 		"start_value": 1,
-		"max_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:change_resource",
-					"resource": "*:*_figura",
-					"change": 1,
-					"operation": "set"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute as @a[tag=foxie,distance=..5] run title @s actionbar {\"text\": \"Figura avatar mode ON, your hitbox and eye height is shrink according to the fox avatar\",\"color\":\"aqua\"}"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute as @a[tag=foxie,distance=..5] run scale reset @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute as @a[tag=foxie,distance=..5] run scale set pehkui:eye_height 0.3 @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute as @a[tag=foxie,distance=..5] run scale set pehkui:hitbox_height 0.35 @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute as @a[tag=foxie,distance=..5] run trigger foxtype set 5"
-				}
-			]
-		},
-		"min_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:change_resource",
-					"resource": "*:*_figura",
-					"change": 1,
-					"operation": "set"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute as @a[tag=foxie,distance=..5] run title @s actionbar {\"text\": \"Figura avatar mode OFF, your hitbox and eye height is resetted\",\"color\":\"aqua\"}"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute as @a[tag=foxie,distance=..5] run trigger foxtype set 0"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:fox/thtrackers_scale_modified",
-					"change": 2
-				}
-			]
-		}
+		"max_action": [
+			{
+				"type": "origins:change_resource",
+				"resource": "*:*_figura",
+				"change": 1,
+				"operation": "set"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/execute as @a[tag=foxie,distance=..5] run title @s actionbar {\"text\": \"Figura avatar mode ON, your hitbox and eye height is shrink according to the fox avatar\",\"color\":\"aqua\"}"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/execute as @a[tag=foxie,distance=..5] run scale reset @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/execute as @a[tag=foxie,distance=..5] run scale set pehkui:eye_height 0.3 @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/execute as @a[tag=foxie,distance=..5] run scale set pehkui:hitbox_height 0.31 @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/execute as @a[tag=foxie,distance=..5] run scale set pehkui:held_item 0.8"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/execute as @a[tag=foxie,distance=..5] run trigger foxtype set 5"
+			}
+		],
+		"min_action": [
+			{
+				"type": "origins:change_resource",
+				"resource": "*:*_figura",
+				"change": 1,
+				"operation": "set"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/execute as @a[tag=foxie,distance=..5] run title @s actionbar {\"text\": \"Figura avatar mode OFF, your hitbox and eye height is resetted\",\"color\":\"aqua\"}"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/execute as @a[tag=foxie,distance=..5] run trigger foxtype set 0"
+			},
+			{
+				"type": "origins:change_resource",
+				"resource": "*:fox/thtrackers_scale_modified",
+				"change": 2
+			}
+		]
 	},
 
 	"refresh_settings": {
@@ -69,27 +67,24 @@
 		"min": 0,
 		"max": 1,
 		"start_value": 0,
-		"max_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:change_resource",
-					"resource": "*:*_refresh_settings",
-					"change": -1
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/reload"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/power remove @a[tag=foxie] thorigins:fox/universal_settings"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/power grant @a[tag=foxie] thorigins:fox/universal_settings thorigins:universal"
-				}
-			]
-		}
+		"max_action": [
+			{
+				"type": "origins:change_resource",
+				"resource": "*:*_refresh_settings",
+				"change": -1
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/reload"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/power revoke @a[tag=foxie] thorigins:fox/universal_settings thorigins:universal"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/power grant @a[tag=foxie] thorigins:fox/universal_settings thorigins:universal"
+			}
+		]
 	}
 }

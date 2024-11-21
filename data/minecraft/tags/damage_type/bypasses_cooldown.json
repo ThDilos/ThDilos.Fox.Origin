@@ -1,8 +1,7 @@
 {
     "values": [
         "thorigins:foxie_bite",
-        "thorigins:foxie_bite_2",
-        "thorigins:foxie_bite_item"
-],
+        "thorigins:predator_bite"
+    ],
     "replace": false
 }

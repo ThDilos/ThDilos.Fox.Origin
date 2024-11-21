@@ -23,6 +23,11 @@
 					"translate": "thorigins.thstorage.key"
 				}
 			]
+		},
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "thstorage.info"
 		}
 	]
 }

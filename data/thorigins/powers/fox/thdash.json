@@ -20,11 +20,9 @@
 			]
 		},
 		{
-			"type": "origins:tooltip",
+			"type": "origins:keybind",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": {
-				"translate": "thdash.info"
-			}
+			"text": "thdash.info"
 		}
 	],
 
@@ -37,22 +35,14 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:fall_distance",
-						"compare_to": 0.5,
-						"comparison": ">="
-					},
-					"if_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_falling",
-						"change": 1,
-						"operation": "set"
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:and",
+						"type": "origins:all_of",
 						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_left_ground",
+								"compare_to": 1,
+								"comparison": "=="
+							},
 							{
 								"type": "origins:resource",
 								"resource": "*:*_coyote_grace",
@@ -60,7 +50,7 @@
 								"comparison": "=="
 							},
 							{
-								"type": "origins:or",
+								"type": "origins:any_of",
 								"conditions": [
 									{
 										"type": "origins:on_block"
@@ -70,18 +60,7 @@
 										"compare_to": 0,
 										"comparison": ">",
 										"block_condition": {
-											"type": "origins:or",
-											"inverted": true,
-											"conditions": [
-												{
-													"type": "origins:block",
-													"block": "air"
-												},
-												{
-													"type": "origins:movement_blocking",
-													"inverted": true
-												}
-											]
+											"type": "origins:movement_blocking"
 										}
 									},
 									{
@@ -103,110 +82,95 @@
 							}
 						]
 					},
-					"if_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:change_resource",
-								"resource": "*:*_left_ground",
-								"change": 0,
-								"operation": "set"
-							},
-							{
-								"type": "apoli:change_resource",
-								"resource": "*:*_falling",
-								"change": 0,
-								"operation": "set"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/scale reset pehkui:reach @s"
-							},
-							{
-								"type": "origins:change_resource",
-								"resource": "*:*_max_jump_count",
-								"change": 2
-							},
-							{
-								"type": "origins:change_resource",
-								"resource": "*:*_magnetoreception_direction",
-								"change": 0,
-								"operation": "set"
-							}
-						]
-					}
+					"if_action": [
+						{
+							"type": "origins:change_resource",
+							"resource": "*:*_left_ground",
+							"change": 0,
+							"operation": "set"
+						},
+						{
+							"type": "origins:change_resource",
+							"resource": "*:*_max_jump_count",
+							"change": 2
+						}
+					]
 				},
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:or",
-								"conditions": [
-									{
-										"type": "origins:sneaking"
-									},
-									{
-										"type": "origins:resource",
-										"resource": "*:fox/thhunt_hunt_stage",
-										"compare_to": 0,
-										"comparison": ">"
-									}
-								]
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:*_left_ground",
-								"compare_to": 0,
-								"comparison": "=="
-							}
-						]
+						"type": "origins:resource",
+						"resource": "*:*_left_ground",
+						"compare_to": 0,
+						"comparison": "=="
 					},
 					"if_action": {
-						"type": "origins:if_else_list",
-						"actions": [
-							{
-								"condition": {
-									"type": "origins:command",
-									"command": "/execute if entity @s[y_rotation=-160..-135]",
-									"compare_to": 1,
-									"comparison": "=="
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:any_of",
+							"conditions": [
+								{
+									"type": "origins:sneaking"
 								},
-								"action": {
-									"type": "origins:change_resource",
-									"resource": "*:*_magnetoreception_direction",
-									"change": 2,
-									"operation": "set"
+								{
+									"type": "origins:resource",
+									"resource": "*:fox/thhunt_hunt_stage",
+									"compare_to": 0,
+									"comparison": ">"
 								}
-							},
-							{
-								"condition": {
-									"type": "origins:command",
-									"command": "/execute if entity @s[y_rotation=-340..-315]",
-									"compare_to": 1,
-									"comparison": "=="
+							]
+						},
+						"if_action": {
+							"type": "origins:if_else_list",
+							"actions": [
+								{
+									"condition": {
+										"type": "origins:command",
+										"command": "/execute if entity @s[y_rotation=-160..-135]",
+										"compare_to": 1,
+										"comparison": "=="
+									},
+									"action": {
+										"type": "origins:change_resource",
+										"resource": "*:*_magnetoreception_direction",
+										"change": 2,
+										"operation": "set"
+									}
 								},
-								"action": {
-									"type": "origins:change_resource",
-									"resource": "*:*_magnetoreception_direction",
-									"change": 1,
-									"operation": "set"
-								}
-							},
-							{
-								"condition": {
-									"type": "origins:constant",
-									"value": true
+								{
+									"condition": {
+										"type": "origins:command",
+										"command": "/execute if entity @s[y_rotation=-340..-315]",
+										"compare_to": 1,
+										"comparison": "=="
+									},
+									"action": {
+										"type": "origins:change_resource",
+										"resource": "*:*_magnetoreception_direction",
+										"change": 1,
+										"operation": "set"
+									}
 								},
-								"action": {
-									"type": "origins:change_resource",
-									"resource": "*:*_magnetoreception_direction",
-									"change": 0,
-									"operation": "set"
+								{
+									"condition": {
+										"type": "origins:constant",
+										"value": true
+									},
+									"action": {
+										"type": "origins:change_resource",
+										"resource": "*:*_magnetoreception_direction",
+										"change": 0,
+										"operation": "set"
+									}
 								}
-							}
-						]
+							]
+						},
+						"else_action": {
+							"type": "origins:change_resource",
+							"resource": "*:*_magnetoreception_direction",
+							"change": 0,
+							"operation": "set"
+						}
 					}
 				}
 			]
@@ -216,7 +180,8 @@
 	"max_jump_count": {
 		"type": "origins:resource",
 		"min": 0,
-		"max": 2
+		"max": 2,
+		"start_value": 2
 	},
 
 	"left_ground": {
@@ -272,23 +237,27 @@
 					}
 				}
 			]
+		},
+		"min_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/scale reset pehkui:reach @s"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_magnetoreception_direction",
+					"change": 0,
+					"operation": "set"
+				}
+			]
 		}
 	},
 
 	"coyote_grace": {
 		"type": "origins:cooldown",
 		"cooldown": 5
-	},
-
-	"falling": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1
-	},
-
-	"munch_cd": {
-		"type": "origins:cooldown",
-		"cooldown": 10
 	},
 
 	"magnetoreception_direction": {
@@ -323,25 +292,22 @@
 								"min_amplifier": 1,
 								"max_amplifier": 127
 							},
-							"action": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:add_velocity",
-										"z": 1.6,
-										"space": "local",
-										"client": true,
-										"server": true
-									},
-									{
-										"type": "origins:add_velocity",
-										"y": 0.5,
-										"space": "world",
-										"client": true,
-										"server": true
-									}
-								]
-							}
+							"action": [
+								{
+									"type": "origins:add_velocity",
+									"z": 1.6,
+									"space": "local",
+									"client": true,
+									"server": true
+								},
+								{
+									"type": "origins:add_velocity",
+									"y": 0.5,
+									"space": "world",
+									"client": true,
+									"server": true
+								}
+							]
 						},
 						{
 							"condition": {
@@ -350,25 +316,22 @@
 								"min_amplifier": 0,
 								"max_amplifier": 0
 							},
-							"action": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:add_velocity",
-										"z": 1.3,
-										"space": "local",
-										"client": true,
-										"server": true
-									},
-									{
-										"type": "origins:add_velocity",
-										"y": 0.4,
-										"space": "world",
-										"client": true,
-										"server": true
-									}
-								]
-							}
+							"action": [
+								{
+									"type": "origins:add_velocity",
+									"z": 1.3,
+									"space": "local",
+									"client": true,
+									"server": true
+								},
+								{
+									"type": "origins:add_velocity",
+									"y": 0.4,
+									"space": "world",
+									"client": true,
+									"server": true
+								}
+							]
 						},
 						{
 							"condition": {
@@ -376,31 +339,37 @@
 								"effect": "jump_boost",
 								"inverted": true
 							},
-							"action": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:add_velocity",
-										"z": 1.0,
-										"space": "local",
-										"client": true,
-										"server": true
-									},
-									{
-										"type": "origins:add_velocity",
-										"y": 0.3,
-										"space": "world",
-										"client": true,
-										"server": true
-									}
-								]
-							}
+							"action": [
+								{
+									"type": "origins:add_velocity",
+									"z": 1.0,
+									"space": "local",
+									"client": true,
+									"server": true
+								},
+								{
+									"type": "origins:add_velocity",
+									"y": 0.3,
+									"space": "world",
+									"client": true,
+									"server": true
+								}
+							]
 						}
 					]
 				},
 				{
-					"type": "origins:execute_command",
-					"command": "/particle minecraft:snowflake ~ ~ ~ 0.8 0.15 0.8 0 30"
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:snowflake",
+					"count": 30,
+					"speed": 0,
+					"force": false,
+					"offset_y": 0,
+					"spread": {
+						"x": 0.8,
+						"y": 0.15,
+						"z": 0.8
+					}
 				},
 				{
 					"type": "origins:play_sound",
@@ -424,7 +393,7 @@
 			"should_render": true,
 			"bar_index": 2,
 			"condition": {
-				"type": "origins:and",
+				"type": "origins:all_of",
 				"conditions": [
 					{
 						"type": "origins:resource",
@@ -443,7 +412,7 @@
 		},
 		"key": "key.origins.primary_active",
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:food_level",
@@ -479,25 +448,22 @@
 								"min_amplifier": 1,
 								"max_amplifier": 127
 							},
-							"action": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:add_velocity",
-										"z": 1.6,
-										"space": "local",
-										"client": true,
-										"server": true
-									},
-									{
-										"type": "origins:add_velocity",
-										"y": 0.5,
-										"space": "world",
-										"client": true,
-										"server": true
-									}
-								]
-							}
+							"action": [
+								{
+									"type": "origins:add_velocity",
+									"z": 1.6,
+									"space": "local",
+									"client": true,
+									"server": true
+								},
+								{
+									"type": "origins:add_velocity",
+									"y": 0.5,
+									"space": "world",
+									"client": true,
+									"server": true
+								}
+							]
 						},
 						{
 							"condition": {
@@ -506,25 +472,22 @@
 								"min_amplifier": 0,
 								"max_amplifier": 0
 							},
-							"action": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:add_velocity",
-										"z": 1.3,
-										"space": "local",
-										"client": true,
-										"server": true
-									},
-									{
-										"type": "origins:add_velocity",
-										"y": 0.4,
-										"space": "world",
-										"client": true,
-										"server": true
-									}
-								]
-							}
+							"action": [
+								{
+									"type": "origins:add_velocity",
+									"z": 1.3,
+									"space": "local",
+									"client": true,
+									"server": true
+								},
+								{
+									"type": "origins:add_velocity",
+									"y": 0.4,
+									"space": "world",
+									"client": true,
+									"server": true
+								}
+							]
 						},
 						{
 							"condition": {
@@ -532,31 +495,37 @@
 								"effect": "minecraft:jump_boost",
 								"inverted": true
 							},
-							"action": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:add_velocity",
-										"z": 1.0,
-										"space": "local",
-										"client": true,
-										"server": true
-									},
-									{
-										"type": "origins:add_velocity",
-										"y": 0.3,
-										"space": "world",
-										"client": true,
-										"server": true
-									}
-								]
-							}
+							"action": [
+								{
+									"type": "origins:add_velocity",
+									"z": 1.0,
+									"space": "local",
+									"client": true,
+									"server": true
+								},
+								{
+									"type": "origins:add_velocity",
+									"y": 0.3,
+									"space": "world",
+									"client": true,
+									"server": true
+								}
+							]
 						}
 					]
 				},
 				{
-					"type": "origins:execute_command",
-					"command": "/particle minecraft:snowflake ~ ~ ~ 0.8 0.15 0.8 0 30"
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:snowflake",
+					"count": 30,
+					"speed": 0,
+					"force": false,
+					"offset_y": 0,
+					"spread": {
+						"x": 0.8,
+						"y": 0.15,
+						"z": 0.8
+					}
 				},
 				{
 					"type": "origins:play_sound",
@@ -594,7 +563,7 @@
 		},
 		"key": "key.origins.primary_active",
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:food_level",
@@ -614,10 +583,10 @@
 					"comparison": "=="
 				},
 				{
-					"type": "origins:or",
+					"type": "origins:any_of",
 					"conditions": [
 						{
-							"type": "origins:and",
+							"type": "origins:all_of",
 							"conditions": [
 								{
 									"type": "origins:resource",
@@ -634,7 +603,7 @@
 							]
 						},
 						{
-							"type": "origins:and",
+							"type": "origins:all_of",
 							"conditions": [
 								{
 									"type": "origins:resource",
@@ -677,7 +646,7 @@
 		"modifiers": [
 			{
 				"operation": "multiply_base_additive",
-				"amount": 0.5,
+				"amount": 0.25,
 				"modifier": {
 					"operation": "multiply_base_additive",
 					"amount": -1,
@@ -695,7 +664,7 @@
 									"amount": -1,
 									"modifier": {
 										"operation": "add_base_early",
-										"resource": "*:fox/universal_settings_damage_muffler"
+										"resource": "*:fox/universal_settings_modifier_mode"
 									}
 								}
 							}
@@ -705,7 +674,7 @@
 			},
 			{
 				"operation": "add_base_early",
-				"amount": 2,
+				"amount": 1,
 				"modifier": {
 					"operation": "multiply_base_additive",
 					"amount": -1,
@@ -720,7 +689,7 @@
 								"amount": -0.01,
 								"modifier": {
 									"operation": "multiply_base_additive",
-									"resource": "*:fox/universal_settings_damage_muffler",
+									"resource": "*:fox/universal_settings_modifier_mode",
 									"modifier": {
 										"operation": "multiply_base_additive",
 										"amount": -2
@@ -733,17 +702,11 @@
 			}
 		],
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:resource",
 					"resource": "*:*_left_ground",
-					"compare_to": 1,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:*_falling",
 					"compare_to": 1,
 					"comparison": "=="
 				},
@@ -773,30 +736,13 @@
 		"bientity_condition": {
 			"type": "origins:target_condition",
 			"condition": {
-				"type": "origins:and",
-				"conditions": [
-					{
-						"type": "origins:resource",
-						"resource": "*:*_left_ground",
-						"compare_to": 1,
-						"comparison": "=="
-					},
-					{
-						"type": "origins:resource",
-						"resource": "*:*_falling",
-						"compare_to": 1,
-						"comparison": "=="
-					},
-					{
-						"type": "origins:sneaking",
-						"inverted": true
-					}
-				]
+				"type": "origins:power_active",
+				"power": "*:*_crits"
 			}
 		},
 		"modifier": {
 			"operation": "multiply_base_additive",
-			"amount": 0.33,
+			"amount": 0.25,
 			"modifier": {
 				"operation": "multiply_base_additive",
 				"amount": -1,
@@ -812,42 +758,49 @@
 		},
 		"bientity_action": {
 			"type": "origins:target_action",
-			"action": {
-				"type": "origins:play_sound",
-				"sound": "minecraft:entity.fox.screech",
-				"pitch": 1.8,
-				"volume": 0.7
-			}
+			"action": [
+				{
+					"type": "origins:execute_command",
+					"command": "/particle dust_color_transition 1 0 0 1.2 0.15 0 0 ~ ~0.6 ~ 0.1 0.1 0.1 5 8 force"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/particle dust_color_transition 1 0 0 0.5 0.15 0 0 ~ ~0.6 ~ 0.15 0.15 0.15 10 16 force"
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.fox.screech",
+					"pitch": 1.8,
+					"volume": 0.7
+				}
+			]
 		}
 	},
 
 	"combo": {
 		"type": "origins:self_action_on_kill",
-		"cooldown": 0,
-		"entity_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:change_resource",
-					"resource": "*:*_max_jump_count",
-					"change": 1
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "*:*_dash1",
-					"change": 0,
-					"operation": "set"
-				},
-				{
-					"type": "origins:play_sound",
-					"sound": "minecraft:block.enchantment_table.use",
-					"volume": 0.3,
-					"pitch": 1.5
-				}
-			]
-		},
+		"cooldown": 1,
+		"entity_action": [
+			{
+				"type": "origins:change_resource",
+				"resource": "*:*_max_jump_count",
+				"change": 1
+			},
+			{
+				"type": "origins:change_resource",
+				"resource": "*:*_dash1",
+				"change": 30,
+				"operation": "set"
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:block.enchantment_table.use",
+				"volume": 0.3,
+				"pitch": 1.5
+			}
+		],
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:resource",
@@ -856,10 +809,8 @@
 					"comparison": "=="
 				},
 				{
-					"type": "origins:resource",
-					"resource": "*:*_left_ground",
-					"compare_to": 1,
-					"comparison": "=="
+					"type": "origins:power_active",
+					"power": "*:*_crits"
 				}
 			]
 		}
@@ -868,179 +819,16 @@
 	"hunting_dash": {
 		"type": "origins:action_on_hit",
 		"bientity_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:actor_action",
-					"action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:delay",
-								"ticks": 1,
-								"action": {
-									"type": "origins:change_resource",
-									"resource": "*:fox/thhunt_hit_counter",
-									"change": 0,
-									"operation": "set"
-								}
-							},
-							{
-								"type": "origins:trigger_cooldown",
-								"power": "*:*_munch_cd"
-							}
-						]
-					}
-				},
-				{
-					"type": "origins:delay",
-					"ticks": 4,
-					"action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:if_else",
-								"condition": {
-									"type": "origins:actor_condition",
-									"condition": {
-										"type": "origins:equipped_item",
-										"equipment_slot": "mainhand",
-										"item_condition": {
-											"type": "origins:empty"
-										}
-									}
-								},
-								"if_action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:actor_action",
-											"action": {
-												"type": "origins:swing_hand",
-												"hand": "MAIN_HAND"
-											}
-										},
-										{
-											"type": "origins:choice",
-											"actions": [
-												{
-													"weight": 50,
-													"element": {
-														"type": "origins:damage",
-														"amount": 3,
-														"damage_type": "thorigins:foxie_bite"
-													}
-												},
-												{
-													"weight": 50,
-													"element": {
-														"type": "origins:damage",
-														"amount": 3,
-														"damage_type": "thorigins:foxie_bite_2"
-													}
-												}
-											]
-										}
-									]
-								},
-								"else_action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:damage",
-											"amount": 3,
-											"damage_type": "thorigins:foxie_bite_item"
-										},
-										{
-											"type": "origins:actor_action",
-											"action": {
-												"type": "origins:swing_hand",
-												"hand": "OFF_HAND"
-											}
-										}
-									]
-								}
-							},
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:play_sound",
-									"sound": "minecraft:entity.zombie.break_wooden_door",
-									"volume": 0.3,
-									"pitch": 1.5
-								}
-							},
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:if_else",
-									"condition": {
-										"type": "origins:entity_type",
-										"entity_type": "creeper",
-										"inverted": true
-									},
-									"if_action": {
-										"type": "origins:apply_effect",
-										"effects": [
-											{
-												"id": "minecraft:weakness",
-												"duration": 60,
-												"amplifier": 0,
-												"is_ambient": false,
-												"show_icon": true,
-												"show_particles": false
-											},
-											{
-												"id": "minecraft:nausea",
-												"duration": 100,
-												"amplifier": 0,
-												"is_ambient": false,
-												"show_icon": true,
-												"show_particles": false
-											}
-										]
-									}
-								}
-							},
-							{
-								"type": "origins:actor_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:play_sound",
-											"sound": "minecraft:entity.fox.eat",
-											"pitch": 1.2,
-											"volume": 1.0
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/particle dust_color_transition 1 0 0 1.2 0.15 0 0 ^ ^1.1 ^0.4 0.1 0.1 0.1 5 8 force"
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/particle dust_color_transition 1 0 0 0.5 0.15 0 0 ^ ^1.1 ^0.4 0.15 0.15 0.15 10 16 force"
-										},
-										{
-											"type": "origins:feed",
-											"nutrition": 2,
-											"saturation": 2
-										},
-										{
-											"type": "origins:change_resource",
-											"resource": "*:fox/thhunt_hunt_stage",
-											"change": 30
-										}
-									]
-								}
-							}
-						]
-					}
-				}
-			]
+			"type": "origins:actor_action",
+			"action": {
+				"type": "origins:change_resource",
+				"resource": "*:fox/thhunt_hit_counter",
+				"change": 2,
+				"operation": "set"
+			}
 		},
 		"damage_condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:projectile",
@@ -1056,65 +844,55 @@
 		"bientity_condition": {
 			"type": "origins:actor_condition",
 			"condition": {
-				"type": "origins:and",
+				"type": "origins:all_of",
 				"conditions": [
 					{
-						"type": "origins:resource",
-						"resource": "*:*_left_ground",
-						"compare_to": 1,
-						"comparison": "=="
-					},
-					{
-						"type": "origins:resource",
-						"resource": "*:*_falling",
-						"compare_to": 1,
-						"comparison": "=="
-					},
-					{
-						"type": "origins:sneaking",
-						"inverted": true
+						"type": "origins:power_active",
+						"power": "*:*_crits"
 					},
 					{
 						"type": "origins:resource",
 						"resource": "*:fox/thhunt_hunt_stage",
 						"compare_to": 0,
 						"comparison": ">"
-					},
-					{
-						"type": "origins:resource",
-						"resource": "*:*_munch_cd",
-						"compare_to": 0,
-						"comparison": "=="
 					}
 				]
 			}
 		}
 	},
 
-	"magnetoreception_ne": {
+	"magnetoreception": {
 		"type": "origins:modify_damage_dealt",
 		"modifiers": [
 			{
 				"operation": "multiply_base_additive",
-				"amount": 0.0625,
+				"amount": 0.15625,
 				"modifier": {
 					"operation": "multiply_base_additive",
 					"amount": -1,
 					"modifier": {
 						"operation": "add_base_early",
-						"resource": "*:fox/universal_settings_op_ness",
+						"resource": "*:*_magnetoreception_direction",
 						"modifier": {
 							"operation": "multiply_base_additive",
-							"amount": -0.99,
+							"amount": -1,
 							"modifier": {
 								"operation": "add_base_early",
-								"amount": -0.01,
+								"resource": "*:fox/universal_settings_op_ness",
 								"modifier": {
 									"operation": "multiply_base_additive",
-									"amount": -1,
+									"amount": -0.99,
 									"modifier": {
 										"operation": "add_base_early",
-										"resource": "*:fox/universal_settings_damage_muffler"
+										"amount": -0.01,
+										"modifier": {
+											"operation": "multiply_base_additive",
+											"amount": -1,
+											"modifier": {
+												"operation": "add_base_early",
+												"resource": "*:fox/universal_settings_modifier_mode"
+											}
+										}
 									}
 								}
 							}
@@ -1124,118 +902,33 @@
 			},
 			{
 				"operation": "add_base_early",
-				"amount": 0.75,
+				"amount": 0.875,
 				"modifier": {
 					"operation": "multiply_base_additive",
 					"amount": -1,
 					"modifier": {
 						"operation": "add_base_early",
-						"resource": "*:fox/universal_settings_op_ness",
+						"resource": "*:*_magnetoreception_direction",
 						"modifier": {
 							"operation": "multiply_base_additive",
-							"amount": -0.99,
+							"amount": -1,
 							"modifier": {
 								"operation": "add_base_early",
-								"amount": -0.01,
+								"resource": "*:fox/universal_settings_op_ness",
 								"modifier": {
 									"operation": "multiply_base_additive",
-									"resource": "*:fox/universal_settings_damage_muffler",
-									"modifier": {
-										"operation": "multiply_base_additive",
-										"amount": -2
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		],
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "*:*_left_ground",
-					"compare_to": 1,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:*_falling",
-					"compare_to": 1,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:*_magnetoreception_direction",
-					"compare_to": 2,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:sneaking",
-					"inverted": true
-				}
-			]
-		},
-		"damage_condition": {
-			"type": "origins:name",
-			"name": "player"
-		}
-	},
-
-	"magnetoreception_sw": {
-		"type": "origins:modify_damage_dealt",
-		"modifiers": [
-			{
-				"operation": "multiply_base_additive",
-				"amount": 0.0375,
-				"modifier": {
-					"operation": "multiply_base_additive",
-					"amount": -1,
-					"modifier": {
-						"operation": "add_base_early",
-						"resource": "*:fox/universal_settings_op_ness",
-						"modifier": {
-							"operation": "multiply_base_additive",
-							"amount": -0.99,
-							"modifier": {
-								"operation": "add_base_early",
-								"amount": -0.01,
-								"modifier": {
-									"operation": "multiply_base_additive",
-									"amount": -1,
+									"amount": -0.99,
 									"modifier": {
 										"operation": "add_base_early",
-										"resource": "*:fox/universal_settings_damage_muffler"
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			{
-				"operation": "add_base_early",
-				"amount": 0.25,
-				"modifier": {
-					"operation": "multiply_base_additive",
-					"amount": -1,
-					"modifier": {
-						"operation": "add_base_early",
-						"resource": "*:fox/universal_settings_op_ness",
-						"modifier": {
-							"operation": "multiply_base_additive",
-							"amount": -0.99,
-							"modifier": {
-								"operation": "add_base_early",
-								"amount": -0.01,
-								"modifier": {
-									"operation": "multiply_base_additive",
-									"resource": "*:fox/universal_settings_damage_muffler",
-									"modifier": {
-										"operation": "multiply_base_additive",
-										"amount": -2
+										"amount": -0.01,
+										"modifier": {
+											"operation": "multiply_base_additive",
+											"resource": "*:fox/universal_settings_modifier_mode",
+											"modifier": {
+												"operation": "multiply_base_additive",
+												"amount": -2
+											}
+										}
 									}
 								}
 							}
@@ -1245,31 +938,8 @@
 			}
 		],
 		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "*:*_left_ground",
-					"compare_to": 1,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:*_falling",
-					"compare_to": 1,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:*_magnetoreception_direction",
-					"compare_to": 1,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:sneaking",
-					"inverted": true
-				}
-			]
+			"type": "origins:power_active",
+			"power": "*:*_crits"
 		},
 		"damage_condition": {
 			"type": "origins:name",
@@ -1286,7 +956,7 @@
 		"red": 0,
 		"green": 0,
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:resource",
@@ -1313,7 +983,7 @@
 		"red": 0.1,
 		"green": 0.1,
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:resource",

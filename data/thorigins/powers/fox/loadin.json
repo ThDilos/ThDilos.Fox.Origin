@@ -15,13 +15,13 @@
 					"type": "origins:if_else",
 					"condition": {
 						"type": "origins:power",
-						"power": "thorigins:fox/thtrackers",
+						"power": "*:fox/thtrackers",
 						"source": "thorigins:universal",
 						"inverted": true
 					},
 					"if_action": {
 						"type": "origins:grant_power",
-						"power": "thorigins:fox/thtrackers",
+						"power": "*:fox/thtrackers",
 						"source": "thorigins:universal"
 					}
 				},
@@ -29,94 +29,42 @@
 					"type": "origins:if_else",
 					"condition": {
 						"type": "origins:power",
-						"power": "thorigins:fox/universal_settings",
+						"power": "*:fox/universal_settings",
 						"source": "thorigins:universal",
 						"inverted": true
 					},
 					"if_action": {
 						"type": "origins:grant_power",
-						"power": "thorigins:fox/universal_settings",
+						"power": "*:fox/universal_settings",
 						"source": "thorigins:universal"
 					}
 				}
 			]
 		},
 		"entity_action_chosen": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:delay",
-					"ticks": 1,
-					"action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:power_active",
-							"power": "*:fox/thtrackers_welcome_msg",
-							"inverted": true
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:power_active",
+					"power": "*:fox/thtrackers_welcome_msg",
+					"inverted": true
+				},
+				"if_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:execute_command",
+							"command": "/tellraw @s [{\"text\":\"\\n================================\\n\",\"color\":\"gold\"},{\"translate\":\"message.chosen1\",\"color\":\"aqua\"},{\"text\":\"\\n\"},{\"translate\":\"message.chosen2\",\"color\":\"aqua\"},{\"text\":\"[Wiki]\",\"underlined\":true,\"color\":\"yellow\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://github.com/ThDilos/Realistic-Fox-Origin/wiki\"}},{\"text\":\"\\n\"},{\"translate\":\"message.chosen3\",\"color\":\"red\"},{\"text\":\"\\n\"},{\"text\":\"[/function thorigins:fox_setting]\",\"color\":\"yellow\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/function thorigins:fox_setting\"}},{\"text\":\"\\nFor 1.21.x, use [/reload] if functions do not exist\"},{\"text\":\"\\n\"},{\"translate\":\"message.chosen4\",\"bold\":true,\"color\":\"white\"},{\"text\":\"\\n================================\",\"color\":\"gold\"}]"
 						},
-						"if_action": {
-							"type": "origins:and",
-							"actions": [
-								{
-									"type": "origins:execute_command",
-									"command": "/tellraw @s [{\"text\":\"\\n================================\\n\",\"color\":\"gold\"},{\"translate\":\"message.chosen1\",\"color\":\"aqua\"},{\"text\":\"\\n\"},{\"translate\":\"message.chosen2\",\"color\":\"aqua\"},{\"text\":\"[Wiki]\",\"underlined\":true,\"color\":\"yellow\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://github.com/ThDilos/Realistic-Fox-Origin/wiki\"}},{\"text\":\"\\n\"},{\"translate\":\"message.chosen3\",\"color\":\"red\"},{\"text\":\"\\n\"},{\"text\":\"[/function thorigins:fox_setting]\",\"color\":\"yellow\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/function thorigins:fox_setting\"}},{\"text\":\"\\nFor 1.21.x, use [/reload] if functions do not exist\"},{\"text\":\"\\n\"},{\"translate\":\"message.chosen4\",\"bold\":true,\"color\":\"white\"},{\"text\":\"\\n================================\",\"color\":\"gold\"}]"
-								},
-								{
-									"type": "origins:toggle",
-									"power": "*:fox/thtrackers_welcome_msg"
-								}
-							]
+						{
+							"type": "origins:toggle",
+							"power": "*:fox/thtrackers_welcome_msg"
 						}
-					}
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/tag @s add foxie"
-				},
-				{
-					"type": "origins:grant_power",
-					"power": "thorigins:fox/thtrackers",
-					"source": "thorigins:universal"
-				},
-				{
-					"type": "origins:grant_power",
-					"power": "*:fox/universal_settings",
-					"source": "thorigins:universal"
+					]
 				}
-			]
-		},
-		"entity_action_respawned": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:power",
-						"power": "thorigins:fox/thtrackers",
-						"source": "thorigins:universal",
-						"inverted": true
-					},
-					"if_action": {
-						"type": "origins:grant_power",
-						"power": "thorigins:fox/thtrackers",
-						"source": "thorigins:universal"
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:power",
-						"power": "thorigins:fox/universal_settings",
-						"source": "thorigins:universal",
-						"inverted": true
-					},
-					"if_action": {
-						"type": "origins:grant_power",
-						"power": "thorigins:fox/universal_settings",
-						"source": "thorigins:universal"
-					}
-				}
-			]
+			}
 		}
 	},
 
@@ -129,64 +77,15 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:and",
+						"type": "origins:any_of",
 						"conditions": [
 							{
-								"type": "origins:resource",
-								"resource": "*:fox/thfoxify_afk_timer",
-								"compare_to": 0,
-								"comparison": "=="
+								"type": "origins:power_active",
+								"power": "*:fox/thshy_shaking_of_fear"
 							},
 							{
-								"type": "origins:command",
-								"command": "/execute if entity @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..0.2,limit=1]",
-								"compare_to": 1,
-								"comparison": "=="
-							},
-							{
-								"type": "origins:or",
-								"conditions": [
-									{
-										"type": "origins:resource",
-										"resource": "*:fox/thshy_fear_timer",
-										"comparison": ">",
-										"compare_to": 0
-									},
-									{
-										"type": "origins:and",
-										"conditions": [
-											{
-												"type": "origins:resource",
-												"resource": "*:fox/thfluffy_timer",
-												"compare_to": 28,
-												"comparison": "<="
-											},
-											{
-												"type": "origins:resource",
-												"resource": "*:fox/thfluffy_timer",
-												"compare_to": 0,
-												"comparison": ">"
-											}
-										]
-									},
-									{
-										"type": "origins:and",
-										"conditions": [
-											{
-												"type": "origins:resource",
-												"resource": "*:fox/thfluffy_timer2",
-												"compare_to": 28,
-												"comparison": "<="
-											},
-											{
-												"type": "origins:resource",
-												"resource": "*:fox/thfluffy_timer2",
-												"compare_to": 0,
-												"comparison": ">"
-											}
-										]
-									}
-								]
+								"type": "origins:power_active",
+								"power": "*:fox/thfluffy_shake"
 							}
 						]
 					},
@@ -198,25 +97,22 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:resource",
-						"resource": "*:fox/thfoxify_afk_timer",
-						"compare_to": 1,
-						"comparison": "<="
+						"type": "origins:power_active",
+						"power": "*:fox/thhunt_switch",
+						"inverted": true
 					},
 					"if_action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:power_active",
-							"power": "*:fox/thhunt_switch",
-							"inverted": true
-						},
-						"if_action": {
-							"type": "origins:execute_command",
-							"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1] thorigins:fox/thsleepin_fox_invis_timer 50"
-						}
+						"type": "origins:execute_command",
+						"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1] thorigins:fox/thsleepin_fox_invis_timer 50"
 					}
 				}
 			]
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:fox/thfoxify_afk_timer",
+			"compare_to": 0,
+			"comparison": "=="
 		}
 	}
 }

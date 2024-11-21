@@ -18,12 +18,11 @@
 	"base_exhaustion": {
 		"type": "origins:modify_exhaustion",
 		"modifier": {
-			"name": "Origin modifier",
 			"operation": "multiply_base_additive",
 			"amount": 0.5
 		},
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:food_level",
@@ -66,7 +65,7 @@
 	"hunger_based_dmg_modifier_1": {
 		"type": "origins:modify_damage_dealt",
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:food_level",
@@ -89,7 +88,7 @@
 	"hunger_based_dmg_modifier_2": {
 		"type": "origins:modify_damage_dealt",
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:food_level",
@@ -112,7 +111,7 @@
 	"hunger_based_dmg_modifier_3": {
 		"type": "origins:modify_damage_dealt",
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:food_level",
@@ -135,7 +134,7 @@
 	"hunger_based_dmg_modifier_4": {
 		"type": "origins:modify_damage_dealt",
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:food_level",
@@ -158,7 +157,7 @@
 	"hunger_based_dmg_modifier_5": {
 		"type": "origins:modify_damage_dealt",
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:food_level",

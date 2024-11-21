@@ -15,37 +15,17 @@
 		}
 	],
 
-	"ticks": {
+	"ticks_20": {
 		"type": "origins:action_over_time",
-		"interval": 1,
+		"interval": 20,
 		"entity_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:gamemode",
-						"gamemode": "creative"
-					},
-					"if_action": {
-						"type": "origins:feed",
-						"nutrition": 1,
-						"saturation": 1
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:food_level",
-						"compare_to": 5,
-						"comparison": "<="
-					},
-					"if_action": {
-						"type": "origins:trigger_cooldown",
-						"power": "*:*_emergency_hunger_nullify"
-					}
-				}
-			]
+			"type": "origins:feed",
+			"nutrition": 20,
+			"saturation": 20
+		},
+		"condition": {
+			"type": "origins:gamemode",
+			"gamemode": "creative"
 		}
 	},
 
@@ -58,12 +38,10 @@
 			}
 		},
 		"food_modifier": {
-			"name": "Origin modifier",
 			"operation": "add_base_early",
 			"amount": 1.0
 		},
 		"saturation_modifier": {
-			"name": "Origin modifier",
 			"operation": "add_base_early",
 			"amount": 2.0
 		},
@@ -237,12 +215,10 @@
 			}
 		},
 		"food_modifier": {
-			"name": "Origin modifier",
 			"operation": "add_base_early",
 			"amount": 1.0
 		},
 		"saturation_modifier": {
-			"name": "Origin modifier",
 			"operation": "add_base_early",
 			"amount": 2.0
 		},
@@ -257,16 +233,11 @@
 				},
 				{
 					"element": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:give",
-								"stack": {
-									"id": "minecraft:glow_berries"
-								},
-								"preferred_slot": "mainhand"
-							}
-						]
+						"type": "origins:give",
+						"stack": {
+							"id": "minecraft:glow_berries"
+						},
+						"preferred_slot": "mainhand"
 					},
 					"weight": 20
 				},
@@ -421,12 +392,10 @@
 			}
 		},
 		"food_modifier": {
-			"name": "Origin modifier",
 			"operation": "add_base_early",
 			"amount": 2.0
 		},
 		"saturation_modifier": {
-			"name": "Origin modifier",
 			"operation": "add_base_early",
 			"amount": 5.0
 		},
@@ -460,7 +429,7 @@
 		"prevent_effects": true
 	},
 
-	"otherfood_not_in_hunger_mode": {
+	"disliked_food": {
 		"type": "origins:modify_food",
 		"item_condition": {
 			"type": "origins:ingredient",
@@ -469,71 +438,18 @@
 			}
 		},
 		"food_modifier": {
-			"name": "Origin modifier",
 			"operation": "multiply_base_additive",
 			"amount": -0.5
 		},
 		"saturation_modifier": {
-			"name": "Origin modifier",
 			"operation": "multiply_base_additive",
 			"amount": -0.5
-		},
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "*:*_emergency_hunger_nullify",
-					"compare_to": 0,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:fox/universal_settings_food_nerfs",
-					"compare_to": 1,
-					"comparison": "=="
-				}
-			]
-		}
-	},
-
-	"otherfood_in_hunger_mode": {
-		"type": "origins:modify_food",
-		"item_condition": {
-			"type": "origins:ingredient",
-			"ingredient": {
-				"tag": "thorigins:disliked_foods"
-			}
-		},
-		"entity_action": {
-			"type": "origins:apply_effect",
-			"effect": {
-				"id": "minecraft:hunger",
-				"amplifier": 0,
-				"duration": 100,
-				"show_particles": false
-			}
-		},
-		"food_modifier": {
-			"name": "Origin modifier",
-			"operation": "multiply_base_additive",
-			"amount": -0.25
-		},
-		"saturation_modifier": {
-			"name": "Origin modifier",
-			"operation": "multiply_base_additive",
-			"amount": -1
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "*:*_emergency_hunger_nullify",
-			"compare_to": 0,
-			"comparison": ">"
+			"resource": "*:fox/universal_settings_food_nerfs",
+			"compare_to": 1,
+			"comparison": "=="
 		}
-	},
-
-	"emergency_hunger_nullify": {
-		"type": "origins:cooldown",
-		"cooldown": 600
 	}
 }
