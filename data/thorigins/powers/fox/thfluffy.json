@@ -357,47 +357,87 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:or",
+						"type": "origins:and",
 						"conditions": [
 							{
-								"type": "origins:fluid_height",
-								"fluid": "minecraft:water",
-								"compare_to": 0.15,
-								"comparison": ">="
-							},
-							{
-								"type": "origins:in_block_anywhere",
-								"block_condition": {
-									"type": "origins:fluid",
-									"fluid_condition": {
-										"type": "origins:in_tag",
-										"tag": "minecraft:water"
+								"type": "origins:riding",
+								"inverted": true,
+								"bientity_condition": {
+									"type": "origins:target_condition",
+									"condition": {
+										"type": "origins:or",
+										"conditions": [
+											{
+												"type": "origins:entity_type",
+												"entity_type": "minecraft:boat"
+											},
+											{
+												"type": "origins:and",
+												"conditions": [
+													{
+														"type": "origins:nbt",
+														"nbt": "{\"Tags\":[\"sleepin\"]}"
+													},
+													{
+														"type": "origins:riding",
+														"bientity_condition": {
+															"type": "origins:target_condition",
+															"condition": {
+																"type": "origins:entity_type",
+																"entity_type": "minecraft:boat"
+															}
+														}
+													}
+												]
+											}
+										]
 									}
-								},
-								"compare_to": 1,
-								"comparison": "=="
+								}
 							},
 							{
-								"type": "origins:swimming"
-							},
-							{
-								"type": "origins:and",
+								"type": "origins:or",
 								"conditions": [
 									{
-										"type": "origins:in_block",
-										"block_condition": {
-											"type": "origins:block_state",
-											"property": "level",
-											"compare_to": 1,
-											"comparison": ">"
-										}
+										"type": "origins:fluid_height",
+										"fluid": "minecraft:water",
+										"compare_to": 0.15,
+										"comparison": ">="
 									},
 									{
-										"type": "origins:in_block",
+										"type": "origins:in_block_anywhere",
 										"block_condition": {
-											"type": "origins:block",
-											"block": "water_cauldron"
-										}
+											"type": "origins:fluid",
+											"fluid_condition": {
+												"type": "origins:in_tag",
+												"tag": "minecraft:water"
+											}
+										},
+										"compare_to": 1,
+										"comparison": "=="
+									},
+									{
+										"type": "origins:swimming"
+									},
+									{
+										"type": "origins:and",
+										"conditions": [
+											{
+												"type": "origins:in_block",
+												"block_condition": {
+													"type": "origins:block_state",
+													"property": "level",
+													"compare_to": 1,
+													"comparison": ">"
+												}
+											},
+											{
+												"type": "origins:in_block",
+												"block_condition": {
+													"type": "origins:block",
+													"block": "water_cauldron"
+												}
+											}
+										]
 									}
 								]
 							}
