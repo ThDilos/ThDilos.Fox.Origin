@@ -1011,7 +1011,7 @@
 													"ticks": 1,
 													"action": {
 														"type": "origins:execute_command",
-														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=petted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"color\":\"light_purple\",\"bold\":true,\"with\":[{\"selector\":\"@e[tag=petted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 													}
 												},
 												{
@@ -1135,7 +1135,7 @@
 														"actions": [
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=booped,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"bold\":true,\"with\":[{\"selector\":\"@e[tag=booped,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															},
 															{
 																"type": "origins:execute_command",
