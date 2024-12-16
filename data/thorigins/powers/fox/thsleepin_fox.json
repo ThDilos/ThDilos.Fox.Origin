@@ -360,7 +360,7 @@
 								"comparison": "=="
 							}
 						]
-					} 
+					}
 				},
 				"bientity_action": {
 					"type": "origins:damage",
@@ -432,10 +432,39 @@
 								]
 							},
 							{
-								"type": "origins:command",
-								"command": "/resource get @p[tag=foxie,limit=1,sort=nearest,distance=..2] thorigins:fox/thfoxify_afk_timer",
-								"compare_to": 0,
-								"comparison": ">"
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:riding"
+									},
+									{
+										"type": "origins:passenger",
+										"bientity_condition": {
+											"type": "origins:actor_condition",
+											"condition": {
+												"type": "origins:resource",
+												"resource": "*:fox/thfoxify_afk_timer",
+												"compare_to": 1,
+												"comparison": ">"
+											}
+										}
+									}
+								]
+							},
+							{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:riding",
+										"inverted": true
+									},
+									{
+										"type": "origins:command",
+										"command": "/resource get @p[tag=foxie,limit=1,sort=nearest,distance=..2] thorigins:fox/thfoxify_afk_timer",
+										"compare_to": 0,
+										"comparison": ">"
+									}
+								]
 							},
 							{
 								"type": "origins:command",
