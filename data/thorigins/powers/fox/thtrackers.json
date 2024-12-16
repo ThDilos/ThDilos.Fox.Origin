@@ -2,7 +2,7 @@
 	"type": "origins:multiple",
 	"hidden": true,
 
-	"welcome_msg": {
+	"first_time_chosen": {
 		"type": "origins:toggle",
 		"active_by_default": false,
 		"key": "nuh.uh"
