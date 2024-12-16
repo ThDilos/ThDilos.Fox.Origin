@@ -49,9 +49,9 @@
 		"type": "origins:invulnerability",
 		"damage_condition": {
 			"type": "origins:attacker",
+			"inverted": true,
 			"entity_condition": {
 				"type": "origins:or",
-				"inverted": true,
 				"conditions": [
 					{
 						"type": "origins:entity_type",
@@ -342,14 +342,25 @@
 			"type": "origins:actor_action",
 			"action": {
 				"type": "origins:area_of_effect",
-				"radius": 2.5,
+				"radius": 1,
 				"shape": "sphere",
 				"bientity_condition": {
 					"type": "origins:target_condition",
 					"condition": {
-						"type": "origins:power",
-						"power": "*:fox/thfoxify"
-					}
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:power",
+								"power": "*:fox/thfoxify"
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:fox/thfoxify_afk_timer",
+								"compare_to": 0,
+								"comparison": "=="
+							}
+						]
+					} 
 				},
 				"bientity_action": {
 					"type": "origins:damage",
@@ -498,8 +509,27 @@
 					}
 				},
 				{
-					"type": "origins:execute_command",
-					"command": "/tp @s ~ ~500 ~"
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:passenger_action",
+								"action": {
+									"type": "origins:dismount"
+								}
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 1,
+								"action": {
+									"type": "origins:execute_command",
+									"command": "/tp @s ~ ~500 ~"
+								}
+							}
+						]
+					}
 				},
 				{
 					"type": "origins:delay",

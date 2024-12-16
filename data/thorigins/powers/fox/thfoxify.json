@@ -11,93 +11,56 @@
 					"translate": "thorigins.active_ability"
 				},
 				{
-					"text": "1. ",
-					"color": "aqua"
+					"translate": "thfoxify.key0",
+					"with": [
+						{
+							"keybind": "key.sprint",
+							"color": "aqua"
+						},
+						{
+							"keybind": "key.sprint",
+							"color": "aqua"
+						},
+						{
+							"keybind": "key.forward",
+							"color": "dark_gray"
+						}
+					]
 				},
 				{
-					"translate": "thfoxify.key0"
+					"translate": "thfoxify.key1",
+					"with": [
+						{
+							"keybind": "key.use",
+							"color": "aqua"
+						},
+						{
+							"keybind": "key.drop",
+							"color": "aqua"
+						}
+					]
 				},
 				{
-					"keybind": "key.sprint",
-					"color": "aqua"
+					"translate": "thfoxify.key2",
+					"with": [
+						{
+							"keybind": "key.use",
+							"color": "aqua"
+						},
+						{
+							"keybind": "key.saveToolbarActivator",
+							"color": "aqua"
+						}
+					]
 				},
 				{
-					"translate": "thfoxify.key1"
-				},
-				{
-					"keybind": "key.sprint",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.key2"
-				},
-				{
-					"text": "\n\n"
-				},
-				{
-					"text": "2. ",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.key3"
-				},
-				{
-					"keybind": "key.use",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.key4"
-				},
-				{
-					"keybind": "key.drop",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.key5"
-				},
-				{
-					"text": "\n"
-				},
-				{
-					"text": "3. ",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.key8"
-				},
-				{
-					"keybind": "key.use",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.key9"
-				},
-				{
-					"translate": "thorigins.press1"
-				},
-				{
-					"keybind": "key.saveToolbarActivator",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.key10"
-				},
-				{
-					"text": "\n"
-				},
-				{
-					"text": "4. ",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.key6"
-				},
-				{
-					"keybind": "key.saveToolbarActivator",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.key7"
+					"translate": "thfoxify.key3",
+					"with": [
+						{
+							"keybind": "key.saveToolbarActivator",
+							"color": "aqua"
+						}
+					]
 				}
 			]
 		},
@@ -109,46 +72,31 @@
 					"translate": "thfoxify.info0"
 				},
 				{
-					"text": "1. ",
-					"color": "aqua"
+					"translate": "thfoxify.info1",
+					"with": [
+						{
+							"keybind": "key.sprint",
+							"color": "aqua"
+						}
+					]
 				},
 				{
-					"translate": "thorigins.press1"
+					"translate": "thfoxify.info2",
+					"with": [
+						{
+							"keybind": "key.swapOffhand",
+							"color": "aqua"
+						}
+					]
 				},
 				{
-					"keybind": "key.sprint",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.info1"
-				},
-				{
-					"text": "2. ",
-					"color": "aqua"
-				},
-				{
-					"translate": "thorigins.press1"
-				},
-				{
-					"keybind": "key.swapOffhand",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.info2"
-				},
-				{
-					"text": "3. ",
-					"color": "aqua"
-				},
-				{
-					"translate": "thorigins.press1"
-				},
-				{
-					"keybind": "key.saveToolbarActivator",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.info3"
+					"translate": "thfoxify.info3",
+					"with": [
+						{
+							"keybind": "key.saveToolbarActivator",
+							"color": "aqua"
+						}
+					]
 				},
 				{
 					"translate": "thfoxify.info4"
@@ -160,42 +108,29 @@
 			"sprite": "origins:textures/gui/badge/arrow_up.png",
 			"text": [
 				{
-					"translate": "thfoxify.keybind.info0"
-				},
-				{
-					"keybind": "key.sprint",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.keybind.info1"
-				},
-				{
-					"keybind": "key.drop",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.keybind.info2"
-				},
-				{
-					"keybind": "key.use",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.keybind.info3"
-				},
-				{
-					"keybind": "key.saveToolbarActivator",
-					"color": "aqua"
-				},
-				{
-					"translate": "thfoxify.keybind.info4"
-				},
-				{
-					"keybind": "key.swapOffhand",
-					"color": "aqua"
-				},
-				{
-					"text": "]"
+					"translate": "thfoxify.keybind.info",
+					"with": [
+						{
+							"keybind": "key.sprint",
+							"color": "aqua"
+						},
+						{
+							"keybind": "key.drop",
+							"color": "aqua"
+						},
+						{
+							"keybind": "key.use",
+							"color": "aqua"
+						},
+						{
+							"keybind": "key.saveToolbarActivator",
+							"color": "aqua"
+						},
+						{
+							"keybind": "key.swapOffhand",
+							"color": "aqua"
+						}
+					]
 				}
 			]
 		}
@@ -205,103 +140,88 @@
 		"type": "origins:action_over_time",
 		"interval": 1,
 		"entity_action": {
-			"type": "origins:and",
-			"actions": [
+			"type": "origins:change_resource",
+			"resource": "*:*_afk_timer",
+			"change": 1200,
+			"operation": "set"
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
 				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:or",
-						"conditions": [
-							{
-								"type": "origins:moving"
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:fox/universal_settings_enable_sleepin_mode",
-								"compare_to": 0,
-								"comparison": "=="
-							},
-							{
-								"type": "origins:scoreboard",
-								"objective": "foxtype",
-								"compare_to": 0,
-								"comparison": "<"
-							},
-							{
-								"type": "origins:and",
-								"conditions": [
-									{
-										"type": "origins:fall_distance",
-										"compare_to": 0,
-										"comparison": ">"
-									},
-									{
-										"type": "origins:nbt",
-										"nbt": "{SleepTimer:0s}"
-									}
-								]
-							},
-							{
-								"type": "origins:using_item",
-								"item_condition": {
-									"type": "origins:food",
-									"inverted": true
-								}
-							},
-							{
-								"type": "origins:gamemode",
-								"gamemode": "spectator"
-							},
-							{
-								"type": "origins:creative_flying"
-							},
-							{
-								"type": "origins:and",
-								"conditions": [
-									{
-										"type": "origins:resource",
-										"resource": "*:*_afk_timer",
-										"compare_to": 0,
-										"comparison": "=="
-									},
-									{
-										"type": "origins:command",
-										"command": "/execute if entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,distance=..1,limit=1]",
-										"compare_to": 0,
-										"comparison": "=="
-									},
-									{
-										"type": "origins:resource",
-										"resource": "*:*_figura_state",
-										"compare_to": 0,
-										"comparison": "=="
-									}
-								]
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_afk_timer",
-						"change": 1200,
-						"operation": "set"
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:moving"
+						},
+						{
+							"type": "origins:riding",
+							"inverted": true
+						}
+					]
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:fox/universal_settings_enable_sleepin_mode",
+					"compare_to": 0,
+					"comparison": "=="
+				},
+				{
+					"type": "origins:scoreboard",
+					"objective": "foxtype",
+					"compare_to": 0,
+					"comparison": "<"
+				},
+				{
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:fall_distance",
+							"compare_to": 0,
+							"comparison": ">"
+						},
+						{
+							"type": "origins:nbt",
+							"nbt": "{SleepTimer:0s}"
+						}
+					]
+				},
+				{
+					"type": "origins:using_item",
+					"item_condition": {
+						"type": "origins:food",
+						"inverted": true
 					}
 				},
 				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:riding"
-					},
-					"if_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_riding_player",
-						"change": 1
-					},
-					"else_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_riding_player",
-						"change": -1
-					}
+					"type": "origins:gamemode",
+					"gamemode": "spectator"
+				},
+				{
+					"type": "origins:creative_flying"
+				},
+				{
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:resource",
+							"resource": "*:*_afk_timer",
+							"compare_to": 0,
+							"comparison": "=="
+						},
+						{
+							"type": "origins:command",
+							"command": "/execute if entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,distance=..1,limit=1]",
+							"compare_to": 0,
+							"comparison": "=="
+						},
+						{
+							"type": "origins:resource",
+							"resource": "*:*_figura_state",
+							"compare_to": 0,
+							"comparison": "=="
+						}
+					]
 				}
 			]
 		}
@@ -324,6 +244,44 @@
 					"if_action": {
 						"type": "origins:and",
 						"actions": [
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 0,
+											"comparison": ">="
+										},
+										{
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 3,
+											"comparison": "<="
+										}
+									]
+								},
+								"if_action": {
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:equipped_item",
+										"equipment_slot": "mainhand",
+										"item_condition": {
+											"type": "origins:empty"
+										}
+									},
+									"if_action": {
+										"type": "origins:execute_command",
+										"command": "/data remove entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] HandItems[0]"
+									},
+									"else_action": {
+										"type": "origins:execute_command",
+										"command": "/data modify entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] HandItems[0] set from entity @s SelectedItem"
+									}
+								}
+							},
 							{
 								"type": "origins:if_else",
 								"condition": {
@@ -539,6 +497,29 @@
 						"resource": "*:*_afk_timer",
 						"change": -20
 					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:riding",
+						"bientity_condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:entity_type",
+								"entity_type": "minecraft:player"
+							}
+						}
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_riding_player",
+						"change": 1
+					},
+					"else_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_riding_player",
+						"change": -1
+					}
 				}
 			]
 		}
@@ -587,7 +568,7 @@
 							},
 							"action": {
 								"type": "origins:execute_command",
-								"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],CanPickUpLoot:0b}"
+								"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],CanPickUpLoot:0b,HandDropChances:[0f]}"
 							}
 						},
 						{
@@ -599,7 +580,7 @@
 							},
 							"action": {
 								"type": "origins:execute_command",
-								"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],CanPickUpLoot:0b}"
+								"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],CanPickUpLoot:0b,HandDropChances:[0f]}"
 							}
 						},
 						{
@@ -611,7 +592,7 @@
 							},
 							"action": {
 								"type": "origins:execute_command",
-								"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],Age:-6000,CanPickUpLoot:0b}"
+								"command": "/summon fox ~ ~0.05 ~ {Type:red,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],Age:-6000,CanPickUpLoot:0b,HandDropChances:[0f]}"
 							}
 						},
 						{
@@ -623,7 +604,7 @@
 							},
 							"action": {
 								"type": "origins:execute_command",
-								"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],Age:-6000,CanPickUpLoot:0b}"
+								"command": "/summon fox ~ ~0.05 ~ {Type:snow,Sleeping:1,NoGravity:1b,NoAI:1b,Tags:[\"sleepin\"],Age:-6000,CanPickUpLoot:0b,HandDropChances:[0f]}"
 							}
 						}
 					]
@@ -935,7 +916,14 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:riding"
+						"type": "origins:riding",
+						"bientity_condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:entity_type",
+								"entity_type": "minecraft:player"
+							}
+						}
 					},
 					"if_action": {
 						"type": "origins:execute_command",
@@ -1282,19 +1270,38 @@
 						"bientity_condition": {
 							"type": "origins:actor_condition",
 							"condition": {
-								"type": "origins:power",
-								"power": "*:fox/thhat"
+								"type": "origins:entity_type",
+								"entity_type": "minecraft:fox"
 							}
-						},
-						"compare_to": 0,
-						"comparison": ">"
+						}
 					}
 				]
 			},
 			"if_action": {
-				"type": "origins:passenger_action",
-				"action": {
-					"type": "origins:dismount"
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:passenger",
+					"bientity_condition": {
+						"type": "origins:actor_condition",
+						"condition": {
+							"type": "origins:power",
+							"power": "*:fox/thhat"
+						}
+					}
+				},
+				"if_action": {
+					"type": "origins:passenger_action",
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:fox/thhat_safari",
+						"change": -1
+					}
+				},
+				"else_action": {
+					"type": "origins:passenger_action",
+					"action": {
+						"type": "origins:dismount"
+					}
 				}
 			}
 		}
@@ -1346,7 +1353,7 @@
 								},
 								{
 									"type": "origins:execute_command",
-									"command": "/data merge entity @e[tag=hatting,limit=1,sort=nearest,distance=..1] {Sleeping:0b,Sitting:1b}"
+									"command": "/execute as @e[tag=hatting,type=fox,dy=20] run data merge entity @s {Sleeping:0b,Sitting:1b}"
 								},
 								{
 									"type": "origins:if_else",
@@ -1418,7 +1425,7 @@
 								},
 								{
 									"type": "origins:execute_command",
-									"command": "/data merge entity @e[tag=hatting,limit=1,sort=nearest,distance=..1] {Sleeping:1b,Sitting:0b}"
+									"command": "/execute as @e[tag=hatting,type=fox,dy=20] run data merge entity @s {Sleeping:1b,Sitting:0b}"
 								},
 								{
 									"type": "origins:if_else",
@@ -1543,48 +1550,25 @@
 									"type": "origins:and",
 									"actions": [
 										{
-											"type": "origins:target_action",
-											"action": {
-												"type": "origins:execute_command",
-												"command": "/tag @s add to_be_ridden"
+											"type": "origins:if_else",
+											"condition": {
+												"type": "origins:target_condition",
+												"condition": {
+													"type": "origins:entity_type",
+													"entity_type": "minecraft:player"
+												}
+											},
+											"if_action": {
+												"type": "origins:actor_action",
+												"action": {
+													"type": "origins:change_resource",
+													"resource": "*:*_riding_player",
+													"change": 1
+												}
 											}
 										},
 										{
-											"type": "origins:actor_action",
-											"action": {
-												"type": "origins:area_of_effect",
-												"radius": 5,
-												"bientity_condition": {
-													"type": "origins:target_condition",
-													"condition": {
-														"type": "origins:nbt",
-														"nbt": "{\"Tags\":[\"to_be_ridden\"]}"
-													}
-												},
-												"bientity_action": {
-													"type": "origins:and",
-													"actions": [
-														{
-															"type": "origins:mount"
-														},
-														{
-															"type": "origins:target_action",
-															"action": {
-																"type": "origins:execute_command",
-																"command": "/tag @s remove to_be_ridden"
-															}
-														},
-														{
-															"type": "origins:actor_action",
-															"action": {
-																"type": "origins:change_resource",
-																"resource": "*:*_riding_player",
-																"change": 1
-															}
-														}
-													]
-												}
-											}
+											"type": "origins:mount"
 										}
 									]
 								}
@@ -1593,6 +1577,67 @@
 					}
 				}
 			]
+		}
+	},
+
+	"riding_player": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"min_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:resource",
+				"resource": "*:*_figura_state",
+				"compare_to": 0,
+				"comparison": "=="
+			},
+			"if_action": {
+				"type": "origins:delay",
+				"ticks": 3,
+				"action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:execute_command",
+							"command": "/scale reset pehkui:hitbox_height @s"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/scale delay set pehkui:hitbox_height 0 @s"
+						}
+					]
+				}
+			}
+		},
+		"max_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "*:*_figura_state",
+						"compare_to": 0,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:riding",
+						"bientity_condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:entity_type",
+								"entity_type": "player"
+							}
+						}
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:execute_command",
+				"command": "/scale multiply pehkui:hitbox_height 0.6 @s"
+			}
 		}
 	},
 
@@ -1621,6 +1666,20 @@
 			"resource": "*:*_afk_timer",
 			"compare_to": 0,
 			"comparison": "=="
+		}
+	},
+
+	"active_self_fwd": {
+		"type": "origins:active_self",
+		"key": {
+			"key": "key.forward",
+			"continuous": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_afk_timer",
+			"change": 1200,
+			"operation": "set"
 		}
 	},
 
@@ -1674,17 +1733,87 @@
 							}
 						},
 						{
-							"type": "origins:invert",
-							"action": {
-								"type": "origins:mount"
-							}
-						},
-						{
-							"type": "origins:target_action",
-							"action": {
-								"type": "origins:grant_power",
-								"power": "*:fox/thhat",
-								"source": "thorigins:temp"
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:actor_condition",
+								"condition": {
+									"type": "origins:passenger",
+									"compare_to": 0,
+									"comparison": "=="
+								}
+							},
+							"if_action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:invert",
+										"action": {
+											"type": "origins:mount"
+										}
+									},
+									{
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:execute_command",
+											"command": "/scale multiply pehkui:hitbox_height 0.316 @s"
+										}
+									},
+									{
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:grant_power",
+											"power": "*:fox/thhat",
+											"source": "thorigins:temp"
+										}
+									}
+								]
+							},
+							"else_action": {
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:actor_condition",
+									"condition": {
+										"type": "origins:passenger",
+										"bientity_condition": {
+											"type": "origins:actor_condition",
+											"condition": {
+												"type": "origins:power",
+												"power": "*:fox/thhat",
+												"source": "thorigins:temp"
+											}
+										}
+									}
+								},
+								"if_action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:target_action",
+											"action": {
+												"type": "origins:execute_command",
+												"command": "/tag @s add elevating"
+											}
+										},
+										{
+											"type": "origins:actor_action",
+											"action": {
+												"type": "origins:execute_command",
+												"command": "/tp @e[tag=elevating,distance=..5,limit=1,sort=nearest] ~ ~1 ~"
+											}
+										},
+										{
+											"type": "origins:actor_action",
+											"action": {
+												"type": "origins:passenger_action",
+												"action": {
+													"type": "origins:change_resource",
+													"resource": "*:fox/thhat_safari",
+													"change": 1
+												}
+											}
+										}
+									]
+								}
 							}
 						}
 					]
@@ -1723,85 +1852,158 @@
 						}
 					},
 					"if_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:actor_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:delay",
-											"ticks": 1,
-											"action": {
-												"type": "origins:and",
-												"actions": [
-													{
-														"type": "origins:execute_command",
-														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Booped \",\"color\":\"light_purple\",\"bold\":\"true\"},{\"selector\":\"@e[tag=booped,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}"
-													},
-													{
-														"type": "origins:execute_command",
-														"command": "/tellraw @e[tag=booped,limit=1,sort=nearest] {\"text\":\"\",\"color\":\"white\",\"bold\":\"true\",\"italic\":\"false\",\"extra\":[{\"selector\":\"@s\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
-													}
-												]
-											}
-										},
-										{
-											"type": "origins:swing_hand",
-											"hand": "MAIN_HAND"
-										},
-										{
-											"type": "origins:trigger_cooldown",
-											"power": "*:fox/thsound_interaction_cooldown"
-										}
-									]
-								}
-							},
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:command",
-												"command": "/data get entity @s Age",
-												"compare_to": 0,
-												"comparison": "<"
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:relative_rotation",
+							"actor_rotation": "head",
+							"target_rotation": "head",
+							"comparison": "<",
+							"compare_to": -0.3
+						},
+						"if_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:actor_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:delay",
+												"ticks": 1,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=booped,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+												}
 											},
-											"if_action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.fox.ambient",
-												"pitch": 1.3,
-												"volume": 1.0,
-												"category": "neutral"
+											{
+												"type": "origins:swing_hand",
+												"hand": "MAIN_HAND"
 											},
-											"else_action": {
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.fox.ambient",
-												"pitch": 1.0,
-												"volume": 1.0,
-												"category": "neutral"
+											{
+												"type": "origins:trigger_cooldown",
+												"power": "*:fox/thsound_interaction_cooldown"
 											}
-										},
-										{
-											"type": "origins:execute_command",
-											"command": "/tag @s add booped"
-										},
-										{
-											"type": "origins:delay",
-											"ticks": 2,
-											"action": {
+										]
+									}
+								},
+								{
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:if_else",
+												"condition": {
+													"type": "origins:command",
+													"command": "/data get entity @s Age",
+													"compare_to": 0,
+													"comparison": "<"
+												},
+												"if_action": {
+													"type": "origins:play_sound",
+													"sound": "minecraft:entity.fox.ambient",
+													"pitch": 1.3,
+													"volume": 1.0,
+													"category": "neutral"
+												},
+												"else_action": {
+													"type": "origins:play_sound",
+													"sound": "minecraft:entity.fox.ambient",
+													"pitch": 1.0,
+													"volume": 1.0,
+													"category": "neutral"
+												}
+											},
+											{
 												"type": "origins:execute_command",
-												"command": "/tag @s remove booped"
+												"command": "/tag @s add booped"
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove booped"
+												}
 											}
-										}
-									]
+										]
+									}
 								}
-							}
-						]
+							]
+						},
+						"else_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:actor_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:delay",
+												"ticks": 1,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=petted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+												}
+											},
+											{
+												"type": "origins:swing_hand",
+												"hand": "MAIN_HAND"
+											},
+											{
+												"type": "origins:trigger_cooldown",
+												"power": "*:fox/thsound_interaction_cooldown"
+											}
+										]
+									}
+								},
+								{
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:if_else",
+												"condition": {
+													"type": "origins:command",
+													"command": "/data get entity @s Age",
+													"compare_to": 0,
+													"comparison": "<"
+												},
+												"if_action": {
+													"type": "origins:play_sound",
+													"sound": "minecraft:entity.cat.purr",
+													"volume": 1.0,
+													"pitch": 1.3,
+													"category": "neutral"
+												},
+												"else_action": {
+													"type": "origins:play_sound",
+													"sound": "minecraft:entity.cat.purr",
+													"volume": 1.0,
+													"pitch": 1.0,
+													"category": "neutral"
+												}
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/tag @s add petted"
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 2,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove petted"
+												}
+											}
+										]
+									}
+								}
+							]
+						}
 					}
 				}
 			}
@@ -1834,44 +2036,8 @@
 							}
 						]
 					}
-				},
-				{
-					"type": "origins:actor_condition",
-					"condition": {
-						"type": "origins:passenger",
-						"compare_to": 0,
-						"comparison": "=="
-					}
 				}
 			]
-		}
-	},
-
-	"riding_player": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 1,
-		"start_value": 0,
-		"min_action": {
-			"type": "origins:delay",
-			"ticks": 3,
-			"action": {
-				"type": "origins:and",
-				"actions": [
-					{
-						"type": "origins:execute_command",
-						"command": "/scale reset pehkui:hitbox_height @s"
-					},
-					{
-						"type": "origins:execute_command",
-						"command": "/scale delay set pehkui:hitbox_height 0 @s"
-					}
-				]
-			}
-		},
-		"max_action": {
-			"type": "origins:execute_command",
-			"command": "/scale multiply pehkui:hitbox_height 0.6 @s"
 		}
 	},
 
