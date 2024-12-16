@@ -871,6 +871,11 @@
 					"type": "origins:amount",
 					"compare_to": 1,
 					"comparison": ">"
+				},
+				{
+					"type": "origins:name",
+					"name": "thorigins:foxie_bite",
+					"inverted": true
 				}
 			]
 		},
