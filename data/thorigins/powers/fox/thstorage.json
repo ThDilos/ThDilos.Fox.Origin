@@ -11,18 +11,15 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/active.png",
-			"text": [
-				{
-					"translate": "thorigins.press0"
-				},
-				{
-					"keybind": "key.origins.secondary_active",
-					"color": "aqua"
-				},
-				{
-					"translate": "thorigins.thstorage.key"
-				}
-			]
+			"text": {
+				"translate": "thorigins.thstorage.key",
+				"with": [
+					{
+						"keybind": "key.origins.secondary_active",
+						"color": "aqua"
+					}
+				]
+			}
 		},
 		{
 			"type": "origins:keybind",

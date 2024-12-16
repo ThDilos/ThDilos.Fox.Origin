@@ -2,6 +2,272 @@
 	"type": "origins:multiple",
 	"hidden": true,
 
+	"ticks_5": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"condition": {
+			"type": "origins:scoreboard",
+			"objective": "foxtype",
+			"compare_to": 7355600,
+			"comparison": ">="
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/scoreboard players enable @s foxtype"
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "/trigger foxtype add -7355608"
+					}
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:explosion",
+					"count": 1
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.generic.explode",
+					"pitch": 1.5,
+					"volume": 0.2,
+					"category": "players"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tellraw @s [{\"text\":\"The Book Disintegrated and Made a Comically Safe Explosion...\",\"color\":\"yellow\"},{\"text\":\"\\nUse [/function thorigins:fox_setting] as an Admin to get it back\",\"color\":\"gray\"}]"
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition": {
+									"type": "origins:power",
+									"power": "*:extras",
+									"source": "apoli:mainhand"
+								},
+								"action": {
+									"type": "origins:equipped_item_action",
+									"equipment_slot": "mainhand",
+									"action": {
+										"type": "origins:consume",
+										"amount": 1
+									}
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:power",
+									"power": "*:extras",
+									"source": "apoli:offhand"
+								},
+								"action": {
+									"type": "origins:equipped_item_action",
+									"equipment_slot": "offhand",
+									"action": {
+										"type": "origins:consume",
+										"amount": 1
+									}
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:constant",
+									"value": true
+								},
+								"action": {
+									"type": "origins:execute_command",
+									"command": "/power remove @s thorigins:extras"
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	},
+
+	"rechoose_origin": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_rechoose_origin",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @a[tag=foxie,distance=..5] remove foxie"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/origin set @a[tag=foxie,distance=..5] origins:origin origins:human"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/origin set @a[tag=foxie,distance=..5] thorigins:origin origins:empty"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/origin gui @a[tag=foxie,distance=..5]"
+				}
+			]
+		}
+	},
+
+	"reset_all": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_reset_all",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[tag=foxie,distance=..5] run trigger foxtype set 0"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/reload"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "kill @e[tag=sleepin,distance=..5,limit=1,sort=nearest]"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "kill @e[tag=hatting,distance=..5,limit=1,sort=nearest]"
+				},
+				{
+					"type": "origins:area_of_effect",
+					"include_target": true,
+					"radius": 5,
+					"shape": "sphere",
+					"bientity_condition": {
+						"type": "origins:target_condition",
+						"condition": {
+							"type": "origins:nbt",
+							"nbt": "{\"Tags\":[\"foxie\"]}"
+						}
+					},
+					"bientity_action": {
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:change_resource",
+									"resource": "*:fox/thtrackers_scale_modified",
+									"change": 0,
+									"operation": "set"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/scale reset @s"
+								},
+								{
+									"type": "origins:delay",
+									"ticks": 1,
+									"action": {
+										"type": "origins:if_else_list",
+										"actions": [
+											{
+												"condition": {
+													"type": "origins:power",
+													"power": "*:extras",
+													"source": "apoli:mainhand"
+												},
+												"action": {
+													"type": "origins:equipped_item_action",
+													"equipment_slot": "mainhand",
+													"action": {
+														"type": "origins:consume",
+														"amount": 1
+													}
+												}
+											},
+											{
+												"condition": {
+													"type": "origins:power",
+													"power": "*:extras",
+													"source": "apoli:offhand"
+												},
+												"action": {
+													"type": "origins:equipped_item_action",
+													"equipment_slot": "offhand",
+													"action": {
+														"type": "origins:consume",
+														"amount": 1
+													}
+												}
+											},
+											{
+												"condition": {
+													"type": "origins:constant",
+													"value": true
+												},
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/power remove @s thorigins:extras"
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "origins:delay",
+									"ticks": 1,
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "/tag @s remove foxie"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/origin set @s origins:origin origins:human"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/origin set @s thorigins:origin origins:empty"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/power clear @s"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/origin gui"
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	},
+	
 	"figura": {
 		"type": "origins:resource",
 		"min": 0,

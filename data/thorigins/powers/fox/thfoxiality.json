@@ -16,9 +16,14 @@
 					"translate": "thfoxiality.info"
 				},
 				{
-					"translate": "thfoxiality.info1_legacy"
+					"translate": "thfoxiality.info1"
 				}
 			]
+		},
+		{
+			"type": "origins:keybind",
+			"text": "thfoxiality.info2",
+			"sprite": "origins:textures/gui/badge/arrow_up.png"
 		}
 	],
 
@@ -215,8 +220,16 @@
 		}
 	},
 
-	"predator_effective": {
-		"type": "origins:modify_damage_taken",
+	"predator_bite_threshold": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 100,
+		"start_value": 100
+	},
+
+	"vicious_wolves_bears": {
+		"type": "origins:action_when_hit",
+		"cooldown": 4,
 		"bientity_condition": {
 			"type": "origins:actor_condition",
 			"condition": {
@@ -229,13 +242,313 @@
 					{
 						"type": "origins:entity_type",
 						"entity_type": "minecraft:polar_bear"
+					},
+					{
+						"type": "origins:nbt",
+						"nbt": "{\"Tags\":[\"foxie_predator\"]}"
 					}
 				]
 			}
 		},
-		"modifier": {
-			"value": 1,
-			"operation": "multiply_total"
+		"damage_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:amount",
+					"compare_to": 2.5,
+					"comparison": ">="
+				},
+				{
+					"type": "origins:projectile",
+					"inverted": true
+				},
+				{
+					"type": "origins:bypasses_armor",
+					"inverted": true
+				},
+				{
+					"type": "origins:name",
+					"name": "thorigins:predator_bite",
+					"inverted": true
+				}
+			]
+		},
+		"bientity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:target_action",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:equipped_item",
+									"equipment_slot": "head",
+									"item_condition": {
+										"type": "origins:empty",
+										"inverted": true
+									}
+								},
+								"if_action": {
+									"type": "origins:chance",
+									"chance": 0.314,
+									"action": {
+										"type": "origins:change_resource",
+										"resource": "*:*_predator_bite_threshold",
+										"change": -8
+									},
+									"fail_action": {
+										"type": "origins:nothing"
+									}
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:equipped_item",
+									"equipment_slot": "chest",
+									"item_condition": {
+										"type": "origins:empty",
+										"inverted": true
+									}
+								},
+								"if_action": {
+									"type": "origins:chance",
+									"chance": 0.314,
+									"action": {
+										"type": "origins:change_resource",
+										"resource": "*:*_predator_bite_threshold",
+										"change": -15
+									},
+									"fail_action": {
+										"type": "origins:nothing"
+									}
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:equipped_item",
+									"equipment_slot": "legs",
+									"item_condition": {
+										"type": "origins:empty",
+										"inverted": true
+									}
+								},
+								"if_action": {
+									"type": "origins:chance",
+									"chance": 0.314,
+									"action": {
+										"type": "origins:change_resource",
+										"resource": "*:*_predator_bite_threshold",
+										"change": -10
+									},
+									"fail_action": {
+										"type": "origins:nothing"
+									}
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:equipped_item",
+									"equipment_slot": "feet",
+									"item_condition": {
+										"type": "origins:empty",
+										"inverted": true
+									}
+								},
+								"if_action": {
+									"type": "origins:chance",
+									"chance": 0.314,
+									"action": {
+										"type": "origins:change_resource",
+										"resource": "*:*_predator_bite_threshold",
+										"change": -5
+									},
+									"fail_action": {
+										"type": "origins:nothing"
+									}
+								}
+							},
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition": {
+											"type": "origins:status_effect",
+											"effect": "minecraft:resistance",
+											"min_amplifier": 3
+										},
+										"action": {
+											"type": "origins:change_resource",
+											"resource": "*:*_predator_bite_threshold",
+											"change": -20
+										}
+									},
+									{
+										"condition": {
+											"type": "origins:status_effect",
+											"effect": "minecraft:resistance",
+											"min_amplifier": 2
+										},
+										"action": {
+											"type": "origins:change_resource",
+											"resource": "*:*_predator_bite_threshold",
+											"change": -12
+										}
+									},
+									{
+										"condition": {
+											"type": "origins:status_effect",
+											"effect": "minecraft:resistance",
+											"min_amplifier": 1
+										},
+										"action": {
+											"type": "origins:change_resource",
+											"resource": "*:*_predator_bite_threshold",
+											"change": -7
+										}
+									},
+									{
+										"condition": {
+											"type": "origins:status_effect",
+											"effect": "minecraft:resistance"
+										},
+										"action": {
+											"type": "origins:change_resource",
+											"resource": "*:*_predator_bite_threshold",
+											"change": -5
+										}
+									}
+								]
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:target_condition",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "*:*_predator_bite_threshold",
+							"compare_to": 80,
+							"comparison": ">"
+						}
+					},
+					"if_action": {
+						"type": "origins:delay",
+						"ticks": 10,
+						"action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:damage",
+									"amount": 3,
+									"damage_type": "thorigins:predator_bite",
+									"source": {
+										"unblockable": true,
+										"bypasses_armor": true,
+										"name": "thorigins:predator_bite"
+									}
+								},
+								{
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "/particle dust_color_transition 1 0 0 1.2 0.15 0 0 ~ ~0.6 ~ 0.1 0.1 0.1 5 8 force"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "/particle dust_color_transition 1 0 0 0.5 0.15 0 0 ~ ~0.6 ~ 0.15 0.15 0.15 10 16 force"
+											},
+											{
+												"type": "origins:play_sound",
+												"sound": "minecraft:entity.zombie.break_wooden_door",
+												"volume": 0.3,
+												"pitch": 1.5
+											},
+											{
+												"type": "origins:apply_effect",
+												"effects": [
+													{
+														"effect": "minecraft:weakness",
+														"duration": 100,
+														"amplifier": 2,
+														"is_ambient": false,
+														"show_icon": true,
+														"show_particles": false
+													},
+													{
+														"effect": "minecraft:nausea",
+														"duration": 100,
+														"amplifier": 0,
+														"is_ambient": false,
+														"show_icon": true,
+														"show_particles": false
+													},
+													{
+														"effect": "minecraft:slowness",
+														"duration": 60,
+														"amplifier": 4,
+														"is_ambient": false,
+														"show_icon": true,
+														"show_particles": false
+													}
+												]
+											},
+											{
+												"type": "origins:trigger_cooldown",
+												"power": "*:*_predator_suppression"
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:change_resource",
+							"resource": "*:*_predator_bite_threshold",
+							"change": 100,
+							"operation": "set"
+						}
+					}
+				}
+			]
+		}
+	},
+
+	"predator_suppression": {
+		"type": "origins:cooldown",
+		"cooldown": 60,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+			"bar_index": 7,
+			"inverted": true
+		}
+	},
+
+	"suppressed_regen": {
+		"type": "origins:disable_regen",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_predator_suppression",
+			"compare_to": 0,
+			"comparison": ">"
 		}
 	},
 

@@ -51,19 +51,19 @@
 						"type": "origins:if_else",
 						"condition": {
 							"type": "origins:power_active",
-							"power": "*:fox/thtrackers_welcome_msg",
+							"power": "*:fox/thtrackers_first_time_chosen",
 							"inverted": true
 						},
 						"if_action": {
 							"type": "origins:and",
 							"actions": [
 								{
-									"type": "origins:execute_command",
-									"command": "/tellraw @s [{\"text\":\"\\n================================\\n\",\"color\":\"gold\"},{\"translate\":\"message.chosen1\",\"color\":\"aqua\"},{\"text\":\"\\n\"},{\"translate\":\"message.chosen2\",\"color\":\"aqua\"},{\"text\":\"[Wiki]\",\"underlined\":\"true\",\"color\":\"yellow\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://github.com/ThDilos/Realistic-Fox-Origin/wiki\"}},{\"text\":\"\\n\"},{\"translate\":\"message.chosen3\",\"color\":\"red\"},{\"text\":\"\\n\"},{\"text\":\"[/function thorigins:fox_setting]\",\"color\":\"yellow\",\"underlined\":\"true\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/function thorigins:fox_setting\"}},{\"text\":\"\\n\"},{\"translate\":\"message.chosen4\",\"bold\":\"true\",\"color\":\"white\"},{\"text\":\"\\n================================\\n\",\"color\":\"gold\"}]"
+									"type": "origins:toggle",
+									"power": "*:fox/thtrackers_first_time_chosen"
 								},
 								{
-									"type": "origins:toggle",
-									"power": "*:fox/thtrackers_welcome_msg"
+									"type": "origins:execute_command",
+									"command": "/function thorigins:fox_setting"
 								}
 							]
 						}
@@ -134,7 +134,7 @@
 					},
 					"if_action": {
 						"type": "origins:execute_command",
-						"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1] thorigins:fox/thsleepin_fox_shake_timer 3"
+						"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1,sort=nearest] thorigins:fox/thsleepin_fox_shake_timer 3"
 					}
 				},
 				{
@@ -146,7 +146,7 @@
 					},
 					"if_action": {
 						"type": "origins:execute_command",
-						"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1] thorigins:fox/thsleepin_fox_invis_timer 50"
+						"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1,sort=nearest] thorigins:fox/thsleepin_fox_invis_timer 50"
 					}
 				}
 			]
