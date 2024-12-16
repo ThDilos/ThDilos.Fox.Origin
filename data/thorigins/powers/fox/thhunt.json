@@ -6,18 +6,15 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/active.png",
-			"text": [
-				{
-					"translate": "thorigins.double_tap"
-				},
-				{
-					"keybind": "key.sneak",
-					"color": "aqua"
-				},
-				{
-					"translate": "thhunt.key"
-				}
-			]
+			"text": {
+				"translate": "thhunt.key",
+				"with": [
+					{
+						"keybind": "key.sneak",
+						"color": "aqua"
+					}
+				]
+			}
 		},
 		{
 			"type": "origins:keybind",
