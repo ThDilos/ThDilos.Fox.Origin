@@ -23,6 +23,39 @@
 					"command": "/scoreboard players set @s[scores={foxtype=4}] foxtype 0"
 				},
 				{
+					"type": "origins:execute_command",
+					"command": "/scoreboard players set @s[scores={foxtype=..-1}] foxtype -1"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:any_of",
+						"inverted": true,
+						"conditions": [
+							{
+								"type": "origins:equipped_item",
+								"item_condition": {
+									"type": "origins:has_power",
+									"power": "*:extras"
+								},
+								"equipment_slot": "offhand"
+							},
+							{
+								"type": "origins:equipped_item",
+								"item_condition": {
+									"type": "origins:has_power",
+									"power": "*:extras"
+								},
+								"equipment_slot": "mainhand"
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "/scoreboard players set @s[scores={foxtype=7..}] foxtype 0"
+					}
+				},
+				{
 					"type": "origins:change_resource",
 					"resource": "*:*_bonk_reset",
 					"change": -20
@@ -566,7 +599,7 @@
 													"ticks": 1,
 													"action": {
 														"type": "origins:execute_command",
-														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feeder\"},{\"selector\":\"@e[tag=fed,limit=1,sort=nearest]\",\"color\":\"aqua\"},{\"translate\":\"fox.feeder2\"}]}"
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feeder\",\"with\":[{\"selector\":\"@e[tag=fed,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 													}
 												},
 												{
@@ -665,7 +698,7 @@
 														"actions": [
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\"},{\"selector\":\"@e[tag=feeder,limit=1,sort=nearest]\",\"color\":\"aqua\"},{\"translate\":\"fox.feed2\",\"color\":\"light_purple\"}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=feeder,limit=1,sort=nearest]\",\"color\":\"aqua\"}]},{\"translate\":\"fox.feed2\",\"color\":\"light_purple\"}]}"
 															},
 															{
 																"type": "origins:choice",
@@ -806,7 +839,7 @@
 													},
 													"fail_action": {
 														"type": "origins:execute_command",
-														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\"},{\"selector\":\"@e[tag=feeder,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}"
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=feeder,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 													}
 												}
 											]
@@ -819,19 +852,24 @@
 							"condition": {
 								"type": "origins:actor_condition",
 								"condition": {
-									"type": "origins:all_of",
-									"conditions": [
-										{
-											"type": "origins:equipped_item",
-											"equipment_slot": "mainhand",
-											"item_condition": {
-												"type": "origins:empty"
-											}
-										},
-										{
-											"type": "origins:sneaking"
-										}
-									]
+									"type": "origins:equipped_item",
+									"equipment_slot": "mainhand",
+									"item_condition": {
+										"type": "origins:empty"
+									},
+									"inverted": true
+								}
+							},
+							"action": {
+								"type": "origins:nothing"
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:actor_condition",
+								"condition": {
+									"type": "origins:raycast",
+									"distance": 0.8
 								}
 							},
 							"action": {
@@ -840,7 +878,125 @@
 									{
 										"type": "origins:actor_action",
 										"action": {
-											"type": "apoli:and",
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:swing_hand",
+													"hand": "MAIN_HAND"
+												},
+												{
+													"type": "origins:swing_hand",
+													"hand": "OFF_HAND"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/tag @s add hug"
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 1,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hug\",\"with\":[{\"selector\":\"@e[tag=hugged,limit=1,sort=nearest]\",\"color\":\"aqua\",\"bold\":true}]}]}"
+													}
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 2,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tag @s remove hug"
+													}
+												}
+											]
+										}
+									},
+									{
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tag @s add hugged"
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 1,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hugged\",\"with\":[{\"selector\":\"@e[tag=hug,limit=1,sort=nearest]\",\"color\":\"aqua\",\"bold\":true}]}]}"
+													}
+												},
+												{
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:any_of",
+														"conditions": [
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 2,
+																"comparison": "=="
+															},
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 3,
+																"comparison": "=="
+															},
+															{
+																"type": "origins:scoreboard",
+																"objective": "foxtype",
+																"compare_to": 6,
+																"comparison": "=="
+															}
+														]
+													},
+													"if_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.wolf.whine",
+														"volume": 0.65,
+														"pitch": 1.3,
+														"category": "players"
+													},
+													"else_action": {
+														"type": "origins:play_sound",
+														"sound": "minecraft:entity.wolf.whine",
+														"volume": 0.65,
+														"pitch": 1.0,
+														"category": "players"
+													}
+												},
+												{
+													"type": "origins:delay",
+													"ticks": 2,
+													"action": {
+														"type": "origins:execute_command",
+														"command": "/tag @s remove hugged"
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:relative_rotation",
+								"actor_rotation": "head",
+								"target_rotation": "head",
+								"comparison": ">=",
+								"compare_to": -0.3
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:actor_action",
+										"action": {
+											"type": "origins:and",
 											"actions": [
 												{
 													"type": "origins:swing_hand",
@@ -855,7 +1011,7 @@
 													"ticks": 1,
 													"action": {
 														"type": "origins:execute_command",
-														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Petted \",\"color\":\"light_purple\",\"bold\":true},{\"selector\":\"@e[tag=petted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}"
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=petted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 													}
 												},
 												{
@@ -941,7 +1097,7 @@
 													"ticks": 1,
 													"action": {
 														"type": "origins:execute_command",
-														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petted\",\"color\":\"light_purple\"},{\"selector\":\"@e[tag=pet,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}"
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petted\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=pet,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 													}
 												},
 												{
@@ -960,14 +1116,8 @@
 						},
 						{
 							"condition": {
-								"type": "origins:actor_condition",
-								"condition": {
-									"type": "origins:equipped_item",
-									"equipment_slot": "mainhand",
-									"item_condition": {
-										"type": "origins:empty"
-									}
-								}
+								"type": "origins:constant",
+								"value": true
 							},
 							"action": {
 								"type": "origins:and",
@@ -985,7 +1135,7 @@
 														"actions": [
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"text\":\"Booped \",\"color\":\"light_purple\",\"bold\":true},{\"selector\":\"@e[tag=booped,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=booped,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															},
 															{
 																"type": "origins:execute_command",

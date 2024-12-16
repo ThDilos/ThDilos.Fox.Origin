@@ -19,6 +19,11 @@
 					"translate": "thfoxiality.info1"
 				}
 			]
+		},
+		{
+			"type": "origins:keybind",
+			"text": "thfoxiality.info2",
+			"sprite": "origins:textures/gui/badge/arrow_up.png"
 		}
 	],
 
@@ -452,13 +457,17 @@
 										},
 										{
 											"id": "minecraft:slowness",
-											"duration": 30,
+											"duration": 60,
 											"amplifier": 4,
 											"is_ambient": false,
 											"show_icon": true,
 											"show_particles": false
 										}
 									]
+								},
+								{
+									"type": "origins:trigger_cooldown",
+									"power": "*:*_predator_suppression"
 								}
 							]
 						}
@@ -481,6 +490,27 @@
 		]
 	},
 
+	"predator_suppression": {
+		"type": "origins:cooldown",
+		"cooldown": 60,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+			"bar_index": 7,
+			"inverted": true
+		}
+	},
+
+	"suppressed_regen": {
+		"type": "origins:disable_regen",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_predator_suppression",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	
 	"passive_nightvision": {
 		"type": "origins:toggle_night_vision",
 		"active_by_default": true,
