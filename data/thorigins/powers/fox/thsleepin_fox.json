@@ -496,6 +496,10 @@
 			"type": "origins:and",
 			"actions": [
 				{
+					"type": "origins:execute_command",
+					"command": "/data remove entity @s HandItems[0]"
+				},
+				{
 					"type": "origins:if_else",
 					"condition": {
 						"type": "origins:riding"
@@ -547,6 +551,10 @@
 						"type": "origins:and",
 						"actions": [
 							{
+								"type": "origins:execute_command",
+								"command": "/data remove entity @s HandItems[0]"
+							},
+							{
 								"type": "origins:passenger_action",
 								"action": {
 									"type": "origins:dismount"
@@ -567,8 +575,17 @@
 					"type": "origins:delay",
 					"ticks": 5,
 					"action": {
-						"type": "origins:execute_command",
-						"command": "/kill @s"
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/data remove entity @s HandItems[0]"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/kill @s"
+							}
+						]
 					}
 				}
 			]
