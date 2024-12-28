@@ -19,6 +19,18 @@
 					{
 						"type": "origins:if_else",
 						"condition": {
+							"type": "origins:origin",
+							"layer": "thorigins:foxsize",
+							"origin": "origins:empty"
+						},
+						"if_action": {
+							"type": "origins:execute_command",
+							"command": "/origin gui @s thorigins:foxsize"
+						}
+					},
+					{
+						"type": "origins:if_else",
+						"condition": {
 							"type": "origins:resource",
 							"resource": "*:fox/universal_settings_optional_walk_on_powdered_snow",
 							"compare_to": 1,
@@ -56,6 +68,25 @@
 					}
 				]
 			}
+		},
+		"entity_action_lost": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:revoke_power",
+					"power": "*:optional_power/thpowdersnow",
+					"source": "thorigins:universal"
+				},
+				{
+					"type": "origins:revoke_power",
+					"power": "*:optional_power/thfallsound",
+					"source": "thorigins:universal"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/origin set @s thorigins:foxsize origins:empty"
+				}
+			]
 		}
 	},
 
@@ -68,26 +99,8 @@
 			"type": "origins:and",
 			"actions": [
 				{
-					"type": "origins:change_resource",
-					"resource": "*:*_scale_modified",
-					"change": 1,
-					"operation": "set"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scale reset @s"
-				},
-				{
 					"type": "origins:execute_command",
 					"command": "/scale persist set true @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scale multiply pehkui:width 0.7 @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scale multiply pehkui:height 0.7 @s"
 				},
 				{
 					"type": "origins:execute_command",
@@ -100,9 +113,22 @@
 				{
 					"type": "origins:execute_command",
 					"command": "/scale easing set pehkui:height pehkui:exponential_out @s"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_scale_modified",
+					"change": 1,
+					"operation": "set"
 				}
 			]
 		}
+	},
+
+	"origin_tracker": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 5,
+		"start_value": 0
 	},
 
 	"ticks_20": {
@@ -164,6 +190,10 @@
 								}
 							]
 						}
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/origin set @s thorigins:foxsize origins:empty"
 					}
 				]
 			},
