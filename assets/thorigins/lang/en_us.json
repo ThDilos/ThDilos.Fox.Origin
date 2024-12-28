@@ -18,7 +18,7 @@
 
 	"fox.thfoxify.name": "§6§l§nFoxify",
 	"fox.thfoxify.description": "Become a literal fox when sleeping, and be able to yoink a fox away on an adventure with you.",
-	"thfoxify.key0": "§b1. §rStand still, crouch and press [%s] to enter [§5Sleepin Mode§r].\nIf you are riding, press [%s] to enter [§5Sleepin Mode§r] §rdirectly.\n§8Exit this mode via moving or [%s§8]\n\n",
+	"thfoxify.key0": "§b1. §rStand still, crouch and press [%s] to enter [§5Sleepin Mode§r].\nIf you are riding, press [%s] to enter [§5Sleepin Mode§r] §rdirectly.\n§8Exit this mode via moving\n\n",
 	"thfoxify.key1": "§b2. §rWhile empty handed, crouch and press [%s] on a fox to put it on your head.\nUse [%s] while empty handed to drop the fox.\n\n",
 	"thfoxify.key2": "§b3. §rWhile empty handed, press [%s] on a fox to drop its item.\nPress [%s] on a fox to command it to sit.\n\n",
 	"thfoxify.key3": "§b4. §rAim at a player and press [%s] to mount on them.",
@@ -48,7 +48,8 @@
 	"fox.thweak.description": "You were born with slender limbs, which restrict you from using shield and performing well in heavy armors, weapons.",
 	"thweak.info": "[§c-§r] Cannot use shield\n[§c-§r] Equipping heavy armors limits your strength and mobility\n[§c-§r] Have less air when under water",
 	"thweak.info1": "\n[§c-§r] Using Mace is not a good idea",
-
+	"power.thorigins.fox.thweak_disable_shield.name": "From Passive Skill [§c§nWeak§r] :3",
+	
 	"fox.thfoxiality.name": "§e§nFoxiality",
 	"fox.thfoxiality.description": "Embrace your fox nature and thrive.",
 	"thfoxiality.info": "[§a+§r] Permanent night vision\n[§a+§r] Higher damage against prey mobs\n[§a+§r] Ignore berry bushes\n[§a+§r] Breaking berry bushes gives you sweet berries\n[§a+§r] Receive a random item when waking up\n[§c-§r] Can't fall asleep when not under shades\n[§a+§r] Do more damage to Merling and Avian\n[§c-§r] Receive more damage from Blazeborn\n[§a+§r] Dig extremely fast with claws(empty handed)\n[§a+§r] Climb in Powder Snow\n[§a+§r] Trusted by foxes\n[§c-§r] Anger wolves and polar bears",
@@ -103,5 +104,21 @@
 	"fox.feed": "You are fed by %s",
 	"fox.feed2": ", and received a positive effect!",
 	"fox.hug": "§dYou gave %s §dthe little critter a little hug :3",
-	"fox.hugged": "%s §dgave you a passionate hug"
+	"fox.hugged": "%s §dgave you a passionate hug",
+
+	"layer.thorigins.foxsize.name": "body size",
+	"origin.foxsize.m.name": "Default Size (M)",
+	"origin.foxsize.m.description": "The default size, shorter than a human",
+	"power.foxsize.m.name": "0.7x Height / Width",
+	"power.foxsize.m.description": "Cannot enter 1-block hole without crawling. Disguise Fox from [§6§l§nFoxify§r] is normal-sized.",
+
+	"origin.foxsize.s.name": "Smaller (S)",
+	"origin.foxsize.s.description": "Slightly smaller than Default Size",
+	"power.foxsize.s.name": "0.62x Height / Width",
+	"power.foxsize.s.description": "Can §lSNEAK§r into 1-block hole.",
+
+	"origin.foxsize.xs.name": "Extra Smaller (XS)",
+	"origin.foxsize.xs.description": "The smallest size setting you can get from me >:3",
+	"power.foxsize.xs.name": "0.5x Height / Width",
+	"power.foxsize.xs.description": "Can §lWALK§r and §lRUN§r in a 1-block hole."
 }
