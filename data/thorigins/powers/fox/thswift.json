@@ -15,68 +15,89 @@
 		}
 	],
 
-	"reduced_falldmg": {
+	"ticks_20": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:if_else_list",
+			"actions": [
+				{
+					"condition": {
+						"type": "origins:status_effect",
+						"effect": "minecraft:jump_boost",
+						"min_amplifier": 1
+					},
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_jump_boost_amp",
+						"change": 2,
+						"operation": "set"
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:status_effect",
+						"effect": "minecraft:jump_boost",
+						"min_amplifier": 0
+					},
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_jump_boost_amp",
+						"change": 1,
+						"operation": "set"
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:constant",
+						"value": true
+					},
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_jump_boost_amp",
+						"change": 0,
+						"operation": "set"
+					}
+				}
+			]
+		}
+	},
+
+	"jump_boost_amp": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2
+	},
+
+	"const_fall_dmg_reduction": {
 		"type": "origins:modify_damage_taken",
 		"damage_condition": {
 			"type": "origins:name",
 			"name": "fall"
 		},
 		"modifier": {
-			"operation": "multiply_base",
-			"value": -0.8
-		},
-		"condition": {
-			"type": "origins:sneaking"
+			"value": -20,
+			"operation": "addition",
+			"modifier": {
+				"operation": "multiply_base",
+				"resource": "*:*_jump_boost_amp",
+				"value": 0
+			}
 		}
 	},
 
-	"remove_falldmg": {
-		"type": "origins:invulnerability",
+	"landing_dmg_reduction": {
+		"type": "origins:modify_damage_taken",
 		"damage_condition": {
 			"type": "origins:name",
 			"name": "fall"
 		},
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -0.5
+		},
 		"condition": {
-			"type": "origins:or",
-			"conditions": [
-				{
-					"type": "origins:fall_distance",
-					"comparison": "<",
-					"compare_to": 24
-				},
-				{
-					"type": "origins:and",
-					"conditions": [
-						{
-							"type": "origins:fall_distance",
-							"comparison": "<",
-							"compare_to": 48
-						},
-						{
-							"type": "origins:status_effect",
-							"effect": "jump_boost",
-							"min_amplifier": 0,
-							"max_amplifier": 0
-						}
-					]
-				},
-				{
-					"type": "origins:and",
-					"conditions": [
-						{
-							"type": "origins:fall_distance",
-							"comparison": "<",
-							"compare_to": 72
-						},
-						{
-							"type": "origins:status_effect",
-							"effect": "jump_boost",
-							"min_amplifier": 1,
-							"max_amplifier": 127
-						}
-					]
-				}
-			]
+			"type": "origins:sneaking"
 		}
 	},
 
