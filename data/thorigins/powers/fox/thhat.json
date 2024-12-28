@@ -48,7 +48,7 @@
 			},
 			{
 				"type": "origins:execute_command",
-				"command": "/scale multiply pehkui:hitbox_width 0.7 @s"
+				"command": "/scale multiply pehkui:hitbox_width 0.5 @s"
 			},
 			{
 				"type": "origins:execute_command",
@@ -82,6 +82,8 @@
 					"type": "origins:attacker",
 					"entity_condition": {
 						"type": "origins:passenger",
+						"compare_to": 0,
+						"comparison": ">",
 						"bientity_condition": {
 							"type": "origins:riding_recursive"
 						}
@@ -167,6 +169,8 @@
 								"type": "origins:actor_condition",
 								"condition": {
 									"type": "origins:passenger",
+									"compare_to": 0,
+									"comparison": ">",
 									"bientity_condition": {
 										"type": "origins:actor_condition",
 										"condition": {
@@ -191,10 +195,13 @@
 										"type": "origins:actor_action",
 										"action": {
 											"type": "origins:passenger_action",
-											"action": {
-												"type": "origins:change_resource",
-												"resource": "*:*_safari",
-												"change": 1
+											"bientity_action": {
+												"type": "origins:actor_action",
+												"action": {
+													"type": "origins:change_resource",
+													"resource": "*:*_safari",
+													"change": 1
+												}
 											}
 										}
 									}
@@ -223,10 +230,13 @@
 					},
 					{
 						"type": "origins:passenger_action",
-						"action": {
-							"type": "origins:change_resource",
-							"resource": "*:*_safari",
-							"change": -1
+						"bientity_action": {
+							"type": "origins:actor_action",
+							"action": {
+								"type": "origins:change_resource",
+								"resource": "*:*_safari",
+								"change": -1
+							}
 						}
 					}
 				]
@@ -254,8 +264,11 @@
 						"actions": [
 							{
 								"type": "origins:passenger_action",
-								"action": {
-									"type": "origins:dismount"
+								"bientity_action": {
+									"type": "origins:actor_action",
+									"action": {
+										"type": "origins:dismount"
+									}
 								}
 							},
 							{
@@ -359,7 +372,7 @@
 			},
 			{
 				"type": "origins:execute_command",
-				"command": "/scale divide pehkui:hitbox_width 0.7 @s"
+				"command": "/scale divide pehkui:hitbox_width 0.5 @s"
 			},
 			{
 				"type": "origins:execute_command",

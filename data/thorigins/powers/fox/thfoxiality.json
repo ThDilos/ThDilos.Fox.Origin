@@ -160,12 +160,24 @@
 				},
 				"else_action": [
 					{
-						"type": "origins:execute_command",
-						"command": "/execute as @e[type=wolf,distance=..2] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
-					},
-					{
-						"type": "origins:execute_command",
-						"command": "/execute as @e[type=polar_bear,distance=..2] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:gamemode",
+							"gamemode": "survival"
+						},
+						"if_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:execute_command",
+									"command": "/execute as @e[type=wolf,distance=..2] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/execute as @e[type=polar_bear,distance=..2] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
+								}
+							]
+						}
 					},
 					{
 						"type": "origins:delay",

@@ -57,7 +57,7 @@
 								"action": {
 									"type": "origins:equipped_item_action",
 									"equipment_slot": "mainhand",
-									"action": {
+									"item_action": {
 										"type": "origins:consume",
 										"amount": 1
 									}
@@ -72,7 +72,7 @@
 								"action": {
 									"type": "origins:equipped_item_action",
 									"equipment_slot": "offhand",
-									"action": {
+									"item_action": {
 										"type": "origins:consume",
 										"amount": 1
 									}
@@ -188,7 +188,7 @@
 												"action": {
 													"type": "origins:equipped_item_action",
 													"equipment_slot": "mainhand",
-													"action": {
+													"item_action": {
 														"type": "origins:consume",
 														"amount": 1
 													}
@@ -203,7 +203,7 @@
 												"action": {
 													"type": "origins:equipped_item_action",
 													"equipment_slot": "offhand",
-													"action": {
+													"item_action": {
 														"type": "origins:consume",
 														"amount": 1
 													}
@@ -315,6 +315,16 @@
 				"type": "origins:change_resource",
 				"resource": "*:fox/thtrackers_scale_modified",
 				"change": 2
+			},
+			{
+				"type": "origins:change_resource",
+				"resource": "*:fox/thtrackers_scale_modified",
+				"change": 0,
+				"operation": "set"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/execute as @a[tag=foxie,distance=..5] run origin gui @s thorigins:foxsize"
 			}
 		]
 	},

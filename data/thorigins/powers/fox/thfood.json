@@ -111,14 +111,8 @@
 							{
 								"weight": 10,
 								"element": {
-									"type": "origins:apply_effect",
-									"effect": {
-										"id": "minecraft:instant_health",
-										"amplifier": 0,
-										"duration": 1,
-										"show_particles": false,
-										"is_ambient": false
-									}
+									"type": "origins:heal",
+									"amount": 4
 								}
 							},
 							{
@@ -288,14 +282,8 @@
 							{
 								"weight": 10,
 								"element": {
-									"type": "origins:apply_effect",
-									"effect": {
-										"id": "minecraft:instant_health",
-										"amplifier": 0,
-										"duration": 1,
-										"show_particles": false,
-										"is_ambient": false
-									}
+									"type": "origins:heal",
+									"amount": 4
 								}
 							},
 							{

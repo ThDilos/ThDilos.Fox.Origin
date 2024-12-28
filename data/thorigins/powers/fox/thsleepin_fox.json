@@ -408,8 +408,11 @@
 					},
 					"if_action": {
 						"type": "origins:passenger_action",
-						"action": {
-							"type": "origins:dismount"
+						"bientity_action": {
+							"type": "origins:actor_action",
+							"action": {
+								"type": "origins:dismount"
+							}
 						}
 					}
 				},
@@ -439,6 +442,8 @@
 									},
 									{
 										"type": "origins:passenger",
+										"compare_to": 0,
+										"comparison": ">",
 										"bientity_condition": {
 											"type": "origins:actor_condition",
 											"condition": {
@@ -511,18 +516,21 @@
 						},
 						{
 							"type": "origins:passenger_action",
-							"action": {
-								"type": "origins:area_of_effect",
-								"radius": 3,
-								"bientity_condition": {
-									"type": "origins:target_condition",
-									"condition": {
-										"type": "origins:nbt",
-										"nbt": "{\"Tags\":[\"to_be_ridden\"]}"
+							"bientity_action": {
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:area_of_effect",
+									"radius": 3,
+									"bientity_condition": {
+										"type": "origins:target_condition",
+										"condition": {
+											"type": "origins:nbt",
+											"nbt": "{\"Tags\":[\"to_be_ridden\"]}"
+										}
+									},
+									"bientity_action": {
+										"type": "origins:mount"
 									}
-								},
-								"bientity_action": {
-									"type": "origins:mount"
 								}
 							}
 						},
@@ -551,8 +559,11 @@
 						},
 						{
 							"type": "origins:passenger_action",
-							"action": {
-								"type": "origins:dismount"
+							"bientity_action": {
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:dismount"
+								}
 							}
 						},
 						{

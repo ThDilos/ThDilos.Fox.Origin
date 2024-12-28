@@ -1,0 +1,9 @@
+{
+	"powers": ["foxsize:xs"],
+	"icon": {
+		"id": "minecraft:gold_nugget"
+	},
+	"impact": 3,
+	"unchoosable": false,
+	"order": 3
+}

@@ -18,7 +18,7 @@
 
 	"fox.thfoxify.name": "§6§l§n狐化",
 	"fox.thfoxify.description": "睡觉时变成一只狐狸, 并且可以顶着一只狐狸去冒险。",
-	"thfoxify.key0": "§b1. §r站立不动, 蹲下并按 [%s] 进入[§5睡眠模式§r]\n如果你正在骑乘, 按下 [%s] 直接进入[§5睡眠模式§r]\n§8移动或按[%s§8]退出该模式\n\n",
+	"thfoxify.key0": "§b1. §r站立不动, 蹲下并按 [%s] 进入[§5睡眠模式§r]\n如果你正在骑乘, 按下 [%s] 直接进入[§5睡眠模式§r]\n§8移动退出该模式\n\n",
 	"thfoxify.key1": "§b2. §r空手时, 蹲下并对着狐狸按 [%s] 将其放在头上。\n空手时按 [%s] 放下狐狸\n\n",
 	"thfoxify.key2": "§b3. §r空手时, 对着狐狸按下 [%s] 让其丢出含着的物品。\n对着狐狸按下 [%s] 命令其坐下\n\n",
 	"thfoxify.key3": "§b4. §r对着玩家按下 [%s] 骑在他们头上",
@@ -48,7 +48,8 @@
 	"fox.thweak.description": "你纤细的四肢不能使用盾牌, 不能正常身着重甲。",
 	"thweak.info": "[§c-§r] 无法使用盾牌\n[§c-§r] 过于沉重的护甲会给你带来负担\n[§c-§r] 水下氧气消耗更快",
 	"thweak.info1": "\n[§c-§r] 最好不要使用重锤",
-
+	"power.thorigins.fox.thweak_disable_shield.name": "来自被动能力 [§c§n羸弱] :3",
+	
 	"fox.thfoxiality.name": "§e§n狐狸本性",
 	"fox.thfoxiality.description": "理解狐狸, 接受狐狸, 成为狐狸。",
 	"thfoxiality.info": "[§a+§r] 永久夜视\n[§a+§r] 对猎物的伤害大幅提高\n[§a+§r] 无视浆果丛\n[§a+§r] 破坏浆果丛可回收浆果\n[§a+§r] 起床时获取随机物品\n[§c-§r] 不在阴影下无法入睡\n[§a+§r] 对人鱼族和羽人族起源玩家造成更多伤害\n[§c-§r] 受到更多来自烈焰族起源玩家的伤害\n[§a+§r] 用爪子光速挖掘(空手)\n[§a+§r] 攀爬细雪方块\n[§c-§r] 惹怒附近的狼和北极熊\n[§a+§r] 受到狐狸信任",
@@ -89,7 +90,7 @@
 	"death.attack.thorigins:foxie_bite": "%1$s被撕成了碎片。",
 	"death.attack.thorigins:predator_bite": "%1$s被%2$s开膛破肚。",
 
-	"death.attack.thorigins:foxie_bite.player": "%1$被%2$s活活咬死。",
+	"death.attack.thorigins:foxie_bite.player": "%1$s被%2$s活活咬死。",
 	"death.attack.thorigins:predator_bite.player": "%1$s无法逃脱%2$s的爪牙。",
 
 	"death.attack.thorigins:foxie_bite.item": "%1$s低估了爪持%3$s的%2$s在死斗中的野性。",
@@ -103,5 +104,21 @@
 	"fox.feed": "你收到了来自%s的投喂",
 	"fox.feed2": ", 并且获得了一个随机正面效果！",
 	"fox.hug": "§d你给了小动物%s§d一个小小的拥抱:3",
-	"fox.hugged": "%s§d给你了一个热情的拥抱"
+	"fox.hugged": "%s§d给你了一个热情的拥抱",
+	
+	"layer.thorigins.foxsize.name": "体型",
+	"origin.foxsize.m.name": "默认体型 (M)",
+	"origin.foxsize.m.description": "起源作者指定的体型, 比人类略矮",
+	"power.foxsize.m.name": "0.7x 高/宽",
+	"power.foxsize.m.description": "只能爬行进入一格高的洞, [§6§l§n狐化§r]技能的伪装狐狸也是正常体型",
+
+	"origin.foxsize.s.name": "小号 (S)",
+	"origin.foxsize.s.description": "比默认体型更小一号",
+	"power.foxsize.s.name": "0.62x 高/宽",
+	"power.foxsize.s.description": "能够§l潜行§r进入一格高的洞",
+
+	"origin.foxsize.xs.name": "超小号 (XS)",
+	"origin.foxsize.xs.description": "最小的一号了, 再小的没货了>:3",
+	"power.foxsize.xs.name": "0.5x 高/宽",
+	"power.foxsize.xs.description": "能在一格高的洞里§l行走§r与§l疾行§r"
 }

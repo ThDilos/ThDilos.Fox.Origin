@@ -1,0 +1,29 @@
+{
+	"origins": [
+		{
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:origin",
+						"origin": "thorigins:fox",
+						"layer": "origins:origin"
+					},
+					{
+						"type": "origins:origin",
+						"origin": "thorigins:element_fox",
+						"layer": "origins:origin"
+					}
+				]
+			},
+			"origins": ["foxsize:m", "foxsize:s", "foxsize:xs"]
+		}
+	],
+	"missing_name": "MISSING NAME",
+	"missing_description": "MISSING DESCRIPTION",
+	"allow_random": false,
+	"loading_priority": 2,
+	"order": 2,
+	"auto_choose": true,
+	"hidden": true
+}

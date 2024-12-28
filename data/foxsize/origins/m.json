@@ -1,0 +1,10 @@
+{
+    "powers": [ "foxsize:m" ],
+	"icon": {
+        "id": "minecraft:player_head",
+        "tag": "{SkullOwner:\"ThDilos\"}"
+    },
+	"impact": 1,
+	"unchoosable": false,
+	"order": 1
+}

@@ -32,145 +32,131 @@
 		"type": "origins:action_over_time",
 		"interval": 1,
 		"entity_action": [
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:any_of",
-						"conditions": [
-							{
-								"type": "origins:power_active",
-								"power": "*:*_switch",
-								"inverted": true
-							},
-							{
-								"type": "origins:fall_distance",
-								"compare_to": 2.5,
-								"comparison": ">="
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:fox/thdash_left_ground",
-								"compare_to": 1,
-								"comparison": "=="
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:trigger_cooldown",
-						"power": "*:*_prepare_stage"
-					},
-					"else_action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:moving",
+			{
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:any_of",
+					"conditions": [
+						{
+							"type": "origins:power_active",
+							"power": "*:*_switch",
 							"inverted": true
 						},
-						"if_action": {
-							"type": "origins:modify_resource",
-							"resource": "*:*_prepare_stage",
-							"modifier": {
-								"operation": "set_base",
-								"resource": "*:*_prepare_stage",
-								"modifier": {
-									"operation": "add_base_early",
-									"amount": -1
-								}
-							}
+						{
+							"type": "origins:fall_distance",
+							"compare_to": 2.5,
+							"comparison": ">="
+						},
+						{
+							"type": "origins:resource",
+							"resource": "*:fox/thdash_left_ground",
+							"compare_to": 1,
+							"comparison": "=="
 						}
-					}
+					]
 				},
-				{
+				"if_action": {
+					"type": "origins:trigger_cooldown",
+					"power": "*:*_prepare_stage"
+				},
+				"else_action": {
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:resource",
-						"resource": "*:*_prepare_stage",
-						"compare_to": 0,
-						"comparison": "=="
-					},
-					"if_action": {
-						"type": "origins:trigger_cooldown",
-						"power": "*:*_hunt_stage"
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:resource",
-						"resource": "*:*_prepare_stage",
-						"compare_to": 50,
-						"comparison": "<="
-					},
-					"if_action": {
-						"type": "origins:apply_effect",
-						"effect": {
-							"id": "minecraft:invisibility",
-							"amplifier": 0,
-							"duration": 3,
-							"is_ambient": false,
-							"show_particles": false,
-							"show_icon": false
-						}
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:all_of",
-						"conditions": [
-							{
-								"type": "origins:resource",
-								"resource": "*:*_hunt_stage",
-								"compare_to": 1,
-								"comparison": "=="
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:fox/thdash_left_ground",
-								"compare_to": 1,
-								"comparison": "=="
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:modify_resource",
-						"resource": "*:*_hunt_stage",
-						"modifier": {
-							"operation": "set_base",
-							"resource": "*:*_hunt_stage",
-							"modifier": {
-								"operation": "add_base_early",
-								"amount": 1
-							}
-						}
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:any_of",
-						"conditions": [
-							{
-								"type": "origins:resource",
-								"resource": "*:*_prepare_stage",
-								"compare_to": 98,
-								"comparison": "<"
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:*_hunt_stage",
-								"compare_to": 0,
-								"comparison": ">"
-							}
-						]
+						"type": "origins:moving",
+						"inverted": true
 					},
 					"if_action": {
 						"type": "origins:change_resource",
-						"resource": "*:fox/thshy_fear_timer",
-						"change": 100,
-						"operation": "set"
+						"resource": "*:*_prepare_stage",
+						"change": -1
 					}
 				}
-			]
+			},
+			{
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:resource",
+					"resource": "*:*_prepare_stage",
+					"compare_to": 0,
+					"comparison": "=="
+				},
+				"if_action": {
+					"type": "origins:trigger_cooldown",
+					"power": "*:*_hunt_stage"
+				}
+			},
+			{
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:resource",
+					"resource": "*:*_prepare_stage",
+					"compare_to": 50,
+					"comparison": "<="
+				},
+				"if_action": {
+					"type": "origins:apply_effect",
+					"effect": {
+						"id": "minecraft:invisibility",
+						"amplifier": 0,
+						"duration": 3,
+						"is_ambient": false,
+						"show_particles": false,
+						"show_icon": false
+					}
+				}
+			},
+			{
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:all_of",
+					"conditions": [
+						{
+							"type": "origins:resource",
+							"resource": "*:*_hunt_stage",
+							"compare_to": 1,
+							"comparison": "=="
+						},
+						{
+							"type": "origins:resource",
+							"resource": "*:fox/thdash_left_ground",
+							"compare_to": 1,
+							"comparison": "=="
+						}
+					]
+				},
+				"if_action": {
+					"type": "origins:change_resource",
+					"resource": "*:*_hunt_stage",
+					"change": -1
+				}
+			},
+			{
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:any_of",
+					"conditions": [
+						{
+							"type": "origins:resource",
+							"resource": "*:*_prepare_stage",
+							"compare_to": 98,
+							"comparison": "<"
+						},
+						{
+							"type": "origins:resource",
+							"resource": "*:*_hunt_stage",
+							"compare_to": 0,
+							"comparison": ">"
+						}
+					]
+				},
+				"if_action": {
+					"type": "origins:change_resource",
+					"resource": "*:fox/thshy_fear_timer",
+					"change": 100,
+					"operation": "set"
+				}
+			}
+		]
 	},
 
 	"ticks_20": {
@@ -411,16 +397,9 @@
 					]
 				},
 				"if_action": {
-					"type": "origins:modify_resource",
+					"type": "origins:change_resource",
 					"resource": "*:*_hunt_stage",
-					"modifier": {
-						"operation": "set_base",
-						"resource": "*:*_hunt_stage",
-						"modifier": {
-							"operation": "add_base_early",
-							"amount": -10
-						}
-					}
+					"change": -10
 				}
 			}
 		]
@@ -1176,96 +1155,89 @@
 						"type": "origins:delay",
 						"ticks": 3,
 						"action": [
-								{
-									"type": "origins:actor_action",
-									"action": {
-										"type": "origins:swing_hand",
-										"hand": "OFF_HAND"
-									}
-								},
-								{
-									"type": "origins:damage",
-									"amount": 2,
-									"damage_type": "thorigins:foxie_bite"
-								},
-								{
-									"type": "origins:target_action",
-									"action": {
-										"type": "origins:play_sound",
-										"sound": "minecraft:entity.zombie.break_wooden_door",
-										"volume": 0.3,
-										"pitch": 1.5
-									}
-								},
-								{
-									"type": "origins:target_action",
-									"action": {
-										"type": "origins:if_else",
-										"condition": {
-											"type": "origins:entity_type",
-											"entity_type": "creeper",
-											"inverted": true
-										},
-										"if_action": {
-											"type": "origins:apply_effect",
-											"effects": [
-												{
-													"id": "minecraft:weakness",
-													"duration": 60,
-													"amplifier": 0,
-													"is_ambient": false,
-													"show_icon": true,
-													"show_particles": false
-												},
-												{
-													"id": "minecraft:nausea",
-													"duration": 100,
-													"amplifier": 0,
-													"is_ambient": false,
-													"show_icon": true,
-													"show_particles": false
-												}
-											]
-										}
-									}
-								},
-								{
-									"type": "origins:actor_action",
-									"action": [
+							{
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:swing_hand",
+									"hand": "OFF_HAND"
+								}
+							},
+							{
+								"type": "origins:damage",
+								"amount": 2,
+								"damage_type": "thorigins:foxie_bite"
+							},
+							{
+								"type": "origins:target_action",
+								"action": {
+									"type": "origins:play_sound",
+									"sound": "minecraft:entity.zombie.break_wooden_door",
+									"volume": 0.3,
+									"pitch": 1.5
+								}
+							},
+							{
+								"type": "origins:target_action",
+								"action": {
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:entity_type",
+										"entity_type": "creeper",
+										"inverted": true
+									},
+									"if_action": {
+										"type": "origins:apply_effect",
+										"effects": [
 											{
-												"type": "origins:play_sound",
-												"sound": "minecraft:entity.fox.eat",
-												"pitch": 1.2,
-												"volume": 1.0
+												"id": "minecraft:weakness",
+												"duration": 60,
+												"amplifier": 0,
+												"is_ambient": false,
+												"show_icon": true,
+												"show_particles": false
 											},
 											{
-												"type": "origins:execute_command",
-												"command": "/particle dust_color_transition{from_color:[1.0,0.0,0.0],to_color:[1.2,0.15,0.0],scale:1} ~ ~1.2 ~ 0.1 0.1 0.1 5 8 force"
-											},
-											{
-												"type": "origins:execute_command",
-												"command": "/particle dust_color_transition{from_color:[1.0,0.0,0.0],to_color:[0.5,0.15,0.0],scale:1} ~ ~1.2 ~ 0.15 0.15 0.15 10 16 force"
-											},
-											{
-												"type": "origins:feed",
-												"nutrition": 2,
-												"saturation": 2
-											},
-											{
-												"type": "origins:modify_resource",
-												"resource": "*:*_hunt_stage",
-												"modifier": {
-													"operation": "set_base",
-													"resource": "*:*_hunt_stage",
-													"modifier": {
-														"operation": "add_base_early",
-														"amount": 30
-													}
-												}
+												"id": "minecraft:nausea",
+												"duration": 100,
+												"amplifier": 0,
+												"is_ambient": false,
+												"show_icon": true,
+												"show_particles": false
 											}
 										]
+									}
 								}
-							]
+							},
+							{
+								"type": "origins:actor_action",
+								"action": [
+									{
+										"type": "origins:play_sound",
+										"sound": "minecraft:entity.fox.eat",
+										"pitch": 1.2,
+										"volume": 1.0
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/particle dust_color_transition{from_color:[1.0,0.0,0.0],to_color:[1.2,0.15,0.0],scale:1} ~ ~1.2 ~ 0.1 0.1 0.1 5 8 force"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/particle dust_color_transition{from_color:[1.0,0.0,0.0],to_color:[0.5,0.15,0.0],scale:1} ~ ~1.2 ~ 0.15 0.15 0.15 10 16 force"
+									},
+									{
+										"type": "origins:feed",
+										"nutrition": 2,
+										"saturation": 2
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_hunt_stage",
+										"change": 30
+									}
+								]
+							}
+						]
 					}
 				]
 			}

@@ -604,7 +604,7 @@
 												},
 												{
 													"type": "origins:delay",
-													"ticks": 1,
+													"ticks": 5,
 													"action": {
 														"type": "origins:execute_command",
 														"command": "/tag @s remove feeder"
@@ -624,7 +624,7 @@
 												},
 												{
 													"type": "origins:delay",
-													"ticks": 1,
+													"ticks": 5,
 													"action": {
 														"type": "origins:execute_command",
 														"command": "/tag @s remove fed"
@@ -745,14 +745,8 @@
 																	{
 																		"weight": 10,
 																		"element": {
-																			"type": "origins:apply_effect",
-																			"effect": {
-																				"id": "minecraft:instant_health",
-																				"amplifier": 0,
-																				"duration": 1,
-																				"show_particles": false,
-																				"is_ambient": false
-																			}
+																			"type": "origins:heal",
+																			"amount": 4
 																		}
 																	},
 																	{
@@ -869,7 +863,7 @@
 								"type": "origins:actor_condition",
 								"condition": {
 									"type": "origins:raycast",
-									"distance": 0.8
+									"distance": 1.0
 								}
 							},
 							"action": {
@@ -902,7 +896,7 @@
 												},
 												{
 													"type": "origins:delay",
-													"ticks": 2,
+													"ticks": 5,
 													"action": {
 														"type": "origins:execute_command",
 														"command": "/tag @s remove hug"
@@ -970,7 +964,7 @@
 												},
 												{
 													"type": "origins:delay",
-													"ticks": 2,
+													"ticks": 5,
 													"action": {
 														"type": "origins:execute_command",
 														"command": "/tag @s remove hugged"
@@ -1016,7 +1010,7 @@
 												},
 												{
 													"type": "origins:delay",
-													"ticks": 2,
+													"ticks": 5,
 													"action": {
 														"type": "origins:execute_command",
 														"command": "/tag @s remove pet"
@@ -1102,7 +1096,7 @@
 												},
 												{
 													"type": "origins:delay",
-													"ticks": 2,
+													"ticks": 5,
 													"action": {
 														"type": "origins:execute_command",
 														"command": "/tag @s remove petted"
@@ -1206,7 +1200,7 @@
 												},
 												{
 													"type": "origins:delay",
-													"ticks": 2,
+													"ticks": 5,
 													"action": {
 														"type": "origins:execute_command",
 														"command": "/tag @s remove booped"
