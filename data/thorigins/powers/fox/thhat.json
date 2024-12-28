@@ -50,7 +50,7 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/scale multiply pehkui:hitbox_width 0.7 @s"
+					"command": "/scale multiply pehkui:hitbox_width 0.5 @s"
 				},
 				{
 					"type": "origins:execute_command",
@@ -364,7 +364,7 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/scale divide pehkui:hitbox_width 0.7 @s"
+					"command": "/scale divide pehkui:hitbox_width 0.5 @s"
 				},
 				{
 					"type": "origins:execute_command",

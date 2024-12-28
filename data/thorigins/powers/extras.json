@@ -267,7 +267,7 @@
 			]
 		}
 	},
-	
+
 	"figura": {
 		"type": "origins:resource",
 		"min": 0,
@@ -328,7 +328,12 @@
 				{
 					"type": "origins:change_resource",
 					"resource": "*:fox/thtrackers_scale_modified",
-					"change": 2
+					"change": 0,
+					"operation": "set"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[tag=foxie,distance=..5] run origin gui @s thorigins:foxsize"
 				}
 			]
 		}

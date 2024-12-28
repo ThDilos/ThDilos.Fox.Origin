@@ -1,0 +1,46 @@
+{
+	"type": "origins:action_on_callback",
+	"entity_action_chosen": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "thorigins:fox/thtrackers_scale_modified",
+			"compare_to": 0,
+			"comparison": "=="
+		},
+		"if_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/scale multiply pehkui:height 0.62 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scale multiply pehkui:width 0.62 @s"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "thorigins:fox/thtrackers_scale_modified",
+					"change": 2,
+					"operation": "set"
+				}
+			]
+		}
+	},
+	"entity_action_lost": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:change_resource",
+				"resource": "thorigins:fox/thtrackers_scale_modified",
+				"change": 0,
+				"operation": "set"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/scale reset @s"
+			}
+		]
+	}
+}

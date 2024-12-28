@@ -1,0 +1,9 @@
+{
+	"powers": [ "foxsize:s" ],
+	"icon": {
+		"item": "minecraft:dandelion"
+	},
+	"impact": 2,
+	"unchoosable": false,
+	"order": 2
+}

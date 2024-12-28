@@ -15,28 +15,6 @@
 		}
 	],
 
-	"adjust_size": {
-		"type": "origins:action_on_callback",
-		"entity_action_gained": {
-			"type": "origins:delay",
-			"ticks": 1,
-			"action": {
-				"type": "origins:if_else",
-				"condition": {
-					"type": "origins:resource",
-					"resource": "*:fox/thtrackers_scale_modified",
-					"compare_to": 0,
-					"comparison": "=="
-				},
-				"if_action": {
-					"type": "origins:change_resource",
-					"resource": "*:fox/thtrackers_scale_modified",
-					"change": 2
-				}
-			}
-		}
-	},
-
 	"max_health": {
 		"type": "origins:attribute",
 		"modifier": {
