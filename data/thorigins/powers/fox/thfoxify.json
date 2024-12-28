@@ -20,10 +20,6 @@
 						{
 							"keybind": "key.sprint",
 							"color": "aqua"
-						},
-						{
-							"keybind": "key.forward",
-							"color": "dark_gray"
 						}
 					]
 				},
@@ -487,10 +483,19 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:resource",
-						"resource": "*:*_afk_timer",
-						"compare_to": 0,
-						"comparison": ">"
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:riding",
+								"inverted": true
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:*_afk_timer",
+								"compare_to": 0,
+								"comparison": ">"
+							}
+						]
 					},
 					"if_action": {
 						"type": "origins:change_resource",
@@ -630,12 +635,72 @@
 						}
 					},
 					"bientity_action": {
-						"type": "origins:target_action",
-						"action": {
-							"type": "origins:grant_power",
-							"power": "*:fox/thsleepin_fox",
-							"source": "thorigins:temp"
-						}
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:target_action",
+								"action": {
+									"type": "origins:grant_power",
+									"power": "*:fox/thsleepin_fox",
+									"source": "thorigins:temp"
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:actor_condition",
+									"condition": {
+										"type": "origins:origin",
+										"layer": "thorigins:foxsize",
+										"origin": "foxsize:m"
+									},
+									"inverted": true
+								},
+								"if_action": {
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:actor_condition",
+										"condition": {
+											"type": "origins:origin",
+											"layer": "thorigins:foxsize",
+											"origin": "foxsize:s"
+										}
+									},
+									"if_action": {
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/scale multiply pehkui:height 0.8857142857143 @s"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/scale multiply pehkui:width 0.8857142857143 @s"
+												}
+											]
+										}
+									},
+									"else_action": {
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/scale multiply pehkui:height 0.7142857142857 @s"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/scale multiply pehkui:width 0.7142857142857 @s"
+												}
+											]
+										}
+									}
+								}
+							}
+						]
 					}
 				},
 				{
@@ -1242,7 +1307,7 @@
 				"if_action": {
 					"type": "origins:change_resource",
 					"resource": "*:*_afk_timer",
-					"change": 3,
+					"change": 0,
 					"operation": "set"
 				}
 			}
@@ -1666,20 +1731,6 @@
 			"resource": "*:*_afk_timer",
 			"compare_to": 0,
 			"comparison": "=="
-		}
-	},
-
-	"active_self_fwd": {
-		"type": "origins:active_self",
-		"key": {
-			"key": "key.forward",
-			"continuous": true
-		},
-		"entity_action": {
-			"type": "origins:change_resource",
-			"resource": "*:*_afk_timer",
-			"change": 1200,
-			"operation": "set"
 		}
 	},
 
