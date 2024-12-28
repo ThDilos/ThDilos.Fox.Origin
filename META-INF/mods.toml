@@ -3,12 +3,12 @@ loaderVersion="[36,)"
 license="ARR"
 issueTrackerURL="https://github.com/ThDilos/ThDilos.Fox.Origin/issues"
 description='''
-ThDilos' Custom Made Fox Origins. Slightly overpowered.
+ThDilos' moderatedly complicated homebrew Fox Origin, with 30% pouncin and 70% foxes :3
 '''
 
 [[mods]]
 modId="thorigins"
-version="4.1.1.1"
+version="4.1.2"
 displayName="ThDilos Fox Origins"
 
 [[dependencies.thorigins]]
