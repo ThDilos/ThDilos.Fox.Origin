@@ -38,9 +38,12 @@ If in multiplayer, make sure:
 3. There is not many people playing
 ---
 ### Currently Known Incompatibilities
+These Incompatibilities are applied to **All Origins** with similar Powers.\
+My Fox has **a lot** of Powers, which makes it extra vulnerable to incompatibility issues :(
 1. For Forge Side, Alex's Cave will somehow nullify the Night Vision Skill in this Origin [Found by HeartlessRiku369]
    > This problem occurs for all Forge Origin that uses Night Vision, there is no fix for that unless the Forge Origin updates
-2. Entity Culling will make the Hunt Skill's Mob sensing terrible
+2. For Forge Side, Entity Culling will cause the Debug Log to go crazy. (And cause you to experience extreme Lag as well?)
+3. Entity Culling will make the Hunt Skill's Mob sensing terrible
    > The Mod prevents mobs that you can't see from rendering, for performance.\
    > Meanwhile the Mob sensing skill is for you to see mobs across the walls.\
    > This mod would cause you to only see mobs that you can normally see.\
