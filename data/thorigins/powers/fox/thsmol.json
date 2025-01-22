@@ -4,17 +4,17 @@
 	"description": { "translate": "fox.thsmol.description" },
 	"badges": [
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/item/diamond.png",
-			"text": "origin.thorigin.passive"
+			"text": { "translate": "origin.thorigin.passive" }
 		},
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": "thsmol.info"
+			"text": { "translate": "thsmol.info" }
 		}
 	],
-	
+
 	"max_health": {
 		"type": "origins:attribute",
 		"modifier": {

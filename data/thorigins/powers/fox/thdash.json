@@ -17,9 +17,9 @@
 			}
 		},
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": "thdash.info"
+			"text": { "translate": "thdash.info" }
 		}
 	],
 
@@ -647,7 +647,6 @@
 		"entity_action": {
 			"type": "origins:execute_command",
 			"command": "/playsound minecraft:entity.fox.sleep player @s ~ ~ ~ 0.5 1.2"
-
 		},
 		"key": "key.origins.primary_active",
 		"cooldown": 40

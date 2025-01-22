@@ -83,6 +83,15 @@
 		}
 	},
 
+	"invis_high_version": {
+		"type": "origins:prevent_feature_render",
+		"feature": "fox_held_item",
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_synchronized_invis"
+		}
+	},
+
 	"transparent0": {
 		"type": "origins:model_color",
 		"alpha": 0.95,
@@ -409,7 +418,7 @@
 					"if_action": {
 						"type": "origins:passenger_action",
 						"bientity_action": {
-							"type": "origins:actor_action",
+							"type": "origins:target_action",
 							"action": {
 								"type": "origins:dismount"
 							}
@@ -517,7 +526,7 @@
 						{
 							"type": "origins:passenger_action",
 							"bientity_action": {
-								"type": "origins:actor_action",
+								"type": "origins:target_action",
 								"action": {
 									"type": "origins:area_of_effect",
 									"radius": 3,
@@ -560,7 +569,7 @@
 						{
 							"type": "origins:passenger_action",
 							"bientity_action": {
-								"type": "origins:actor_action",
+								"type": "origins:target_action",
 								"action": {
 									"type": "origins:dismount"
 								}

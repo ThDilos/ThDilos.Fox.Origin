@@ -4,8 +4,8 @@
 	"description": { "translate": "fox.thfoxiality.description" },
 	"badges": [
 		{
-			"type": "origins:keybind",
-			"text": "origin.thorigin.passive",
+			"type": "origins:tooltip",
+			"text": { "translate": "origin.thorigin.passive" },
 			"sprite": "minecraft:textures/item/sweet_berries.png"
 		},
 		{
@@ -21,8 +21,8 @@
 			]
 		},
 		{
-			"type": "origins:keybind",
-			"text": "thfoxiality.info2",
+			"type": "origins:tooltip",
+			"text": { "translate": "thfoxiality.info2" },
 			"sprite": "origins:textures/gui/badge/arrow_up.png"
 		}
 	],
@@ -522,7 +522,7 @@
 			"comparison": ">"
 		}
 	},
-	
+
 	"passive_nightvision": {
 		"type": "origins:toggle_night_vision",
 		"active_by_default": true,

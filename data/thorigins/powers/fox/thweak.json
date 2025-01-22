@@ -4,9 +4,9 @@
 	"description": { "translate": "fox.thweak.description" },
 	"badges": [
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/item/kelp.png",
-			"text": "origin.thorigin.passive"
+			"text": { "translate": "origin.thorigin.passive" }
 		},
 		{
 			"type": "origins:tooltip",

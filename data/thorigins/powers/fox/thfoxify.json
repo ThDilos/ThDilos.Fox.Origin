@@ -899,6 +899,15 @@
 		}
 	},
 
+	"invis_high_version": {
+		"type": "origins:prevent_feature_render",
+		"features": ["elytra", "cape", "held_item", "head"],
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_afk_invis"
+		}
+	},
+
 	"in_wall_check": {
 		"type": "origins:cooldown",
 		"cooldown": 10
@@ -1337,7 +1346,7 @@
 				"if_action": {
 					"type": "origins:passenger_action",
 					"bientity_action": {
-						"type": "origins:actor_action",
+						"type": "origins:target_action",
 						"action": {
 							"type": "origins:change_resource",
 							"resource": "*:fox/thhat_safari",
@@ -1348,7 +1357,7 @@
 				"else_action": {
 					"type": "origins:passenger_action",
 					"bientity_action": {
-						"type": "origins:actor_action",
+						"type": "origins:target_action",
 						"action": {
 							"type": "origins:dismount"
 						}
@@ -1810,7 +1819,7 @@
 										"action": {
 											"type": "origins:passenger_action",
 											"bientity_action": {
-												"type": "origins:actor_action",
+												"type": "origins:target_action",
 												"action": {
 													"type": "origins:change_resource",
 													"resource": "*:fox/thhat_safari",

@@ -22,9 +22,9 @@
 			}
 		},
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": "thstorage.info"
+			"text": { "translate": "thstorage.info" }
 		}
 	]
 }

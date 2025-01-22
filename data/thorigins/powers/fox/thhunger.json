@@ -4,14 +4,14 @@
 	"description": { "translate": "fox.thhunger.description" },
 	"badges": [
 		{
-			"type": "origins:keybind",
-			"text": "origin.thorigin.passive",
+			"type": "origins:tooltip",
+			"text": { "translate": "origin.thorigin.passive" },
 			"sprite": "minecraft:textures/item/rotten_flesh.png"
 		},
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": "thhunger.info"
+			"text": { "translate": "thhunger.info" }
 		}
 	],
 

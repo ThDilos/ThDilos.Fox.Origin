@@ -4,14 +4,14 @@
 	"description": { "translate": "fox.thswift.description" },
 	"badges": [
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/item/feather.png",
-			"text": "origin.thorigin.passive"
+			"text": { "translate": "origin.thorigin.passive" }
 		},
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": "thswift.info"
+			"text": { "translate": "thswift.info" }
 		}
 	],
 
