@@ -13,6 +13,9 @@ Go to /data/thorigins/tags/ for all the tags you can change
    Foods that will give you regeneration 1 for 3s upon consuming
 6. fox_foods.json
    Foods that does not cause the foodpoints and saturation debuffs, and not trigger the fox hiss sound effect
+7. night_vision_blocking.json
+   The items that when hold in Offhand Slot, mute the Passive Night Vision from Passive Skill [Foxiality]
+
 
 Tip: Use { /execute as [Player] run [Command] } to run the command as that player.
 Functions Explanation:
@@ -114,16 +117,24 @@ For all the other settings, the "start_value" can only be either 0 or 1
    By default: ON
    Player consume oxygen faster when under water.
 
-9. "enable_sleepin_mode"
+9. "grabby_paws"
+   By default: ON
+   Whether player can left click a dropped item within 3 blocks to pull it towards them
+
+10. "enable_sleepin_mode"
    By default: ON
    Player can turn into a disguise sleeping fox.
 
-10. "modifier_mode"
+11. "modifier_mode"
    By default: OFF (Multiplication)
    Whether to use Addition damage bonus system for the two active skills [Pounce] and [Hunt] that has less max possible damage.
    If you have mods that DIRECTLY ADD BASE DAMAGE, turn on this for NERF.
 
-11. "destroy_terrain"
+12. "passive_nightvision"
+   By default: ON
+   Player has permanent passive night vision, that is temporarily disabled when they are holding a light source?
+
+13. "destroy_terrain"
    By default: ON
    For [ThDilos Expanded Fox].
    Whether Fire Fox and Lightning Fox's Explosive Skills can destroy terrain.
@@ -165,3 +176,15 @@ Brief Introduction:
 Drawbacks:
    You can't change your size, this power will just not work for other hitbox height. Even just elytra-landing, you might still fall into powdered snow.
    This power **is likely to** be inconsistent in Server Environment. Almost 100% functional in Single Player
+
+3. "optional_leash"
+Lag Factors: Multiple Ticking-Every-Tick Functions
+Brief Introduction:
+   This power allows the power holder to be able to be [Right Clicked] with a [Lead].
+   When Lead, the leashed will constantly be pulled into the leader's direction.
+   When Lead, the leader can right click on a fence to tie the lead there.
+   To free the leashed, the leashed needs to be [Shift + Right Clicked]
+Drawbacks:
+   This power acts weird when multiple entities are leashed at the same time in 10 blocks radius.
+   To solve, right click and shift + right click on the Leashed player sometimes should fix it
+   Or the leashed player spamming shift?
