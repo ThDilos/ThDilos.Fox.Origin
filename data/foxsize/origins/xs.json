@@ -1,5 +1,5 @@
 {
-	"powers": ["foxsize:xs"],
+	"powers": [ "foxsize:xs" ],
 	"icon": {
 		"item": "minecraft:gold_nugget"
 	},

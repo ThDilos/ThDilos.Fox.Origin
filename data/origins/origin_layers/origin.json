@@ -1,5 +1,5 @@
 {
-	"origins": ["thorigins:fox"],
+	"origins": [ "thorigins:fox" ],
 	"enabled": true,
 	"allow_random": true
 }
