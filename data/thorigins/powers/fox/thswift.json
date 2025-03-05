@@ -154,6 +154,11 @@
 					"item_condition": {
 						"type": "origins:empty"
 					}
+				},
+				{
+					"type": "origins:power_active",
+					"power": "*:fox/thweak_heavy_armor",
+					"inverted": true
 				}
 			]
 		}
@@ -180,6 +185,11 @@
 					"resource": "*:fox/thfoxiality_predator_suppression",
 					"compare_to": 0,
 					"comparison": "=="
+				},
+				{
+					"type": "origins:power_active",
+					"power": "*:fox/thweak_heavy_armor",
+					"inverted": true
 				}
 			]
 		}

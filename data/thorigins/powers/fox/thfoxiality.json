@@ -72,12 +72,8 @@
 								"command": "/data modify entity @s Trusted append from entity @p[tag=foxie] UUID"
 							},
 							{
-								"type": "origins:delay",
-								"ticks": 1,
-								"action": {
-									"type": "origins:execute_command",
-									"command": "/tag @s add uuidappended"
-								}
+								"type": "origins:execute_command",
+								"command": "/tag @s add uuidappended"
 							}
 						]
 					}
@@ -143,18 +139,12 @@
 							"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
 						},
 						{
-							"type": "origins:delay",
-							"ticks": 1,
-							"action": [
-								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-								},
-								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-								}
-							]
+							"type": "origins:execute_command",
+							"command": "/execute as @e[type=wolf,distance=..18] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/execute as @e[type=polar_bear,distance=..16] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
 						}
 					]
 				},
@@ -180,18 +170,12 @@
 						}
 					},
 					{
-						"type": "origins:delay",
-						"ticks": 1,
-						"action": [
-							{
-								"type": "origins:execute_command",
-								"command": "/execute as @e[type=wolf,distance=..2] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/execute as @e[type=polar_bear,distance=..2] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-							}
-						]
+						"type": "origins:execute_command",
+						"command": "/execute as @e[type=wolf,distance=..2] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/execute as @e[type=polar_bear,distance=..2] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
 					}
 				]
 			}
@@ -214,7 +198,39 @@
 		"damage_condition": {
 			"type": "origins:name",
 			"name": "player"
+		},
+		"bientity_action": {
+			"type": "origins:actor_action",
+			"action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:resource",
+					"resource": "*:*_bite_sound_cd",
+					"compare_to": 0,
+					"comparison": "=="
+				},
+				"if_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:play_sound",
+							"sound": "minecraft:entity.fox.bite",
+							"volume": 1.2,
+							"pitch": 1.0
+						},
+						{
+							"type": "origins:trigger_cooldown",
+							"power": "*:*_bite_sound_cd"
+						}
+					]
+				}
+			}
 		}
+	},
+
+	"bite_sound_cd": {
+		"type": "origins:cooldown",
+		"cooldown": 10
 	},
 
 	"predator_bite_threshold": {
@@ -453,7 +469,7 @@
 									"effects": [
 										{
 											"id": "minecraft:weakness",
-											"duration": 100,
+											"duration": 200,
 											"amplifier": 2,
 											"is_ambient": false,
 											"show_icon": true,
@@ -461,7 +477,7 @@
 										},
 										{
 											"id": "minecraft:nausea",
-											"duration": 100,
+											"duration": 200,
 											"amplifier": 0,
 											"is_ambient": false,
 											"show_icon": true,
@@ -469,7 +485,7 @@
 										},
 										{
 											"id": "minecraft:slowness",
-											"duration": 60,
+											"duration": 100,
 											"amplifier": 4,
 											"is_ambient": false,
 											"show_icon": true,
@@ -487,16 +503,12 @@
 				}
 			},
 			{
-				"type": "origins:delay",
-				"ticks": 1,
+				"type": "origins:target_action",
 				"action": {
-					"type": "origins:target_action",
-					"action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_predator_bite_threshold",
-						"change": 100,
-						"operation": "set"
-					}
+					"type": "origins:change_resource",
+					"resource": "*:*_predator_bite_threshold",
+					"change": 100,
+					"operation": "set"
 				}
 			}
 		]
@@ -527,92 +539,235 @@
 		"type": "origins:toggle_night_vision",
 		"active_by_default": true,
 		"strength": 0.5,
-		"key": "nuh.uh"
+		"key": "nuh.uh",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:fox/universal_settings_passive_nightvision",
+					"compare_to": 1,
+					"comparison": "==" 
+				},
+				{
+					"type": "origins:equipped_item",
+					"inverted": true,
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "thorigins:night_vision_blocking"
+						}
+					}
+				}
+			]
+		}
+	},
+
+	"blind_effect": {
+		"type": "origins:active_self",
+		"key": "key.swapOffhand",
+		"cooldown": 0,
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "*:fox/universal_settings_passive_nightvision",
+						"compare_to": 1,
+						"comparison": "==" 
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"inverted": true,
+						"item_condition": {
+							"type": "origins:ingredient",
+							"ingredient": {
+								"tag": "thorigins:night_vision_blocking"
+							}
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:ingredient",
+							"ingredient": {
+								"tag": "thorigins:night_vision_blocking"
+							}
+						}
+					},
+					{
+						"type": "origins:brightness",
+						"compare_to": 0.5,
+						"comparison": "<="
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:apply_effect",
+				"effect": {
+					"id": "minecraft:blindness",
+					"amplifier": 0,
+					"duration": 15,
+					"is_ambient": true,
+					"show_icon": false,
+					"show_particles": false
+				}
+			}
+		}
 	},
 
 	"wake_up_surprise": {
 		"type": "origins:action_on_wake_up",
-		"entity_action": [
-			{
-				"type": "origins:choice",
-				"actions": [
-					{
-						"element": {
-							"type": "origins:give",
-							"stack": {
-								"id": "minecraft:emerald",
-								"amount": 1
+		"entity_action": {
+			"type": "origins:choice",
+			"actions": [
+				{
+					"element": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/title @s actionbar {\"translate\":\"fox.wakeup.item\",\"color\":\"aqua\",\"with\":[{\"translate\":\"item.minecraft.emerald\",\"color\":\"green\"}]}"
+							},
+							{
+								"type": "origins:give",
+								"stack": {
+									"id": "emerald",
+									"amount": 1
+								},
+								"preferred_slot": "offhand"
 							}
-						},
-						"weight": 5
+						]
 					},
-					{
-						"element": {
-							"type": "origins:give",
-							"stack": {
-								"id": "minecraft:rabbit_foot",
-								"amount": 1
+					"weight": 5
+				},
+				{
+					"element": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/title @s actionbar {\"translate\":\"fox.wakeup.item\",\"color\":\"aqua\",\"with\":[{\"translate\":\"item.minecraft.rabbit_foot\",\"color\":\"yellow\"}]}"
+							},
+							{
+								"type": "origins:give",
+								"stack": {
+									"id": "rabbit_foot",
+									"amount": 1
+								},
+								"preferred_slot": "offhand"
 							}
-						},
-						"weight": 10
+						]
 					},
-					{
-						"element": {
-							"type": "origins:give",
-							"stack": {
-								"id": "minecraft:rabbit_hide",
-								"amount": 1
+					"weight": 10
+				},
+				{
+					"element": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/title @s actionbar {\"translate\":\"fox.wakeup.item\",\"color\":\"aqua\",\"with\":[{\"translate\":\"item.minecraft.rabbit_hide\",\"color\":\"yellow\"}]}"
+							},
+							{
+								"type": "origins:give",
+								"stack": {
+									"id": "rabbit_hide",
+									"amount": 1
+								},
+								"preferred_slot": "offhand"
 							}
-						},
-						"weight": 10
+						]
 					},
-					{
-						"element": {
-							"type": "origins:give",
-							"stack": {
-								"id": "minecraft:egg",
-								"amount": 1
+					"weight": 10
+				},
+				{
+					"element": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/title @s actionbar {\"translate\":\"fox.wakeup.item\",\"color\":\"aqua\",\"with\":[{\"translate\":\"item.minecraft.egg\",\"color\":\"white\"}]}"
+							},
+							{
+								"type": "origins:give",
+								"stack": {
+									"id": "egg",
+									"amount": 1
+								},
+								"preferred_slot": "offhand"
 							}
-						},
-						"weight": 15
+						]
 					},
-					{
-						"element": {
-							"type": "origins:give",
-							"stack": {
-								"id": "minecraft:wheat",
-								"amount": 1
+					"weight": 15
+				},
+				{
+					"element": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/title @s actionbar {\"translate\":\"fox.wakeup.item\",\"color\":\"aqua\",\"with\":[{\"translate\":\"item.minecraft.wheat\",\"color\":\"gold\"}]}"
+							},
+							{
+								"type": "origins:give",
+								"stack": {
+									"id": "wheat",
+									"amount": 1
+								},
+								"preferred_slot": "offhand"
 							}
-						},
-						"weight": 20
+						]
 					},
-					{
-						"element": {
-							"type": "origins:give",
-							"stack": {
-								"id": "minecraft:leather",
-								"amount": 1
+					"weight": 20
+				},
+				{
+					"element": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/title @s actionbar {\"translate\":\"fox.wakeup.item\",\"color\":\"aqua\",\"with\":[{\"translate\":\"item.minecraft.leather\",\"color\":\"dark_red\"}]}"
+							},
+							{
+								"type": "origins:give",
+								"stack": {
+									"id": "leather",
+									"amount": 1
+								},
+								"preferred_slot": "offhand"
 							}
-						},
-						"weight": 20
+						]
 					},
-					{
-						"element": {
-							"type": "origins:give",
-							"stack": {
-								"id": "minecraft:feather",
-								"amount": 1
+					"weight": 20
+				},
+				{
+					"element": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/title @s actionbar {\"translate\":\"fox.wakeup.item\",\"color\":\"aqua\",\"with\":[{\"translate\":\"item.minecraft.feather\",\"color\":\"white\"}]}"
+							},
+							{
+								"type": "origins:give",
+								"stack": {
+									"id": "feather",
+									"amount": 1
+								},
+								"preferred_slot": "offhand"
 							}
-						},
-						"weight": 20
-					}
-				]
-			},
-			{
-				"type": "origins:execute_command",
-				"command": "/title @s actionbar {\"translate\":\"fox.wakeup.item\",\"color\":\"gold\",\"bold\":true}"
-			}
-		]
+						]
+					},
+					"weight": 20
+				}
+			]
+		}
 	},
 
 	"sleep_under_shade": {
@@ -726,14 +881,53 @@
 		}
 	},
 
-	"powder_snow_climbing": {
-		"type": "origins:climbing",
-		"condition": {
-			"type": "origins:in_block",
-			"block_condition": {
-				"type": "origins:block",
-				"block": "powder_snow"
-			}
+	"powder_snow_walking": {
+		"type": "origins:modify_type_tag",
+		"tag": "minecraft:powder_snow_walkable_mobs"
+	},
+
+	"kill_foxes": {
+		"type": "origins:self_action_on_kill",
+		"cooldown": 1,
+		"target_condition": {
+			"type": "origins:entity_type",
+			"entity_type": "minecraft:fox"
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:apply_effect",
+					"effects": [
+						{
+							"id": "minecraft:unluck",
+							"show_particles": false,
+							"duration": 24000,
+							"amplifier": 4
+						},
+						{
+							"id": "minecraft:weakness",
+							"show_particles": false,
+							"duration": 600,
+							"amplifier": 2
+						},
+						{
+							"id": "minecraft:nausea",
+							"show_particles": false,
+							"duration": 600
+						},
+						{
+							"id": "minecraft:darkness",
+							"show_particles": false,
+							"duration": 600
+						}
+					]
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/title @s actionbar {\"translate\":\"kill_a_fox\"}"
+				}
+			]
 		}
 	}
 }

@@ -23,6 +23,55 @@
 		}
 	],
 
+	"fail_to_use_sound": {
+		"type": "origins:active_self",
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:resource",
+							"resource": "*:*_dash0",
+							"compare_to": 20,
+							"comparison": "<="
+						},
+						{
+							"type": "origins:resource",
+							"resource": "*:*_dash1",
+							"compare_to": 20,
+							"comparison": "<="
+						},
+						{
+							"type": "origins:resource",
+							"resource": "*:*_max_jump_count",
+							"compare_to": 0,
+							"comparison": "=="
+						}
+					]
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:fox/thfoxiality_predator_suppression",
+					"compare_to": 0,
+					"comparison": ">"
+				}
+			]
+		},
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "/playsound minecraft:entity.fox.sleep player @s ~ ~ ~ 0.5 1.2"
+		},
+		"key": "key.origins.primary_active",
+		"cooldown": 40
+	},
+
 	"ticks": {
 		"type": "origins:action_over_time",
 		"interval": 1,
@@ -83,6 +132,12 @@
 						{
 							"type": "origins:change_resource",
 							"resource": "*:*_left_ground",
+							"change": 0,
+							"operation": "set"
+						},
+						{
+							"type": "origins:change_resource",
+							"resource": "*:*_dash_effect",
 							"change": 0,
 							"operation": "set"
 						},
@@ -349,6 +404,31 @@
 				{
 					"type": "origins:if_else_list",
 					"actions": [
+						{
+							"condition": {
+								"type": "origins:power_active",
+								"power": "*:fox/thweak_heavy_armor"
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:add_velocity",
+										"z": 0.3,
+										"space": "local",
+										"client": true,
+										"server": true
+									},
+									{
+										"type": "origins:add_velocity",
+										"y": 0.1,
+										"space": "world",
+										"client": true,
+										"server": true
+									}
+								]
+							}
+						},
 						{
 							"condition": {
 								"type": "origins:status_effect",
@@ -620,38 +700,6 @@
 		}
 	},
 
-	"fail_to_use_sound": {
-		"type": "origins:active_self",
-		"condition": {
-			"type": "origins:any_of",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "*:*_max_jump_count",
-					"compare_to": 0,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:food_level",
-					"comparison": "<=",
-					"compare_to": 0
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:fox/thfoxiality_predator_suppression",
-					"compare_to": 0,
-					"comparison": ">"
-				}
-			]
-		},
-		"entity_action": {
-			"type": "origins:execute_command",
-			"command": "/playsound minecraft:entity.fox.sleep player @s ~ ~ ~ 0.5 1.2"
-		},
-		"key": "key.origins.primary_active",
-		"cooldown": 40
-	},
-
 	"crits": {
 		"type": "origins:modify_damage_dealt",
 		"modifiers": [
@@ -747,8 +795,19 @@
 		"bientity_condition": {
 			"type": "origins:target_condition",
 			"condition": {
-				"type": "origins:power_active",
-				"power": "*:*_crits"
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "*:*_left_ground",
+						"compare_to": 1,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:sneaking",
+						"inverted": true
+					}
+				]
 			}
 		},
 		"modifier": {
@@ -811,19 +870,8 @@
 			}
 		],
 		"condition": {
-			"type": "origins:all_of",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "*:*_max_jump_count",
-					"compare_to": 0,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:power_active",
-					"power": "*:*_crits"
-				}
-			]
+			"type": "origins:power_active",
+			"power": "*:*_crits"
 		}
 	},
 

@@ -83,8 +83,7 @@
 		"type": "origins:resource",
 		"min": 0,
 		"max": 1,
-		"start_value": 0,
-		"hud_render": { "should_render": false }
+		"start_value": 0
 	},
 
 	"remove_fall_sound": {
@@ -115,14 +114,24 @@
 							"offset_x": 0,
 							"offset_z": 0,
 							"block_condition": {
-								"type": "origins:any_of",
+								"type": "origins:all_of",
 								"conditions": [
 									{
-										"type": "origins:movement_blocking"
+										"type": "origins:any_of",
+										"conditions": [
+											{
+												"type": "origins:movement_blocking"
+											},
+											{
+												"type": "origins:block",
+												"block": "minecraft:powder_snow"
+											}
+										]
 									},
 									{
 										"type": "origins:block",
-										"block": "minecraft:powder_snow"
+										"block": "minecraft:pointed_dripstone",
+										"inverted": true
 									}
 								]
 							}
@@ -142,14 +151,24 @@
 									"offset_x": 0,
 									"offset_z": 0,
 									"block_condition": {
-										"type": "origins:any_of",
+										"type": "origins:all_of",
 										"conditions": [
 											{
-												"type": "origins:movement_blocking"
+												"type": "origins:any_of",
+												"conditions": [
+													{
+														"type": "origins:movement_blocking"
+													},
+													{
+														"type": "origins:block",
+														"block": "minecraft:powder_snow"
+													}
+												]
 											},
 											{
 												"type": "origins:block",
-												"block": "minecraft:powder_snow"
+												"block": "minecraft:pointed_dripstone",
+												"inverted": true
 											}
 										]
 									}

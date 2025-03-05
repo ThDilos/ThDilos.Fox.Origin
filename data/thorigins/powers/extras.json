@@ -5,87 +5,340 @@
 	"ticks_5": {
 		"type": "origins:action_over_time",
 		"interval": 5,
-		"condition": {
-			"type": "origins:scoreboard",
-			"objective": "foxtype",
-			"compare_to": 7355600,
-			"comparison": ">="
-		},
 		"entity_action": {
-			"type": "origins:and",
+			"type": "origins:if_else_list",
 			"actions": [
 				{
-					"type": "origins:execute_command",
-					"command": "/scoreboard players enable @s foxtype"
-				},
-				{
-					"type": "origins:delay",
-					"ticks": 1,
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:scoreboard",
+								"objective": "foxtype",
+								"compare_to": 449,
+								"comparison": "<="
+							},
+							{
+								"type": "origins:scoreboard",
+								"objective": "foxtype",
+								"compare_to": 443,
+								"comparison": ">="
+							}
+						]
+					},
 					"action": {
-						"type": "origins:execute_command",
-						"command": "/trigger foxtype add -7355608"
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/scoreboard players remove @s foxtype 443"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/tellraw @s {\"text\":\"Fox Setting Book Renewed :3\\nRemoving Old Book...\",\"color\":\"aqua\"}"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/function thorigins:fox_setting"
+							},
+							{
+								"type": "origins:spawn_particles",
+								"particle": "minecraft:explosion",
+								"count": 1
+							},
+							{
+								"type": "origins:play_sound",
+								"sound": "minecraft:entity.generic.explode",
+								"pitch": 1.5,
+								"volume": 0.2,
+								"category": "players"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/tellraw @s [{\"text\":\"The Book Disintegrated and Made a Comically Safe Explosion...\",\"color\":\"yellow\"},{\"text\":\"\\nUse [/function thorigins:fox_setting] as an Admin to get it back\",\"color\":\"gray\"}]"
+							},
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition": {
+											"type": "origins:power",
+											"power": "*:extras",
+											"source": "apoli:item/mainhand"
+										},
+										"action": {
+											"type": "origins:equipped_item_action",
+											"equipment_slot": "mainhand",
+											"item_action": {
+												"type": "origins:consume",
+												"amount": 1
+											}
+										}
+									},
+									{
+										"condition": {
+											"type": "origins:power",
+											"power": "*:extras",
+											"source": "apoli:item/offhand"
+										},
+										"action": {
+											"type": "origins:equipped_item_action",
+											"equipment_slot": "offhand",
+											"item_action": {
+												"type": "origins:consume",
+												"amount": 1
+											}
+										}
+									},
+									{
+										"condition": {
+											"type": "origins:constant",
+											"value": true
+										},
+										"action": {
+											"type": "origins:execute_command",
+											"command": "/power remove @s thorigins:extras"
+										}
+									}
+								]
+							}
+						]
 					}
 				},
 				{
-					"type": "origins:spawn_particles",
-					"particle": "minecraft:explosion",
-					"count": 1
-				},
-				{
-					"type": "origins:play_sound",
-					"sound": "minecraft:entity.generic.explode",
-					"pitch": 1.5,
-					"volume": 0.2,
-					"category": "players"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/tellraw @s [{\"text\":\"The Book Disintegrated and Made a Comically Safe Explosion...\",\"color\":\"yellow\"},{\"text\":\"\\nUse [/function thorigins:fox_setting] as an Admin to get it back\",\"color\":\"gray\"}]"
-				},
-				{
-					"type": "origins:delay",
-					"ticks": 1,
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:scoreboard",
+								"objective": "foxtype",
+								"compare_to": 12144,
+								"comparison": "<="
+							},
+							{
+								"type": "origins:scoreboard",
+								"objective": "foxtype",
+								"compare_to": 12138,
+								"comparison": ">="
+							}
+						]
+					},
 					"action": {
-						"type": "origins:if_else_list",
+						"type": "origins:and",
 						"actions": [
 							{
-								"condition": {
-									"type": "origins:power",
-									"power": "*:extras",
-									"source": "apoli:item/mainhand"
-								},
-								"action": {
-									"type": "origins:equipped_item_action",
-									"equipment_slot": "mainhand",
-									"item_action": {
-										"type": "origins:consume",
-										"amount": 1
+								"type": "origins:choice",
+								"actions": [
+									{
+										"element": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:power",
+														"power": "*:thtransform",
+														"source": "thorigins:universal"
+													},
+													"if_action": {
+														"type": "origins:if_else",
+														"condition": {
+															"type": "origins:and",
+															"conditions": [
+																{
+																	"type": "origins:or",
+																	"conditions": [
+																		{
+																			"type": "origins:resource",
+																			"resource": "*:thtransform_lock_kitsune",
+																			"compare_to": 0,
+																			"comparison": "=="
+																		},
+																		{
+																			"type": "origins:resource",
+																			"resource": "*:thtransform_lock_ninetails",
+																			"compare_to": 0,
+																			"comparison": "=="
+																		}
+																	]
+																},
+																{
+																	"type": "origins:resource",
+																	"resource": "*:thtransform_lock_ice",
+																	"compare_to": 1,
+																	"comparison": "=="
+																}
+															]
+														},
+														"if_action": {
+															"type": "origins:change_resource",
+															"resource": "*:thtransform_lock_ice",
+															"change": -1
+														}
+													}
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"text\":\"Successfully Booped \",\"color\":\"light_purple\",\"bold\":true},{\"text\":\"ThDilos\",\"color\":\"gold\"},{\"text\":\" across the universe :3\",\"color\":\"light_purple\",\"bold\":true}]"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw ThDilos {\"extra\":[{\"selector\":\"@s\",\"bold\":true},{\"text\":\" Boop!\",\"color\":\"light_purple\",\"bold\":true}],\"text\":\"\"}"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/playsound minecraft:entity.fox.ambient player @s ~ ~ ~ 0.7 1.3"
+												}
+											]
+										},
+										"weight": 1
+									},
+									{
+										"element": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:choice",
+													"actions": [
+														{
+															"element": {
+																"type": "origins:execute_command",
+																"command": "/tellraw @s [{\"text\":\"You tried to boop \",\"color\":\"red\"},{\"text\":\"ThDilos\",\"color\":\"gold\"},{\"text\":\", but got bitten in the finger instead >:3\",\"color\":\"red\"}]"
+															},
+															"weight": 1
+														},
+														{
+															"element": {
+																"type": "origins:execute_command",
+																"command": "/tellraw @s [{\"text\":\"You tried to boop \",\"color\":\"red\"},{\"text\":\"ThDilos\",\"color\":\"gold\"},{\"text\":\", but you were too slow...\",\"color\":\"red\"}]"
+															},
+															"weight": 1
+														},
+														{
+															"element": {
+																"type": "origins:execute_command",
+																"command": "/tellraw @s [{\"text\":\"You attempted to boop \",\"color\":\"red\"},{\"text\":\"ThDilos\",\"color\":\"gold\"},{\"text\":\", but you weren't sneaky enough...\",\"color\":\"red\"}]"
+															},
+															"weight": 1
+														},
+														{
+															"element": {
+																"type": "origins:execute_command",
+																"command": "/tellraw @s [{\"text\":\"Your Booping() function call with parameter (SnoutfulEntity \",\"color\":\"red\"},{\"text\":\"ThDilos\",\"color\":\"gold\"},{\"text\":\") returned FoxEntity.Consequence.ANKLE_BITE\",\"color\":\"red\"}]"
+															},
+															"weight": 1
+														},
+														{
+															"element": {
+																"type": "origins:execute_command",
+																"command": "/tellraw @s [{\"text\":\"Error: Test Object \",\"color\":\"red\"},{\"text\":\"ThDilos\",\"color\":\"gold\"},{\"text\":\" has activated AntiBoopingShield\",\"color\":\"red\"}]"
+															},
+															"weight": 1
+														}
+													]
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/playsound minecraft:entity.fox.bite player @s ~ ~ ~ 0.7 1.3"
+												}
+											]
+										},
+										"weight": 9
 									}
-								}
+								]
 							},
 							{
-								"condition": {
-									"type": "origins:power",
-									"power": "*:extras",
-									"source": "apoli:item/offhand"
-								},
-								"action": {
-									"type": "origins:equipped_item_action",
-									"equipment_slot": "offhand",
-									"item_action": {
-										"type": "origins:consume",
-										"amount": 1
-									}
-								}
+								"type": "origins:execute_command",
+								"command": "/scoreboard players remove @s foxtype 12138"
+							}
+						]
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:scoreboard",
+						"objective": "foxtype",
+						"compare_to": 7355600,
+						"comparison": ">="
+					},
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/scoreboard players enable @s foxtype"
 							},
 							{
-								"condition": {
-									"type": "origins:constant",
-									"value": true
-								},
+								"type": "origins:delay",
+								"ticks": 1,
 								"action": {
 									"type": "origins:execute_command",
-									"command": "/power remove @s thorigins:extras"
+									"command": "/trigger foxtype add -7355608"
+								}
+							},
+							{
+								"type": "origins:spawn_particles",
+								"particle": "minecraft:explosion",
+								"count": 1
+							},
+							{
+								"type": "origins:play_sound",
+								"sound": "minecraft:entity.generic.explode",
+								"pitch": 1.5,
+								"volume": 0.2,
+								"category": "players"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/tellraw @s [{\"text\":\"The Book Disintegrated and Made a Comically Safe Explosion...\",\"color\":\"yellow\"},{\"text\":\"\\nUse [/function thorigins:fox_setting] as an Admin to get it back\",\"color\":\"gray\"}]"
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 1,
+								"action": {
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:power",
+												"power": "*:extras",
+												"source": "apoli:item/mainhand"
+											},
+											"action": {
+												"type": "origins:equipped_item_action",
+												"equipment_slot": "mainhand",
+												"item_action": {
+													"type": "origins:consume",
+													"amount": 1
+												}
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:power",
+												"power": "*:extras",
+												"source": "apoli:item/offhand"
+											},
+											"action": {
+												"type": "origins:equipped_item_action",
+												"equipment_slot": "offhand",
+												"item_action": {
+													"type": "origins:consume",
+													"amount": 1
+												}
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:constant",
+												"value": true
+											},
+											"action": {
+												"type": "origins:execute_command",
+												"command": "/power remove @s thorigins:extras"
+											}
+										}
+									]
 								}
 							}
 						]
@@ -272,8 +525,13 @@
 				"operation": "set"
 			},
 			{
+				"type": "origins:change_resource",
+				"resource": "*:fox/thtrackers_fox_avatar_enabled",
+				"change": 1
+			},
+			{
 				"type": "origins:execute_command",
-				"command": "/execute as @a[tag=foxie,distance=..5] run title @s actionbar {\"text\": \"Figura avatar mode ON, your hitbox and eye height is shrink according to the fox avatar\",\"color\":\"aqua\"}"
+				"command": "/execute as @a[tag=foxie,distance=..5] run tellraw @s {\"translate\": \"figura_on\"}"
 			},
 			{
 				"type": "origins:execute_command",
