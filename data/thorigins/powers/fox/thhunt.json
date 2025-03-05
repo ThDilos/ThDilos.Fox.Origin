@@ -1184,7 +1184,15 @@
 									},
 									{
 										"type": "origins:damage",
-										"amount": 2,
+										"amount": 1,
+										"damage_type": "thorigins:foxie_bite",
+										"source": {
+											"name": "thorigins:foxie_bite"
+										}
+									},
+									{
+										"type": "origins:damage",
+										"amount": 1,
 										"damage_type": "thorigins:foxie_bite",
 										"source": {
 											"name": "thorigins:foxie_bite"

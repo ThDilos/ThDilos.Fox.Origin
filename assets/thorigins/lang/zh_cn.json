@@ -42,20 +42,21 @@
 
 	"fox.thsmol.name": "§e§n迷你",
 	"fox.thsmol.description": "作为狐狸, 你比一般人矮了许多, 耐力也随之下降。不过, 怪物也因此不能轻易地发现你了。",
-	"thsmol.info": "[§e~§r] 更小的体积 \n[§c-§r] 更少的最大生命值 \n[§a+§r] 不易受生物察觉",
+	"thsmol.info": "[§e~§r] 更小的体积 \n[§c-§r] 更少的最大生命值 \n[§a+§r] 不易受生物察觉 \n\n按下 [%s] 夺取准星瞄准的掉落物",
 
 	"fox.thweak.name": "§c§n羸弱",
 	"fox.thweak.description": "你纤细的四肢不能使用盾牌, 不能正常身着重甲。",
 	"thweak.info": "[§c-§r] 无法使用盾牌\n[§c-§r] 过于沉重的护甲会给你带来负担\n[§c-§r] 水下氧气消耗更快",
 	"thweak.info1": "\n[§c-§r] 最好不要使用重锤",
 	"power.thorigins.fox.thweak_disable_shield.name": "来自被动能力 [§c§n羸弱] :3",
-	
+
 	"fox.thfoxiality.name": "§e§n狐狸本性",
 	"fox.thfoxiality.description": "理解狐狸, 接受狐狸, 成为狐狸。",
-	"thfoxiality.info": "[§a+§r] 永久夜视\n[§a+§r] 对猎物的伤害大幅提高\n[§a+§r] 无视浆果丛\n[§a+§r] 破坏浆果丛可回收浆果\n[§a+§r] 起床时获取随机物品\n[§c-§r] 不在阴影下无法入睡\n[§a+§r] 对人鱼族和羽人族起源玩家造成更多伤害\n[§c-§r] 受到更多来自烈焰族起源玩家的伤害\n[§a+§r] 用爪子光速挖掘(空手)\n[§a+§r] 攀爬细雪方块\n[§c-§r] 惹怒附近的狼和北极熊\n[§a+§r] 受到狐狸信任",
+	"thfoxiality.info": "[§a+§r] 副手无<§e光§r>时永久夜视\n[§a+§r] 对猎物的伤害大幅提高\n[§a+§r] 无视浆果丛\n[§a+§r] 破坏浆果丛可回收浆果\n[§a+§r] 起床时获取随机物品\n[§c-§r] 不在阴影下无法入睡\n[§a+§r] 对人鱼族和羽人族起源玩家造成更多伤害\n[§c-§r] 受到更多来自烈焰族起源玩家的伤害\n[§a+§r] 用爪子光速挖掘(空手)\n[§a+§r] 攀爬细雪方块\n[§c-§r] 惹怒附近的狼和北极熊\n[§a+§r] 受到狐狸信任",
 	"thfoxiality.info1": "\n[§c-§r] 天敌的攻击将附带更致命的§5§l爪牙连击§r",
 	"thfoxiality.info1_legacy": "\n[§c-§r] 狼和北极熊对你造成的伤害翻倍",
 	"thfoxiality.info2": "你天敌的§5§l爪牙连击§r有以下效果:\n§b1§r. 给你施加§5缓慢§r+虚弱+反胃效果\n§b2§r. 给你造成§e更多§r的❂§l真实伤害§r\n§b3§r. 暂时§c禁用§r你的[§6§l掠袭§r]\n§b4§r. 暂时§c无效化§r你[§a灵跃§r]的第一个效果\n§b5§r. 暂时§c禁用§r你的自然生命恢复\n\n§8§o装备护甲和抗性提升有一定几率能让天敌对你的§l爪牙连击§r§8§o失败",
+	"kill_a_fox": "§4§l你都做了些什么...",
 
 	"fox.thfluffy.name": "§e§n毛绒绒",
 	"fox.thfluffy.description": "浑身的毛绒绒让你不畏严寒, 但一点火星子就能让你生不如死。",
@@ -96,7 +97,7 @@
 	"death.attack.thorigins:foxie_bite.item": "%1$s低估了爪持%3$s的%2$s在死斗中的野性。",
 	"death.attack.thorigins:predator_bite.item": "%1$s被一只爪持%3$s的%2$s掏空了内脏, 惨不忍睹。",
 
-	"fox.wakeup.item": "你在睡梦中找到了个小玩意儿!",
+	"fox.wakeup.item": "你在睡梦中找到了个<%s>!",
 
 	"fox.petter": "你摸了摸%s的脑袋",
 	"fox.petted": "你被%s摸头了",
@@ -105,7 +106,10 @@
 	"fox.feed2": ", 并且获得了一个随机正面效果！",
 	"fox.hug": "§d你给了小动物%s§d一个小小的拥抱:3",
 	"fox.hugged": "%s§d给你了一个热情的拥抱",
-	
+
+	"fox.trusted": "§d友好互动!你获得了他们的信任",
+	"fox.distrusted": "§4你不再被信任...",
+
 	"layer.thorigins.foxsize.name": "体型",
 	"origin.foxsize.m.name": "默认体型 (M)",
 	"origin.foxsize.m.description": "起源作者指定的体型, 比人类略矮",
@@ -120,5 +124,12 @@
 	"origin.foxsize.xs.name": "超小号 (XS)",
 	"origin.foxsize.xs.description": "最小的一号了, 再小的没货了>:3",
 	"power.foxsize.xs.name": "0.5x 高/宽",
-	"power.foxsize.xs.description": "能在一格高的洞里§l行走§r与§l疾行§r"
+	"power.foxsize.xs.description": "能在一格高的洞里§l行走§r与§l疾行§r",
+
+	"figura_on": "§dFigura模式§r §a开启§r, §b你的碰撞箱和视角高度已根据§r§6狐狸玩家模型§r§b缩小",
+	"figura_off": "§dFigura模式§r §c关闭§r, §b你的碰撞箱和视角高度已重置\n§b如果§f§n所有技能都消失了§r, §e退出重进§r§b可解",
+
+	"thorigins.forge.server.detected": "检测到§cForge多人服务器§r环境!\n该起源的[§5积雪行者§r]被动技能已被自动禁用\n不然会有很可怕的事情发生 :3c",
+	"tied_leash_to_fence": "§e潜行+右键§r§6被拴住的玩家§r§b解放ta们§r",
+	"tie_dupe": "§b你一次只能牵引§c1§b只生物!"
 }

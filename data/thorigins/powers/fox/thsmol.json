@@ -9,9 +9,19 @@
 			"text": "origin.thorigin.passive"
 		},
 		{
-			"type": "origins:keybind",
+			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": "thsmol.info"
+			"text": [
+				{
+					"translate": "thsmol.info",
+					"with": [
+						{
+							"keybind": "key.attack",
+							"color": "aqua"
+						}
+					]
+				}
+			]
 		}
 	],
 
@@ -25,6 +35,69 @@
 		"update_health": true
 	},
 
+	"grabby_paws": {
+		"type": "origins:active_self",
+		"key": "key.attack",
+		"cooldown": 10,
+		"entity_action": {
+			"type": "origins:raycast",
+			"distance": 3,
+			"fluid_handling": "none",
+			"bientity_condition": {
+				"type": "origins:target_condition",
+				"condition": {
+					"type": "origins:entity_type",
+					"entity_type": "minecraft:item"
+				}
+			},
+			"bientity_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:add_velocity",
+						"z": -0.5,
+						"reference": "rotation",
+						"client": false
+					},
+					{
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:add_velocity",
+							"y": 0.5,
+							"space": "world",
+							"client": false
+						}
+					},
+					{
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:execute_command",
+							"command": "/data modify entity @s PickupDelay set value 0s"
+						}
+					},
+					{
+						"type": "origins:actor_action",
+						"action": {
+							"type": "origins:execute_command",
+							"command": "/playsound minecraft:entity.fishing_bobber.retrieve player @s ~ ~ ~ 1 1.5"
+						}
+					}
+				]
+			},
+			"miss_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_grabby_paws",
+				"change": -10
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:fox/universal_settings_grabby_paws",
+			"compare_to": 1,
+			"comparison": "=="
+		}
+	},
+	
 	"thtrackers_keepalive": {
 		"type": "origins:action_over_time",
 		"interval": 20,

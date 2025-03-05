@@ -9,6 +9,14 @@
 			"actions": [
 				{
 					"type": "origins:execute_command",
+					"command": "/scoreboard objectives add UUID0 dummy \"UUID0\""
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute store result score @s UUID0 run data get entity @s UUID[0]"
+				},
+				{
+					"type": "origins:execute_command",
 					"command": "/origin set @s thorigins:origin thorigins:default_fox"
 				},
 				{
@@ -102,6 +110,11 @@
 					"type": "origins:change_resource",
 					"resource": "*:fox/thfoxify_afk_timer",
 					"change": 1200
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:fox/thfoxiality_predator_suppression",
+					"change": -60
 				},
 				{
 					"type": "origins:execute_command",

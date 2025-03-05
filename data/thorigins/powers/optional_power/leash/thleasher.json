@@ -1,0 +1,178 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+
+	"_init_": {
+		"type": "origins:action_on_callback",
+		"entity_action_gained": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_left_leash",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/summon armor_stand ~ ~ ~ {Invisible:0b,NoBasePlate:1b,DisabledSlots:4144959,Invulnerable:1b,NoGravity:1b,PersistenceRequired:1b,Silent:1b,Tags:[\"leash_anchor\"]}"
+				},
+				{
+					"type": "origins:area_of_effect",
+					"shape": "sphere",
+					"radius": 5,
+					"bientity_condition": {
+						"type": "origins:target_condition",
+						"condition": {
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:power",
+									"power": "*:optional_power/leash/thleash_anchor",
+									"source": "thorigins:temp",
+									"inverted": true
+								},
+								{
+									"type": "origins:command",
+									"command": "/execute if entity @s[tag=leash_anchor]",
+									"compare_to": 1,
+									"comparison": "=="
+								}
+							]
+						}
+					},
+					"bientity_action": {
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:grant_power",
+									"power": "*:optional_power/leash/thleash_anchor",
+									"source": "thorigins:temp"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/execute store result score @s UUID0 run data get entity @e[tag=unlinked,tag=leashed,limit=1,sort=nearest] UUID[0]"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/tag @e[tag=unlinked,tag=leashed,limit=1,sort=nearest] remove unlinked"
+								}
+							]
+						}
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @s add leasher"
+				}
+			]
+		},
+		"entity_action_lost": {
+			"type": "origins:execute_command",
+			"command": "/tag @s remove leasher"
+		}
+	},
+
+	"ticks": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "/execute anchored eyes run tp @e[tag=leash_anchor,limit=1,sort=nearest] ^ ^-0.25 ^"
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_left_leash",
+			"compare_to": 0,
+			"comparison": "=="
+		}
+	},
+
+	"ticks_20": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:command",
+				"command": "/execute if entity @e[tag=leashed,distance=..10]",
+				"compare_to": 0,
+				"comparison": "=="
+			},
+			"if_action": {
+				"type": "origins:revoke_power",
+				"power": "*:optional_power/leash/thleasher",
+				"source": "thorigins:temp"
+			}
+		}
+	},
+
+	"left_leash": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0
+	},
+
+	"tie_to_fence": {
+		"type": "origins:action_on_block_use",
+		"action_result": "fail",
+		"block_condition": {
+			"type": "origins:in_tag",
+			"tag": "minecraft:fences"
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @e[tag=leash_anchor,limit=1,sort=nearest,distance=..2] add temp"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_left_leash",
+					"change": 1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/title @s actionbar {\"translate\":\"tied_leash_to_fence\"}"
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:revoke_power",
+						"power": "*:optional_power/leash/thleasher",
+						"source": "thorigins:temp"
+					}
+				}
+			]
+		},
+		"block_action": {
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:execute_command",
+						"command": "/tp @e[tag=leash_anchor,tag=temp,limit=1,sort=nearest,distance=..20] ~ ~-0.5 ~"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/resource change @e[tag=leash_anchor,tag=temp,limit=1,sort=nearest,distance=..1] thorigins:optional_power/leash/thleash_anchor_tied 1"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/tag @e[tag=leash_anchor,tag=temp,limit=1,sort=nearest,distance=..1] remove temp"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/playsound minecraft:entity.leash_knot.place player @a[distance=..16] ~ ~ ~ 1 1.4"
+					}
+				]
+			}
+		}
+	}
+}

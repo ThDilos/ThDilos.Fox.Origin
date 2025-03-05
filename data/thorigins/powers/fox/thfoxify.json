@@ -817,67 +817,59 @@
 								}
 							},
 							{
-								"type": "origins:delay",
-								"ticks": 1,
-								"action": {
-									"type": "origins:and",
-									"actions": [
-										{
-											"type": "origins:if_else",
-											"condition": {
-												"type": "origins:riding"
-											},
-											"if_action": {
-												"type": "origins:and",
-												"actions": [
-													{
-														"type": "origins:execute_command",
-														"command": "/scale delay set pehkui:hitbox_height 1 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
-													},
-													{
-														"type": "origins:execute_command",
-														"command": "/scale multiply pehkui:hitbox_height 0.1 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
-													}
-												]
-											},
-											"else_action": {
-												"type": "origins:execute_command",
-												"command": "/scale multiply pehkui:hitbox_height 0.5 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
-											}
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:riding"
 										},
-										{
-											"type": "origins:execute_command",
-											"command": "/scale multiply pehkui:hitbox_width 0.5 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
+										"if_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/scale delay set pehkui:hitbox_height 1 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/scale multiply pehkui:hitbox_height 0.1 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
+												}
+											]
 										},
-										{
+										"else_action": {
 											"type": "origins:execute_command",
-											"command": "/tp @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,distance=..1,limit=1] ~ ~ ~ facing ^-0.3 ^ ^-0.15"
+											"command": "/scale multiply pehkui:hitbox_height 0.5 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
 										}
-									]
-								}
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/scale multiply pehkui:hitbox_width 0.5 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/tp @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,distance=..1,limit=1] ~ ~ ~ facing ^-0.3 ^ ^-0.15"
+									}
+								]
 							}
 						]
 					}
 				},
 				{
-					"type": "origins:delay",
-					"ticks": 1,
-					"action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:command",
-							"command": "/data get entity @s SleepTimer",
-							"compare_to": 0,
-							"comparison": ">"
-						},
-						"if_action": {
-							"type": "origins:execute_command",
-							"command": "/tp @e[type=fox,nbt={NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] ~ ~-0.15 ~"
-						},
-						"else_action": {
-							"type": "origins:execute_command",
-							"command": "/tp @e[type=fox,nbt={NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] ~ ~-0.025 ~"
-						}
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:command",
+						"command": "/data get entity @s SleepTimer",
+						"compare_to": 0,
+						"comparison": ">"
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "/tp @e[type=fox,nbt={NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] ~ ~-0.15 ~"
+					},
+					"else_action": {
+						"type": "origins:execute_command",
+						"command": "/tp @e[type=fox,nbt={NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] ~ ~-0.025 ~"
 					}
 				}
 			]
@@ -959,40 +951,54 @@
 			"type": "origins:and",
 			"actions": [
 				{
-					"type": "origins:execute_command",
-					"command": "/scale divide pehkui:third_person 1.5 @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scale reset pehkui:eye_height @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scale delay set pehkui:eye_height 0 @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scale reset pehkui:hitbox_height @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scale delay set pehkui:hitbox_height 0 @s"
-				},
-				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:riding",
-						"bientity_condition": {
-							"type": "origins:target_condition",
-							"condition": {
-								"type": "origins:entity_type",
-								"entity_type": "minecraft:player"
-							}
-						}
+						"type": "origins:resource",
+						"resource": "*:fox/thtrackers_fox_avatar_enabled",
+						"compare_to": 0,
+						"comparison": "=="
 					},
 					"if_action": {
-						"type": "origins:execute_command",
-						"command": "/scale multiply pehkui:hitbox_height 0.6 @s"
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/scale divide pehkui:third_person 1.5 @s"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/scale reset pehkui:eye_height @s"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/scale delay set pehkui:eye_height 0 @s"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/scale reset pehkui:hitbox_height @s"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/scale delay set pehkui:hitbox_height 0 @s"
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:riding",
+									"bientity_condition": {
+										"type": "origins:target_condition",
+										"condition": {
+											"type": "origins:entity_type",
+											"entity_type": "minecraft:player"
+										}
+									}
+								},
+								"if_action": {
+									"type": "origins:execute_command",
+									"command": "/scale multiply pehkui:hitbox_height 0.6 @s"
+								}
+							}
+						]
 					}
 				},
 				{
@@ -1013,37 +1019,43 @@
 			]
 		},
 		"max_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:execute_command",
-					"command": "/scale multiply pehkui:hitbox_height 0.28 @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scale multiply pehkui:third_person 1.5 @s"
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:scoreboard",
-						"objective": "foxtype",
-						"compare_to": 1,
-						"comparison": "<="
-					},
-					"if_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:resource",
+				"resource": "*:fox/thtrackers_fox_avatar_enabled",
+				"compare_to": 0,
+				"comparison": "=="
+			},
+			"if_action": {
+				"type": "origins:and",
+				"actions": [
+					{
 						"type": "origins:execute_command",
-						"command": "/scale multiply pehkui:eye_height 0.5 @s"
+						"command": "/scale multiply pehkui:hitbox_height 0.28 @s"
 					},
-					"else_action": {
+					{
 						"type": "origins:execute_command",
-						"command": "/scale multiply pehkui:eye_height 0.4 @s"
+						"command": "/scale multiply pehkui:third_person 1.5 @s"
+					},
+					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:scoreboard",
+							"objective": "foxtype",
+							"compare_to": 1,
+							"comparison": "<="
+						},
+						"if_action": {
+							"type": "origins:execute_command",
+							"command": "/scale multiply pehkui:eye_height 0.5 @s"
+						},
+						"else_action": {
+							"type": "origins:execute_command",
+							"command": "/scale multiply pehkui:eye_height 0.4 @s"
+						}
 					}
-				}
-			]
-		},
-		"hud_render": {
-			"should_render": false
+				]
+			}
 		}
 	},
 
@@ -1423,56 +1435,66 @@
 								{
 									"type": "origins:if_else",
 									"condition": {
-										"type": "origins:scoreboard",
-										"objective": "foxtype",
-										"compare_to": 1,
-										"comparison": "<="
+										"type": "origins:resource",
+										"resource": "*:fox/thtrackers_fox_avatar_enabled",
+										"compare_to": 0,
+										"comparison": "=="
 									},
 									"if_action": {
 										"type": "origins:and",
 										"actions": [
 											{
-												"type": "origins:execute_command",
-												"command": "/scale divide pehkui:eye_height 0.5 @s"
+												"type": "origins:if_else",
+												"condition": {
+													"type": "origins:scoreboard",
+													"objective": "foxtype",
+													"compare_to": 1,
+													"comparison": "<="
+												},
+												"if_action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:execute_command",
+															"command": "/scale divide pehkui:eye_height 0.5 @s"
+														},
+														{
+															"type": "origins:execute_command",
+															"command": "/scale divide pehkui:hitbox_height 0.5 @s"
+														}
+													]
+												},
+												"else_action": {
+													"type": "origins:execute_command",
+													"command": "/scale divide pehkui:eye_height 0.63 @s"
+												}
 											},
 											{
-												"type": "origins:execute_command",
-												"command": "/scale divide pehkui:hitbox_height 0.5 @s"
+												"type": "origins:if_else",
+												"condition": {
+													"type": "origins:or",
+													"conditions": [
+														{
+															"type": "origins:command",
+															"command": "/scale compute pehkui:eye_height @s 0.714",
+															"compare_to": 0,
+															"comparison": ">"
+														},
+														{
+															"type": "origins:command",
+															"command": "/scale compute pehkui:eye_height @s 15",
+															"compare_to": 0,
+															"comparison": "=="
+														}
+													]
+												},
+												"if_action": {
+													"type": "origins:change_resource",
+													"resource": "*:*_afk_timer",
+													"change": 1200
+												}
 											}
 										]
-									},
-									"else_action": {
-										"type": "origins:execute_command",
-										"command": "/scale divide pehkui:eye_height 0.63 @s"
-									}
-								},
-								{
-									"type": "origins:delay",
-									"ticks": 1,
-									"action": {
-										"type": "origins:if_else",
-										"condition": {
-											"type": "origins:or",
-											"conditions": [
-												{
-													"type": "origins:command",
-													"command": "/scale compute pehkui:eye_height @s 0.714",
-													"compare_to": 0,
-													"comparison": ">"
-												},
-												{
-													"type": "origins:command",
-													"command": "/scale compute pehkui:eye_height @s 15",
-													"compare_to": 0,
-													"comparison": "=="
-												}
-											]
-										},
-										"if_action": {
-											"type": "origins:change_resource",
-											"resource": "*:*_afk_timer",
-											"change": 1200
-										}
 									}
 								}
 							]
@@ -1495,27 +1517,36 @@
 								{
 									"type": "origins:if_else",
 									"condition": {
-										"type": "origins:scoreboard",
-										"objective": "foxtype",
-										"compare_to": 1,
-										"comparison": "<="
+										"type": "origins:resource",
+										"resource": "*:fox/thtrackers_fox_avatar_enabled",
+										"compare_to": 0,
+										"comparison": "=="
 									},
 									"if_action": {
-										"type": "origins:and",
-										"actions": [
-											{
-												"type": "origins:execute_command",
-												"command": "/scale multiply pehkui:eye_height 0.5 @s"
-											},
-											{
-												"type": "origins:execute_command",
-												"command": "/scale multiply pehkui:hitbox_height 0.5 @s"
-											}
-										]
-									},
-									"else_action": {
-										"type": "origins:execute_command",
-										"command": "/scale multiply pehkui:eye_height 0.63 @s"
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 1,
+											"comparison": "<="
+										},
+										"if_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/scale multiply pehkui:eye_height 0.5 @s"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/scale multiply pehkui:hitbox_height 0.5 @s"
+												}
+											]
+										},
+										"else_action": {
+											"type": "origins:execute_command",
+											"command": "/scale multiply pehkui:eye_height 0.63 @s"
+										}
 									}
 								}
 							]
@@ -1653,10 +1684,21 @@
 		"min_action": {
 			"type": "origins:if_else",
 			"condition": {
-				"type": "origins:resource",
-				"resource": "*:*_figura_state",
-				"compare_to": 0,
-				"comparison": "=="
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "*:fox/thtrackers_fox_avatar_enabled",
+						"compare_to": 0,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:resource",
+						"resource": "*:*_figura_state",
+						"compare_to": 0,
+						"comparison": "=="
+					}
+				]
 			},
 			"if_action": {
 				"type": "origins:delay",
@@ -1684,6 +1726,12 @@
 					{
 						"type": "origins:resource",
 						"resource": "*:*_figura_state",
+						"compare_to": 0,
+						"comparison": "=="
+					},
+					{
+						"type": "origins:resource",
+						"resource": "*:fox/thtrackers_fox_avatar_enabled",
 						"compare_to": 0,
 						"comparison": "=="
 					},
@@ -1903,47 +1951,69 @@
 						}
 					},
 					"if_action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:relative_rotation",
-							"actor_rotation": "head",
-							"target_rotation": "head",
-							"comparison": "<",
-							"compare_to": -0.3
-						},
-						"if_action": {
-							"type": "origins:and",
-							"actions": [
-								{
-									"type": "origins:actor_action",
-									"action": {
-										"type": "origins:and",
-										"actions": [
-											{
-												"type": "origins:delay",
-												"ticks": 1,
-												"action": {
-													"type": "origins:execute_command",
-													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=booped,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
-												}
-											},
-											{
-												"type": "origins:swing_hand",
-												"hand": "MAIN_HAND"
-											},
-											{
-												"type": "origins:trigger_cooldown",
-												"power": "*:fox/thsound_interaction_cooldown"
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:target_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:execute_command",
+											"command": "/tag @s add interacted"
+										},
+										{
+											"type": "origins:spawn_particles",
+											"particle": "minecraft:heart",
+											"offset_y": 0.5,
+											"count": 2,
+											"spread": {
+												"x": 0.2,
+												"y": 0.1,
+												"z": 0.2
 											}
-										]
-									}
+										}
+									]
+								}
+							},
+							{
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:trigger_cooldown",
+									"power": "*:fox/thsound_interaction_cooldown"
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:relative_rotation",
+									"actor_rotation": "head",
+									"target_rotation": "head",
+									"comparison": "<",
+									"compare_to": -0.3
 								},
-								{
-									"type": "origins:target_action",
-									"action": {
-										"type": "origins:and",
-										"actions": [
-											{
+								"if_action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:actor_action",
+											"action": {
+												"type": "origins:and",
+												"actions": [
+													{
+														"type": "origins:execute_command",
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+													},
+													{
+														"type": "origins:swing_hand",
+														"hand": "MAIN_HAND"
+													}
+												]
+											}
+										},
+										{
+											"type": "origins:target_action",
+											"action": {
 												"type": "origins:if_else",
 												"condition": {
 													"type": "origins:command",
@@ -1965,57 +2035,32 @@
 													"volume": 1.0,
 													"category": "neutral"
 												}
-											},
-											{
-												"type": "origins:execute_command",
-												"command": "/tag @s add booped"
-											},
-											{
-												"type": "origins:delay",
-												"ticks": 2,
-												"action": {
-													"type": "origins:execute_command",
-													"command": "/tag @s remove booped"
-												}
 											}
-										]
-									}
-								}
-							]
-						},
-						"else_action": {
-							"type": "origins:and",
-							"actions": [
-								{
-									"type": "origins:actor_action",
-									"action": {
-										"type": "origins:and",
-										"actions": [
-											{
-												"type": "origins:delay",
-												"ticks": 1,
-												"action": {
-													"type": "origins:execute_command",
-													"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=petted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
-												}
-											},
-											{
-												"type": "origins:swing_hand",
-												"hand": "MAIN_HAND"
-											},
-											{
-												"type": "origins:trigger_cooldown",
-												"power": "*:fox/thsound_interaction_cooldown"
-											}
-										]
-									}
+										}
+									]
 								},
-								{
-									"type": "origins:target_action",
-									"action": {
-										"type": "origins:and",
-										"actions": [
-											{
+								"else_action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:actor_action",
+											"action": {
+												"type": "origins:and",
+												"actions": [
+													{
+														"type": "origins:execute_command",
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+													},
+													{
+														"type": "origins:swing_hand",
+														"hand": "MAIN_HAND"
+													}
+												]
+											}
+										},
+										{
+											"type": "origins:target_action",
+											"action": {
 												"type": "origins:if_else",
 												"condition": {
 													"type": "origins:command",
@@ -2037,24 +2082,19 @@
 													"pitch": 1.0,
 													"category": "neutral"
 												}
-											},
-											{
-												"type": "origins:execute_command",
-												"command": "/tag @s add petted"
-											},
-											{
-												"type": "origins:delay",
-												"ticks": 2,
-												"action": {
-													"type": "origins:execute_command",
-													"command": "/tag @s remove petted"
-												}
 											}
-										]
-									}
+										}
+									]
 								}
-							]
-						}
+							},
+							{
+								"type": "origins:target_action",
+								"action": {
+									"type": "origins:execute_command",
+									"command": "/tag @s remove interacted"
+								}
+							}
+						]
 					}
 				}
 			}
@@ -2084,24 +2124,17 @@
 								"type": "origins:power",
 								"power": "*:fox/thhat",
 								"inverted": true
+							},
+							{
+								"type": "origins:command",
+								"command": "/execute if entity @s[tag=icicyle]",
+								"compare_to": 0,
+								"comparison": "=="
 							}
 						]
 					}
 				}
 			]
-		}
-	},
-
-	"prevent_hit_by_your_hos": {
-		"type": "origins:invulnerability",
-		"damage_condition": {
-			"type": "origins:attacker",
-			"entity_condition": {
-				"type": "origins:passenger",
-				"bientity_condition": {
-					"type": "origins:riding_recursive"
-				}
-			}
 		}
 	}
 }
