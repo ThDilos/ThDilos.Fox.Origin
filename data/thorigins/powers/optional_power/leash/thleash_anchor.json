@@ -1,0 +1,174 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+
+	"_init_": {
+		"type": "origins:action_on_callback",
+		"entity_action_gained": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/scale delay set pehkui:width 0"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scale delay set pehkui:height 0"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scale set pehkui:width 0.01 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scale set pehkui:height 0.01 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @s add leash_anchor"
+				}
+			]
+		}
+	},
+
+	"ticks_2": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_tied",
+						"compare_to": 1,
+						"comparison": "=="
+					},
+					"if_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:in_block",
+							"block_condition": {
+								"type": "origins:block",
+								"block": "minecraft:air"
+							}
+						},
+						"if_action": {
+							"type": "origins:change_resource",
+							"resource": "*:*_exit",
+							"change": 1
+						}
+					}
+				},
+				{
+					"type": "origins:raycast",
+					"distance": 10,
+					"command_along_ray": "/particle dust 0.33 0.18 0.11 0.4 ~ ~ ~ 0 0 0 0 1",
+					"command_step": 0.1,
+					"block": false,
+					"bientity_condition": {
+						"type": "origins:target_condition",
+						"condition": {
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:command",
+									"command": "/execute if entity @s[tag=leasher]",
+									"compare_to": 0,
+									"comparison": "=="
+								},
+								{
+									"type": "origins:command",
+									"command": "/execute if entity @s[tag=leashed]",
+									"compare_to": 1,
+									"comparison": "=="
+								}
+							]
+						}
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_tied",
+										"compare_to": 0,
+										"comparison": "=="
+									},
+									{
+										"type": "origins:command",
+										"command": "/execute if entity @e[distance=..10,tag=leasher]",
+										"compare_to": 0,
+										"comparison": "=="
+									}
+								]
+							},
+							{
+								"type": "origins:command",
+								"command": "/execute at @e[tag=!leash_anchor,tag=leashed,distance=..10] run execute if score @s UUID0 = @e[limit=1,sort=nearest] UUID0",
+								"compare_to": 0,
+								"comparison": "=="
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_exit",
+						"change": 1
+					}
+				}
+			]
+		}
+	},
+
+	"invis": {
+		"type": "origins:invisibility"
+	},
+
+	"tied": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/scale set pehkui:width 0.01 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scale set pehkui:height 0.5 @s"
+				}
+			]
+		}
+	},
+
+	"exit": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/summon item ~ ~ ~ {Item:{id:\"minecraft:lead\",Count:1b}}"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/kill @s"
+				}
+			]
+		}
+	}
+}
