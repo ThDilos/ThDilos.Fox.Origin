@@ -42,20 +42,21 @@
 
 	"fox.thsmol.name": "§e§nSmol",
 	"fox.thsmol.description": "Being a fox, you're shorter and have less endurance. But monsters will have a harder time noticing you.",
-	"thsmol.info": "[§e~§r] Shrinked sizes\n[§c-§r] Reduced max health\n[§a+§r] Less noticable to mobs",
+	"thsmol.info": "[§e~§r] Shrinked sizes\n[§c-§r] Reduced max health\n[§a+§r] Less noticable to mobs\n\nPress [%s] to snatch the dropped item(s) you aimed at",
 
 	"fox.thweak.name": "§c§nWeak",
 	"fox.thweak.description": "You were born with slender limbs, which restrict you from using shield and performing well in heavy armors, weapons.",
 	"thweak.info": "[§c-§r] Cannot use shield\n[§c-§r] Equipping heavy armors limits your strength and mobility\n[§c-§r] Have less air when under water",
 	"thweak.info1": "\n[§c-§r] Using Mace is not a good idea",
 	"power.thorigins.fox.thweak_disable_shield.name": "From Passive Skill [§c§nWeak§r] :3",
-	
+
 	"fox.thfoxiality.name": "§e§nFoxiality",
 	"fox.thfoxiality.description": "Embrace your fox nature and thrive.",
-	"thfoxiality.info": "[§a+§r] Permanent night vision\n[§a+§r] Higher damage against prey mobs\n[§a+§r] Ignore berry bushes\n[§a+§r] Breaking berry bushes gives you sweet berries\n[§a+§r] Receive a random item when waking up\n[§c-§r] Can't fall asleep when not under shades\n[§a+§r] Do more damage to Merling and Avian\n[§c-§r] Receive more damage from Blazeborn\n[§a+§r] Dig extremely fast with claws(empty handed)\n[§a+§r] Climb in Powder Snow\n[§a+§r] Trusted by foxes\n[§c-§r] Anger wolves and polar bears",
+	"thfoxiality.info": "[§a+§r] Permanent Night Vision when no <§eLights§r> in Offhand\n[§a+§r] Higher damage against prey mobs\n[§a+§r] Ignore berry bushes\n[§a+§r] Breaking berry bushes gives you sweet berries\n[§a+§r] Receive a random item when waking up\n[§c-§r] Can't fall asleep when not under shades\n[§a+§r] Do more damage to Merling and Avian\n[§c-§r] Receive more damage from Blazeborn\n[§a+§r] Dig extremely fast with claws(empty handed)\n[§a+§r] Climb in Powder Snow\n[§a+§r] Trusted by foxes\n[§c-§r] Anger wolves and polar bears",
 	"thfoxiality.info1": "\n[§c-§r] Predators do a deadlier §5§lEXTRA STRIKE §r§fto you after every hit",
 	"thfoxiality.info1_legacy": "\n[§c-§r] Wolf and Polar Bear deal more damages to you",
 	"thfoxiality.info2": "Your Predators' §5§lEXTRA STRIKE§r has the following effects:\n§b1§r. Applies §5Slowness§r + Weakness + Nausea to you\n§b2§r. Deals a §egreater§r amount of ❂§lTRUE DAMAGE§r\n§b3§r. Temporarily §cDisables§r your [§6§lPounce§r]\n§b4§r. Temporarily §cNullifies§r your [§aAgility§r]'s first effect\n§b5§r. Temporarily §cDisables§r your natural regeneration\n\n§8§oWearing armors and Resistance might make your predators' §lEXTRA STRIKE §r§8§ofail",
+	"kill_a_fox": "§4§lWhat have you done...",
 
 	"fox.thfluffy.name": "§e§nFluffy",
 	"fox.thfluffy.description": "Shaggy fur provides excellent cold protection but is highly flammable.",
@@ -65,7 +66,7 @@
 	"fox.thshy.description": "Survival instincts make you fear predators, death, crowds, and danger, but there are ways to conquer the fears.",
 	"thshy.info0": "[§c-§r] Shake, and get Weakness + Speed effects when:\n§b1§r. Near §cPolar Bear§r / §cWolf§r / §6Villager§r / §1Warden§r / §7Wither§r / §5Ender Dragon§r\n§b2§r. Spawn of §eLightning§r\n§b3§r. Low §cHealth§r\n§b4§r. In the other 2 Dimensions\n§b5§r. Near Human / Enderian / Blazeborn / Shulk Origin Player\n\n[§c-§r] Can't fall asleep when the above effects are present\n\n",
 	"thshy.info1": "Press [%s] against a §dTamed §cWolf§r §fto not fear them",
-	"thshy.info2": "[§e~§r] To Conquer the Fears:\n§b1§r. §6Villager§r: Obtain [§5Hero Of the Village§r]\n§b2§r. §1Warden§r: Kill §43§r Wardens\n§b3§r. §7Wither§r: Kill §41§r Wither\n§b4§r. §5Ender Dragon§r: Kill §41§r Ender Dragon\n§b5§r. §eLightning§r: Struct by Lightning §516§r times\n§b6§r. Low §cHealth§r: Die & Respawn §58§r times\n§b7§r. In the End / Nether: Stay for §310§r Minutes in respective dimensions\n§b8§r. Near Certain Origins: §dPet / Boop / Feed§r §fby them",
+	"thshy.info2": "[§e~§r] To Conquer the Fears:\n§b1§r. §6Villager§r: Obtain [§5Hero Of the Village§r]\n§b2§r. §1Warden§r: Kill §43§r Wardens\n§b3§r. §7Wither§r: Kill §41§r Wither\n§b4§r. §5Ender Dragon§r: Kill §41§r Ender Dragon\n§b5§r. §eLightning§r: Struck by Lightning §516§r times\n§b6§r. Low §cHealth§r: Die & Respawn §58§r times\n§b7§r. In the End / Nether: Stay for §310§r Minutes in respective dimensions\n§b8§r. Near Certain Origins: §dPet / Boop / Feed§r §fby them",
 	"thorigins.wolf_certified_0": "§aGood boy certification successful",
 	"thorigins.wolf_certified_1": "§aFriend request from <Wolf> accepted",
 	"thorigins.wolf_certified_2": "§aYou made truce with this predator",
@@ -96,7 +97,7 @@
 	"death.attack.thorigins:foxie_bite.item": "%1$s underestimated how feral %2$s with their %3$s can be in a fight.",
 	"death.attack.thorigins:predator_bite.item": "%1$s was eviscerated to an unrecognizable shape by a %3$s-wielding %2$s.",
 
-	"fox.wakeup.item": "You Found Something When You Were Asleep!",
+	"fox.wakeup.item": "You Found <%s> When You Were Asleep!",
 
 	"fox.petter": "Petted %s",
 	"fox.petted": "You've been pet by %s",
@@ -105,6 +106,9 @@
 	"fox.feed2": ", and received a positive effect!",
 	"fox.hug": "§dYou gave %s §dthe little critter a little hug :3",
 	"fox.hugged": "%s §dgave you a passionate hug",
+
+	"fox.trusted": "§dWholesome Interaction! You are now trusted by them",
+	"fox.distrusted": "§4You are no longer trusted...",
 
 	"layer.thorigins.foxsize.name": "body size",
 	"origin.foxsize.m.name": "Default Size (M)",
@@ -120,5 +124,12 @@
 	"origin.foxsize.xs.name": "Extra Smaller (XS)",
 	"origin.foxsize.xs.description": "The smallest size setting you can get from me >:3",
 	"power.foxsize.xs.name": "0.5x Height / Width",
-	"power.foxsize.xs.description": "Can §lWALK§r and §lRUN§r in a 1-block hole."
+	"power.foxsize.xs.description": "Can §lWALK§r and §lRUN§r in a 1-block hole.",
+
+	"figura_on": "§dFigura Mode§r §aON§r, §byour hitbox and eye height is shrunk according to the§r §6Fox Avatar",
+	"figura_off": "§dFigura Mode§r §cOFF§r, §byour hitbox and eye height is resetted.\n§eExit§r §band§r §eRe-enter§r §bthe world if §f§nall of your powers disappear",
+
+	"thorigins.forge.server.detected": "It appears that you are in a §cForge Server§r!\n[§5Walk On Powder Snow§r] power of this Origin is automatically disabled to prevent certain horrifying bugz :3c",
+	"tied_leash_to_fence": "§eSneak + Right Click§r §bthe§r §6Leashed§r §bto free them",
+	"tie_dupe": "§bYou can only leash §c1§b entity at the same time!"
 }
