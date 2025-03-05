@@ -8,6 +8,13 @@
 		"key": "nuh.uh"
 	},
 
+	"fox_avatar_enabled": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0
+	},
+
 	"optional_powers": {
 		"type": "origins:action_on_callback",
 		"entity_action_added": {
@@ -21,7 +28,7 @@
 						"condition": {
 							"type": "origins:origin",
 							"layer": "thorigins:foxsize",
-							"origin": "origins:empty"
+							"origin": "foxsize:empty"
 						},
 						"if_action": {
 							"type": "origins:execute_command",
@@ -65,6 +72,25 @@
 							"power": "*:optional_power/thfallsound",
 							"source": "thorigins:universal"
 						}
+					},
+					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "*:fox/universal_settings_optional_leash",
+							"compare_to": 1,
+							"comparison": "=="
+						},
+						"if_action": {
+							"type": "origins:grant_power",
+							"power": "*:optional_power/leash/thleash",
+							"source": "thorigins:universal"
+						},
+						"else_action": {
+							"type": "origins:revoke_power",
+							"power": "*:optional_power/leash/thleash",
+							"source": "thorigins:universal"
+						}
 					}
 				]
 			}
@@ -83,8 +109,13 @@
 					"source": "thorigins:universal"
 				},
 				{
+					"type": "origins:revoke_power",
+					"power": "*:optional_power/leash/thleash",
+					"source": "thorigins:universal"
+				},
+				{
 					"type": "origins:execute_command",
-					"command": "/origin set @s thorigins:foxsize origins:empty"
+					"command": "/origin set @s thorigins:foxsize foxsize:empty"
 				}
 			]
 		}
@@ -98,6 +129,10 @@
 		"max_action": {
 			"type": "origins:and",
 			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/scale reset @s"
+				},
 				{
 					"type": "origins:execute_command",
 					"command": "/scale persist set true @s"
@@ -157,15 +192,8 @@
 				"type": "origins:and",
 				"actions": [
 					{
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:nbt",
-							"nbt": "{ \"Tags\": [\"foxie\"] }"
-						},
-						"if_action": {
-							"type": "origins:execute_command",
-							"command": "/tag @s remove foxie"
-						}
+						"type": "origins:execute_command",
+						"command": "/tag @s remove foxie"
 					},
 					{
 						"type": "origins:if_else",
@@ -193,7 +221,17 @@
 					},
 					{
 						"type": "origins:execute_command",
-						"command": "/origin set @s thorigins:foxsize origins:empty"
+						"command": "/origin set @s thorigins:foxsize foxsize:empty"
+					},
+					{
+						"type": "origins:revoke_power",
+						"power": "thorigins:fox/universal_settings",
+						"source": "thorigins:universal"
+					},
+					{
+						"type": "origins:revoke_power",
+						"power": "*:*_optional_powers",
+						"source": "thorigins:universal"
 					}
 				]
 			},
@@ -214,9 +252,6 @@
 
 	"warden_kills": {
 		"type": "origins:resource",
-		"hud_render": {
-			"should_render": false
-		},
 		"min": 0,
 		"max": 65535,
 		"start_value": 0
@@ -238,9 +273,6 @@
 
 	"wither_kills": {
 		"type": "origins:resource",
-		"hud_render": {
-			"should_render": false
-		},
 		"min": 0,
 		"max": 65535,
 		"start_value": 0
@@ -262,9 +294,6 @@
 
 	"edrag_kills": {
 		"type": "origins:resource",
-		"hud_render": {
-			"should_render": false
-		},
 		"min": 0,
 		"max": 65535,
 		"start_value": 0
@@ -286,9 +315,6 @@
 
 	"thunderstruck": {
 		"type": "origins:resource",
-		"hud_render": {
-			"should_render": false
-		},
 		"min": 0,
 		"max": 65535,
 		"start_value": 0
@@ -310,9 +336,6 @@
 
 	"death": {
 		"type": "origins:resource",
-		"hud_render": {
-			"should_render": false
-		},
 		"min": 0,
 		"max": 65535,
 		"start_value": 0
@@ -336,19 +359,13 @@
 		"type": "origins:resource",
 		"min": 0,
 		"max": 12000,
-		"start_value": 0,
-		"hud_render": {
-			"should_render": false
-		}
+		"start_value": 0
 	},
 
 	"time_in_end": {
 		"type": "origins:resource",
 		"min": 0,
 		"max": 12000,
-		"start_value": 0,
-		"hud_render": {
-			"should_render": false
-		}
+		"start_value": 0
 	}
 }
