@@ -4,8 +4,46 @@
 	"_init_": {
 		"type": "origins:action_on_callback",
 		"entity_action_added": {
-			"type": "origins:execute_command",
-			"command": "/scoreboard objectives add yIntPos dummy \"yIntPos\""
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:command",
+							"command": "/execute as @s[nbt={ForgeCaps:{}}] run list",
+							"compare_to": 1,
+							"comparison": ">"
+						},
+						"if_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:change_resource",
+									"resource": "*:fox/universal_settings_optional_walk_on_powdered_snow",
+									"change": 0,
+									"operation": "set"
+								},
+								{
+									"type": "origins:revoke_power",
+									"power": "*:optional_power/thpowdersnow",
+									"source": "thorigins:universal"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/tellraw @s [{\"translate\":\"thorigins.forge.server.detected\"}]"
+								}
+							]
+						}
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scoreboard objectives add yIntPos dummy \"yIntPos\""
+				}
+			]
 		}
 	},
 
@@ -144,6 +182,21 @@
 					}
 				}
 			]
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:power_active",
+					"power": "*:fox/thweak_heavy_armor",
+					"inverted": true
+				},
+				{
+					"type": "origins:power",
+					"power": "*:fox/thweak_heavy_armor",
+					"inverted": true
+				}
+			]
 		}
 	},
 
@@ -208,6 +261,21 @@
 							"item": "minecraft:leather_boots"
 						}
 					}
+				},
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:power_active",
+							"power": "*:fox/thweak_heavy_armor",
+							"inverted": true
+						},
+						{
+							"type": "origins:power",
+							"power": "*:fox/thweak_heavy_armor",
+							"inverted": true
+						}
+					]
 				}
 			]
 		}
@@ -306,6 +374,21 @@
 							"item": "minecraft:leather_boots"
 						}
 					}
+				},
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:power_active",
+							"power": "*:fox/thweak_heavy_armor",
+							"inverted": true
+						},
+						{
+							"type": "origins:power",
+							"power": "*:fox/thweak_heavy_armor",
+							"inverted": true
+						}
+					]
 				}
 			]
 		},
@@ -342,6 +425,13 @@
 							"type": "origins:block",
 							"block": "minecraft:powder_snow"
 						}
+					}
+				},
+				{
+					"type": "origins:block_collision",
+					"block_condition": {
+						"type": "origins:block",
+						"block": "minecraft:powder_snow"
 					}
 				}
 			]
