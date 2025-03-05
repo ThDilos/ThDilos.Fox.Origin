@@ -12,18 +12,18 @@
 			"type": "origins:and",
 			"actions": [
 				{
+					"type": "origins:change_resource",
+					"resource": "thorigins:fox/thtrackers_scale_modified",
+					"change": 2,
+					"operation": "set"
+				},
+				{
 					"type": "origins:execute_command",
 					"command": "/scale multiply pehkui:height 0.5 @s"
 				},
 				{
 					"type": "origins:execute_command",
 					"command": "/scale multiply pehkui:width 0.5 @s"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "thorigins:fox/thtrackers_scale_modified",
-					"change": 2,
-					"operation": "set"
 				}
 			]
 		}
