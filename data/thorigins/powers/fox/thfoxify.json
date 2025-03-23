@@ -1910,10 +1910,13 @@
 											"type": "origins:actor_action",
 											"action": {
 												"type": "origins:passenger_action",
-												"action": {
-													"type": "origins:change_resource",
-													"resource": "*:fox/thhat_safari",
-													"change": 1
+												"bientity_action": {
+													"type": "origins:target_action",
+													"action": {
+														"type": "origins:change_resource",
+														"resource": "*:fox/thhat_safari",
+														"change": 1
+													}
 												}
 											}
 										}
