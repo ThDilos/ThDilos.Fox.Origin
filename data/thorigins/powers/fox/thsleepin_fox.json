@@ -60,6 +60,10 @@
 					{
 						"type": "origins:entity_type",
 						"entity_type": "minecraft:polar_bear"
+					},
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:player"
 					}
 				]
 			}
@@ -371,6 +375,48 @@
 		}
 	},
 
+	"damage_back_player": {
+		"type": "origins:action_when_hit",
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:entity_type",
+				"entity_type": "minecraft:player"
+			}
+		},
+		"bientity_action": {
+			"type": "origins:actor_action",
+			"action": {
+				"type": "origins:area_of_effect",
+				"radius": 1,
+				"shape": "sphere",
+				"bientity_condition": {
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:power",
+								"power": "*:fox/thfoxify"
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:fox/thfoxify_afk_timer",
+								"compare_to": 0,
+								"comparison": "=="
+							}
+						]
+					}
+				},
+				"bientity_action": {
+					"type": "origins:damage",
+					"amount": 2,
+					"damage_type": "minecraft:player_attack"
+				}
+			}
+		}
+	},
+
 	"ticks": {
 		"type": "origins:action_over_time",
 		"interval": 1,
@@ -562,8 +608,12 @@
 								"ticks": 1,
 								"action": {
 									"type": "origins:execute_command",
-									"command": "/tp @s ~ ~500 ~"
+									"command": "/tp @s ~ ~-500 ~"
 								}
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/data merge entity @s {Silent:1b}"
 							}
 						]
 					}
