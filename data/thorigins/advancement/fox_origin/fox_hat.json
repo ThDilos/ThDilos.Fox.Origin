@@ -1,0 +1,27 @@
+{
+	"parent": "thorigins:fox_origin/foxify",
+	"criteria": {
+		"to_be_granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.fox_hat.description"
+		},
+		"frame": "task",
+		"hidden": false,
+		"icon": {
+			"id": "minecraft:leather_horse_armor",
+			"nbt": "{display:{color:16759439}}"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.fox_hat.title"
+		}
+	},
+	"requirements": [["to_be_granted"]],
+	"sends_telemetry_event": true
+}

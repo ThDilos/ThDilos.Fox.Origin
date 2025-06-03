@@ -97,6 +97,13 @@
 		},
 		"condition": {
 			"type": "origins:sneaking"
+		},
+		"bientity_action": {
+			"type": "origins:target_action",
+			"action": {
+				"type": "origins:execute_command",
+				"command": "/playsound minecraft:block.wool.break block @s ~ ~ ~ 1.5 0.6"
+			}
 		}
 	},
 

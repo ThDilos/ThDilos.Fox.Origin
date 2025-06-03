@@ -1,9 +1,10 @@
 {
-	"values": [
-		"#thorigins:regen_foods",
+    "values": [
+        "#thorigins:regen_food",
+
 		"minecraft:golden_apple",
 		"minecraft:golden_carrot",
 		"minecraft:apple",
 		"minecraft:rotten_flesh"
-	]
+    ]
 }

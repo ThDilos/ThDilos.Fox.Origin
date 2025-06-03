@@ -1,0 +1,51 @@
+{
+	"parent": "thorigins:fox_origin/shake_water_snow",
+	"criteria": {
+		"visited": {
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biomes": [
+									"minecraft:windswept_forest",
+									"minecraft:windswept_gravelly_hills",
+									"minecraft:windswept_hills",
+									"minecraft:windswept_savanna"
+								]
+							},
+							"nbt": "{Tags: [\"foxie\"]}",
+							"type_specific": {
+								"type": "player",
+								"advancements": {
+									"thorigins:fox_origin/root": true
+								}
+							}
+						}
+					}
+				]
+			},
+			"trigger": "minecraft:location"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.wimdy.description"
+		},
+		"frame": "task",
+		"hidden": true,
+		"icon": {
+			"id": "minecraft:feather"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.wimdy.title"
+		}
+	},
+	"requirements": [["visited"]],
+	"sends_telemetry_event": true
+}

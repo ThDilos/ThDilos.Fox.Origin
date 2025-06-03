@@ -70,11 +70,15 @@
 		}
 	},
 
-	"fall_dmg_ignore": {
+	"fall_smother_dmg_ignore": {
 		"type": "origins:invulnerability",
 		"damage_condition": {
 			"type": "origins:any_of",
 			"conditions": [
+				{
+					"type": "origins:name",
+					"name": "inWall"
+				},
 				{
 					"type": "origins:from_falling"
 				},

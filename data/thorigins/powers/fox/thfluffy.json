@@ -31,9 +31,9 @@
 							"compare_to": 27
 						},
 						{
-							"type": "origins:nbt",
-							"nbt": "{Health:0.0f}",
-							"inverted": true
+							"type": "origins:health",
+							"compare_to": 0,
+							"comparison": ">"
 						},
 						{
 							"type": "origins:sneaking",
@@ -65,9 +65,9 @@
 							"comparison": ">"
 						},
 						{
-							"type": "origins:nbt",
-							"nbt": "{Health:0.0f}",
-							"inverted": true
+							"type": "origins:health",
+							"compare_to": 0,
+							"comparison": ">"
 						}
 					]
 				},
@@ -176,6 +176,30 @@
 									},
 									"speed": 0.01
 								}
+							}
+						},
+						{
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_snowness",
+										"compare_to": 10,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_wetness",
+										"compare_to": 10,
+										"comparison": ">="
+									}
+								]
+							},
+							"if_action": {
+								"type": "origins:execute_command",
+								"command": "/advancement grant @s only thorigins:fox_origin/shake_water_snow"
 							}
 						}
 					]
@@ -583,9 +607,9 @@
 			"type": "origins:all_of",
 			"conditions": [
 				{
-					"type": "origins:nbt",
-					"nbt": "{Health:0.0f}",
-					"inverted": true
+					"type": "origins:health",
+					"compare_to": 0,
+					"comparison": ">"
 				},
 				{
 					"type": "origins:resource",

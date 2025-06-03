@@ -19,41 +19,214 @@
 					"command": "/scoreboard players enable @s foxtype"
 				},
 				{
-					"type": "origins:execute_command",
-					"command": "/scoreboard players set @s[scores={foxtype=4}] foxtype 0"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scoreboard players set @s[scores={foxtype=..-1}] foxtype -1"
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:any_of",
-						"inverted": true,
-						"conditions": [
-							{
-								"type": "origins:equipped_item",
-								"item_condition": {
-									"type": "origins:has_power",
-									"power": "*:extras"
-								},
-								"equipment_slot": "offhand"
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:scoreboard",
+								"objective": "foxtype",
+								"compare_to": 4,
+								"comparison": "=="
 							},
-							{
-								"type": "origins:equipped_item",
-								"item_condition": {
-									"type": "origins:has_power",
-									"power": "*:extras"
-								},
-								"equipment_slot": "mainhand"
+							"action": {
+								"type": "origins:execute_command",
+								"command": "/scoreboard players set @s foxtype 0"
 							}
-						]
-					},
-					"if_action": {
-						"type": "origins:execute_command",
-						"command": "/scoreboard players set @s[scores={foxtype=7..}] foxtype 0"
-					}
+						},
+						{
+							"condition": {
+								"type": "origins:scoreboard",
+								"objective": "foxtype",
+								"compare_to": -1,
+								"comparison": "<"
+							},
+							"action": {
+								"type": "origins:execute_command",
+								"command": "/scoreboard players set @s foxtype -1"
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 9,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 16,
+										"comparison": "<="
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/scoreboard players remove @s foxtype 10"
+									},
+									{
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:resource",
+											"resource": "*:fox/thtrackers_nightvision_fix",
+											"compare_to": 0,
+											"comparison": "=="
+										},
+										"if_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_nightvision_fix",
+													"change": 1
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"nightvision_fix\",\"with\":[{\"text\":\"ON\",\"color\":\"green\"}]}]"
+												}
+											]
+										},
+										"else_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_nightvision_fix",
+													"change": -1
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"nightvision_fix\",\"with\":[{\"text\":\"OFF\",\"color\":\"red\"}]}]"
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 19,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 26,
+										"comparison": "<="
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/scoreboard players remove @s foxtype 20"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/power revoke @s all thorigins:fox"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/power revoke @s all thorigins:kitsune"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/power revoke @s all thorigins:ninetails"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/power revoke @s all thorigins:lightning_fox"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/power revoke @s all thorigins:fire_fox"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/power revoke @s all thorigins:ice_fox"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/tellraw @s {\"translate\":\"power_reset\"}"
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 29,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 36,
+										"comparison": "<="
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/scoreboard players remove @s foxtype 30"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/say :3"
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:any_of",
+								"inverted": true,
+								"conditions": [
+									{
+										"type": "origins:equipped_item",
+										"item_condition": {
+											"type": "origins:has_power",
+											"power": "*:extras"
+										},
+										"equipment_slot": "offhand"
+									},
+									{
+										"type": "origins:equipped_item",
+										"item_condition": {
+											"type": "origins:has_power",
+											"power": "*:extras"
+										},
+										"equipment_slot": "mainhand"
+									}
+								]
+							},
+							"action": {
+								"type": "origins:execute_command",
+								"command": "/scoreboard players set @s[scores={foxtype=7..}] foxtype 0"
+							}
+						}
+					]
 				},
 				{
 					"type": "origins:change_resource",
@@ -373,7 +546,7 @@
 		"item_condition": {
 			"type": "origins:ingredient",
 			"ingredient": {
-				"tag": "thorigins:disliked_foods"
+				"tag": "thorigins:disliked_food"
 			}
 		},
 		"entity_action": {

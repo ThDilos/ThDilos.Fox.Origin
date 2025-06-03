@@ -29,6 +29,7 @@
 	"thfoxify.info4": "To change into §aother types of fox§r, use command \n§6/trigger foxtype set [§aNumber§r§6]§r\n\n§a0§r Red Fox\n§a1§r Snow Fox\n§a2§r Red Fox Pup\n§a3§r Snow Fox Pup\n§a4§r Revert to §a0§r\n\n§a-1§r Disable [§5Sleepin Mode§r]\n§a5§r Enable [Figura Mode]\n§a6§r Enable [Figura Mode](Pup Sounds)",
 	"thfoxify.keybind.info": "Keybinds Used:\n§a1§r. Sprint - [%s]\n§a2§r. Drop - [%s]\n§a3§r. Use - [%s]\n§a4§r. Save Hotbar Activator - [%s]\n§a5§r. Swap Item With Offhand - [%s]",
 	"thfoxify.error": "§cError Sizes Detected, Foxification is forced to end",
+	"thfoxify.info6": "Other FoxType Utilities\nUse §6/trigger foxtype §c§ladd§r §6[§aNumber§r§6]§r\n\n§a10§r §5Toggle Nightvision Fix§r\n§8For when passive nightvision is bugged by shaders / mods\n\n§a20§r §4Refresh Powers§r\n§8For when your powers are not working due to Server sudden shut down etc.",
 
 	"fox.thhunt.name": "§6§l§nHunt",
 	"fox.thhunt.description": "Hide yourself by crouching and enter a hunting phase after much preparation.",
@@ -42,7 +43,7 @@
 
 	"fox.thsmol.name": "§e§nSmol",
 	"fox.thsmol.description": "Being a fox, you're shorter and have less endurance. But monsters will have a harder time noticing you.",
-	"thsmol.info": "[§e~§r] Shrinked sizes\n[§c-§r] Reduced max health\n[§a+§r] Less noticable to mobs\n\nPress [%s] to snatch the dropped item(s) you aimed at",
+	"thsmol.info": "[§e~§r] Shrinked sizes\n[§c-§r] Reduced max health\n[§a+§r] Less noticable to mobs",
 
 	"fox.thweak.name": "§c§nWeak",
 	"fox.thweak.description": "You were born with slender limbs, which restrict you from using shield and performing well in heavy armors, weapons.",
@@ -52,7 +53,7 @@
 
 	"fox.thfoxiality.name": "§e§nFoxiality",
 	"fox.thfoxiality.description": "Embrace your fox nature and thrive.",
-	"thfoxiality.info": "[§a+§r] Permanent Night Vision when no <§eLights§r> in Offhand\n[§a+§r] Higher damage against prey mobs\n[§a+§r] Ignore berry bushes\n[§a+§r] Breaking berry bushes gives you sweet berries\n[§a+§r] Receive a random item when waking up\n[§c-§r] Can't fall asleep when not under shades\n[§a+§r] Do more damage to Merling and Avian\n[§c-§r] Receive more damage from Blazeborn\n[§a+§r] Dig extremely fast with claws(empty handed)\n[§a+§r] Climb in Powder Snow\n[§a+§r] Trusted by foxes\n[§c-§r] Anger wolves and polar bears",
+	"thfoxiality.info": "[§a+§r] Permanent Night Vision when no <§eLights§r> in Offhand\n[§a+§r] Higher damage against prey mobs\n[§a+§r] Ignore berry bushes\n[§a+§r] Breaking berry bushes gives you sweet berries\n[§a+§r] Receive a random item when waking up\n[§c-§r] Can't fall asleep when not under shades\n[§a+§r] Do more damage to Merling and Avian\n[§c-§r] Receive more damage from Blazeborn\n[§a+§r] Dig extremely fast with claws(empty handed)\n[§a+§r] Boosted Pickup Range\n[§a+§r] Climb in Powder Snow\n[§a+§r] Trusted by foxes\n[§c-§r] Anger wolves and polar bears\n[§c-§r] Wolves and polar bears receive Speed Buffs when targeting you",
 	"thfoxiality.info1": "\n[§c-§r] Predators do a deadlier §5§lEXTRA STRIKE §r§fto you after every hit",
 	"thfoxiality.info1_legacy": "\n[§c-§r] Wolf and Polar Bear deal more damages to you",
 	"thfoxiality.info2": "Your Predators' §5§lEXTRA STRIKE§r has the following effects:\n§b1§r. Applies §5Slowness§r + Weakness + Nausea to you\n§b2§r. Deals a §egreater§r amount of ❂§lTRUE DAMAGE§r\n§b3§r. Temporarily §cDisables§r your [§6§lPounce§r]\n§b4§r. Temporarily §cNullifies§r your [§aAgility§r]'s first effect\n§b5§r. Temporarily §cDisables§r your natural regeneration\n\n§8§oWearing armors and Resistance might make your predators' §lEXTRA STRIKE §r§8§ofail",
@@ -66,11 +67,12 @@
 	"fox.thshy.description": "Survival instincts make you fear predators, death, crowds, and danger, but there are ways to conquer the fears.",
 	"thshy.info0": "[§c-§r] Shake, and get Weakness + Speed effects when:\n§b1§r. Near §cPolar Bear§r / §cWolf§r / §6Villager§r / §1Warden§r / §7Wither§r / §5Ender Dragon§r\n§b2§r. Spawn of §eLightning§r\n§b3§r. Low §cHealth§r\n§b4§r. In the other 2 Dimensions\n§b5§r. Near Human / Enderian / Blazeborn / Shulk Origin Player\n\n[§c-§r] Can't fall asleep when the above effects are present\n\n",
 	"thshy.info1": "Press [%s] against a §dTamed §cWolf§r §fto not fear them",
-	"thshy.info2": "[§e~§r] To Conquer the Fears:\n§b1§r. §6Villager§r: Obtain [§5Hero Of the Village§r]\n§b2§r. §1Warden§r: Kill §43§r Wardens\n§b3§r. §7Wither§r: Kill §41§r Wither\n§b4§r. §5Ender Dragon§r: Kill §41§r Ender Dragon\n§b5§r. §eLightning§r: Struck by Lightning §516§r times\n§b6§r. Low §cHealth§r: Die & Respawn §58§r times\n§b7§r. In the End / Nether: Stay for §310§r Minutes in respective dimensions\n§b8§r. Near Certain Origins: §dPet / Boop / Feed§r §fby them",
+	"thshy.info2": "[§e~§r] To Conquer the Fears:\n§b1§r. §6Villager§r: Obtain [§5Hero Of the Village§r]\n§b2§r. §1Warden§r: Kill §43§r Wardens\n§b3§r. §7Wither§r: Kill §41§r Wither\n§b4§r. §5Ender Dragon§r: Kill §41§r Ender Dragon\n§b5§r. §eLightning§r: Struck by Lightning §516§r times\n§b6§r. Low §cHealth§r: Die & Respawn §58§r times\n§b7§r. In the End / Nether: Stay for §310§r Minutes in respective dimensions\n§b8§r. Near Certain Origins: §dInteracted§r §fby them",
+	"thshy.info3": "\n\nWhile the Fear effects are present, hold [%s] to highlight the entity fear causes within 15 blocks",
 	"thorigins.wolf_certified_0": "§aGood boy certification successful",
-	"thorigins.wolf_certified_1": "§aFriend request from <Wolf> accepted",
+	"thorigins.wolf_certified_1": "§aFriend request from <§r%s§a> accepted",
 	"thorigins.wolf_certified_2": "§aYou made truce with this predator",
-	"thorigins.wolf_certified_3": "§aNew Wolf registered as professional good boy",
+	"thorigins.wolf_certified_3": "§aNew <§r%s§a> registered as professional good boy",
 	"thorigins.wolf_certified_4": "§aHand shake protocol complete",
 
 	"fox.thfood.name": "§e§nUnique Taste",
@@ -130,6 +132,79 @@
 	"figura_off": "§dFigura Mode§r §cOFF§r, §byour hitbox and eye height is resetted.\n§eExit§r §band§r §eRe-enter§r §bthe world if §f§nall of your powers disappear",
 
 	"thorigins.forge.server.detected": "It appears that you are in a §cForge Server§r!\n[§5Walk On Powder Snow§r] power of this Origin is automatically disabled to prevent certain horrifying bugz :3c",
+	"leash_tip": "[Sneak] + Leash = Extended max distance",
 	"tied_leash_to_fence": "§eSneak + Right Click§r §bthe§r §6Leashed§r §bto free them",
-	"tie_dupe": "§bYou can only leash §c1§b entity at the same time!"
+	"tie_dupe": "§bYou can only leash §c1§b entity at the same time!",
+
+	"nightvision_fix": "§eNight Vision Fix [§r%s§e]§r",
+	"power_reset": "§eAll Fox Powers §4resetted§r§e. Please §5§orelog§r§e :3",
+
+	"thorigins.advancements.root.title": "Fox Origin",
+	"thorigins.advancements.root.description": "Life as a fox in a blocky world",
+
+	"thorigins.advancements.all_modifier.title": "Master Assassin",
+	"thorigins.advancements.all_modifier.description": "Trigger the highest possible damage modifiers combination",
+
+	"thorigins.advancements.berry_effect.title": "Magical Berries",
+	"thorigins.advancements.berry_effect.description": "Obtain a random effect from consuming berries",
+
+	"thorigins.advancements.bonk.title": "Bonk",
+	"thorigins.advancements.bonk.description": "Sounds empty...",
+
+	"thorigins.advancements.conquer_all_fear.title": "Brave Litol Fox",
+	"thorigins.advancements.conquer_all_fear.description": "Conquer all conquerable fears (except from death)",
+
+	"thorigins.advancements.enhanced_pounce.title": "Mountain Hopping",
+	"thorigins.advancements.enhanced_pounce.description": "Supercharge your pounce strength with a jump boost 2 potion",
+
+	"thorigins.advancements.fear.title": "It's a Scawy World",
+	"thorigins.advancements.fear.description": "Little fox is overwhelmed by the fear",
+
+	"thorigins.advancements.fox_diet.title": "Picky Omnivore",
+	"thorigins.advancements.fox_diet.description": "Consume all fox-specialized foods",
+
+	"thorigins.advancements.fox_hat.title": "Fox Hat",
+	"thorigins.advancements.fox_hat.description": "You are my fren now, we're having sweet berries later",
+
+	"thorigins.advancements.fox_tower.title": "Foxie Safari",
+	"thorigins.advancements.fox_tower.description": "Take 5 Foxes with you and hunt a prey",
+
+	"thorigins.advancements.foxie_bite.title": "Munch",
+	"thorigins.advancements.foxie_bite.description": "Take a bite out of your opponent",
+
+	"thorigins.advancements.foxify.title": "Sleeping Mode",
+	"thorigins.advancements.foxify.description": "The foxxo is eebie and neebies to sleeby",
+
+	"thorigins.advancements.foxolotl.title": "Foxolotl",
+	"thorigins.advancements.foxolotl.description": "§lSit§r§a on an axolotl as a fox",
+
+	"thorigins.advancements.high_dmg.title": "Crits From Heaven",
+	"thorigins.advancements.high_dmg.description": "Deal no less than 100 damage in a single hit",
+
+	"thorigins.advancements.interacted.title": "Physical Interaction",
+	"thorigins.advancements.interacted.description": "Receive affection from another player",
+
+	"thorigins.advancements.leashed.title": "Hey >:(",
+	"thorigins.advancements.leashed.description": "Get leashed by another player",
+
+	"thorigins.advancements.owie.title": "Owie",
+	"thorigins.advancements.owie.description": "Have a chunk of flesh ripped out by a predator",
+
+	"thorigins.advancements.pounce_hit.title": "Ancestor's Wisdom",
+	"thorigins.advancements.pounce_hit.description": "Deal multiplied damage by pouncing towards your enermy",
+
+	"thorigins.advancements.shake_water_snow.title": "Freezing Fluff",
+	"thorigins.advancements.shake_water_snow.description": "Shake off water and snow at the same time",
+
+	"thorigins.advancements.symphony.title": "Bonk Symphony",
+	"thorigins.advancements.symphony.description": "Finish the entire bonk sequence",
+
+	"thorigins.advancements.tame_wolf.title": "Forbidden Friendship",
+	"thorigins.advancements.tame_wolf.description": "Tame a wolf and certify it as an ally",
+
+	"thorigins.advancements.test_advancement.title": "Test Advancement Plz Ignore",
+	"thorigins.advancements.test_advancement.description": "Boop the creator across time and space >:3c",
+
+	"thorigins.advancements.wimdy.title": "It Wimdy",
+	"thorigins.advancements.wimdy.description": "Visit a windswept biome and have your fur blown messy"
 }

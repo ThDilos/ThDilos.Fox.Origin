@@ -1,0 +1,26 @@
+{
+	"parent": "thorigins:fox_origin/pounce_hit",
+	"criteria": {
+		"to_be_granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.enhanced_pounce.description"
+		},
+		"frame": "task",
+		"hidden": false,
+		"icon": {
+			"id": "minecraft:rabbit_foot"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.enhanced_pounce.title"
+		}
+	},
+	"requirements": [["to_be_granted"]],
+	"sends_telemetry_event": true
+}

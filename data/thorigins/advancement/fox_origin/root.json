@@ -1,0 +1,25 @@
+{
+	"criteria": {
+		"to_be_granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"announce_to_chat": false,
+		"background": "minecraft:textures/block/white_wool.png",
+		"description": {
+			"translate": "thorigins.advancements.root.description"
+		},
+		"frame": "task",
+		"hidden": false,
+		"icon": {
+			"id": "origins:orb_of_origin"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.root.title"
+		}
+	},
+	"requirements": [["to_be_granted"]],
+	"sends_telemetry_event": true
+}

@@ -29,9 +29,20 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/info.png",
-			"text": {
-				"translate": "thshy.info2"
-			}
+			"text": [
+				{
+					"translate": "thshy.info2"
+				},
+				{
+					"translate": "thshy.info3",
+					"with": [
+						{
+							"keybind": "key.sneak",
+							"color": "aqua"
+						}
+					]
+				}
+			]
 		}
 	],
 
@@ -53,7 +64,7 @@
 				},
 				{
 					"type": "origins:command",
-					"command": "/execute if entity @e[type=lightning_bolt]",
+					"command": "/execute if entity @e[type=lightning_bolt,distance=0..]",
 					"compare_to": 0,
 					"comparison": ">"
 				}
@@ -65,230 +76,407 @@
 		"type": "origins:action_over_time",
 		"interval": 20,
 		"entity_action": {
-			"type": "origins:trigger_cooldown",
-			"power": "*:*_fear_timer"
-		},
-		"condition": {
-			"type": "origins:any_of",
-			"conditions": [
+			"type": "origins:and",
+			"actions": [
 				{
-					"type": "origins:command",
-					"command": "/execute if entity @e[type=wolf,distance=..18,tag=!foxie_trust]",
-					"compare_to": 0,
-					"comparison": ">"
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:any_of",
+						"conditions": [
+							{
+								"type": "origins:command",
+								"command": "/execute if entity @e[type=#thorigins:fear_source,distance=..18,tag=!foxie_trust]",
+								"compare_to": 0,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:advancement",
+										"advancement": "minecraft:adventure/hero_of_the_village",
+										"inverted": true
+									},
+									{
+										"type": "origins:command",
+										"command": "/execute if entity @e[type=villager,distance=..16,tag=!foxie_trust]",
+										"compare_to": 0,
+										"comparison": ">"
+									}
+								]
+							},
+							{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thtrackers_warden_kills",
+										"comparison": "<",
+										"compare_to": 3
+									},
+									{
+										"type": "origins:command",
+										"command": "/execute if entity @e[type=warden,distance=..30,tag=!foxie_trust]",
+										"compare_to": 0,
+										"comparison": ">"
+									}
+								]
+							},
+							{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thtrackers_wither_kills",
+										"comparison": "<",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:command",
+										"command": "/execute if entity @e[type=wither,distance=..50,tag=!foxie_trust]",
+										"compare_to": 0,
+										"comparison": ">"
+									}
+								]
+							},
+							{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thtrackers_edrag_kills",
+										"comparison": "<",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:command",
+										"command": "/execute if entity @e[type=ender_dragon,distance=..150,tag=!foxie_trust]",
+										"compare_to": 0,
+										"comparison": ">"
+									}
+								]
+							},
+							{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:health",
+										"comparison": "<=",
+										"compare_to": 6
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thtrackers_death",
+										"comparison": "<",
+										"compare_to": 8
+									}
+								]
+							},
+							{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:dimension",
+										"dimension": "minecraft:the_nether"
+									},
+									{
+										"type": "origins:any_of",
+										"conditions": [
+											{
+												"type": "origins:resource",
+												"compare_to": 12000,
+												"comparison": "<",
+												"resource": "*:fox/thtrackers_time_in_nether"
+											},
+											{
+												"type": "origins:resource",
+												"resource": "*:fox/universal_settings_can_adapt_dimensions",
+												"comparison": "==",
+												"compare_to": 0
+											}
+										]
+									},
+									{
+										"type": "origins:all_of",
+										"conditions": [
+											{
+												"type": "origins:enchantment",
+												"enchantment": "fire_protection",
+												"calculation": "sum",
+												"compare_to": 4,
+												"comparison": "<"
+											},
+											{
+												"type": "origins:status_effect",
+												"effect": "minecraft:fire_resistance",
+												"inverted": true
+											},
+											{
+												"type": "origins:elytra_flight_possible",
+												"inverted": true
+											},
+											{
+												"type": "origins:resource",
+												"resource": "*:fox/thtrackers_death",
+												"comparison": "<",
+												"compare_to": 8
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:dimension",
+										"dimension": "minecraft:the_end"
+									},
+									{
+										"type": "origins:any_of",
+										"conditions": [
+											{
+												"type": "origins:resource",
+												"compare_to": 12000,
+												"comparison": "<",
+												"resource": "*:fox/thtrackers_time_in_end"
+											},
+											{
+												"type": "origins:resource",
+												"resource": "*:fox/universal_settings_can_adapt_dimensions",
+												"comparison": "==",
+												"compare_to": 0
+											}
+										]
+									},
+									{
+										"type": "origins:all_of",
+										"conditions": [
+											{
+												"type": "origins:elytra_flight_possible",
+												"inverted": true
+											},
+											{
+												"type": "origins:resource",
+												"resource": "*:fox/thtrackers_death",
+												"comparison": "<",
+												"compare_to": 8
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "origins:command",
+								"command": "/origin has @a[distance=..18,tag=!foxie_trust] origins:origin origins:enderian",
+								"compare_to": 1,
+								"comparison": ">="
+							},
+							{
+								"type": "origins:command",
+								"command": "/origin has @a[distance=..18,tag=!foxie_trust] origins:origin origins:shulk",
+								"compare_to": 1,
+								"comparison": ">="
+							},
+							{
+								"type": "origins:command",
+								"command": "/origin has @a[distance=..18,tag=!foxie_trust] origins:origin origins:blazeborn",
+								"compare_to": 1,
+								"comparison": ">="
+							},
+							{
+								"type": "origins:command",
+								"command": "/origin has @a[distance=..18,tag=!foxie_trust] origins:origin origins:human",
+								"compare_to": 1,
+								"comparison": ">="
+							},
+							{
+								"type": "origins:command",
+								"command": "/execute if entity @e[distance=..18,tag=!foxie_trust,tag=foxie_fear]",
+								"compare_to": 1,
+								"comparison": ">="
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:trigger_cooldown",
+						"power": "*:*_fear_timer"
+					}
 				},
 				{
-					"type": "origins:command",
-					"command": "/execute if entity @e[type=polar_bear,distance=..16,tag=!foxie_trust]",
-					"compare_to": 0,
-					"comparison": ">"
-				},
-				{
-					"type": "origins:all_of",
-					"conditions": [
-						{
-							"type": "origins:advancement",
-							"advancement": "minecraft:adventure/hero_of_the_village",
-							"inverted": true
-						},
-						{
-							"type": "origins:command",
-							"command": "/execute if entity @e[type=villager,distance=..16,tag=!foxie_trust]",
-							"compare_to": 0,
-							"comparison": ">"
-						}
-					]
-				},
-				{
-					"type": "origins:all_of",
-					"conditions": [
-						{
-							"type": "origins:resource",
-							"resource": "*:fox/thtrackers_warden_kills",
-							"comparison": "<",
-							"compare_to": 3
-						},
-						{
-							"type": "origins:command",
-							"command": "/execute if entity @e[type=warden,distance=..30,tag=!foxie_trust]",
-							"compare_to": 0,
-							"comparison": ">"
-						}
-					]
-				},
-				{
-					"type": "origins:all_of",
-					"conditions": [
-						{
-							"type": "origins:resource",
-							"resource": "*:fox/thtrackers_wither_kills",
-							"comparison": "<",
-							"compare_to": 1
-						},
-						{
-							"type": "origins:command",
-							"command": "/execute if entity @e[type=wither,distance=..50,tag=!foxie_trust]",
-							"compare_to": 0,
-							"comparison": ">"
-						}
-					]
-				},
-				{
-					"type": "origins:all_of",
-					"conditions": [
-						{
-							"type": "origins:resource",
-							"resource": "*:fox/thtrackers_edrag_kills",
-							"comparison": "<",
-							"compare_to": 1
-						},
-						{
-							"type": "origins:command",
-							"command": "/execute if entity @e[type=ender_dragon,distance=..150,tag=!foxie_trust]",
-							"compare_to": 0,
-							"comparison": ">"
-						}
-					]
-				},
-				{
-					"type": "origins:all_of",
-					"conditions": [
-						{
-							"type": "origins:health",
-							"comparison": "<=",
-							"compare_to": 6
-						},
-						{
-							"type": "origins:resource",
-							"resource": "*:fox/thtrackers_death",
-							"comparison": "<",
-							"compare_to": 8
-						}
-					]
-				},
-				{
-					"type": "origins:all_of",
-					"conditions": [
-						{
-							"type": "origins:dimension",
-							"dimension": "minecraft:the_nether"
-						},
-						{
-							"type": "origins:any_of",
-							"conditions": [
-								{
-									"type": "origins:resource",
-									"compare_to": 12000,
-									"comparison": "<",
-									"resource": "*:fox/thtrackers_time_in_nether"
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_fear_timer",
+						"compare_to": 0,
+						"comparison": ">"
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/advancement grant @s only thorigins:fox_origin/fear"
+							},
+							{
+								"type": "origins:area_of_effect",
+								"radius": 15,
+								"shape": "sphere",
+								"bientity_condition": {
+									"type": "origins:all_of",
+									"conditions": [
+										{
+											"type": "origins:target_condition",
+											"condition": {
+												"type": "origins:nbt",
+												"nbt": "{\"Tags\":[\"foxie_trust\"]}",
+												"inverted": true
+											}
+										},
+										{
+											"type": "origins:any_of",
+											"conditions": [
+												{
+													"type": "origins:target_condition",
+													"condition": {
+														"type": "origins:any_of",
+														"conditions": [
+															{
+																"type": "origins:in_tag",
+																"tag": "thorigins:fear_source"
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:human"
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:enderian"
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:shulk"
+															},
+															{
+																"type": "origins:origin",
+																"origin": "origins:blazeborn"
+															},
+															{
+																"type": "origins:nbt",
+																"nbt": "{\"Tags\":[\"foxie_fear\"]}"
+															}
+														]
+													}
+												},
+												{
+													"type": "origins:all_of",
+													"conditions": [
+														{
+															"type": "origins:actor_condition",
+															"condition": {
+																"type": "origins:advancement",
+																"advancement": "minecraft:adventure/hero_of_the_village",
+																"inverted": true
+															}
+														},
+														{
+															"type": "origins:target_condition",
+															"condition": {
+																"type": "origins:entity_type",
+																"entity_type": "minecraft:villager"
+															}
+														}
+													]
+												},
+												{
+													"type": "origins:all_of",
+													"conditions": [
+														{
+															"type": "origins:actor_condition",
+															"condition": {
+																"type": "origins:resource",
+																"resource": "*:fox/thtrackers_warden_kills",
+																"comparison": "<",
+																"compare_to": 3
+															}
+														},
+														{
+															"type": "origins:target_condition",
+															"condition": {
+																"type": "origins:entity_type",
+																"entity_type": "minecraft:warden"
+															}
+														}
+													]
+												},
+												{
+													"type": "origins:all_of",
+													"conditions": [
+														{
+															"type": "origins:actor_condition",
+															"condition": {
+																"type": "origins:resource",
+																"resource": "*:fox/thtrackers_edrag_kills",
+																"comparison": "<",
+																"compare_to": 1
+															}
+														},
+														{
+															"type": "origins:target_condition",
+															"condition": {
+																"type": "origins:entity_type",
+																"entity_type": "minecraft:ender_dragon"
+															}
+														}
+													]
+												},
+												{
+													"type": "origins:all_of",
+													"conditions": [
+														{
+															"type": "origins:actor_condition",
+															"condition": {
+																"type": "origins:resource",
+																"resource": "*:fox/thtrackers_wither_kills",
+																"comparison": "<",
+																"compare_to": 1
+															}
+														},
+														{
+															"type": "origins:target_condition",
+															"condition": {
+																"type": "origins:entity_type",
+																"entity_type": "minecraft:wither"
+															}
+														}
+													]
+												}
+											]
+										}
+									]
 								},
-								{
-									"type": "origins:resource",
-									"resource": "*:fox/universal_settings_can_adapt_dimensions",
-									"comparison": "==",
-									"compare_to": 0
+								"bientity_action": {
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:power",
+											"power": "*:fox/fear_marker"
+										},
+										"if_action": {
+											"type": "origins:trigger_cooldown",
+											"power": "*:fox/fear_marker_cd"
+										},
+										"else_action": {
+											"type": "origins:grant_power",
+											"power": "*:fox/fear_marker",
+											"source": "thorigins:temp"
+										}
+									}
 								}
-							]
-						},
-						{
-							"type": "origins:all_of",
-							"conditions": [
-								{
-									"type": "origins:enchantment",
-									"enchantment": "fire_protection",
-									"calculation": "sum",
-									"compare_to": 4,
-									"comparison": "<"
-								},
-								{
-									"type": "origins:status_effect",
-									"effect": "minecraft:fire_resistance",
-									"inverted": true
-								},
-								{
-									"type": "origins:elytra_flight_possible",
-									"inverted": true
-								},
-								{
-									"type": "origins:resource",
-									"resource": "*:fox/thtrackers_death",
-									"comparison": "<",
-									"compare_to": 8
-								}
-							]
-						}
-					]
-				},
-				{
-					"type": "origins:all_of",
-					"conditions": [
-						{
-							"type": "origins:dimension",
-							"dimension": "minecraft:the_end"
-						},
-						{
-							"type": "origins:any_of",
-							"conditions": [
-								{
-									"type": "origins:resource",
-									"compare_to": 12000,
-									"comparison": "<",
-									"resource": "*:fox/thtrackers_time_in_end"
-								},
-								{
-									"type": "origins:resource",
-									"resource": "*:fox/universal_settings_can_adapt_dimensions",
-									"comparison": "==",
-									"compare_to": 0
-								}
-							]
-						},
-						{
-							"type": "origins:all_of",
-							"conditions": [
-								{
-									"type": "origins:elytra_flight_possible",
-									"inverted": true
-								},
-								{
-									"type": "origins:resource",
-									"resource": "*:fox/thtrackers_death",
-									"comparison": "<",
-									"compare_to": 8
-								}
-							]
-						}
-					]
-				},
-				{
-					"type": "origins:command",
-					"command": "/origin has @a[distance=..18,tag=!foxie_trust] origins:origin origins:enderian",
-					"compare_to": 1,
-					"comparison": ">="
-				},
-				{
-					"type": "origins:command",
-					"command": "/origin has @a[distance=..18,tag=!foxie_trust] origins:origin origins:shulk",
-					"compare_to": 1,
-					"comparison": ">="
-				},
-				{
-					"type": "origins:command",
-					"command": "/origin has @a[distance=..18,tag=!foxie_trust] origins:origin origins:blazeborn",
-					"compare_to": 1,
-					"comparison": ">="
-				},
-				{
-					"type": "origins:command",
-					"command": "/origin has @a[distance=..18,tag=!foxie_trust] origins:origin origins:human",
-					"compare_to": 1,
-					"comparison": ">="
-				},
-				{
-					"type": "origins:command",
-					"command": "/origin has @e[distance=..18,tag=!foxie_trust,tag=foxie_fear]",
-					"compare_to": 1,
-					"comparison": ">="
+							}
+						]
+					}
 				}
 			]
 		}
@@ -370,8 +558,8 @@
 				"type": "origins:all_of",
 				"conditions": [
 					{
-						"type": "origins:entity_type",
-						"entity_type": "minecraft:wolf"
+						"type": "origins:in_tag",
+						"tag": "thorigins:fear_source"
 					},
 					{
 						"type": "origins:tamed"
@@ -394,6 +582,29 @@
 			"type": "origins:and",
 			"actions": [
 				{
+					"type": "origins:target_action",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/tag @s add temp0"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/execute as @s store result score @s UUID0 run data get entity @s Owner[0]"
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:actor_action",
+					"action": {
+						"type": "origins:execute_command",
+						"command": "/execute at @e[tag=temp0,limit=1,sort=nearest] if score @e[limit=1,sort=nearest] UUID0 = @s UUID0 run advancement grant @s only thorigins:fox_origin/tame_wolf"
+					}
+				},
+				{
 					"type": "origins:actor_action",
 					"action": {
 						"type": "origins:choice",
@@ -409,7 +620,7 @@
 								"weight": 1,
 								"element": {
 									"type": "origins:execute_command",
-									"command": "/title @s actionbar {\"translate\":\"thorigins.wolf_certified_1\"}"
+									"command": "/title @s actionbar {\"translate\":\"thorigins.wolf_certified_1\",\"with\":[{\"selector\":\"@e[sort=nearest,limit=1,tag=temp0]\"}]}"
 								}
 							},
 							{
@@ -423,7 +634,7 @@
 								"weight": 1,
 								"element": {
 									"type": "origins:execute_command",
-									"command": "/title @s actionbar {\"translate\":\"thorigins.wolf_certified_3\"}"
+									"command": "/title @s actionbar {\"translate\":\"thorigins.wolf_certified_3\",\"with\":[{\"selector\":\"@e[sort=nearest,limit=1,tag=temp0]\"}]}"
 								}
 							},
 							{
@@ -444,6 +655,10 @@
 							{
 								"type": "origins:execute_command",
 								"command": "/tag @s add foxie_trust"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/tag @s remove temp0"
 							},
 							{
 								"type": "origins:play_sound",
@@ -483,6 +698,53 @@
 				"type": "origins:execute_command",
 				"command": "/tag @s remove foxie_trust"
 			}
+		}
+	},
+
+	"show_src": {
+		"type": "origins:entity_glow",
+		"red": 0.8,
+		"green": 0.5,
+		"blue": 0.5,
+		"use_teams": false,
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:distance",
+					"compare_to": 15,
+					"comparison": "<="
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:living"
+							},
+							{
+								"type": "origins:power",
+								"power": "*:fox/fear_marker"
+							}
+						]
+					}
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_fear_timer",
+					"compare_to": 0,
+					"comparison": ">"
+				},
+				{
+					"type": "origins:sneaking"
+				}
+			]
 		}
 	}
 }

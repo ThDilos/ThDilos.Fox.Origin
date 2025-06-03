@@ -19,6 +19,10 @@
 					"type": "origins:execute_command",
 					"command": "/origin set @s thorigins:origin thorigins:default_fox"
 				},
+								{
+					"type": "origins:execute_command",
+					"command": "/advancement grant @s only thorigins:fox_origin/root"
+				},
 				{
 					"type": "origins:if_else",
 					"condition": {

@@ -1,0 +1,31 @@
+{
+    "values": [
+        "cooked_mutton",
+        "cooked_porkchop",
+        "cooked_beef",
+
+        "baked_potato",
+        "beetroot",
+        "beetroot_soup",
+        "bread",
+        "carrot",
+        "mushroom_stew",
+        "suspicious_stew",
+
+        "chorus_fruit",
+        "dried_kelp",
+        "melon_slice",
+        "poisonous_potato",
+        "potato",
+        "pumpkin_pie",
+
+        "beef",
+        "mutton",
+        "porkchop",
+
+        "cake",
+        "cookie",
+        "pufferfish",
+        "spider_eye"
+    ]
+}
