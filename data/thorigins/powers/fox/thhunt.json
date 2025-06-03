@@ -1073,8 +1073,8 @@
 				{
 					"type": "origins:target_condition",
 					"condition": {
-						"type": "origins:entity_type",
-						"entity_type": "fox"
+						"type": "origins:in_tag",
+						"tag": "thorigins:fox"
 					}
 				}
 			]
@@ -1105,8 +1105,8 @@
 					"inverted": true
 				},
 				{
-					"type": "origins:entity_type",
-					"entity_type": "fox",
+					"type": "origins:in_tag",
+					"tag": "thorigins:fox",
 					"inverted": true
 				},
 				{
@@ -1178,8 +1178,17 @@
 									{
 										"type": "origins:actor_action",
 										"action": {
-											"type": "origins:swing_hand",
-											"hand": "OFF_HAND"
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/advancement grant @s only thorigins:fox_origin/foxie_bite"
+												},
+												{
+													"type": "origins:swing_hand",
+													"hand": "OFF_HAND"
+												}
+											]
 										}
 									},
 									{
