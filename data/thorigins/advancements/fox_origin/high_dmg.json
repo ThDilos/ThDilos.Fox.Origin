@@ -1,0 +1,45 @@
+{
+	"parent": "thorigins:fox_origin/all_modifier",
+	"criteria": {
+		"more_than_hundred": {
+			"trigger": "minecraft:player_hurt_entity",
+			"conditions": {
+				"player": {
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/all_modifier": true
+						}
+					},
+					"nbt": "{Tags:[\"foxie\"]}"
+				},
+				"damage": {
+					"taken": {
+						"min": 100
+					}
+				}
+			}
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.high_dmg.description"
+		},
+		"frame": "challenge",
+		"hidden": false,
+		"icon": {
+			"item": "minecraft:netherite_axe"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.high_dmg.title"
+		}
+	},
+	"requirements": [["more_than_hundred"]],
+	"sends_telemetry_event": true,
+	"rewards": {
+		"experience": 300
+	}
+}

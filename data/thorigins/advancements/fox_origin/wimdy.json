@@ -1,0 +1,122 @@
+{
+	"parent": "thorigins:fox_origin/shake_water_snow",
+	"criteria": {
+		"windswept_forest": {
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "minecraft:windswept_forest"
+							},
+							"nbt": "{Tags: [\"foxie\"]}",
+							"type_specific": {
+								"type": "player",
+								"advancements": {
+									"thorigins:fox_origin/root": true
+								}
+							}
+						}
+					}
+				]
+			},
+			"trigger": "minecraft:location"
+		},
+		"windswept_gravelly_hills": {
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "minecraft:windswept_gravelly_hills"
+							},
+							"nbt": "{Tags: [\"foxie\"]}",
+							"type_specific": {
+								"type": "player",
+								"advancements": {
+									"thorigins:fox_origin/root": true
+								}
+							}
+						}
+					}
+				]
+			},
+			"trigger": "minecraft:location"
+		},
+		"windswept_hills": {
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "minecraft:windswept_hills"
+							},
+							"nbt": "{Tags: [\"foxie\"]}",
+							"type_specific": {
+								"type": "player",
+								"advancements": {
+									"thorigins:fox_origin/root": true
+								}
+							}
+						}
+					}
+				]
+			},
+			"trigger": "minecraft:location"
+		},
+		"windswept_savanna": {
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "minecraft:windswept_savanna"
+							},
+							"nbt": "{Tags: [\"foxie\"]}",
+							"type_specific": {
+								"type": "player",
+								"advancements": {
+									"thorigins:fox_origin/root": true
+								}
+							}
+						}
+					}
+				]
+			},
+			"trigger": "minecraft:location"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.wimdy.description"
+		},
+		"frame": "task",
+		"hidden": true,
+		"icon": {
+			"item": "minecraft:feather"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.wimdy.title"
+		}
+	},
+	"requirements": [
+		[
+			"windswept_forest",
+			"windswept_gravelly_hills",
+			"windswept_hills",
+			"windswept_savanna"
+		]
+	],
+	"sends_telemetry_event": true
+}

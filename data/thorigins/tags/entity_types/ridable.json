@@ -1,10 +1,10 @@
 {
     "values": [
-        "player",
-        "armor_stand",
-        "slime",
-        "bee",
-        "axolotl",
-        "enderman"
+        "minecraft:player",
+        "minecraft:armor_stand",
+        "minecraft:slime",
+        "minecraft:bee",
+        "minecraft:axolotl",
+        "minecraft:enderman"
     ]
 }

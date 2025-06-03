@@ -1,0 +1,41 @@
+{
+	"parent": "thorigins:fox_origin/root",
+	"criteria": {
+		"hurt": {
+			"trigger": "minecraft:entity_hurt_player",
+			"conditions": {
+				"damage": {
+					"type": {
+						"tags": [
+							{
+								"id": "thorigins:predator_bite",
+								"expected": true
+							}
+						]
+					}
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}"
+				}
+			}
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.owie.description"
+		},
+		"frame": "task",
+		"hidden": true,
+		"icon": {
+			"item": "minecraft:red_dye"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.owie.title"
+		}
+	},
+	"requirements": [["hurt"]],
+	"sends_telemetry_event": true
+}

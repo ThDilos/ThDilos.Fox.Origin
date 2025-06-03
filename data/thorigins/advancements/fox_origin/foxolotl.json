@@ -1,0 +1,45 @@
+{
+	"parent": "thorigins:fox_origin/foxify",
+	"criteria": {
+		"fox_on_axolotl": {
+			"trigger": "minecraft:tick",
+			"conditions": {
+				"player": {
+					"vehicle": {
+						"type": "minecraft:fox",
+						"vehicle": {
+							"type": "minecraft:axolotl"
+						},
+						"nbt": "{Sitting:1b}"
+					},
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			}
+		}
+	},
+
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.foxolotl.description"
+		},
+		"frame": "task",
+		"hidden": false,
+		"icon": {
+			"item": "minecraft:axolotl_bucket"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.foxolotl.title"
+		}
+	},
+	"requirements": [["fox_on_axolotl"]],
+	"sends_telemetry_event": true
+}

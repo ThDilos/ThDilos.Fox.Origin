@@ -1,0 +1,26 @@
+{
+	"parent": "thorigins:fox_origin/pounce_hit",
+	"criteria": {
+		"to_be_granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.foxie_bite.description"
+		},
+		"frame": "task",
+		"hidden": false,
+		"icon": {
+			"item": "minecraft:rotten_flesh"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.foxie_bite.title"
+		}
+	},
+	"requirements": [["to_be_granted"]],
+	"sends_telemetry_event": true
+}

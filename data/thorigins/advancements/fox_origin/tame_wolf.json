@@ -1,0 +1,29 @@
+{
+	"parent": "thorigins:fox_origin/owie",
+	"criteria": {
+		"to_be_granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.tame_wolf.description"
+		},
+		"frame": "challenge",
+		"hidden": false,
+		"icon": {
+			"item": "minecraft:name_tag"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.tame_wolf.title"
+		}
+	},
+	"requirements": [["to_be_granted"]],
+	"sends_telemetry_event": true,
+	"rewards": {
+		"experience": 100
+	}
+}

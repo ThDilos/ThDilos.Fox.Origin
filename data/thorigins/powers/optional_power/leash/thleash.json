@@ -95,6 +95,10 @@
 			"actions": [
 				{
 					"type": "origins:execute_command",
+					"command": "/advancement grant @s only thorigins:fox_origin/leashed"
+				},
+				{
+					"type": "origins:execute_command",
 					"command": "/tag @s remove leasher"
 				},
 				{
@@ -272,13 +276,13 @@
 				},
 				{
 					"type": "origins:area_of_effect",
-					"radius": 10,
+					"radius": 100,
 					"shape": "sphere",
 					"bientity_condition": {
 						"type": "origins:target_condition",
 						"condition": {
 							"type": "origins:command",
-							"command": "/execute if score @s UUID0 = @e[tag=temp,limit=1,distance=..10] UUID0",
+							"command": "/execute if score @s UUID0 = @e[tag=temp,limit=1,distance=..100] UUID0",
 							"compare_to": 1,
 							"comparison": "=="
 						}
@@ -307,11 +311,11 @@
 									},
 									"if_action": {
 										"type": "origins:execute_command",
-										"command": "tp @s ^ ^ ^ facing entity @e[tag=temp,limit=1,distance=..10] feet"
+										"command": "tp @s ^ ^ ^ facing entity @e[tag=temp,limit=1,distance=..100] feet"
 									},
 									"else_action": {
 										"type": "origins:execute_command",
-										"command": "tp @s ^ ^ ^ facing entity @e[tag=temp,limit=1,distance=..10] eyes"
+										"command": "tp @s ^ ^ ^ facing entity @e[tag=temp,limit=1,distance=..100] eyes"
 									}
 								}
 							},

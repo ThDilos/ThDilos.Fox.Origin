@@ -183,6 +183,10 @@
 												},
 												{
 													"type": "origins:execute_command",
+													"command": "/advancement grant @s only thorigins:fox_origin/test_advancement"
+												},
+												{
+													"type": "origins:execute_command",
 													"command": "/tellraw ThDilos {\"extra\":[{\"selector\":\"@s\",\"bold\":true},{\"text\":\" Boop!\",\"color\":\"light_purple\",\"bold\":true}],\"text\":\"\"}"
 												},
 												{
