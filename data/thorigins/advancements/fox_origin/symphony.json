@@ -1,0 +1,29 @@
+{
+	"parent": "thorigins:fox_origin/bonk",
+	"criteria": {
+		"to_be_granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.symphony.description"
+		},
+		"frame": "challenge",
+		"hidden": false,
+		"icon": {
+			"item": "minecraft:note_block"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.symphony.title"
+		}
+	},
+	"requirements": [["to_be_granted"]],
+	"sends_telemetry_event": true,
+	"rewards": {
+		"experience": 100
+	}
+}

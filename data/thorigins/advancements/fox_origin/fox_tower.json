@@ -1,0 +1,58 @@
+{
+	"parent": "thorigins:fox_origin/fox_hat",
+	"criteria": {
+		"fifth_fox": {
+			"trigger": "minecraft:player_killed_entity",
+			"conditions": {
+				"player": {
+					"passenger": {
+						"type": "minecraft:fox",
+						"passenger": {
+							"type": "minecraft:fox",
+							"passenger": {
+								"type": "minecraft:fox",
+								"passenger": {
+									"type": "minecraft:fox",
+									"passenger": {
+										"type": "minecraft:fox"
+									}
+								}
+							}
+						}
+					},
+					"nbt": "{Tags: [\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				},
+				"entity": {
+					"type": "#thorigins:prey"
+				}
+			}
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.fox_tower.description"
+		},
+		"frame": "challenge",
+		"hidden": false,
+		"icon": {
+			"item": "minecraft:bone"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.fox_tower.title"
+		}
+	},
+	"requirements": [["fifth_fox"]],
+	"sends_telemetry_event": true,
+	"rewards": {
+		"experience": 100
+	}
+}

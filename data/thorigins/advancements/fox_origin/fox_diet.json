@@ -1,0 +1,243 @@
+{
+	"parent": "thorigins:fox_origin/berry_effect",
+	"criteria": {
+		"sweet_berries": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:sweet_berries"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		},
+		"glow_berries": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:glow_berries"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		},
+		"raw_chicken": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:chicken"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		},
+		"cooked_chicken": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:cooked_chicken"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		},
+		"raw_rabbit": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:rabbit"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		},
+		"cooked_rabbit": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:cooked_rabbit"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		},
+		"rabbit_stew": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:rabbit_stew"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		},
+		"cod": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:cod"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		},
+		"cooked_cod": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:cooked_cod"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		},
+		"salmon": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:salmon"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		},
+		"cooked_salmon": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:cooked_salmon"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		},
+		"tropical_fish": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:tropical_fish"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:consume_item"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.fox_diet.description"
+		},
+		"frame": "challenge",
+		"hidden": false,
+		"icon": {
+			"item": "minecraft:glow_berries"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.fox_diet.title"
+		}
+	},
+	"requirements": [
+		["sweet_berries"],
+		["glow_berries"],
+		["raw_chicken"],
+		["cooked_chicken"],
+		["raw_rabbit"],
+		["cooked_rabbit"],
+		["rabbit_stew"],
+		["cod"],
+		["cooked_cod"],
+		["salmon"],
+		["cooked_salmon"],
+		["tropical_fish"]
+	],
+	"sends_telemetry_event": true,
+	"rewards": {
+		"experience": 200
+	}
+}
