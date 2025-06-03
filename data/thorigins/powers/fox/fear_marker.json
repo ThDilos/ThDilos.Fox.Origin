@@ -1,0 +1,47 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+
+	"init": {
+		"type": "origins:action_on_callback",
+		"entity_action_gained": {
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:trigger_cooldown",
+				"power": "*:*_cd"
+			}
+		}
+	},
+
+	"ticks_20": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:revoke_power",
+			"power": "*:fox/fear_marker",
+			"source": "thorigins:temp"
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_cd",
+					"compare_to": 0,
+					"comparison": "=="
+				},
+				{
+					"type": "origins:command",
+					"command": "/execute if entity @s[tag=foxie_trust]",
+					"compare_to": 1,
+					"comparison": "=="
+				}
+			]
+		}
+	},
+
+	"cd": {
+		"type": "origins:cooldown",
+		"cooldown": 100
+	}
+}
