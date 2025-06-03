@@ -20,6 +20,10 @@
 					"command": "/origin set @s thorigins:origin thorigins:default_fox"
 				},
 				{
+					"type": "origins:execute_command",
+					"command": "/advancement grant @s only thorigins:fox_origin/root"
+				},
+				{
 					"type": "origins:if_else",
 					"condition": {
 						"type": "origins:power",
@@ -119,6 +123,52 @@
 				{
 					"type": "origins:execute_command",
 					"command": "/tag @s add foxie"
+				}
+			]
+		}
+	},
+
+	"forge_advancement_fix": {
+		"type": "origins:action_on_hit",
+		"damage_condition": {
+			"type": "origins:amount",
+			"compare_to": 26.6,
+			"comparison": ">="
+		},
+		"bientity_action": {
+			"type": "origins:actor_action",
+			"action": {
+				"type": "origins:execute_command",
+				"command": "/advancement grant @s only thorigins:fox_origin/high_dmg"
+			}
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:fox/thtrackers_forge",
+					"compare_to": 1,
+					"comparison": "=="
+				},
+				{
+					"type": "origins:power_active",
+					"power": "*:fox/thdash_crits"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:fox/thdash_magnetoreception_direction",
+					"compare_to": 2,
+					"comparison": "=="
+				},
+				{
+					"type": "origins:food_level",
+					"compare_to": 20,
+					"comparison": "=="
+				},
+				{
+					"type": "origins:power_active",
+					"power": "*:fox/thhunt_damage_bonus_midnight"
 				}
 			]
 		}
