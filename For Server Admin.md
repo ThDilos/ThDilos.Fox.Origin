@@ -1,40 +1,10 @@
 Some Changable Tags:
 Go to /data/thorigins/tags/ for all the tags you can change
 
-1. danger.json
-   This is used in Active Skill [Hunt], where the dangerous entities are highlighted RED
-2. prey.json
-   This is used in Passive Skill [Foxiality], entities in this type list will receive 4x damages from this origin
-3. ridable.json
-   This file controls what entities this origin can ride using [Save Hotbar Activator] in Active Skill [Foxify]
-4. disliked_foods.json
-   Foods that only give you half the food points and saturation upon consuming. And a fox hiss sound is played
-5. regen_foods.json
-   Foods that will give you regeneration 1 for 3s upon consuming
-6. fox_foods.json
-   Foods that does not cause the foodpoints and saturation debuffs, and not trigger the fox hiss sound effect
-7. night_vision_blocking.json
-   The items that when hold in Offhand Slot, mute the Passive Night Vision from Passive Skill [Foxiality]
-
-
 Tip: Use { /execute as [Player] run [Command] } to run the command as that player.
-Functions Explanation:
+Function Explanation:
 
-1. thorigins:reset_all
-   Target: Yourself
-   Function:
-   1.1 Reload the Datapacks
-   1.2 Set your origin to human
-   1.3 Remove Any Existing Powers
-   1.4 Reset your Pehkui Scale
-   1.5 Kill any potential errorous entities from this origin in 5 blocks range (Disguise Sleeping Fox / Hat Fox)
-   1.6 Open up Origin GUI for you to choose
-   Explanation:
-   This is to be used if you think some part of this origin is not functioning correctly.
-   The Tracker Power (Time in nether / Death Count / Times being ThunderStructed etc.) will also be wiped.
-   Essentially a Factory reset.
-
-2. fox_settings
+fox_settings
    Target: Different players in your 5 blocks range
    Function:
    Give you the [Fox Setting Book]
@@ -47,26 +17,7 @@ Go to /data/thorigins/powers/fox/universal_settings.json for all the pre-impleme
 
 After you changed the settings, the current online players will not be affected!
 
-Instead, if you are in Fabric, do this command:
-/function thorigins:refresh_settings
-
-HOWEVER, if you are in Forge, this setting file is only useful for anyone who has yet to choose this origin,
-and is straightup USELESS for those who has already chosen this origin.
-
-To change their settings, the only way is for you to MANUALLY do:
-/resource set [Player] [Power] [Value]
-Fill the [Player] with the person you want to change, or use @a[tag=foxie] to change for every existing fox origin player
-Replace [Power] with thorigins:fox/universal*settings*[Setting Name]
-Replace [Value] with a numeric value
-E.g.
-/resource set @a[tag=foxie] thorigins:fox/universal_settings_op_ness 0
-This command will set the op_ness of all current fox origin players to 0.
-
-E.g.2
-/resource set @s thorigins:fox/universal_settings_allow_second_pounce 0
-This will disable second pounce for the person who is using this command.
-
-Of course Fabric can also use this manual commands, if you want different fox origin players to have different settings.
+Instead, go to the fox setting book and click the [Refresh setting] on ~10th page
 
 Here are the explanations for the settings:
 
@@ -146,6 +97,9 @@ For all the other settings, the "start_value" can only be either 0 or 1
 2. Frame rate dropping, this should not be Server's fault. (I'm not so sure) Rendering happens locally right?
    2.1 Your PC hardwares might be the problem here.
    2.2 Some mod conflicting shenanigans. This Fox Origin is using a lot of **Different types** of Origin powers. It is _VERY_ susceptible to mod interference. 
+      Here are a list of known mods that can cause massive lag when use with this origin:
+         1. Embeddium [FORGE] (For in a server, inconsistently some people would get extreme lag when they **get near a player with this origin** until crash)
+         2. Entity Culling [FORGE] (A player with this origin might experience lag caused by log spam, but might not happen all the time?)
 
 ### Optional Powers
 Optional Powers are seperated from the Main Fox Origin, because they are **inconsistent**.
