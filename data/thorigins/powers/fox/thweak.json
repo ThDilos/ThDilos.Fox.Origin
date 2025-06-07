@@ -32,43 +32,78 @@
 	},
 
 	"heavy_armor": {
-		"type": "origins:stacking_status_effect",
-		"duration_per_stack": 21,
-		"min_stacks": 0,
-		"max_stacks": 1,
-		"tick_rate": 20,
-		"effects": [
-			{
-				"effect": "minecraft:slowness",
-				"amplifier": 1,
-				"is_ambient": true,
-				"show_particles": false,
-				"show_icon": true
+		"type": "origins:toggle",
+		"key": "key.origins.crashes.when.attribute.ticked.in.conditions.and.sprint",
+		"active_by_default": false,
+		"retain_state": true
+	},
+
+	"heavy_armor_effects": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:attribute",
+				"attribute": "minecraft:generic.armor",
+				"compare_to": 15,
+				"comparison": ">"
 			},
-			{
-				"effect": "minecraft:weakness",
-				"amplifier": 0,
-				"is_ambient": true,
-				"show_icon": true,
-				"show_particles": false
-			}
-		],
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "*:fox/universal_settings_heavy_armor_restriction",
-					"compare_to": 1,
-					"comparison": "=="
+			"if_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:power_active",
+							"inverted": true,
+							"power": "*:*_heavy_armor"
+						},
+						"if_action": {
+							"type": "origins:toggle",
+							"power": "*:*_heavy_armor"
+						}
+					},
+					{
+						"type": "origins:apply_effect",
+						"effects": [
+							{
+								"effect": "minecraft:slowness",
+								"duration": 25,
+								"amplifier": 1,
+								"is_ambient": true,
+								"show_particles": false,
+								"show_icon": true
+							},
+							{
+								"effect": "minecraft:weakness",
+								"duration": 25,
+								"amplifier": 0,
+								"is_ambient": true,
+								"show_icon": true,
+								"show_particles": false
+							}
+						]
+					}
+				]
+			},
+			"else_action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:power_active",
+					"power": "*:*_heavy_armor"
 				},
-				{
-					"type": "origins:attribute",
-					"attribute": "minecraft:generic.armor",
-					"compare_to": 15,
-					"comparison": ">"
+				"if_action": {
+					"type": "origins:toggle",
+					"power": "*:*_heavy_armor"
 				}
-			]
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:fox/universal_settings_heavy_armor_restriction",
+			"compare_to": 1,
+			"comparison": "=="
 		}
 	},
 
