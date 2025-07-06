@@ -29,7 +29,7 @@
 	"thfoxify.info4": "To change into §aother types of fox§r, use command \n§6/trigger foxtype set [§aNumber§r§6]§r\n\n§a0§r Red Fox\n§a1§r Snow Fox\n§a2§r Red Fox Pup\n§a3§r Snow Fox Pup\n§a4§r Revert to §a0§r\n\n§a-1§r Disable [§5Sleepin Mode§r]\n§a5§r Enable [Figura Mode]\n§a6§r Enable [Figura Mode](Pup Sounds)",
 	"thfoxify.keybind.info": "Keybinds Used:\n§a1§r. Sprint - [%s]\n§a2§r. Drop - [%s]\n§a3§r. Use - [%s]\n§a4§r. Save Hotbar Activator - [%s]\n§a5§r. Swap Item With Offhand - [%s]",
 	"thfoxify.error": "§cError Sizes Detected, Foxification is forced to end",
-	"thfoxify.info6": "Other FoxType Utilities\nUse §6/trigger foxtype §c§ladd§r §6[§aNumber§r§6]§r\n\n§a10§r §5Toggle Nightvision Fix§r\n§8For when passive nightvision is bugged by shaders / mods\n\n§a20§r §4Refresh Powers§r\n§8For when your powers are not working due to Server sudden shut down etc.",
+	"thfoxify.info6": "Other FoxType Utilities\nUse §6/trigger foxtype §c§ladd§r §6[§aNumber§r§6]§r\n\n§a10§r §5Toggle Nightvision Fix§r\n§8For when passive nightvision is bugged by shaders / mods\n\n§a20§r §4Refresh Powers§r\n§8For when your powers are not working due to Server sudden shut down etc.\n\n§a40§r §1Halt Foxify AFK Timer§r\n§8Automatically enter [§5§lSleepin Mode§r§8] after 1 minute of not moving?",
 
 	"fox.thhunt.name": "§6§l§nHunt",
 	"fox.thhunt.description": "Hide yourself by crouching and enter a hunting phase after much preparation.",
@@ -101,11 +101,11 @@
 
 	"fox.wakeup.item": "You Found <%s> When You Were Asleep!",
 
-	"fox.petter": "Petted %s",
-	"fox.petted": "You've been pet by %s",
+	"fox.petter": "§dPetted %s",
+	"fox.petted": "§dYou've been pet by %s",
 	"fox.feeder": "§dYou granted %s §bthe fox§r§d with berries as a little treat :3",
-	"fox.feed": "You are fed by %s",
-	"fox.feed2": ", and received a positive effect!",
+	"fox.feed": "§dYou are fed by %s",
+	"fox.feed2": "§d, and received a §6positive effect!",
 	"fox.hug": "§dYou gave %s §dthe little critter a little hug :3",
 	"fox.hugged": "%s §dgave you a passionate hug",
 
@@ -138,6 +138,7 @@
 
 	"nightvision_fix": "§eNight Vision Fix [§r%s§e]§r",
 	"power_reset": "§eAll Fox Powers §4resetted§r§e. Please §5§orelog§r§e :3",
+	"halt_afk_timer": "§eAFK Timer Countdown [§r%s§e]§r",
 
 	"thorigins.advancements.root.title": "Fox Origin",
 	"thorigins.advancements.root.description": "Life as a fox in a blocky world",

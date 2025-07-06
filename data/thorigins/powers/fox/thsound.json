@@ -200,6 +200,71 @@
 						},
 						{
 							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 39,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 46,
+										"comparison": "<="
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/scoreboard players remove @s foxtype 40"
+									},
+									{
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:resource",
+											"resource": "*:fox/thtrackers_halt_afk_timer",
+											"compare_to": 0,
+											"comparison": "=="
+										},
+										"if_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"halt_afk_timer\",\"with\":[{\"text\":\"OFF\",\"color\":\"red\"}]}]"
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_halt_afk_timer",
+													"change": 1
+												}
+											]
+										},
+										"else_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"halt_afk_timer\",\"with\":[{\"text\":\"ON\",\"color\":\"green\"}]}]"
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_halt_afk_timer",
+													"change": -1
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
 								"type": "origins:or",
 								"inverted": true,
 								"conditions": [
@@ -868,6 +933,10 @@
 											"power": "*:*_interaction_cooldown"
 										},
 										{
+											"type": "origins:trigger_cooldown",
+											"power": "*:*_comforted_timer"
+										},
+										{
 											"type": "origins:execute_command",
 											"command": "/tag @s add interacted"
 										}
@@ -1000,7 +1069,7 @@
 																	"actions": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]},{\"translate\":\"fox.feed2\",\"color\":\"light_purple\"}]}"
+																			"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]},{\"translate\":\"fox.feed2\"}]}"
 																		},
 																		{
 																			"type": "origins:choice",
@@ -1135,7 +1204,7 @@
 																},
 																"fail_action": {
 																	"type": "origins:execute_command",
-																	"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																	"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 																}
 															}
 														]
@@ -1186,7 +1255,7 @@
 															},
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hug\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\",\"bold\":true}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hug\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															}
 														]
 													}
@@ -1198,7 +1267,7 @@
 														"actions": [
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hugged\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\",\"bold\":true}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hugged\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															},
 															{
 																"type": "origins:if_else",
@@ -1268,7 +1337,7 @@
 															},
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															}
 														]
 													}
@@ -1334,7 +1403,7 @@
 															},
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petted\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petted\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															}
 														]
 													}
@@ -1357,7 +1426,7 @@
 														"actions": [
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															},
 															{
 																"type": "origins:swing_hand",
@@ -1373,7 +1442,7 @@
 														"actions": [
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
 															},
 															{
 																"type": "origins:if_else",
@@ -1865,8 +1934,22 @@
 		"cooldown": 60
 	},
 
+	"comforted_timer": {
+		"type": "origins:cooldown",
+		"cooldown": 160
+	},
+
 	"no_longer_trust": {
 		"type": "origins:action_when_hit",
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:nbt",
+				"nbt": {
+					"Tags": [ "foxie_trust" ]
+				}
+			}
+		},
 		"damage_condition": {
 			"type": "origins:amount",
 			"compare_to": 3,

@@ -33,6 +33,13 @@
 		}
 	},
 
+	"halt_afk_timer": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0
+	},
+
 	"_init_": {
 		"type": "origins:action_on_callback",
 		"entity_action_added": {

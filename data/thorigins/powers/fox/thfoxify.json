@@ -501,6 +501,12 @@
 								"resource": "*:*_afk_timer",
 								"compare_to": 0,
 								"comparison": ">"
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:fox/thtrackers_halt_afk_timer",
+								"compare_to": 0,
+								"comparison": "=="
 							}
 						]
 					},
@@ -2026,7 +2032,7 @@
 												"actions": [
 													{
 														"type": "origins:execute_command",
-														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 													},
 													{
 														"type": "origins:swing_hand",
@@ -2073,7 +2079,7 @@
 												"actions": [
 													{
 														"type": "origins:execute_command",
-														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+														"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 													},
 													{
 														"type": "origins:swing_hand",
