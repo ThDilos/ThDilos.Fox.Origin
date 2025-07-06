@@ -4,46 +4,37 @@
 	"_init_": {
 		"type": "origins:action_on_callback",
 		"entity_action_added": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:delay",
-					"ticks": 1,
-					"action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:command",
-							"command": "/execute as @s[nbt={ForgeCaps:{}}] run list",
-							"compare_to": 1,
-							"comparison": ">"
-						},
-						"if_action": {
-							"type": "origins:and",
-							"actions": [
-								{
-									"type": "origins:change_resource",
-									"resource": "*:fox/universal_settings_optional_walk_on_powdered_snow",
-									"change": 0,
-									"operation": "set"
-								},
-								{
-									"type": "origins:revoke_power",
-									"power": "*:optional_power/thpowdersnow",
-									"source": "thorigins:universal"
-								},
-								{
-									"type": "origins:execute_command",
-									"command": "/tellraw @s [{\"translate\":\"thorigins.forge.server.detected\"}]"
-								}
-							]
-						}
-					}
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:command",
+					"command": "/execute as @s[nbt={ForgeCaps:{}}] run list",
+					"compare_to": 1,
+					"comparison": ">"
 				},
-				{
-					"type": "origins:execute_command",
-					"command": "/scoreboard objectives add yIntPos dummy \"yIntPos\""
+				"if_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:change_resource",
+							"resource": "*:fox/universal_settings_optional_walk_on_powdered_snow",
+							"change": 0,
+							"operation": "set"
+						},
+						{
+							"type": "origins:revoke_power",
+							"power": "*:optional_power/thpowdersnow",
+							"source": "thorigins:universal"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/tellraw @s [{\"translate\":\"thorigins.forge.server.detected\"}]"
+						}
+					]
 				}
-			]
+			}
 		}
 	},
 
@@ -53,43 +44,22 @@
 		"max": 1,
 		"start_value": 1,
 		"min_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:execute_command",
-					"command": "/summon marker ~ ~ ~ {Tags:[\"anchor\"]}"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute store result score @s yIntPos run data get entity @s Pos[1]"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute store result entity @e[type=marker,tag=anchor,limit=1,sort=nearest] Pos[1] double 1 run scoreboard players get @s yIntPos"
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:block_collision",
-						"block_condition": {
-							"type": "origins:block",
-							"block": "minecraft:powder_snow"
-						}
-					},
-					"if_action": {
-						"type": "origins:execute_command",
-						"command": "/execute at @e[type=marker,tag=anchor,limit=1,sort=nearest] run tp @s ~ ~1 ~"
-					},
-					"else_action": {
-						"type": "origins:execute_command",
-						"command": "/execute at @e[type=marker,tag=anchor,limit=1,sort=nearest] run tp @s ~ ~ ~"
-					}
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/kill @e[type=marker,tag=anchor,limit=1,sort=nearest]"
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:block_collision",
+				"block_condition": {
+					"type": "origins:block",
+					"block": "minecraft:powder_snow"
 				}
-			]
+			},
+			"if_action": {
+				"type": "origins:execute_command",
+				"command": "/execute align y run tp @s ~ ~1 ~"
+			},
+			"else_action": {
+				"type": "origins:execute_command",
+				"command": "/execute align y run tp @s ~ ~ ~"
+			}
 		}
 	},
 
@@ -206,36 +176,12 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:or",
-					"conditions": [
-						{
-							"type": "origins:block_collision",
-							"block_condition": {
-								"type": "origins:block",
-								"block": "minecraft:powder_snow"
-							},
-							"offset_y": -0.3
-						},
-						{
-							"type": "origins:and",
-							"conditions": [
-								{
-									"type": "origins:block_collision",
-									"block_condition": {
-										"type": "origins:block",
-										"block": "minecraft:powder_snow"
-									},
-									"offset_y": -0.8
-								},
-								{
-									"type": "origins:resource",
-									"resource": "*:fox/thfoxify_figura_state",
-									"compare_to": 1,
-									"comparison": "=="
-								}
-							]
-						}
-					]
+					"type": "origins:block_collision",
+					"block_condition": {
+						"type": "origins:block",
+						"block": "minecraft:powder_snow"
+					},
+					"offset_y": -0.3
 				},
 				{
 					"type": "origins:block_collision",
@@ -287,70 +233,21 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:or",
-					"conditions": [
-						{
-							"type": "origins:block_collision",
-							"block_condition": {
-								"type": "origins:block",
-								"block": "minecraft:powder_snow"
-							},
-							"offset_y": -0.3
-						},
-						{
-							"type": "origins:and",
-							"conditions": [
-								{
-									"type": "origins:block_collision",
-									"block_condition": {
-										"type": "origins:block",
-										"block": "minecraft:powder_snow"
-									},
-									"offset_y": -0.8
-								},
-								{
-									"type": "origins:resource",
-									"resource": "*:fox/thfoxify_figura_state",
-									"compare_to": 1,
-									"comparison": "=="
-								}
-							]
-						}
-					]
+					"type": "origins:block_collision",
+					"block_condition": {
+						"type": "origins:block",
+						"block": "minecraft:powder_snow"
+					},
+					"offset_y": -0.3
 				},
 				{
-					"type": "origins:or",
-					"conditions": [
-						{
-							"type": "origins:block_collision",
-							"inverted": true,
-							"block_condition": {
-								"type": "origins:block",
-								"block": "minecraft:powder_snow"
-							},
-							"offset_y": 0.3
-						},
-						{
-							"type": "origins:and",
-							"conditions": [
-								{
-									"type": "origins:block_collision",
-									"inverted": true,
-									"block_condition": {
-										"type": "origins:block",
-										"block": "minecraft:powder_snow"
-									},
-									"offset_y": 0.8
-								},
-								{
-									"type": "origins:resource",
-									"resource": "*:fox/thfoxify_figura_state",
-									"compare_to": 1,
-									"comparison": "=="
-								}
-							]
-						}
-					]
+					"type": "origins:block_collision",
+					"inverted": true,
+					"block_condition": {
+						"type": "origins:block",
+						"block": "minecraft:powder_snow"
+					},
+					"offset_y": 0.3
 				},
 				{
 					"type": "origins:resource",
