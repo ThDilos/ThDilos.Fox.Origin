@@ -29,7 +29,7 @@
 	"thfoxify.info4": "使用指令 \n§6/trigger foxtype set [§a数字§r§6]§r\n换成§a别的狐狸§r。\n\n§a0§r 红狐\n§a1§r 雪狐\n§a2§r 红狐幼崽\n§a3§r 雪狐幼崽\n§a4§r 返回§a0§r\n\n§a-1§r 关闭[§5睡眠模式§r]\n§a5§r 启用[Figura模式]\n§a6§r 启用[Figura模式](幼崽声效)",
 	"thfoxify.keybind.info": "用到的键位:\n§a1§r. 疾跑 - [%s]\n§a2§r. 丢弃 - [%s]\n§a3§r. 使用 - [%s]\n§a4§r. 保存物品栏 - [%s]\n§a5§r. 交换副手物品 - [%s]",
 	"thfoxify.error": "§c检测到错误尺寸, 狐化被迫结束",
-	"thfoxify.info6": "别的 FoxType 应用\n使用指令 §6/trigger foxtype §c§ladd§r §6[§a数字§r§6]§r\n\n§a10§r §f开关§r§5夜视修复§r\n§8被动夜视被部分光影/模组屏蔽时使用\n\n§a20§r §4刷新技能§r\n§8服务器不稳定/突然关闭，导致技能失常时使用\n\n§a40§r §1暂停狐化AFK计时§r\n§8是否在1分钟没动作后自动进入[§5§l睡眠模式§r§8]？",
+	"thfoxify.info6": "别的 FoxType 应用\n使用指令 §6/trigger foxtype §c§ladd§r §6[§a数字§r§6]§r\n\n§a10§r §f开关§r§5夜视修复§r\n§8被动夜视被部分光影/模组屏蔽时使用\n\n§a20§r §4刷新技能§r\n§8服务器不稳定/突然关闭，导致技能失常时使用\n\n§a40§r §1暂停狐化AFK计时§r\n§8是否在1分钟没动作后自动进入[§l睡眠模式§r§8]？",
 
 	"fox.thhunt.name": "§6§l§n狩猎",
 	"fox.thhunt.description": "通过下蹲保持隐蔽, 蓄力后进入猎杀状态, 短时间内提升攻击力。",

@@ -29,7 +29,7 @@
 	"thfoxify.info4": "To change into §aother types of fox§r, use command \n§6/trigger foxtype set [§aNumber§r§6]§r\n\n§a0§r Red Fox\n§a1§r Snow Fox\n§a2§r Red Fox Pup\n§a3§r Snow Fox Pup\n§a4§r Revert to §a0§r\n\n§a-1§r Disable [§5Sleepin Mode§r]\n§a5§r Enable [Figura Mode]\n§a6§r Enable [Figura Mode](Pup Sounds)",
 	"thfoxify.keybind.info": "Keybinds Used:\n§a1§r. Sprint - [%s]\n§a2§r. Drop - [%s]\n§a3§r. Use - [%s]\n§a4§r. Save Hotbar Activator - [%s]\n§a5§r. Swap Item With Offhand - [%s]",
 	"thfoxify.error": "§cError Sizes Detected, Foxification is forced to end",
-	"thfoxify.info6": "Other FoxType Utilities\nUse §6/trigger foxtype §c§ladd§r §6[§aNumber§r§6]§r\n\n§a10§r §5Toggle Nightvision Fix§r\n§8For when passive nightvision is bugged by shaders / mods\n\n§a20§r §4Refresh Powers§r\n§8For when your powers are not working due to Server sudden shut down etc.\n\n§a40§r §1Halt Foxify AFK Timer§r\n§8Automatically enter [§5§lSleepin Mode§r§8] after 1 minute of not moving?",
+	"thfoxify.info6": "Other FoxType Utilities\nUse §6/trigger foxtype §c§ladd§r §6[§aNumber§r§6]§r\n\n§a10§r §5Toggle Nightvision Fix§r\n§8For when passive nightvision is bugged by shaders / mods\n\n§a20§r §4Refresh Powers§r\n§8For when your powers are not working due to Server sudden shut down etc.\n\n§a40§r §1Halt Foxify AFK Timer§r\n§8Automatically enter [§lSleepin Mode§r§8] after 1 minute of not moving?",
 
 	"fox.thhunt.name": "§6§l§nHunt",
 	"fox.thhunt.description": "Hide yourself by crouching and enter a hunting phase after much preparation.",
