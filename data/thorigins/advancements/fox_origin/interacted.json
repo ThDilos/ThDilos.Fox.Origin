@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.interacted.description"
+			"translate": "thorigins.advancements.interacted.description",
+			"fallback": "Receive affection from another player"
 		},
 		"frame": "task",
 		"hidden": true,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.interacted.title"
+			"translate": "thorigins.advancements.interacted.title",
+			"fallback": "Physical Interaction"
 		}
 	},
 	"requirements": [["to_be_granted"]],

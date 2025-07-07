@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.shake_water_snow.description"
+			"translate": "thorigins.advancements.shake_water_snow.description",
+			"fallback": "Shake off water and snow at the same time"
 		},
 		"frame": "task",
 		"hidden": false,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.shake_water_snow.title"
+			"translate": "thorigins.advancements.shake_water_snow.title",
+			"fallback": "Freezing Fluff"
 		}
 	},
 	"requirements": [["to_be_granted"]],

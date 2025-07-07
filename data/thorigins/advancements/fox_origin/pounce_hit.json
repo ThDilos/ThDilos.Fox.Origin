@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.pounce_hit.description"
+			"translate": "thorigins.advancements.pounce_hit.description",
+			"fallback": "Deal multiplied damage by pouncing towards your enermy"
 		},
 		"frame": "task",
 		"hidden": true,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.pounce_hit.title"
+			"translate": "thorigins.advancements.pounce_hit.title",
+			"fallback": "Ancestor's Wisdom"
 		}
 	},
 	"requirements": [["to_be_granted"]],

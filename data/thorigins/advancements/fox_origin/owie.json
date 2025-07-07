@@ -24,7 +24,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.owie.description"
+			"translate": "thorigins.advancements.owie.description",
+			"fallback": "Have a chunk of flesh ripped out by a predator"
 		},
 		"frame": "task",
 		"hidden": true,
@@ -33,7 +34,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.owie.title"
+			"translate": "thorigins.advancements.owie.title",
+			"fallback": "Owie"
 		}
 	},
 	"requirements": [["hurt"]],

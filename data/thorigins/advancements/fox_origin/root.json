@@ -8,7 +8,8 @@
 		"announce_to_chat": false,
 		"background": "minecraft:textures/block/white_wool.png",
 		"description": {
-			"translate": "thorigins.advancements.root.description"
+			"translate": "thorigins.advancements.root.description",
+			"fallback": "Life as a fox in a blocky world [ If you see this, you don't have the resource pack installed :( ]"
 		},
 		"frame": "task",
 		"hidden": false,
@@ -17,7 +18,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.root.title"
+			"translate": "thorigins.advancements.root.title",
+			"fallback": "Fox Origin"
 		}
 	},
 	"requirements": [["to_be_granted"]],

@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.foxify.description"
+			"translate": "thorigins.advancements.foxify.description",
+			"fallback": "The foxxo is eebie and neebies to sleeby"
 		},
 		"frame": "task",
 		"hidden": true,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.foxify.title"
+			"translate": "thorigins.advancements.foxify.title",
+			"fallback": "Sleeping Mode"
 		}
 	},
 	"requirements": [["to_be_granted"]],

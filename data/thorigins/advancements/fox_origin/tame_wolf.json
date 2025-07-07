@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.tame_wolf.description"
+			"translate": "thorigins.advancements.tame_wolf.description",
+			"fallback": "Tame a wolf and certify it as an ally"
 		},
 		"frame": "challenge",
 		"hidden": false,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.tame_wolf.title"
+			"translate": "thorigins.advancements.tame_wolf.title",
+			"fallback": "Forbidden Friendship"
 		}
 	},
 	"requirements": [["to_be_granted"]],

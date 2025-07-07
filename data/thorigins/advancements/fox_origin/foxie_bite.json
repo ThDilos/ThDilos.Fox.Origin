@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.foxie_bite.description"
+			"translate": "thorigins.advancements.foxie_bite.description",
+			"fallback": "Take a bite out of your opponent"
 		},
 		"frame": "task",
 		"hidden": false,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.foxie_bite.title"
+			"translate": "thorigins.advancements.foxie_bite.title",
+			"fallback": "Munch"
 		}
 	},
 	"requirements": [["to_be_granted"]],

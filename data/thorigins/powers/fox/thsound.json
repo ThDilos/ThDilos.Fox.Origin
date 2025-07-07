@@ -878,7 +878,7 @@
 								},
 								{
 									"type": "origins:execute_command",
-									"command": "/title @s actionbar {\"translate\":\"fox.trusted\"}"
+									"command": "/title @s actionbar {\"translate\":\"fox.trusted\",\"fallback\":\"§dWholesome Interaction! You are now trusted by them\"}"
 								}
 							]
 						}
@@ -995,7 +995,7 @@
 															},
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feeder\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feeder\",\"fallback\":\"§dYou granted %s §bthe fox§r§d with berries as a little treat :3\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															}
 														]
 													}
@@ -1255,7 +1255,7 @@
 															},
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hug\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hug\",\"fallback\":\"§dYou gave %s §dthe little critter a little hug :3\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															}
 														]
 													}
@@ -1337,7 +1337,7 @@
 															},
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"fallback\":\"§dPetted %s\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															}
 														]
 													}
@@ -1962,7 +1962,7 @@
 				"actions": [
 					{
 						"type": "origins:execute_command",
-						"command": "/title @s actionbar {\"translate\":\"fox.distrusted\"}"
+						"command": "/title @s actionbar {\"translate\":\"fox.distrusted\",\"fallback\":\"§4You are no longer trusted...\"}"
 					},
 					{
 						"type": "origins:execute_command",

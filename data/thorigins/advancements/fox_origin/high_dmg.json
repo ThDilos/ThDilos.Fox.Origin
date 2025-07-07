@@ -25,7 +25,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.high_dmg.description"
+			"translate": "thorigins.advancements.high_dmg.description",
+			"fallback": "Deal no less than 100 damage in a single hit"
 		},
 		"frame": "challenge",
 		"hidden": false,
@@ -34,7 +35,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.high_dmg.title"
+			"translate": "thorigins.advancements.high_dmg.title",
+			"fallback": "Crits From Heaven"
 		}
 	},
 	"requirements": [["more_than_hundred"]],

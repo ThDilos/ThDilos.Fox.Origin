@@ -10,9 +10,8 @@
 						"layer": "origins:origin"
 					},
 					{
-						"type": "origins:origin",
-						"origin": "thorigins:element_fox",
-						"layer": "origins:origin"
+						"type": "origins:power",
+						"power": "thorigins:fox/thtrackers"
 					}
 				]
 			},

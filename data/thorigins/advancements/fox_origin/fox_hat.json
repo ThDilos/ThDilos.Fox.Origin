@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.fox_hat.description"
+			"translate": "thorigins.advancements.fox_hat.description",
+			"fallback": "You are my fren now, we're having sweet berries later"
 		},
 		"frame": "task",
 		"hidden": false,
@@ -19,7 +20,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.fox_hat.title"
+			"translate": "thorigins.advancements.fox_hat.title",
+			"fallback": "Fox Hat"
 		}
 	},
 	"requirements": [["to_be_granted"]],
