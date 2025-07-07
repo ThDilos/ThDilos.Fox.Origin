@@ -511,9 +511,34 @@
 							}
 						]
 					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_fear_timer",
+						"compare_to": 0,
+						"comparison": ">"
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_is_fearing",
+						"change": 1
+					},
+					"else_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_is_fearing",
+						"change": -1
+					}
 				}
 			]
 		}
+	},
+
+	"is_fearing": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1
 	},
 
 	"fear_timer": {
