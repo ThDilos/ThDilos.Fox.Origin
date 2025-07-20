@@ -39,7 +39,7 @@
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
 			"translate": "thorigins.advancements.fox_tower.description",
-			"fallback": "Take 5 Foxes with you and hunt a prey"
+			"fallback": "Put 5 Foxes on your head and hunt a prey"
 		},
 		"frame": "challenge",
 		"hidden": false,

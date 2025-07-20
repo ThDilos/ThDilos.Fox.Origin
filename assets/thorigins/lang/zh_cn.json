@@ -61,7 +61,9 @@
 
 	"fox.thfluffy.name": "§e§n毛绒绒",
 	"fox.thfluffy.description": "浑身的毛绒绒让你不畏严寒, 但一点火星子就能让你生不如死。",
-	"thfluffy.info": "[§c-§r] 受到更多火焰/爆炸伤害\n[§a+§r] 冰冻抗性\n[§c-§r] 毛发受潮时速度下降\n[§e~§r] 保持静止把水甩干",
+	"thfluffy.info": "[§c-§r] 受到更多火焰/爆炸伤害\n[§a+§r] 冰冻抗性\n[§c-§r] 毛发受潮时速度下降\n[§e~§r] 保持静止把水甩干\n[§c-§r] 干燥的绒毛容易着火",
+	"fluff_fired_oh_no": "§c你身上的绒毛着火了！",
+	"fluff_damped_good": "§a毛毛受潮了，§e暂时§a不怕火星子了...",
 
 	"fox.thshy.name": "§c§n胆小",
 	"fox.thshy.description": "胆小的天性让你惧怕天敌、惧怕死亡、惧怕人群、惧怕极其危险的生物, 带来诸多不便。不过, 大部分恐惧都能想办法克服。",

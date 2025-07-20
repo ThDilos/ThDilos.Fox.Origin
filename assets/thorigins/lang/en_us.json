@@ -61,7 +61,9 @@
 
 	"fox.thfluffy.name": "§e§nFluffy",
 	"fox.thfluffy.description": "Shaggy fur provides excellent cold protection but is highly flammable.",
-	"thfluffy.info": "[§c-§r] Receive more fire and explosion damage\n[§a+§r] Freeze Immunity\n[§c-§r] Slow down when in water / rain for a bit\n[§e~§r] Stand Still to Shake and dry off",
+	"thfluffy.info": "[§c-§r] Receive more fire and explosion damage\n[§a+§r] Freeze Immunity\n[§c-§r] Slow down when in water / rain for a bit\n[§e~§r] Stand Still to Shake and dry off\n[§c-§r] Dry fluff catches fire easily",
+	"fluff_fired_oh_no": "§cYour fluff caught fire!",
+	"fluff_damped_good": "§aYour fluff is damp and less flammable, §efor now...",
 
 	"fox.thshy.name": "§c§nTimidity",
 	"fox.thshy.description": "Survival instincts make you fear predators, death, crowds, and danger, but there are ways to conquer the fears.",
@@ -168,7 +170,7 @@
 	"thorigins.advancements.fox_hat.description": "You are my fren now, we're having sweet berries later",
 
 	"thorigins.advancements.fox_tower.title": "Foxie Safari",
-	"thorigins.advancements.fox_tower.description": "Take 5 Foxes with you and hunt a prey",
+	"thorigins.advancements.fox_tower.description": "Put 5 Foxes on your head and hunt a prey",
 
 	"thorigins.advancements.foxie_bite.title": "Munch",
 	"thorigins.advancements.foxie_bite.description": "Take a bite out of your opponent",
