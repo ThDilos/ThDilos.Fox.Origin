@@ -288,30 +288,19 @@
 							{
 								"type": "origins:if_else",
 								"condition": {
-									"type": "origins:and",
+									"type": "origins:or",
 									"conditions": [
 										{
-											"type": "origins:command",
-											"command": "/data get entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] Age",
-											"compare_to": -20,
-											"comparison": ">"
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 2,
+											"comparison": "=="
 										},
 										{
-											"type": "origins:or",
-											"conditions": [
-												{
-													"type": "origins:scoreboard",
-													"objective": "foxtype",
-													"compare_to": 2,
-													"comparison": "=="
-												},
-												{
-													"type": "origins:scoreboard",
-													"objective": "foxtype",
-													"compare_to": 3,
-													"comparison": "=="
-												}
-											]
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 3,
+											"comparison": "=="
 										}
 									]
 								},
@@ -323,30 +312,19 @@
 							{
 								"type": "origins:if_else",
 								"condition": {
-									"type": "origins:and",
+									"type": "origins:or",
 									"conditions": [
 										{
-											"type": "origins:command",
-											"command": "/data get entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] Age",
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
 											"compare_to": 0,
-											"comparison": "<"
+											"comparison": "=="
 										},
 										{
-											"type": "origins:or",
-											"conditions": [
-												{
-													"type": "origins:scoreboard",
-													"objective": "foxtype",
-													"compare_to": 0,
-													"comparison": "=="
-												},
-												{
-													"type": "origins:scoreboard",
-													"objective": "foxtype",
-													"compare_to": 1,
-													"comparison": "=="
-												}
-											]
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 1,
+											"comparison": "=="
 										}
 									]
 								},
@@ -358,29 +336,18 @@
 							{
 								"type": "origins:if_else",
 								"condition": {
-									"type": "origins:and",
+									"type": "origins:or",
 									"conditions": [
 										{
-											"type": "origins:or",
-											"conditions": [
-												{
-													"type": "origins:scoreboard",
-													"objective": "foxtype",
-													"compare_to": 0,
-													"comparison": "=="
-												},
-												{
-													"type": "origins:scoreboard",
-													"objective": "foxtype",
-													"compare_to": 2,
-													"comparison": "=="
-												}
-											]
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 0,
+											"comparison": "=="
 										},
 										{
-											"type": "origins:command",
-											"command": "/execute if entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b,Type:red},tag=sleepin,sort=nearest,distance=..0.2,limit=1]",
-											"compare_to": 0,
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 2,
 											"comparison": "=="
 										}
 									]
@@ -393,29 +360,18 @@
 							{
 								"type": "origins:if_else",
 								"condition": {
-									"type": "origins:and",
+									"type": "origins:or",
 									"conditions": [
 										{
-											"type": "origins:or",
-											"conditions": [
-												{
-													"type": "origins:scoreboard",
-													"objective": "foxtype",
-													"compare_to": 1,
-													"comparison": "=="
-												},
-												{
-													"type": "origins:scoreboard",
-													"objective": "foxtype",
-													"compare_to": 3,
-													"comparison": "=="
-												}
-											]
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 1,
+											"comparison": "=="
 										},
 										{
-											"type": "origins:command",
-											"command": "/execute if entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b,Type:snow},tag=sleepin,sort=nearest,distance=..0.2,limit=1]",
-											"compare_to": 0,
+											"type": "origins:scoreboard",
+											"objective": "foxtype",
+											"compare_to": 3,
 											"comparison": "=="
 										}
 									]
@@ -1974,8 +1930,8 @@
 					"condition": {
 						"type": "origins:actor_condition",
 						"condition": {
-							"type": "origins:resource",
-							"resource": "*:fox/thsound_interaction_cooldown",
+							"type": "origins:scoreboard",
+							"objective": "interaction_cd",
 							"compare_to": 0,
 							"comparison": "=="
 						}
@@ -2009,8 +1965,8 @@
 							{
 								"type": "origins:actor_action",
 								"action": {
-									"type": "origins:trigger_cooldown",
-									"power": "*:fox/thsound_interaction_cooldown"
+									"type": "origins:execute_command",
+									"command": "/scoreboard players set @s interaction_cd 60"
 								}
 							},
 							{
