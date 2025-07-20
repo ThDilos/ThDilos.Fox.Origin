@@ -1933,7 +1933,7 @@
 							"type": "origins:scoreboard",
 							"objective": "interaction_cd",
 							"compare_to": 0,
-							"comparison": "=="
+							"comparison": "<="
 						}
 					},
 					"if_action": {
