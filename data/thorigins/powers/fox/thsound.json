@@ -12,6 +12,18 @@
 			"actions": [
 				{
 					"type": "origins:execute_command",
+					"command": "/scoreboard objectives add interaction_cd dummy \"Fox Origin Interaction CD\""
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a unless entity @s[scores={interaction_cd=0..}] run scoreboard players set @s interaction_cd 0"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[scores={interaction_cd=1..}] run scoreboard players remove @s interaction_cd 20"
+				},
+				{
+					"type": "origins:execute_command",
 					"command": "/scoreboard objectives add foxtype trigger \"FoxType\""
 				},
 				{
@@ -901,12 +913,12 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:target_condition",
+						"type": "origins:actor_condition",
 						"condition": {
-							"type": "origins:resource",
-							"resource": "*:*_interaction_cooldown",
-							"comparison": "==",
-							"compare_to": 0
+							"type": "origins:scoreboard",
+							"objective": "interaction_cd",
+							"compare_to": 0,
+							"comparison": "=="
 						}
 					},
 					"if_action": {
@@ -915,8 +927,17 @@
 							{
 								"type": "origins:actor_action",
 								"action": {
-									"type": "origins:execute_command",
-									"command": "/tag @s add interactor"
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:execute_command",
+											"command": "/scoreboard players set @s interaction_cd 60"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/tag @s add interactor"
+										}
+									]
 								}
 							},
 							{
@@ -927,10 +948,6 @@
 										{
 											"type": "origins:execute_command",
 											"command": "/advancement grant @s only thorigins:fox_origin/interacted"
-										},
-										{
-											"type": "origins:trigger_cooldown",
-											"power": "*:*_interaction_cooldown"
 										},
 										{
 											"type": "origins:trigger_cooldown",
@@ -1909,9 +1926,6 @@
 		"type": "origins:resource",
 		"min": -4,
 		"max": 44,
-		"hud_render": {
-			"should_render": false
-		},
 		"max_action": {
 			"type": "origins:and",
 			"actions": [
@@ -1929,11 +1943,6 @@
 		}
 	},
 
-	"interaction_cooldown": {
-		"type": "origins:cooldown",
-		"cooldown": 60
-	},
-
 	"comforted_timer": {
 		"type": "origins:cooldown",
 		"cooldown": 160
@@ -1946,7 +1955,7 @@
 			"condition": {
 				"type": "origins:nbt",
 				"nbt": {
-					"Tags": [ "foxie_trust" ]
+					"Tags": ["foxie_trust"]
 				}
 			}
 		},
