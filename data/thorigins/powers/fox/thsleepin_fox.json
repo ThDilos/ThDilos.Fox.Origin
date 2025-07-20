@@ -543,6 +543,10 @@
 					"command": "/data remove entity @s HandItems[0]"
 				},
 				{
+					"type": "origins:execute_command",
+					"command": "/data merge entity @s {Silent:1b}"
+				},
+				{
 					"type": "origins:if_else",
 					"condition": {
 						"type": "origins:riding"
@@ -610,10 +614,6 @@
 									"type": "origins:execute_command",
 									"command": "/tp @s ~ ~-500 ~"
 								}
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/data merge entity @s {Silent:1b}"
 							}
 						]
 					}
