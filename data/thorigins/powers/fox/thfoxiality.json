@@ -916,7 +916,7 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base",
+			"operation": "multiply_total",
 			"value": 0.15
 		},
 		"damage_condition": {
@@ -945,7 +945,7 @@
 			}
 		},
 		"modifier": {
-			"operation": "multiply_base",
+			"operation": "multiply_total",
 			"value": 0.15
 		}
 	},
