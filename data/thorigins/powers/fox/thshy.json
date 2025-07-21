@@ -450,27 +450,6 @@
 															"type": "origins:actor_condition",
 															"condition": {
 																"type": "origins:resource",
-																"resource": "*:fox/thtrackers_edrag_kills",
-																"comparison": "<",
-																"compare_to": 1
-															}
-														},
-														{
-															"type": "origins:target_condition",
-															"condition": {
-																"type": "origins:entity_type",
-																"entity_type": "minecraft:ender_dragon"
-															}
-														}
-													]
-												},
-												{
-													"type": "origins:and",
-													"conditions": [
-														{
-															"type": "origins:actor_condition",
-															"condition": {
-																"type": "origins:resource",
 																"resource": "*:fox/thtrackers_wither_kills",
 																"comparison": "<",
 																"compare_to": 1
