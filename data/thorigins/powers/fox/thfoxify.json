@@ -214,7 +214,7 @@
 						},
 						{
 							"type": "origins:command",
-							"command": "/execute if entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,distance=..1,limit=1]",
+							"command": "/execute if entity @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,distance=..1,limit=1]",
 							"compare_to": 0,
 							"comparison": "=="
 						},
@@ -277,11 +277,11 @@
 									},
 									"if_action": {
 										"type": "origins:execute_command",
-										"command": "/data remove entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] HandItems[0]"
+										"command": "/data remove entity @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] HandItems[0]"
 									},
 									"else_action": {
 										"type": "origins:execute_command",
-										"command": "/data modify entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] HandItems[0] set from entity @s SelectedItem"
+										"command": "/data modify entity @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] HandItems[0] set from entity @s SelectedItem"
 									}
 								}
 							},
@@ -306,7 +306,7 @@
 								},
 								"if_action": {
 									"type": "origins:execute_command",
-									"command": "/data modify entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] Age set value -6000"
+									"command": "/data modify entity @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] Age set value -6000"
 								}
 							},
 							{
@@ -330,7 +330,7 @@
 								},
 								"if_action": {
 									"type": "origins:execute_command",
-									"command": "/data modify entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] Age set value 0"
+									"command": "/data modify entity @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..0.2,limit=1] Age set value 0"
 								}
 							},
 							{
@@ -354,7 +354,7 @@
 								},
 								"if_action": {
 									"type": "origins:execute_command",
-									"command": "/data modify entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b,Type:snow},tag=sleepin,sort=nearest,distance=..0.2,limit=1] Type set value red"
+									"command": "/data modify entity @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b,Type:snow},tag=sleepin,sort=nearest,distance=..0.2,limit=1] Type set value red"
 								}
 							},
 							{
@@ -378,7 +378,7 @@
 								},
 								"if_action": {
 									"type": "origins:execute_command",
-									"command": "/data modify entity @e[type=fox,nbt={NoAI:1b,NoGravity:1b,Type:red},tag=sleepin,sort=nearest,distance=..0.2,limit=1] Type set value snow"
+									"command": "/data modify entity @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b,Type:red},tag=sleepin,sort=nearest,distance=..0.2,limit=1] Type set value snow"
 								}
 							},
 							{
@@ -394,7 +394,7 @@
 										},
 										{
 											"type": "origins:command",
-											"command": "/execute if entity @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..0.2,limit=1]",
+											"command": "/execute if entity @e[type=#thorigins:fox,nbt={NoAI:1b},tag=sleepin,distance=..0.2,limit=1]",
 											"compare_to": 0,
 											"comparison": ">"
 										}
@@ -441,7 +441,7 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/execute as @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin] at @s run execute unless entity @p[distance=..1] run kill @s"
+					"command": "/execute as @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin] at @s run execute unless entity @p[distance=..1] run kill @s"
 				},
 				{
 					"type": "origins:if_else",
@@ -802,26 +802,26 @@
 											"actions": [
 												{
 													"type": "origins:execute_command",
-													"command": "/scale delay set pehkui:hitbox_height 1 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
+													"command": "/scale delay set pehkui:hitbox_height 1 @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
 												},
 												{
 													"type": "origins:execute_command",
-													"command": "/scale multiply pehkui:hitbox_height 0.1 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
+													"command": "/scale multiply pehkui:hitbox_height 0.1 @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
 												}
 											]
 										},
 										"else_action": {
 											"type": "origins:execute_command",
-											"command": "/scale multiply pehkui:hitbox_height 0.5 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
+											"command": "/scale multiply pehkui:hitbox_height 0.5 @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
 										}
 									},
 									{
 										"type": "origins:execute_command",
-										"command": "/scale multiply pehkui:hitbox_width 0.5 @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
+										"command": "/scale multiply pehkui:hitbox_width 0.5 @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1]"
 									},
 									{
 										"type": "origins:execute_command",
-										"command": "/tp @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,distance=..1,limit=1] ~ ~ ~ facing ^-0.3 ^ ^-0.15"
+										"command": "/tp @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,distance=..1,limit=1] ~ ~ ~ facing ^-0.3 ^ ^-0.15"
 									}
 								]
 							}
@@ -838,11 +838,11 @@
 					},
 					"if_action": {
 						"type": "origins:execute_command",
-						"command": "/tp @e[type=fox,nbt={NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] ~ ~-0.15 ~"
+						"command": "/tp @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] ~ ~-0.15 ~"
 					},
 					"else_action": {
 						"type": "origins:execute_command",
-						"command": "/tp @e[type=fox,nbt={NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] ~ ~-0.025 ~"
+						"command": "/tp @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},sort=nearest,tag=sleepin,distance=..0.2,limit=1] ~ ~-0.025 ~"
 					}
 				}
 			]
@@ -1231,7 +1231,7 @@
 			},
 			"if_action": {
 				"type": "origins:execute_command",
-				"command": "/tp @e[type=fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,distance=..1,limit=1] ~ ~ ~ facing ^-0.3 ^ ^-0.15"
+				"command": "/tp @e[type=#thorigins:fox,nbt={NoAI:1b,NoGravity:1b},tag=sleepin,distance=..1,limit=1] ~ ~ ~ facing ^-0.3 ^ ^-0.15"
 			},
 			"else_action": {
 				"type": "origins:if_else",
@@ -1362,7 +1362,7 @@
 						"type": "origins:if_else",
 						"condition": {
 							"type": "origins:command",
-							"command": "/data get entity @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1] Sleeping",
+							"command": "/data get entity @e[type=#thorigins:fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1] Sleeping",
 							"compare_to": 1,
 							"comparison": "=="
 						},
@@ -1371,15 +1371,15 @@
 							"actions": [
 								{
 									"type": "origins:execute_command",
-									"command": "/data modify entity @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1] Sleeping set value 0"
+									"command": "/data modify entity @e[type=#thorigins:fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1] Sleeping set value 0"
 								},
 								{
 									"type": "origins:execute_command",
-									"command": "/data modify entity @e[type=fox,nbt={Sleeping:0b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1] Sitting set value 1"
+									"command": "/data modify entity @e[type=#thorigins:fox,nbt={Sleeping:0b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1] Sitting set value 1"
 								},
 								{
 									"type": "origins:execute_command",
-									"command": "/execute as @e[tag=hatting,type=fox,dy=20] run data merge entity @s {Sleeping:0b,Sitting:1b}"
+									"command": "/execute as @e[tag=hatting,type=#thorigins:fox,dy=20] run data merge entity @s {Sleeping:0b,Sitting:1b}"
 								},
 								{
 									"type": "origins:if_else",
@@ -1453,15 +1453,15 @@
 							"actions": [
 								{
 									"type": "origins:execute_command",
-									"command": "/data modify entity @e[type=fox,nbt={Sleeping:0b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1] Sleeping set value 1"
+									"command": "/data modify entity @e[type=#thorigins:fox,nbt={Sleeping:0b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1] Sleeping set value 1"
 								},
 								{
 									"type": "origins:execute_command",
-									"command": "/data modify entity @e[type=fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1] Sitting set value 0"
+									"command": "/data modify entity @e[type=#thorigins:fox,nbt={Sleeping:1b,NoAI:1b,NoGravity:1b},tag=sleepin,sort=nearest,distance=..1,limit=1] Sitting set value 0"
 								},
 								{
 									"type": "origins:execute_command",
-									"command": "/execute as @e[tag=hatting,type=fox,dy=20] run data merge entity @s {Sleeping:1b,Sitting:0b}"
+									"command": "/execute as @e[tag=hatting,type=#thorigins:fox,dy=20] run data merge entity @s {Sleeping:1b,Sitting:0b}"
 								},
 								{
 									"type": "origins:if_else",
@@ -2090,36 +2090,31 @@
 			"type": "origins:empty"
 		},
 		"bientity_condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:target_condition",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:in_tag",
-								"tag": "thorigins:fox"
-							},
-							{
-								"type": "origins:power",
-								"power": "*:fox/thsleepin_fox",
-								"inverted": true
-							},
-							{
-								"type": "origins:power",
-								"power": "*:fox/thhat",
-								"inverted": true
-							},
-							{
-								"type": "origins:power",
-								"power": "*:ice_fox/icicyle",
-								"inverted": true
-							}
-						]
+			"type": "origins:target_condition",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:in_tag",
+						"tag": "thorigins:fox"
+					},
+					{
+						"type": "origins:power",
+						"power": "*:fox/thsleepin_fox",
+						"inverted": true
+					},
+					{
+						"type": "origins:power",
+						"power": "*:fox/thhat",
+						"inverted": true
+					},
+					{
+						"type": "origins:power",
+						"power": "*:ice_fox/icicyle",
+						"inverted": true
 					}
-				}
-			]
+				]
+			}
 		}
 	},
 
@@ -2135,8 +2130,8 @@
 				"type": "origins:and",
 				"conditions": [
 					{
-						"type": "origins:entity_type",
-						"entity_type": "minecraft:fox"
+						"type": "origins:in_tag",
+						"tag": "thorigins:fox"
 					},
 					{
 						"type": "origins:power",

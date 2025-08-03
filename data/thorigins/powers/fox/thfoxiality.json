@@ -83,7 +83,7 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/execute as @e[type=fox,tag=uuidappended,tag=!hatting,tag=!sleepin] at @s unless entity @a[distance=..15,tag=foxie] run tag @s remove uuidappended"
+					"command": "/execute as @e[type=#thorigins:fox,tag=uuidappended,tag=!hatting,tag=!sleepin] at @s unless entity @a[distance=..15,tag=foxie] run tag @s remove uuidappended"
 				},
 				{
 					"type": "origins:if_else",
