@@ -630,8 +630,7 @@
 		"type": "origins:action_when_damage_taken",
 		"cooldown": 20,
 		"damage_condition": {
-			"type": "origins:name",
-			"name": "inFire"
+			"type": "origins:fire"
 		},
 		"entity_action": {
 			"type": "origins:if_else",
