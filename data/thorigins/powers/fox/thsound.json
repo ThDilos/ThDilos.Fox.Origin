@@ -305,7 +305,7 @@
 										"condition": {
 											"type": "origins:resource",
 											"resource": "*:fox/thtrackers_destroy_terrain",
-											"compare_to": 0,
+											"compare_to": 1,
 											"comparison": "=="
 										},
 										"if_action": {
@@ -318,7 +318,7 @@
 												{
 													"type": "origins:change_resource",
 													"resource": "*:fox/thtrackers_destroy_terrain",
-													"change": 1
+													"change": -1
 												}
 											]
 										},
@@ -332,7 +332,7 @@
 												{
 													"type": "origins:change_resource",
 													"resource": "*:fox/thtrackers_destroy_terrain",
-													"change": -1
+													"change": 1
 												}
 											]
 										}
