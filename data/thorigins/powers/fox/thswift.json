@@ -140,6 +140,18 @@
 		}
 	},
 
+	"jumpy": {
+		"type": "origins:modify_jump",
+		"modifier": {
+			"operation": "multiply_base",
+			"value": 0.4
+		},
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_fast"
+		}
+	},
+
 	"run_on_all_4": {
 		"type": "origins:conditioned_attribute",
 		"modifier": {
@@ -166,37 +178,6 @@
 					"item_condition": {
 						"type": "origins:empty"
 					}
-				}
-			]
-		}
-	},
-
-	"jumpy": {
-		"type": "origins:modify_jump",
-		"modifier": {
-			"operation": "multiply_base",
-			"value": 0.4
-		},
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:sprinting"
-				},
-				{
-					"type": "origins:sneaking",
-					"inverted": true
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:fox/thfoxiality_predator_suppression",
-					"compare_to": 0,
-					"comparison": "=="
-				},
-				{
-					"type": "origins:power_active",
-					"power": "*:fox/thweak_heavy_armor",
-					"inverted": true
 				}
 			]
 		}

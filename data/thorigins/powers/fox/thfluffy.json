@@ -584,6 +584,19 @@
 						"type": "origins:trigger_cooldown",
 						"power": "*:*_effect_timer"
 					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_effect_timer",
+						"compare_to": 0,
+						"comparison": ">"
+					},
+					"if_action": {
+						"type": "origins:trigger_cooldown",
+						"power": "*:fox/thtrackers_unflammability"
+					}
 				}
 			]
 		}
@@ -611,6 +624,60 @@
 		"type": "origins:resource",
 		"max": 100,
 		"min": 0
+	},
+
+	"flammable": {
+		"type": "origins:action_when_damage_taken",
+		"cooldown": 20,
+		"damage_condition": {
+			"type": "origins:fire"
+		},
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:on_fire",
+				"inverted": true
+			},
+			"if_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:set_on_fire",
+						"duration": 10
+					},
+					{
+						"type": "origins:play_sound",
+						"sound": "minecraft:block.fire.extinguish",
+						"category": "players",
+						"pitch": 0.6,
+						"volume": 0.6
+					},
+					{
+						"type": "origins:spawn_particles",
+						"particle": "minecraft:smoke",
+						"count": 25,
+						"offset_y": 0.5,
+						"speed": 0.2,
+						"spread": {
+							"x": 0.35,
+							"y": 0.45,
+							"z": 0.35
+						}
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "*:fox/thtrackers_flammability_notification",
+						"change": 1
+					}
+				]
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:fox/thtrackers_unflammability",
+			"compare_to": 0,
+			"comparison": "=="
+		}
 	},
 
 	"more_fire_exp_dmg": {

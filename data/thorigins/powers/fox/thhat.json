@@ -122,8 +122,8 @@
 							"type": "origins:and",
 							"conditions": [
 								{
-									"type": "origins:entity_type",
-									"entity_type": "minecraft:fox"
+									"type": "origins:in_tag",
+									"tag": "thorigins:fox"
 								},
 								{
 									"type": "origins:nbt",
@@ -299,7 +299,7 @@
 									"type": "origins:riding_action",
 									"action": {
 										"type": "origins:execute_command",
-										"command": "/tp @e[tag=hatting,type=fox,distance=..20,dy=20,nbt={Sleeping:0b,Sitting:1b}] ~ ~ ~ facing ^ ^-3 ^10"
+										"command": "/tp @e[tag=hatting,type=#thorigins:fox,dy=20,nbt={Sleeping:0b,Sitting:1b}] ~ ~ ~ facing ^ ^-3 ^10"
 									}
 								}
 							},
@@ -334,7 +334,7 @@
 										},
 										"if_action": {
 											"type": "origins:execute_command",
-											"command": "/tp @e[tag=hatting,type=fox,dy=20,nbt={Sleeping:1b,Sitting:0b}] ~ ~ ~ facing ^0.01 ^ ^-1"
+											"command": "/tp @e[tag=hatting,type=#thorigins:fox,dy=20,nbt={Sleeping:1b,Sitting:0b}] ~ ~ ~ facing ^0.01 ^ ^-1"
 										}
 									}
 								}

@@ -38,7 +38,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.fox_tower.description"
+			"translate": "thorigins.advancements.fox_tower.description",
+			"fallback": "Put 5 Foxes on your head and hunt a prey"
 		},
 		"frame": "challenge",
 		"hidden": false,
@@ -47,7 +48,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.fox_tower.title"
+			"translate": "thorigins.advancements.fox_tower.title",
+			"fallback": "Foxie Safari"
 		}
 	},
 	"requirements": [["fifth_fox"]],

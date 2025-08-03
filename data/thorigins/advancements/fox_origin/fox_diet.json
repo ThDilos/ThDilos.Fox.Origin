@@ -210,7 +210,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.fox_diet.description"
+			"translate": "thorigins.advancements.fox_diet.description",
+			"fallback": "Consume all fox-specialized foods"
 		},
 		"frame": "challenge",
 		"hidden": false,
@@ -219,7 +220,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.fox_diet.title"
+			"translate": "thorigins.advancements.fox_diet.title",
+			"fallback": "Picky Omnivore"
 		}
 	},
 	"requirements": [

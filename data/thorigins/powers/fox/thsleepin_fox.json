@@ -310,17 +310,8 @@
 			}
 		},
 		"entity_action_lost": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:execute_command",
-					"command": "/execute as @e[type=wolf,distance=..18] run data modify entity @s AngryAt []"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute as @e[type=polar_bear,distance=..16] run data modify entity @s AngryAt []"
-				}
-			]
+			"type": "origins:execute_command",
+			"command": "/execute as @e[type=#thorigins:predator,distance=..18,distance=..18] run data modify entity @s AngryAt set value []"
 		}
 	},
 
@@ -329,17 +320,8 @@
 		"bientity_condition": {
 			"type": "origins:actor_condition",
 			"condition": {
-				"type": "origins:or",
-				"conditions": [
-					{
-						"type": "origins:entity_type",
-						"entity_type": "minecraft:wolf"
-					},
-					{
-						"type": "origins:entity_type",
-						"entity_type": "minecraft:polar_bear"
-					}
-				]
+				"type": "origins:in_tag",
+				"tag": "thorigins:predators"
 			}
 		},
 		"bientity_action": {
@@ -430,17 +412,8 @@
 			"type": "origins:and",
 			"actions": [
 				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:command",
-						"command": "/execute if data entity @s {Sitting:1b}",
-						"compare_to": 0,
-						"comparison": ">"
-					},
-					"if_action": {
-						"type": "origins:execute_command",
-						"command": "/execute at @p[tag=foxie,limit=1,sort=nearest,distance=..1] run tp @s ~ ~ ~ facing ^ ^ ^1"
-					}
+					"type": "origins:execute_command",
+					"command": "/execute at @p[tag=foxie,limit=1,sort=nearest,distance=..1] run tp @s[nbt={Sitting:1b}] ~ ~ ~ facing ^ ^ ^1"
 				},
 				{
 					"type": "origins:if_else",
@@ -477,29 +450,26 @@
 										"type": "origins:riding"
 									},
 									{
-										"type": "origins:passenger",
-										"compare_to": 0,
-										"comparison": "=="
-									}
-								]
-							},
-							{
-								"type": "origins:and",
-								"conditions": [
-									{
-										"type": "origins:riding"
-									},
-									{
-										"type": "origins:passenger",
-										"bientity_condition": {
-											"type": "origins:actor_condition",
-											"condition": {
-												"type": "origins:resource",
-												"resource": "*:fox/thfoxify_afk_timer",
-												"compare_to": 1,
-												"comparison": ">"
+										"type": "origins:or",
+										"conditions": [
+											{
+												"type": "origins:passenger",
+												"compare_to": 0,
+												"comparison": "=="
+											},
+											{
+												"type": "origins:passenger",
+												"bientity_condition": {
+													"type": "origins:actor_condition",
+													"condition": {
+														"type": "origins:resource",
+														"resource": "*:fox/thfoxify_afk_timer",
+														"compare_to": 1,
+														"comparison": ">"
+													}
+												}
 											}
-										}
+										]
 									}
 								]
 							},
@@ -527,9 +497,18 @@
 						]
 					},
 					"if_action": {
-						"type": "origins:change_resource",
-						"resource": "*:*_exit",
-						"change": 1
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/data merge entity @s {Silent:1b}"
+							},
+							{
+								"type": "origins:change_resource",
+								"resource": "*:*_exit",
+								"change": 1
+							}
+						]
 					}
 				}
 			]
@@ -616,10 +595,6 @@
 									"type": "origins:execute_command",
 									"command": "/tp @s ~ ~-500 ~"
 								}
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/data merge entity @s {Silent:1b}"
 							}
 						]
 					}

@@ -2,23 +2,6 @@
 	"type": "origins:multiple",
 	"hidden": true,
 
-	"_init_": {
-		"type": "origins:action_on_callback",
-		"entity_action_added": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:execute_command",
-					"command": "/scoreboard objectives add UUID0 dummy \"UUID0\""
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute store result score @s UUID0 run data get entity @s UUID[0]"
-				}
-			]
-		}
-	},
-
 	"spam_counter": {
 		"type": "origins:resource",
 		"min": 0,

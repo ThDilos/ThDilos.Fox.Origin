@@ -33,6 +33,40 @@
 		}
 	},
 
+	"halt_afk_timer": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0
+	},
+
+	"destroy_terrain": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 1
+	},
+
+	"unflammability": {
+		"type": "origins:cooldown",
+		"cooldown": 6000
+	},
+
+	"flammability_notification": {
+		"type": "origins:resource",
+		"start_value": 0,
+		"min": 0,
+		"max": 1,
+		"min_action": {
+			"type": "origins:execute_command",
+			"command": "/title @s actionbar {\"translate\":\"fluff_damped_good\"}"
+		},
+		"max_action": {
+			"type": "origins:execute_command",
+			"command": "/title @s actionbar {\"translate\":\"fluff_fired_oh_no\"}"
+		}
+	},
+
 	"_init_": {
 		"type": "origins:action_on_callback",
 		"entity_action_added": {
@@ -104,6 +138,14 @@
 							"power": "*:optional_power/leash/thleash",
 							"source": "thorigins:universal"
 						}
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/scoreboard objectives add UUID0 dummy \"UUID0\""
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/execute store result score @s UUID0 run data get entity @s UUID[0]"
 					}
 				]
 			}
@@ -309,6 +351,31 @@
 					"if_action": {
 						"type": "origins:execute_command",
 						"command": "/advancement grant @s only thorigins:fox_origin/conquer_all_fear"
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "*:*_flammability_notification",
+								"compare_to": 1,
+								"comparison": "=="
+							},
+							{
+								"type": "origins:resource",
+								"resource": "*:*_unflammability",
+								"compare_to": 5980,
+								"comparison": ">="
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_flammability_notification",
+						"change": -1
 					}
 				}
 			]

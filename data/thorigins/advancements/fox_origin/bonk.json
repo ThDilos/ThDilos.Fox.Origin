@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.bonk.description"
+			"translate": "thorigins.advancements.bonk.description",
+			"fallback": "Sounds empty..."
 		},
 		"frame": "task",
 		"hidden": true,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.bonk.title"
+			"translate": "thorigins.advancements.bonk.title",
+			"fallback": "Bonk"
 		}
 	},
 	"requirements": [["to_be_granted"]],

@@ -9,19 +9,7 @@
 			"actions": [
 				{
 					"type": "origins:execute_command",
-					"command": "/scoreboard objectives add UUID0 dummy \"UUID0\""
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/execute store result score @s UUID0 run data get entity @s UUID[0]"
-				},
-				{
-					"type": "origins:execute_command",
 					"command": "/origin set @s thorigins:origin thorigins:default_fox"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/advancement grant @s only thorigins:fox_origin/root"
 				},
 				{
 					"type": "origins:if_else",
@@ -197,7 +185,7 @@
 					},
 					"if_action": {
 						"type": "origins:execute_command",
-						"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1,sort=nearest] thorigins:fox/thsleepin_fox_shake_timer 3"
+						"command": "/resource set @e[type=#thorigins:fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1,sort=nearest] thorigins:fox/thsleepin_fox_shake_timer 3"
 					}
 				},
 				{
@@ -209,7 +197,7 @@
 					},
 					"if_action": {
 						"type": "origins:execute_command",
-						"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1,sort=nearest] thorigins:fox/thsleepin_fox_invis_timer 50"
+						"command": "/resource set @e[type=#thorigins:fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1,sort=nearest] thorigins:fox/thsleepin_fox_invis_timer 50"
 					}
 				}
 			]

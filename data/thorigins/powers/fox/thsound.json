@@ -12,6 +12,18 @@
 			"actions": [
 				{
 					"type": "origins:execute_command",
+					"command": "/scoreboard objectives add interaction_cd dummy \"Fox Origin Interaction CD\""
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a unless entity @s[scores={interaction_cd=0..}] run scoreboard players set @s interaction_cd 0"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @a[scores={interaction_cd=1..}] run scoreboard players remove @s interaction_cd 20"
+				},
+				{
+					"type": "origins:execute_command",
 					"command": "/scoreboard objectives add foxtype trigger \"FoxType\""
 				},
 				{
@@ -194,6 +206,136 @@
 									{
 										"type": "origins:execute_command",
 										"command": "/say :3"
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 39,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 46,
+										"comparison": "<="
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/scoreboard players remove @s foxtype 40"
+									},
+									{
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:resource",
+											"resource": "*:fox/thtrackers_halt_afk_timer",
+											"compare_to": 0,
+											"comparison": "=="
+										},
+										"if_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"halt_afk_timer\",\"with\":[{\"text\":\"OFF\",\"color\":\"red\"}]}]"
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_halt_afk_timer",
+													"change": 1
+												}
+											]
+										},
+										"else_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"halt_afk_timer\",\"with\":[{\"text\":\"ON\",\"color\":\"green\"}]}]"
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_halt_afk_timer",
+													"change": -1
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 49,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 56,
+										"comparison": "<="
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/scoreboard players remove @s foxtype 50"
+									},
+									{
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:resource",
+											"resource": "*:fox/thtrackers_destroy_terrain",
+											"compare_to": 1,
+											"comparison": "=="
+										},
+										"if_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"destroy_terrain\",\"with\":[{\"text\":\"OFF\",\"color\":\"red\"}]}]"
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_destroy_terrain",
+													"change": -1
+												}
+											]
+										},
+										"else_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"destroy_terrain\",\"with\":[{\"text\":\"ON\",\"color\":\"green\"}]}]"
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_destroy_terrain",
+													"change": 1
+												}
+											]
+										}
 									}
 								]
 							}
@@ -813,7 +955,7 @@
 								},
 								{
 									"type": "origins:execute_command",
-									"command": "/title @s actionbar {\"translate\":\"fox.trusted\"}"
+									"command": "/title @s actionbar {\"translate\":\"fox.trusted\",\"fallback\":\"§dWholesome Interaction! You are now trusted by them\"}"
 								}
 							]
 						}
@@ -836,12 +978,12 @@
 				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:target_condition",
+						"type": "origins:actor_condition",
 						"condition": {
-							"type": "origins:resource",
-							"resource": "*:*_interaction_cooldown",
-							"comparison": "==",
-							"compare_to": 0
+							"type": "origins:scoreboard",
+							"objective": "interaction_cd",
+							"compare_to": 0,
+							"comparison": "<="
 						}
 					},
 					"if_action": {
@@ -850,8 +992,17 @@
 							{
 								"type": "origins:actor_action",
 								"action": {
-									"type": "origins:execute_command",
-									"command": "/tag @s add interactor"
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:execute_command",
+											"command": "/scoreboard players set @s interaction_cd 60"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/tag @s add interactor"
+										}
+									]
 								}
 							},
 							{
@@ -865,7 +1016,7 @@
 										},
 										{
 											"type": "origins:trigger_cooldown",
-											"power": "*:*_interaction_cooldown"
+											"power": "*:*_comforted_timer"
 										},
 										{
 											"type": "origins:execute_command",
@@ -926,7 +1077,7 @@
 															},
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feeder\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feeder\",\"fallback\":\"§dYou granted %s §bthe fox§r§d with berries as a little treat :3\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															}
 														]
 													}
@@ -1000,7 +1151,7 @@
 																	"actions": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]},{\"translate\":\"fox.feed2\",\"color\":\"light_purple\"}]}"
+																			"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]},{\"translate\":\"fox.feed2\"}]}"
 																		},
 																		{
 																			"type": "origins:choice",
@@ -1135,7 +1286,7 @@
 																},
 																"fail_action": {
 																	"type": "origins:execute_command",
-																	"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																	"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 																}
 															}
 														]
@@ -1186,7 +1337,7 @@
 															},
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hug\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\",\"bold\":true}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hug\",\"fallback\":\"§dYou gave %s §dthe little critter a little hug :3\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															}
 														]
 													}
@@ -1198,7 +1349,7 @@
 														"actions": [
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hugged\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\",\"bold\":true}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.hugged\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															},
 															{
 																"type": "origins:if_else",
@@ -1268,7 +1419,7 @@
 															},
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petter\",\"fallback\":\"§dPetted %s\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															}
 														]
 													}
@@ -1334,7 +1485,7 @@
 															},
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petted\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petted\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															}
 														]
 													}
@@ -1357,7 +1508,7 @@
 														"actions": [
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"bold\":\"true\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"Booped %s\",\"color\":\"light_purple\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 															},
 															{
 																"type": "origins:swing_hand",
@@ -1373,7 +1524,7 @@
 														"actions": [
 															{
 																"type": "origins:execute_command",
-																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"},{\"text\":\": \"},{\"text\":\"Boop!\",\"italic\":\"true\",\"color\":\"light_purple\"}]}"
 															},
 															{
 																"type": "origins:if_else",
@@ -1464,7 +1615,7 @@
 					{
 						"type": "origins:change_resource",
 						"resource": "*:*_bonk_reset",
-						"change": 40
+						"change": 60
 					},
 					{
 						"type": "origins:if_else_list",
@@ -1827,7 +1978,7 @@
 	"bonk_reset": {
 		"type": "origins:resource",
 		"min": 0,
-		"max": 40,
+		"max": 60,
 		"min_action": {
 			"type": "origins:change_resource",
 			"resource": "*:*_bonk_counter",
@@ -1840,9 +1991,6 @@
 		"type": "origins:resource",
 		"min": -4,
 		"max": 44,
-		"hud_render": {
-			"should_render": false
-		},
 		"max_action": {
 			"type": "origins:and",
 			"actions": [
@@ -1860,13 +2008,20 @@
 		}
 	},
 
-	"interaction_cooldown": {
+	"comforted_timer": {
 		"type": "origins:cooldown",
-		"cooldown": 60
+		"cooldown": 160
 	},
 
 	"no_longer_trust": {
 		"type": "origins:action_when_hit",
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:nbt",
+				"nbt": "{\"Tags\":[\"foxie_trust\"]}"
+			}
+		},
 		"damage_condition": {
 			"type": "origins:amount",
 			"compare_to": 3,
@@ -1879,7 +2034,7 @@
 				"actions": [
 					{
 						"type": "origins:execute_command",
-						"command": "/title @s actionbar {\"translate\":\"fox.distrusted\"}"
+						"command": "/title @s actionbar {\"translate\":\"fox.distrusted\",\"fallback\":\"§4You are no longer trusted...\"}"
 					},
 					{
 						"type": "origins:execute_command",
