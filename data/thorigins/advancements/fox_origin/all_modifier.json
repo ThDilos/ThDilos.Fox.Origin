@@ -12,8 +12,8 @@
 			"translate": "thorigins.advancements.all_modifier.description",
 			"fallback": "Trigger the highest possible damage modifiers combination"
 		},
-		"frame": "task",
-		"hidden": true,
+		"frame": "challenge",
+		"hidden": false,
 		"icon": {
 			"item": "minecraft:iron_axe"
 		},

@@ -29,7 +29,7 @@
 			"fallback": "Deal no less than 100 damage in a single hit"
 		},
 		"frame": "challenge",
-		"hidden": false,
+		"hidden": true,
 		"icon": {
 			"item": "minecraft:netherite_axe"
 		},
