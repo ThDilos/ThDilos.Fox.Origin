@@ -185,7 +185,7 @@
 					},
 					"if_action": {
 						"type": "origins:execute_command",
-						"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1,sort=nearest] thorigins:fox/thsleepin_fox_shake_timer 3"
+						"command": "/resource set @e[type=#thorigins:fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1,sort=nearest] thorigins:fox/thsleepin_fox_shake_timer 3"
 					}
 				},
 				{
@@ -197,7 +197,7 @@
 					},
 					"if_action": {
 						"type": "origins:execute_command",
-						"command": "/resource set @e[type=fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1,sort=nearest] thorigins:fox/thsleepin_fox_invis_timer 50"
+						"command": "/resource set @e[type=#thorigins:fox,nbt={NoAI:1b},tag=sleepin,distance=..1,limit=1,sort=nearest] thorigins:fox/thsleepin_fox_invis_timer 50"
 					}
 				}
 			]
