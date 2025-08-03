@@ -1,7 +1,10 @@
 {
 	"criteria": {
-		"to_be_granted": {
-			"trigger": "minecraft:impossible"
+		"chose_fox": {
+			"trigger": "origins:chose_origin",
+			"conditions": {
+				"origin": "thorigins:fox"
+			}
 		}
 	},
 	"display": {
@@ -22,6 +25,6 @@
 			"fallback": "Fox Origin"
 		}
 	},
-	"requirements": [["to_be_granted"]],
+	"requirements": [["chose_fox"]],
 	"sends_telemetry_event": true
 }
