@@ -277,6 +277,71 @@
 						},
 						{
 							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 49,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 56,
+										"comparison": "<="
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/scoreboard players remove @s foxtype 50"
+									},
+									{
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:resource",
+											"resource": "*:fox/thtrackers_destroy_terrain",
+											"compare_to": 0,
+											"comparison": "=="
+										},
+										"if_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"destroy_terrain\",\"with\":[{\"text\":\"OFF\",\"color\":\"red\"}]}]"
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_destroy_terrain",
+													"change": 1
+												}
+											]
+										},
+										"else_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"destroy_terrain\",\"with\":[{\"text\":\"ON\",\"color\":\"green\"}]}]"
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_destroy_terrain",
+													"change": -1
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
 								"type": "origins:or",
 								"inverted": true,
 								"conditions": [
@@ -1550,7 +1615,7 @@
 					{
 						"type": "origins:change_resource",
 						"resource": "*:*_bonk_reset",
-						"change": 40
+						"change": 60
 					},
 					{
 						"type": "origins:if_else_list",
@@ -1913,7 +1978,7 @@
 	"bonk_reset": {
 		"type": "origins:resource",
 		"min": 0,
-		"max": 40,
+		"max": 60,
 		"min_action": {
 			"type": "origins:change_resource",
 			"resource": "*:*_bonk_counter",
