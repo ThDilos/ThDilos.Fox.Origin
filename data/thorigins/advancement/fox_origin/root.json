@@ -1,14 +1,18 @@
 {
 	"criteria": {
-		"to_be_granted": {
-			"trigger": "minecraft:impossible"
+		"chose_fox": {
+			"trigger": "origins:chose_origin",
+			"conditions": {
+				"origin": "thorigins:fox"
+			}
 		}
 	},
 	"display": {
 		"announce_to_chat": false,
 		"background": "minecraft:textures/block/white_wool.png",
 		"description": {
-			"translate": "thorigins.advancements.root.description"
+			"translate": "thorigins.advancements.root.description",
+			"fallback": "Life as a fox in a blocky world [ If you see this, you don't have the resource pack installed :( ]"
 		},
 		"frame": "task",
 		"hidden": false,
@@ -17,9 +21,10 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.root.title"
+			"translate": "thorigins.advancements.root.title",
+			"fallback": "Fox Origin"
 		}
 	},
-	"requirements": [["to_be_granted"]],
+	"requirements": [["chose_fox"]],
 	"sends_telemetry_event": true
 }

@@ -127,7 +127,7 @@
 				"if_action": {
 					"type": "origins:change_resource",
 					"resource": "*:*_hunt_stage",
-					"change": -1
+					"change": 1
 				}
 			},
 			{

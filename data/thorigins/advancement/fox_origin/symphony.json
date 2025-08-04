@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.symphony.description"
+			"translate": "thorigins.advancements.symphony.description",
+			"fallback": "Finish the entire bonk sequence"
 		},
 		"frame": "challenge",
 		"hidden": false,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.symphony.title"
+			"translate": "thorigins.advancements.symphony.title",
+			"fallback": "Bonk Symphony"
 		}
 	},
 	"requirements": [["to_be_granted"]],

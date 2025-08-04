@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.berry_effect.description"
+			"translate": "thorigins.advancements.berry_effect.description",
+			"fallback": "Obtain a random effect from consuming berries"
 		},
 		"frame": "task",
 		"hidden": true,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.berry_effect.title"
+			"translate": "thorigins.advancements.berry_effect.title",
+			"fallback": "Magical Berries"
 		}
 	},
 	"requirements": [["to_be_granted"]],

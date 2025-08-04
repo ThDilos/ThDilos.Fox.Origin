@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.leashed.description"
+			"translate": "thorigins.advancements.leashed.description",
+			"fallback": "Get leashed by another player"
 		},
 		"frame": "task",
 		"hidden": false,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.leashed.title"
+			"translate": "thorigins.advancements.leashed.title",
+			"fallback": "Hey >:("
 		}
 	},
 	"requirements": [["to_be_granted"]],

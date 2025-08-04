@@ -34,7 +34,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.wimdy.description"
+			"translate": "thorigins.advancements.wimdy.description",
+			"fallback": "Visit a windswept biome and have your fur blown messy"
 		},
 		"frame": "task",
 		"hidden": true,
@@ -43,7 +44,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.wimdy.title"
+			"translate": "thorigins.advancements.wimdy.title",
+			"fallback": "It Wimdy"
 		}
 	},
 	"requirements": [["visited"]],

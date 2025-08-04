@@ -18,22 +18,7 @@ Go to /data/thorigins/tags/ for all the tags you can change
 
 Tip: Use { /execute as [Player] run [Command] } to run the command as that player.
 Functions Explanation:
-
-1. thorigins:reset_all
-   Target: Yourself
-   Function:
-   1.1 Reload the Datapacks
-   1.2 Set your origin to human
-   1.3 Remove Any Existing Powers
-   1.4 Reset your Pehkui Scale
-   1.5 Kill any potential errorous entities from this origin in 5 blocks range (Disguise Sleeping Fox / Hat Fox)
-   1.6 Open up Origin GUI for you to choose
-   Explanation:
-   This is to be used if you think some part of this origin is not functioning correctly.
-   The Tracker Power (Time in nether / Death Count / Times being ThunderStructed etc.) will also be wiped.
-   Essentially a Factory reset.
-
-2. fox_settings
+fox_settings
    Target: Different players in your 5 blocks range
    Function:
    Give you the [Fox Setting Book]
@@ -118,7 +103,7 @@ For all the other settings, the "start_value" can only be either 0 or 1
 
 9. "grabby_paws"
    By default: ON
-   Whether player can left click a dropped item within 3 blocks to pull it towards them
+   Whether player passively pulls dropped items within 2 blocks towards them
 
 10. "enable_sleepin_mode"
    By default: ON

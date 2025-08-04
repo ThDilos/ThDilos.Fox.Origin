@@ -9,16 +9,18 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.all_modifier.description"
+			"translate": "thorigins.advancements.all_modifier.description",
+			"fallback": "Trigger the highest possible damage modifiers combination"
 		},
-		"frame": "task",
-		"hidden": true,
+		"frame": "challenge",
+		"hidden": false,
 		"icon": {
 			"id": "minecraft:iron_axe"
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.all_modifier.title"
+			"translate": "thorigins.advancements.all_modifier.title",
+			"fallback": "Master Assassin"
 		}
 	},
 	"requirements": [["to_be_granted"]],

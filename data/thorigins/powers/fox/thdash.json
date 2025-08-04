@@ -337,60 +337,12 @@
 					"amount": 0.5
 				},
 				{
-					"type": "origins:if_else_list",
-					"actions": [
-						{
-							"condition": {
-								"type": "origins:resource",
-								"resource": "*:fox/thhunt_hunt_stage",
-								"compare_to": 0,
-								"comparison": "=="
-							},
-							"action": {
-								"type": "origins:nothing"
-							}
-						},
-						{
-							"condition": {
-								"type": "origins:command",
-								"command": "/execute if entity @s[y_rotation=-160..-135]",
-								"compare_to": 1,
-								"comparison": "=="
-							},
-							"action": {
-								"type": "origins:change_resource",
-								"resource": "*:*_magnetoreception_direction",
-								"change": 2,
-								"operation": "set"
-							}
-						},
-						{
-							"condition": {
-								"type": "origins:command",
-								"command": "/execute if entity @s[y_rotation=-340..-315]",
-								"compare_to": 1,
-								"comparison": "=="
-							},
-							"action": {
-								"type": "origins:change_resource",
-								"resource": "*:*_magnetoreception_direction",
-								"change": 1,
-								"operation": "set"
-							}
-						},
-						{
-							"condition": {
-								"type": "origins:constant",
-								"value": true
-							},
-							"action": {
-								"type": "origins:change_resource",
-								"resource": "*:*_magnetoreception_direction",
-								"change": 0,
-								"operation": "set"
-							}
-						}
-					]
+					"type": "origins:modify_resource",
+					"resource": "*:*_magnetoreception_direction",
+					"modifier": {
+						"operation": "set_total",
+						"resource": "*:*_magnet_icons"
+					}
 				},
 				{
 					"type": "origins:change_resource",
@@ -590,60 +542,12 @@
 					"amount": 5
 				},
 				{
-					"type": "origins:if_else_list",
-					"actions": [
-						{
-							"condition": {
-								"type": "origins:resource",
-								"resource": "*:fox/thhunt_hunt_stage",
-								"compare_to": 0,
-								"comparison": "=="
-							},
-							"action": {
-								"type": "origins:nothing"
-							}
-						},
-						{
-							"condition": {
-								"type": "origins:command",
-								"command": "/execute if entity @s[y_rotation=-160..-135]",
-								"compare_to": 1,
-								"comparison": "=="
-							},
-							"action": {
-								"type": "origins:change_resource",
-								"resource": "*:*_magnetoreception_direction",
-								"change": 2,
-								"operation": "set"
-							}
-						},
-						{
-							"condition": {
-								"type": "origins:command",
-								"command": "/execute if entity @s[y_rotation=-340..-315]",
-								"compare_to": 1,
-								"comparison": "=="
-							},
-							"action": {
-								"type": "origins:change_resource",
-								"resource": "*:*_magnetoreception_direction",
-								"change": 1,
-								"operation": "set"
-							}
-						},
-						{
-							"condition": {
-								"type": "origins:constant",
-								"value": true
-							},
-							"action": {
-								"type": "origins:change_resource",
-								"resource": "*:*_magnetoreception_direction",
-								"change": 0,
-								"operation": "set"
-							}
-						}
-					]
+					"type": "origins:modify_resource",
+					"resource": "*:*_magnetoreception_direction",
+					"modifier": {
+						"operation": "set_total",
+						"resource": "*:*_magnet_icons"
+					}
 				},
 				{
 					"type": "origins:change_resource",

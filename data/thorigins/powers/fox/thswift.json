@@ -134,6 +134,18 @@
 		}
 	},
 
+	"jumpy": {
+		"type": "origins:modify_jump",
+		"modifier": {
+			"operation": "multiply_base_additive",
+			"amount": 0.4
+		},
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_fast"
+		}
+	},
+
 	"run_on_all_4": {
 		"type": "origins:conditioned_attribute",
 		"modifier": {
@@ -161,37 +173,6 @@
 					"item_condition": {
 						"type": "origins:empty"
 					}
-				},
-				{
-					"type": "origins:power_active",
-					"power": "*:fox/thweak_heavy_armor",
-					"inverted": true
-				}
-			]
-		}
-	},
-
-	"jumpy": {
-		"type": "origins:modify_jump",
-		"modifier": {
-			"operation": "multiply_base_additive",
-			"amount": 0.4
-		},
-		"condition": {
-			"type": "origins:all_of",
-			"conditions": [
-				{
-					"type": "origins:sprinting"
-				},
-				{
-					"type": "origins:sneaking",
-					"inverted": true
-				},
-				{
-					"type": "origins:resource",
-					"resource": "*:fox/thfoxiality_predator_suppression",
-					"compare_to": 0,
-					"comparison": "=="
 				},
 				{
 					"type": "origins:power_active",

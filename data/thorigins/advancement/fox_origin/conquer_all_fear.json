@@ -10,7 +10,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.conquer_all_fear.description"
+			"translate": "thorigins.advancements.conquer_all_fear.description",
+			"fallback": "Conquer all conquerable fears (except from death)"
 		},
 		"frame": "challenge",
 		"hidden": false,
@@ -19,7 +20,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.conquer_all_fear.title"
+			"translate": "thorigins.advancements.conquer_all_fear.title",
+			"fallback": "Brave Litol Fox"
 		}
 	},
 	"requirements": [["to_be_granted"]],

@@ -9,7 +9,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.enhanced_pounce.description"
+			"translate": "thorigins.advancements.enhanced_pounce.description",
+			"fallback": "Supercharge your pounce strength with a jump boost 2 potion"
 		},
 		"frame": "task",
 		"hidden": false,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.enhanced_pounce.title"
+			"translate": "thorigins.advancements.enhanced_pounce.title",
+			"fallback": "Mountain Hopping"
 		}
 	},
 	"requirements": [["to_be_granted"]],

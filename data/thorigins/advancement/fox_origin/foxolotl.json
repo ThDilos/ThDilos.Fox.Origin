@@ -28,7 +28,8 @@
 		"announce_to_chat": true,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.foxolotl.description"
+			"translate": "thorigins.advancements.foxolotl.description",
+			"fallback": "§lSit§r§a on an axolotl as a fox"
 		},
 		"frame": "task",
 		"hidden": false,
@@ -37,7 +38,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.foxolotl.title"
+			"translate": "thorigins.advancements.foxolotl.title",
+			"fallback": "Foxolotl"
 		}
 	},
 	"requirements": [["fox_on_axolotl"]],

@@ -9,7 +9,8 @@
 		"announce_to_chat": false,
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
-			"translate": "thorigins.advancements.test_advancement.description"
+			"translate": "thorigins.advancements.test_advancement.description",
+			"fallback": "Boop the creator across time and space >:3c"
 		},
 		"frame": "challenge",
 		"hidden": true,
@@ -18,7 +19,8 @@
 		},
 		"show_toast": true,
 		"title": {
-			"translate": "thorigins.advancements.test_advancement.title"
+			"translate": "thorigins.advancements.test_advancement.title",
+			"fallback": "Test Advancement Plz Ignore"
 		}
 	},
 	"requirements": [["to_be_granted"]],
