@@ -1,23 +1,8 @@
 {
 	"parent": "thorigins:fox_origin/root",
 	"criteria": {
-		"hurt": {
-			"trigger": "minecraft:entity_hurt_player",
-			"conditions": {
-				"damage": {
-					"type": {
-						"tags": [
-							{
-								"id": "thorigins:predator_bite",
-								"expected": true
-							}
-						]
-					}
-				},
-				"player": {
-					"nbt": "{Tags:[\"foxie\"]}"
-				}
-			}
+		"to_be_granted": {
+			"trigger": "minecraft:impossible"
 		}
 	},
 	"display": {
@@ -38,6 +23,6 @@
 			"fallback": "Owie"
 		}
 	},
-	"requirements": [["hurt"]],
+	"requirements": [["to_be_granted"]],
 	"sends_telemetry_event": true
 }

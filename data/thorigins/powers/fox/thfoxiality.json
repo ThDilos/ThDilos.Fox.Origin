@@ -535,6 +535,10 @@
 										"actions": [
 											{
 												"type": "origins:execute_command",
+												"command": "/advancement grant @s only thorigins:fox_origin/owie"
+											},
+											{
+												"type": "origins:execute_command",
 												"command": "/particle dust_color_transition 1 0 0 1.2 0.15 0 0 ~ ~0.6 ~ 0.1 0.1 0.1 5 8 force"
 											},
 											{
