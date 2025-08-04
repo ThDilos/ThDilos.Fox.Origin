@@ -2030,17 +2030,8 @@
 		"bientity_action": {
 			"type": "origins:actor_action",
 			"action": {
-				"type": "origins:and",
-				"actions": [
-					{
-						"type": "origins:execute_command",
-						"command": "/title @s actionbar {\"translate\":\"fox.distrusted\",\"fallback\":\"§4You are no longer trusted...\"}"
-					},
-					{
-						"type": "origins:execute_command",
-						"command": "/tag @s[tag=foxie_trust] remove foxie_trust"
-					}
-				]
+				"type": "origins:execute_command",
+				"command": "/tag @s[tag=foxie_trust] remove foxie_trust"
 			}
 		}
 	}
