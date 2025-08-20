@@ -22,7 +22,8 @@ This is also my first Origin, I just kept adding new stuff into it and fixing bu
 Anyways, hope you have fun with this mod ;)
 
 
-Alternative way of reporting bus / suggestions: [Discord Server](https://discord.gg/4GFpQGY6en)
+Alternative way of reporting bugs / suggestions: [Discord Server](https://discord.gg/4GFpQGY6en)
+
 ---
 ### Before you install:
 This Origin is intended for both **Single** AND **Multi** Player environment.\
