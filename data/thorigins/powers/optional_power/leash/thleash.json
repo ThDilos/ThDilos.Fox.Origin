@@ -78,6 +78,10 @@
 			"actions": [
 				{
 					"type": "origins:execute_command",
+					"command": "/execute store result score @s UUID0 run data get entity @s UUID[0] 1"
+				},
+				{
+					"type": "origins:execute_command",
 					"command": "/advancement grant @s only thorigins:fox_origin/leashed"
 				},
 				{
