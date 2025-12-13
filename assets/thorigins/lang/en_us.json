@@ -18,18 +18,26 @@
 
 	"fox.thfoxify.name": "§6§l§nFoxify",
 	"fox.thfoxify.description": "Become a literal fox when sleeping, and be able to yoink a fox away on an adventure with you.",
-	"thfoxify.key0": "§b1. §rStand still, crouch and press [%s] to enter [§5Sleepin Mode§r].\nIf you are riding, press [%s] to enter [§5Sleepin Mode§r] §rdirectly.\n§8Exit this mode via moving\n\n",
-	"thfoxify.key1": "§b2. §rWhile empty handed, crouch and press [%s] on a fox to put it on your head.\nUse [%s] while empty handed to drop the fox.\n\n",
-	"thfoxify.key2": "§b3. §rWhile empty handed, press [%s] on a fox to drop its item.\nPress [%s] on a fox to command it to sit.\n\n",
-	"thfoxify.key3": "§b4. §rAim at a player and press [%s] to mount on them.",
+
+	"thfoxify.header0": "§5§l§nSleeping Mode",
+	"thfoxify.key0": "\n§b1. §rStand still, sneak and hold [%s] to activate.\n§b2. §rIf you are riding, press [%s] to enter [§5Sleepin Mode§r] §rdirectly.\n§8Exit this mode via moving\n\n",
+
+	"thfoxify.header1": "§6§l§nHat Fox & Fox Interactions",
+	"thfoxify.key1": "\n§b1. §rWhile empty handed, sneak and press [%s] on a fox to put it on your head.\n§b2. §rWhile empty handed, use [%s] to drop the fox.",
+	"thfoxify.key2": "\n§b3. §rWhile empty handed, press [%s] on a fox to drop its item.\n§b4. §rPress [%s] on a fox to command it to sit.\n\n",
+
+	"thfoxify.header2": "§2§l§nRide Entities",
+	"thfoxify.key3": "\nAim at a player and press [%s] to mount on them.",
+
 	"thfoxify.info0": "§lIn [§5§lSleepin Mode§r§l]:\n",
-	"thfoxify.info1": "§b1. §rPress [%s] to align the fox in your current direction\n",
-	"thfoxify.info2": "§b2. §rPress [%s] to toggle fox visibility in your screen. Or if you are riding, exit [§5Sleepin Mode§r§f]\n",
-	"thfoxify.info3": "§b3. §rPress [%s] to change to sit posture\n\n",
-	"thfoxify.info4": "To change into §aother types of fox§r, use command \n§6/trigger foxtype set [§aNumber§r§6]§r\n\n§a0§r Red Fox\n§a1§r Snow Fox\n§a2§r Red Fox Pup\n§a3§r Snow Fox Pup\n§a4§r Revert to §a0§r\n\n§a-1§r Disable [§5Sleepin Mode§r]\n§a5§r Enable [Figura Mode]\n§a6§r Enable [Figura Mode](Pup Sounds)",
+	"thfoxify.info1": "§b1. §rPress [%s] to align the fox in your current direction.\n",
+	"thfoxify.info2": "§b2. §rPress [%s] to toggle fox visibility in your screen. Or if you are riding, exit [§5Sleepin Mode§r§f].\n",
+	"thfoxify.info3": "§b3. §rPress [%s] to change to sit posture.\n\n",
+	"thfoxify.info4": "§6§l§nFoxType§r\nTo change into §aother types of fox§r, use command \n§6/trigger foxtype set [§aNumber§r§6]§r\n\n§a0§r Red Fox\n§a1§r Snow Fox\n§a2§r Red Fox Pup\n§a3§r Snow Fox Pup\n§a4§r Revert to §a0§r\n\n§a-1§r Disable [§5Sleepin Mode§r]\n§a5§r Enable [Figura Mode]\n§a6§r Enable [Figura Mode](Pup Sounds)",
 	"thfoxify.keybind.info": "Keybinds Used:\n§a1§r. Sprint - [%s]\n§a2§r. Drop - [%s]\n§a3§r. Use - [%s]\n§a4§r. Save Hotbar Activator - [%s]\n§a5§r. Swap Item With Offhand - [%s]",
 	"thfoxify.error": "§cError Sizes Detected, Foxification is forced to end",
-	"thfoxify.info6": "Other FoxType Utilities\nUse §6/trigger foxtype §c§ladd§r §6[§aNumber§r§6]§r\n\n§a10§r §5Toggle Nightvision Fix§r\n§8For when passive nightvision is bugged by shaders / mods\n\n§a20§r §4Refresh Powers§r\n§8For when your powers are not working due to Server sudden shut down etc.\n\n§a40§r §1Halt Foxify AFK Timer§r\n§8Automatically enter [§lSleepin Mode§r§8] after 1 minute of not moving?\n\n§a50§r §7Destroy Terrain (For Evolved Foxes)\n§8Should active skills destroy terrain?",
+	"thfoxify.info6": "FoxType Utilities\nUse §6/trigger foxtype §c§ladd§r §6[§aNumber§r§6]§r\n\n§a10§r §5Toggle Nightvision Fix§r\n§8For when passive nightvision is bugged by shaders / mods\n\n§a20§r §4Refresh Powers§r\n§8For when your powers are not working due to Server sudden shut down etc.\n\n§a40§r §1Halt Foxify AFK Timer§r\n§8Automatically enter [§lSleepin Mode§r§8] after 1 minute of not moving?\n\n§a50§r §7Destroy Terrain (For Evolved Foxes)\n§8Should active skills destroy terrain?\n\n§a60§r §eFox Soundboard\n§8Use Hotbar Keys (1-7) to play sounds?",
+	"thfoxify.fox_hat_prompt": "§6Use [%s§6] to Drop the Foxes on your head",
 
 	"fox.thhunt.name": "§6§l§nHunt",
 	"fox.thhunt.description": "Hide yourself by crouching and enter a hunting phase after much preparation.",
@@ -110,6 +118,8 @@
 	"fox.feed2": "§d, and received a §6positive effect!",
 	"fox.hug": "§dYou gave %s §dthe little critter a little hug :3",
 	"fox.hugged": "%s §dgave you a passionate hug",
+	"fox.belly_rub": "§dYou gently rubbed %s§d's belly :3",
+	"fox.belly_rubbed": "%s gently rubbed you belly",
 
 	"fox.trusted": "§dWholesome Interaction! You are now trusted by them",
 	"fox.distrusted": "§4You are no longer trusted...",
@@ -142,6 +152,7 @@
 	"power_reset": "§eAll Fox Powers §4resetted§r§e. Please §5§orelog§r§e :3",
 	"halt_afk_timer": "§eAFK Timer Countdown [§r%s§e]§r",
 	"destroy_terrain": "§eEvolution Fox Destroy Terrain [§r%s§e]§r",
+	"activate_soundboard": "§eFox Soundboard [§r%s§e]§r",
 
 	"thorigins.advancements.root.title": "Fox Origin",
 	"thorigins.advancements.root.description": "Life as a fox in a blocky world",

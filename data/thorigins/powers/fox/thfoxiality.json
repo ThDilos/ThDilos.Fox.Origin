@@ -30,201 +30,289 @@
 	"ticks_20": {
 		"type": "origins:action_over_time",
 		"interval": 20,
-		"entity_action": [
-			{
-				"type": "origins:area_of_effect",
-				"shape": "cube",
-				"radius": 15,
-				"bientity_condition": {
-					"type": "origins:target_condition",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @s add temp"
+				},
+				{
+					"type": "origins:area_of_effect",
+					"shape": "sphere",
+					"radius": 15,
+					"bientity_condition": {
+						"type": "origins:target_condition",
+						"condition": {
+							"type": "origins:all_of",
+							"conditions": [
+								{
+									"type": "origins:in_tag",
+									"tag": "thorigins:fox"
+								},
+								{
+									"type": "origins:nbt",
+									"nbt": "{\"Tags\":[\"hatting\"]}",
+									"inverted": true
+								},
+								{
+									"type": "origins:nbt",
+									"nbt": "{\"Tags\":[\"sleepin\"]}",
+									"inverted": true
+								},
+								{
+									"type": "origins:nbt",
+									"nbt": "{\"Tags\":[\"uuidappended\"]}",
+									"inverted": true
+								}
+							]
+						}
+					},
+					"bientity_action": {
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:execute_command",
+									"command": "/data modify entity @s Trusted append from entity @p[tag=foxie] UUID"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/tag @s add uuidappended"
+								}
+							]
+						}
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @e[type=#thorigins:fox,tag=uuidappended,tag=!hatting,tag=!sleepin] at @s unless entity @a[distance=..15,tag=foxie] run tag @s remove uuidappended"
+				},
+				{
+					"type": "origins:if_else",
 					"condition": {
 						"type": "origins:all_of",
 						"conditions": [
 							{
+								"type": "origins:gamemode",
+								"gamemode": "survival"
+							},
+							{
+								"type": "origins:any_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thfoxify_afk_timer",
+										"compare_to": 1,
+										"comparison": ">"
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:fox/thfoxify_figura_state",
+										"compare_to": 1,
+										"comparison": "=="
+									}
+								]
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:area_of_effect",
+						"radius": 18,
+						"shape": "sphere",
+						"bientity_condition": {
+							"type": "origins:target_condition",
+							"condition": {
 								"type": "origins:in_tag",
-								"tag": "thorigins:fox"
-							},
-							{
-								"type": "origins:nbt",
-								"nbt": "{\"Tags\":[\"hatting\"]}",
-								"inverted": true
-							},
-							{
-								"type": "origins:nbt",
-								"nbt": "{\"Tags\":[\"sleepin\"]}",
-								"inverted": true
-							},
-							{
-								"type": "origins:nbt",
-								"nbt": "{\"Tags\":[\"uuidappended\"]}",
-								"inverted": true
+								"tag": "thorigins:predator"
 							}
-						]
-					}
-				},
-				"bientity_action": {
-					"type": "origins:target_action",
-					"action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:execute_command",
-								"command": "/data modify entity @s Trusted append from entity @p[tag=foxie] UUID"
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "/tag @s add uuidappended"
-							}
-						]
-					}
-				}
-			},
-			{
-				"type": "origins:execute_command",
-				"command": "/execute as @e[type=#thorigins:fox,tag=uuidappended,tag=!hatting,tag=!sleepin] at @s unless entity @a[distance=..15,tag=foxie] run tag @s remove uuidappended"
-			},
-			{
-				"type": "origins:if_else",
-				"condition": {
-					"type": "origins:all_of",
-					"conditions": [
-						{
-							"type": "origins:gamemode",
-							"gamemode": "survival"
 						},
-						{
-							"type": "origins:any_of",
-							"conditions": [
+						"bientity_action": {
+							"type": "origins:and",
+							"actions": [
 								{
-									"type": "origins:resource",
-									"resource": "*:fox/thfoxify_afk_timer",
-									"compare_to": 1,
-									"comparison": ">"
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:actor_condition",
+										"condition": {
+											"type": "origins:or",
+											"conditions": [
+												{
+													"type": "origins:power",
+													"power": "*:fox/thhunt",
+													"inverted": true
+												},
+												{
+													"type": "origins:resource",
+													"resource": "*:fox/thhunt_prepare_stage",
+													"compare_to": 25,
+													"comparison": ">"
+												}
+											]
+										}
+									},
+									"if_action": {
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:execute_command",
+											"command": "/tag @s add marked"
+										}
+									},
+									"else_action": {
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:distance",
+											"compare_to": 2,
+											"comparison": "<="
+										},
+										"if_action": {
+											"type": "origins:target_action",
+											"action": {
+												"type": "origins:execute_command",
+												"command": "/tag @s add marked"
+											}
+										}
+									}
 								},
 								{
-									"type": "origins:resource",
-									"resource": "*:fox/thfoxify_figura_state",
-									"compare_to": 1,
-									"comparison": "=="
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:target_condition",
+										"condition": {
+											"type": "origins:nbt",
+											"nbt": "{Tags:[\"marked\"]}"
+										}
+									},
+									"if_action": {
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/execute store result score @s UUID0 run data get entity @s AngryAt[0]"
+												},
+												{
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:tamed",
+														"inverted": true
+													},
+													"if_action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:execute_command",
+																"command": "/data modify entity @s AngerTime set value 25"
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "/data modify entity @s AngryAt set from entity @e[limit=1,tag=temp] UUID"
+															}
+														]
+													}
+												},
+												{
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:command",
+														"command": "/execute if score @s UUID0 = @e[tag=temp,limit=1] UUID0",
+														"compare_to": 0,
+														"comparison": ">"
+													},
+													"if_action": {
+														"type": "origins:apply_effect",
+														"effects": [
+															{
+																"id": "minecraft:speed",
+																"amplifier": 1,
+																"duration": 60,
+																"show_particles": true
+															},
+															{
+																"id": "minecraft:dolphins_grace",
+																"amplifier": 0,
+																"duration": 60,
+																"show_icon": true
+															}
+														]
+													}
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/scoreboard players reset @s UUID0"
+												}
+											]
+										}
+									}
+								},
+								{
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:execute_command",
+										"command": "/tag @s remove marked"
+									}
 								}
 							]
 						}
-					]
+					}
 				},
-				"if_action": {
+				{
 					"type": "origins:if_else",
 					"condition": {
-						"type": "origins:any_of",
+						"type": "origins:all_of",
 						"conditions": [
 							{
-								"type": "origins:power",
-								"power": "*:fox/thhunt",
-								"inverted": true
+								"type": "origins:resource",
+								"resource": "*:fox/universal_settings_passive_nightvision",
+								"compare_to": 1,
+								"comparison": "=="
 							},
 							{
 								"type": "origins:resource",
-								"resource": "*:fox/thhunt_prepare_stage",
-								"compare_to": 25,
-								"comparison": ">"
+								"resource": "*:fox/thtrackers_nightvision_fix",
+								"compare_to": 1,
+								"comparison": "=="
 							}
 						]
 					},
-					"if_action": [
-						{
-							"type": "origins:execute_command",
-							"command": "/execute as @e[type=#thorigins:predator,distance=..18] store result score @s UUID0 run data get entity @s AngryAt[0]"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/execute as @e[type=#thorigins:predator,distance=..18] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/execute as @e[type=#thorigins:predator,distance=..18] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/execute at @e[type=#thorigins:predator,distance=..18] if score @e[limit=1,sort=nearest] UUID0 = @s UUID0 run effect give @e[tag=!foxie,limit=1,sort=nearest] minecraft:speed 3 1 false"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/execute at @e[type=#thorigins:predator,distance=..18] if score @e[limit=1,sort=nearest] UUID0 = @s UUID0 run effect give @e[tag=!foxie,limit=1,sort=nearest] minecraft:dolphins_grace 3 0 false"
-						}
-					],
-					"else_action": [
-						{
-							"type": "origins:execute_command",
-							"command": "/execute as @e[type=#thorigins:predator,distance=..2] store result score @s UUID0 run data get entity @s AngryAt[0]"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/execute as @e[type=#thorigins:predator,distance=..2] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/execute as @e[type=#thorigins:predator,distance=..2] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/execute at @e[type=#thorigins:predator,distance=..2] if score @e[limit=1,sort=nearest] UUID0 = @s UUID0 run effect give @e[tag=!foxie,limit=1,sort=nearest] minecraft:speed 3 1 false"
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "/execute at @e[type=#thorigins:predator,distance=..2] if score @e[limit=1,sort=nearest] UUID0 = @s UUID0 run effect give @e[tag=!foxie,limit=1,sort=nearest] minecraft:dolphins_grace 3 0 false"
-						}
-					]
-				}
-			},
-			{
-				"type": "origins:if_else",
-				"condition": {
-					"type": "origins:all_of",
-					"conditions": [
-						{
-							"type": "origins:resource",
-							"resource": "*:fox/universal_settings_passive_nightvision",
-							"compare_to": 1,
-							"comparison": "=="
-						},
-						{
-							"type": "origins:resource",
-							"resource": "*:fox/thtrackers_nightvision_fix",
-							"compare_to": 1,
-							"comparison": "=="
-						}
-					]
-				},
-				"if_action": {
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:equipped_item",
-						"inverted": true,
-						"equipment_slot": "offhand",
-						"item_condition": {
-							"type": "origins:ingredient",
-							"ingredient": {
-								"tag": "thorigins:night_vision_blocking"
-							}
-						}
-					},
 					"if_action": {
-						"type": "origins:apply_effect",
-						"effect": {
-							"id": "minecraft:night_vision",
-							"is_ambient": true,
-							"show_icon": false,
-							"show_particles": false,
-							"duration": -1,
-							"amplifier": 0
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:equipped_item",
+							"inverted": true,
+							"equipment_slot": "offhand",
+							"item_condition": {
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "thorigins:night_vision_blocking"
+								}
+							}
+						},
+						"if_action": {
+							"type": "origins:apply_effect",
+							"effect": {
+								"id": "minecraft:night_vision",
+								"is_ambient": true,
+								"show_icon": false,
+								"show_particles": false,
+								"duration": -1,
+								"amplifier": 0
+							}
+						},
+						"else_action": {
+							"type": "origins:clear_effect",
+							"effect": "minecraft:night_vision"
 						}
-					},
-					"else_action": {
-						"type": "origins:clear_effect",
-						"effect": "minecraft:night_vision"
 					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @s remove temp"
 				}
-			}
-		]
+			]
+		}
 	},
 
 	"against_preys": {

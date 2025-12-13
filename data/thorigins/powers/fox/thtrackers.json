@@ -40,6 +40,13 @@
 		"start_value": 1
 	},
 
+	"activate_soundboard": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0
+	},
+
 	"unflammability": {
 		"type": "origins:cooldown",
 		"cooldown": 6000

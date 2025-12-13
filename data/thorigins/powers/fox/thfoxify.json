@@ -11,6 +11,9 @@
 					"translate": "thorigins.active_ability"
 				},
 				{
+					"translate": "thfoxify.header0"
+				},
+				{
 					"translate": "thfoxify.key0",
 					"with": [
 						{
@@ -22,6 +25,9 @@
 							"color": "aqua"
 						}
 					]
+				},
+				{
+					"translate": "thfoxify.header1"
 				},
 				{
 					"translate": "thfoxify.key1",
@@ -48,6 +54,9 @@
 							"color": "aqua"
 						}
 					]
+				},
+				{
+					"translate": "thfoxify.header2"
 				},
 				{
 					"translate": "thfoxify.key3",
@@ -1820,6 +1829,18 @@
 										"resource": "*:*_perspective_check",
 										"change": 0,
 										"operation": "set"
+									},
+									{
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:advancement",
+											"advancement": "thorigins:fox_origin/fox_hat",
+											"inverted": true
+										},
+										"if_action": {
+											"type": "origins:execute_command",
+											"command": "/tellraw @s {\"translate\":\"thfoxify.fox_hat_prompt\",\"with\":[{\"keybind\":\"key.drop\",\"color\":\"aqua\"}]}"
+										}
 									},
 									{
 										"type": "origins:execute_command",
