@@ -21,11 +21,11 @@
 
 	"thfoxify.header0": "§5§l§n睡眠模式",
 	"thfoxify.key0": "\n§b1. §r站立不动, 潜行并按 [%s] 进入[§5睡眠模式§r]\n§b2. §r如果你正在骑乘, 按下 [%s] 直接进入[§5睡眠模式§r]\n§8移动退出该模式\n\n",
-	
+
 	"thfoxify.header1": "§6§l§n狐狸帽子 & 狐狸互动",
 	"thfoxify.key1": "\n§b1. §r空手时, 潜行并对着狐狸按 [%s] 将其放在头上。\n§b2. §r空手时按 [%s] 放下狐狸",
 	"thfoxify.key2": "\n§b3. §r空手时, 对着狐狸按下 [%s] 让其丢出含着的物品。\n§b4. §r对着狐狸按下 [%s] 命令其坐下\n\n",
-	
+
 	"thfoxify.header2": "§2§l§n骑乘生物",
 	"thfoxify.key3": "\n对着玩家按下 [%s] 骑在他们头上",
 
@@ -111,18 +111,18 @@
 
 	"fox.wakeup.item": "你在睡梦中找到了个<%s>!",
 
-	"fox.petter": "§d你摸了摸%s的脑袋",
-	"fox.petted": "§d你被%s摸头了",
+	"fox.petter": "§d你摸了摸%s§d的脑袋",
+	"fox.petted": "§d你被%s§d摸头了",
 	"fox.feeder": "§d你给§b狐狸%s§r§d喂了一点小零食:3",
-	"fox.feed": "§d你收到了来自%s的投喂",
+	"fox.feed": "§d你收到了来自%s§d的投喂",
 	"fox.feed2": "§d, 并且获得了一个随机§6正面效果！",
 	"fox.hug": "§d你给了小动物%s§d一个小小的拥抱:3",
 	"fox.hugged": "%s§d给你了一个热情的拥抱",
 	"fox.belly_rub": "§d你轻轻地摸了摸%s§d的肚子 :3",
-	"fox.belly_rubbed": "%s轻轻摸了摸你的肚子",
+	"fox.belly_rubbed": "%s§d轻轻摸了摸你的肚子",
 
-	"fox.trusted": "§d友好互动!你获得了他们的信任",
-	"fox.distrusted": "§4你不再被信任...",
+	"fox.trusted": "§d友好互动!你获得了狐狸的信任",
+	"fox.distrusted": "§4你不再被狐狸信任...",
 
 	"layer.thorigins.foxsize.name": "体型",
 	"origin.foxsize.m.name": "默认体型 (M)",
