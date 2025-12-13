@@ -111,18 +111,18 @@
 
 	"fox.wakeup.item": "你在睡梦中找到了个<%s>!",
 
-	"fox.petter": "§d你摸了摸%s的脑袋",
-	"fox.petted": "§d你被%s摸头了",
+	"fox.petter": "§d你摸了摸%s§d的脑袋",
+	"fox.petted": "§d你被%s§d摸头了",
 	"fox.feeder": "§d你给§b狐狸%s§r§d喂了一点小零食:3",
-	"fox.feed": "§d你收到了来自%s的投喂",
+	"fox.feed": "§d你收到了来自%s§d的投喂",
 	"fox.feed2": "§d, 并且获得了一个随机§6正面效果！",
 	"fox.hug": "§d你给了小动物%s§d一个小小的拥抱:3",
 	"fox.hugged": "%s§d给你了一个热情的拥抱",
 	"fox.belly_rub": "§d你轻轻地摸了摸%s§d的肚子 :3",
-	"fox.belly_rubbed": "%s轻轻摸了摸你的肚子",
+	"fox.belly_rubbed": "%s§d轻轻摸了摸你的肚子",
 
-	"fox.trusted": "§d友好互动!你获得了他们的信任",
-	"fox.distrusted": "§4你不再被信任...",
+	"fox.trusted": "§d友好互动!你获得了狐狸的信任",
+	"fox.distrusted": "§4你不再被狐狸信任...",
 
 	"layer.thorigins.foxsize.name": "体型",
 	"origin.foxsize.m.name": "默认体型 (M)",
