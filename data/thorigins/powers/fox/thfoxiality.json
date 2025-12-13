@@ -34,8 +34,12 @@
 			"type": "origins:and",
 			"actions": [
 				{
+					"type": "origins:execute_command",
+					"command": "/tag @s add temp"
+				},
+				{
 					"type": "origins:area_of_effect",
-					"shape": "cube",
+					"shape": "sphere",
 					"radius": 15,
 					"bientity_condition": {
 						"type": "origins:target_condition",
@@ -114,70 +118,141 @@
 						]
 					},
 					"if_action": {
-						"type": "origins:if_else",
-						"condition": {
-							"type": "origins:or",
-							"conditions": [
-								{
-									"type": "origins:power",
-									"power": "*:fox/thhunt",
-									"inverted": true
-								},
-								{
-									"type": "origins:resource",
-									"resource": "*:fox/thhunt_prepare_stage",
-									"compare_to": 25,
-									"comparison": ">"
-								}
-							]
+						"type": "origins:area_of_effect",
+						"radius": 18,
+						"shape": "sphere",
+						"bientity_condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:in_tag",
+								"tag": "thorigins:predator"
+							}
 						},
-						"if_action": {
+						"bientity_action": {
 							"type": "origins:and",
 							"actions": [
 								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=#thorigins:predator,distance=..18] store result score @s UUID0 run data get entity @s AngryAt[0]"
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:actor_condition",
+										"condition": {
+											"type": "origins:or",
+											"conditions": [
+												{
+													"type": "origins:power",
+													"power": "*:fox/thhunt",
+													"inverted": true
+												},
+												{
+													"type": "origins:resource",
+													"resource": "*:fox/thhunt_prepare_stage",
+													"compare_to": 25,
+													"comparison": ">"
+												}
+											]
+										}
+									},
+									"if_action": {
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:execute_command",
+											"command": "/tag @s add marked"
+										}
+									},
+									"else_action": {
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:distance",
+											"compare_to": 2,
+											"comparison": "<="
+										},
+										"if_action": {
+											"type": "origins:target_action",
+											"action": {
+												"type": "origins:execute_command",
+												"command": "/tag @s add marked"
+											}
+										}
+									}
 								},
 								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=#thorigins:predator,distance=..18] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:target_condition",
+										"condition": {
+											"type": "origins:nbt",
+											"nbt": "{Tags:[\"marked\"]}"
+										}
+									},
+									"if_action": {
+										"type": "origins:target_action",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/execute store result score @s UUID0 run data get entity @s AngryAt[0]"
+												},
+												{
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:tamed",
+														"inverted": true
+													},
+													"if_action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:execute_command",
+																"command": "/data modify entity @s AngerTime set value 25"
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "/data modify entity @s AngryAt set from entity @e[limit=1,tag=temp] UUID"
+															}
+														]
+													}
+												},
+												{
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:command",
+														"command": "/execute if score @s UUID0 = @e[tag=temp,limit=1] UUID0",
+														"compare_to": 0,
+														"comparison": ">"
+													},
+													"if_action": {
+														"type": "origins:apply_effect",
+														"effects": [
+															{
+																"effect": "minecraft:speed",
+																"amplifier": 1,
+																"duration": 60,
+																"show_particles": true
+															},
+															{
+																"effect": "minecraft:dolphins_grace",
+																"amplifier": 0,
+																"duration": 60,
+																"show_icon": true
+															}
+														]
+													}
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/scoreboard players reset @s UUID0"
+												}
+											]
+										}
+									}
 								},
 								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=#thorigins:predator,distance=..18] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-								},
-								{
-									"type": "origins:execute_command",
-									"command": "/execute at @e[type=#thorigins:predator,distance=..18] if score @e[limit=1,sort=nearest] UUID0 = @s UUID0 run effect give @e[tag=!foxie,limit=1,sort=nearest] minecraft:speed 3 1 false"
-								},
-								{
-									"type": "origins:execute_command",
-									"command": "/execute at @e[type=#thorigins:predator,distance=..18] if score @e[limit=1,sort=nearest] UUID0 = @s UUID0 run effect give @e[tag=!foxie,limit=1,sort=nearest] minecraft:dolphins_grace 3 0 false"
-								}
-							]
-						},
-						"else_action": {
-							"type": "origins:and",
-							"actions": [
-								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=#thorigins:predator,distance=..2] store result score @s UUID0 run data get entity @s AngryAt[0]"
-								},
-								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=#thorigins:predator,distance=..2] unless data entity @s Owner run data modify entity @s AngerTime set value 25"
-								},
-								{
-									"type": "origins:execute_command",
-									"command": "/execute as @e[type=#thorigins:predator,distance=..2] unless data entity @s Owner run data modify entity @s AngryAt set from entity @p[tag=foxie] UUID"
-								},
-								{
-									"type": "origins:execute_command",
-									"command": "/execute at @e[type=#thorigins:predator,distance=..2] if score @e[limit=1,sort=nearest] UUID0 = @s UUID0 run effect give @e[tag=!foxie,limit=1,sort=nearest] minecraft:speed 3 1 false"
-								},
-								{
-									"type": "origins:execute_command",
-									"command": "/execute at @e[type=#thorigins:predator,distance=..2] if score @e[limit=1,sort=nearest] UUID0 = @s UUID0 run effect give @e[tag=!foxie,limit=1,sort=nearest] minecraft:dolphins_grace 3 0 false"
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:execute_command",
+										"command": "/tag @s remove marked"
+									}
 								}
 							]
 						}
@@ -231,6 +306,10 @@
 							"effect": "minecraft:night_vision"
 						}
 					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @s remove temp"
 				}
 			]
 		}
