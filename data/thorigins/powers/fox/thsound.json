@@ -395,6 +395,71 @@
 						},
 						{
 							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 59,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 66,
+										"comparison": "<="
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/scoreboard players remove @s foxtype 60"
+									},
+									{
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:resource",
+											"resource": "*:fox/thtrackers_activate_soundboard",
+											"compare_to": 1,
+											"comparison": "=="
+										},
+										"if_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"activate_soundboard\",\"with\":[{\"text\":\"OFF\",\"color\":\"red\"}]}]"
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_activate_soundboard",
+													"change": -1
+												}
+											]
+										},
+										"else_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"activate_soundboard\",\"with\":[{\"text\":\"ON\",\"color\":\"green\"}]}]"
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "*:fox/thtrackers_activate_soundboard",
+													"change": 1
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
 								"type": "origins:any_of",
 								"inverted": true,
 								"conditions": [
