@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"environment": "*",
 	"depends": {
-		"origins": "1.13.0-alpha.12+mc.1.21.1",
+		"origins": ">=1.13.0-pre.1+mc.1.21.1",
 		"pehkui": ">=3.3.3",
 		"minecraft": ">=1.21"
 	},
