@@ -970,6 +970,18 @@
 		"set_spawn_point": true
 	},
 
+	"sleep_not_near_armor_stand": {
+		"type": "origins:prevent_sleep",
+		"condition": {
+			"type": "origins:command",
+			"command": "/execute as @e[type=minecraft:armor_stand,distance=..12] unless data entity @s Tags",
+			"compare_to": 0,
+			"comparison": ">"
+		},
+		"message": "fox.cant_sleep_near_armor_stand",
+		"set_spawn_point": true
+	},
+
 	"super-effective": {
 		"type": "origins:modify_damage_dealt",
 		"bientity_condition": {
@@ -1056,11 +1068,24 @@
 		},
 		"render_type": "none",
 		"condition": {
-			"type": "origins:block_collision",
+			"type": "origins:in_block_anywhere",
 			"block_condition": {
 				"type": "origins:block",
 				"block": "sweet_berry_bush"
 			}
+		}
+	},
+
+	"berry_damage_advancement": {
+		"type": "origins:action_when_damage_taken",
+		"cooldown": 0,
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "sweetBerryBush"
+		},
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "/advancement grant @s only thorigins:fox_origin/berry_damage"
 		}
 	},
 
@@ -1151,6 +1176,18 @@
 		}
 	},
 
+	"boosted_pickup_range": {
+		"type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:execute_command",
+			"command": "/attribute @s additionalentityattributes:player.collection_range base set 1"
+		},
+		"entity_action_lost": {
+			"type": "origins:execute_command",
+			"command": "/attribute @s additionalentityattributes:player.collection_range base set 0"
+		}
+	},
+
 	"grabby_paws": {
 		"type": "origins:action_over_time",
 		"interval": 20,
@@ -1182,12 +1219,65 @@
 					"command": "/tp @s @p[tag=foxie,distance=..2]"
 				}
 			}
+		}
+	},
+
+	"looty_grabby_paws": {
+		"type": "origins:action_on_hit",
+		"cooldown": 5,
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "player"
 		},
-		"condition": {
-			"type": "origins:resource",
-			"resource": "*:fox/universal_settings_grabby_paws",
-			"compare_to": 1,
-			"comparison": "=="
+		"bientity_action": {
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:health",
+						"compare_to": 0,
+						"comparison": "<="
+					}
+				},
+				"if_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:actor_action",
+							"action": {
+								"type": "origins:execute_command",
+								"command": "/tag @s add temp"
+							}
+						},
+						{
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/execute as @e[type=item,distance=..1] run data modify entity @s PickupDelay set value 0"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/execute as @e[type=item,distance=..1] run tp @s @e[tag=temp,limit=1,sort=nearest]"
+									}
+								]
+							}
+						},
+						{
+							"type": "origins:actor_action",
+							"action": {
+								"type": "origins:execute_command",
+								"command": "/tag @s remove temp"
+							}
+						}
+					]
+				}
+			}
 		}
 	}
 }
