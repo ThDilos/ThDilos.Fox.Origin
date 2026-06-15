@@ -25,7 +25,7 @@
 	"thfoxify.header1": "§6§l§nHat Fox & Fox Interactions",
 	"thfoxify.key1": "\n§b1. §rWhile empty handed, sneak and press [%s] on a fox to put it on your head.\n§b2. §rWhile empty handed, use [%s] to drop the fox.",
 	"thfoxify.key2": "\n§b3. §rWhile empty handed, press [%s] on a fox to drop its item.\n§b4. §rPress [%s] on a fox to command it to sit.\n\n",
-	
+
 	"thfoxify.header2": "§2§l§nRide Entities",
 	"thfoxify.key3": "\nAim at a player and press [%s] to mount on them.",
 
@@ -36,7 +36,7 @@
 	"thfoxify.info4": "§6§l§nFoxType§r\nTo change into §aother types of fox§r, use command \n§6/trigger foxtype set [§aNumber§r§6]§r\n\n§a0§r Red Fox\n§a1§r Snow Fox\n§a2§r Red Fox Pup\n§a3§r Snow Fox Pup\n§a4§r Revert to §a0§r\n\n§a-1§r Disable [§5Sleepin Mode§r]\n§a5§r Enable [Figura Mode]\n§a6§r Enable [Figura Mode](Pup Sounds)",
 	"thfoxify.keybind.info": "Keybinds Used:\n§a1§r. Sprint - [%s]\n§a2§r. Drop - [%s]\n§a3§r. Use - [%s]\n§a4§r. Save Hotbar Activator - [%s]\n§a5§r. Swap Item With Offhand - [%s]",
 	"thfoxify.error": "§cError Sizes Detected, Foxification is forced to end",
-	"thfoxify.info6": "FoxType Utilities\nUse §6/trigger foxtype §c§ladd§r §6[§aNumber§r§6]§r\n\n§a10§r §5Toggle Nightvision Fix§r\n§8For when passive nightvision is bugged by shaders / mods\n\n§a20§r §4Refresh Powers§r\n§8For when your powers are not working due to Server sudden shut down etc.\n\n§a40§r §1Halt Foxify AFK Timer§r\n§8Automatically enter [§lSleepin Mode§r§8] after 1 minute of not moving?\n\n§a50§r §7Destroy Terrain (For Evolved Foxes)\n§8Should active skills destroy terrain?\n\n§a60§r §eFox Soundboard\n§8Use Hotbar Keys (1-7) to play sounds?",
+	"thfoxify.info6": "FoxType Utilities\nUse §6/trigger foxtype §c§ladd§r §6[§aNumber§r§6]§r\n\n§a10§r §5Toggle Nightvision Fix§r\n§8For when passive nightvision is bugged by shaders / mods\n\n§a20§r §4Refresh Powers§r\n§8For when your powers are not working due to Server sudden shut down etc.\n\n§a40§r §1Halt Foxify AFK Timer§r\n§8Automatically enter [§lSleepin Mode§r§8] after 1 minute of not moving?\n\n§a50§r §7Destroy Terrain (For Evolved Foxes)\n§8Should active skills destroy terrain?\n\n§a60§r §eFox Soundboard\n§8Use Hotbar Keys (1-7) to play sounds?\n\n§a70§r §2Hide Fear Bossbar\n§8From Passive Skill Timidity?§r",
 	"thfoxify.fox_hat_prompt": "§6Use [%s§6] to Drop the Foxes on your head",
 
 	"fox.thhunt.name": "§6§l§nHunt",
@@ -61,15 +61,16 @@
 
 	"fox.thfoxiality.name": "§e§nFoxiality",
 	"fox.thfoxiality.description": "Embrace your fox nature and thrive.",
-	"thfoxiality.info": "[§a+§r] Permanent Night Vision when no <§eLights§r> in Offhand\n[§a+§r] Higher damage against prey mobs\n[§a+§r] Ignore berry bushes\n[§a+§r] Breaking berry bushes gives you sweet berries\n[§a+§r] Receive a random item when waking up\n[§c-§r] Can't fall asleep when not under shades\n[§a+§r] Do more damage to Merling and Avian\n[§c-§r] Receive more damage from Blazeborn\n[§a+§r] Dig extremely fast with claws(empty handed)\n[§a+§r] Boosted Pickup Range\n[§a+§r] Climb in Powder Snow\n[§a+§r] Trusted by foxes\n[§c-§r] Anger wolves and polar bears\n[§c-§r] Wolves and polar bears receive Speed Buffs when targeting you",
+	"thfoxiality.info": "[§a+§r] Permanent Night Vision when no <§eLights§r> in Offhand\n[§a+§r] Higher damage against prey mobs\n[§a+§r] Ignore berry bushes\n[§a+§r] Breaking berry bushes gives you sweet berries\n[§a+§r] Receive a random item when waking up\n[§c-§r] Can't fall asleep when not under shades\n[§c-§r] Can't fall asleep near an Armor Stand\n[§a+§r] Do more damage to Merling and Avian\n[§c-§r] Receive more damage from Blazeborn\n[§a+§r] Dig extremely fast with claws(empty handed)\n[§a+§r] Boosted Pickup Range\n[§a+§r] Climb in Powder Snow\n[§a+§r] Trusted by foxes\n[§c-§r] Anger wolves and polar bears\n[§c-§r] Wolves and polar bears receive Speed Buffs when targeting you",
 	"thfoxiality.info1": "\n[§c-§r] Predators do a deadlier §5§lEXTRA STRIKE §r§fto you after every hit",
 	"thfoxiality.info1_legacy": "\n[§c-§r] Wolf and Polar Bear deal more damages to you",
 	"thfoxiality.info2": "Your Predators' §5§lEXTRA STRIKE§r has the following effects:\n§b1§r. Applies §5Slowness§r + Weakness + Nausea to you\n§b2§r. Deals a §egreater§r amount of ❂§lTRUE DAMAGE§r\n§b3§r. Temporarily §cDisables§r your [§6§lPounce§r]\n§b4§r. Temporarily §cNullifies§r your [§aAgility§r]'s first effect\n§b5§r. Temporarily §cDisables§r your natural regeneration\n\n§8§oWearing armors and Resistance might make your predators' §lEXTRA STRIKE §r§8§ofail",
+	"fox.wakeup.item": "You Found <%s> When You Were Asleep!",
 	"kill_a_fox": "§4§lWhat have you done...",
 
 	"fox.thfluffy.name": "§e§nFluffy",
 	"fox.thfluffy.description": "Shaggy fur provides excellent cold protection but is highly flammable.",
-	"thfluffy.info": "[§c-§r] Receive more fire and explosion damage\n[§a+§r] Freeze Immunity\n[§c-§r] Slow down when in water / rain for a bit\n[§e~§r] Stand Still to Shake and dry off\n[§c-§r] Dry fluff catches fire easily",
+	"thfluffy.info": "[§c-§r] Receive more fire and explosion damage\n[§a+§r] Freeze Immunity §8§o(When fur not wet)§r\n[§c-§r] Slow down when in water / rain for a bit\n[§e~§r] Stand Still to Shake and dry off\n[§c-§r] Dry fluff catches fire easily\n[§a+§r] Damp fur put out fire on you / reduces fire damage",
 	"fluff_fired_oh_no": "§cYour fluff caught fire!",
 	"fluff_damped_good": "§aYour fluff is damp and less flammable, §efor now...",
 
@@ -77,13 +78,15 @@
 	"fox.thshy.description": "Survival instincts make you fear predators, death, crowds, and danger, but there are ways to conquer the fears.",
 	"thshy.info0": "[§c-§r] Shake, and get Weakness + Speed effects when:\n§b1§r. Near §cPolar Bear§r / §cWolf§r / §6Villager§r / §1Warden§r / §7Wither§r / §5Ender Dragon§r\n§b2§r. Spawn of §eLightning§r\n§b3§r. Low §cHealth§r\n§b4§r. In the other 2 Dimensions\n§b5§r. Near Human / Enderian / Blazeborn / Shulk Origin Player\n\n[§c-§r] Can't fall asleep when the above effects are present\n\n",
 	"thshy.info1": "Press [%s] against a §dTamed §cWolf§r §fto not fear them",
-	"thshy.info2": "[§e~§r] To Conquer the Fears:\n§b1§r. §6Villager§r: Obtain [§5Hero Of the Village§r]\n§b2§r. §1Warden§r: Kill §43§r Wardens\n§b3§r. §7Wither§r: Kill §41§r Wither\n§b4§r. §5Ender Dragon§r: Kill §41§r Ender Dragon\n§b5§r. §eLightning§r: Struck by Lightning §516§r times\n§b6§r. Low §cHealth§r: Die & Respawn §58§r times\n§b7§r. In the End / Nether: Stay for §310§r Minutes in respective dimensions\n§b8§r. Near Certain Origins: §dInteracted§r §fby them",
-	"thshy.info3": "\n\nWhile the Fear effects are present, hold [%s] to highlight the entity fear causes within 15 blocks",
+	"thshy.info2": "[§e~§r] To Conquer the Fears:\n§b1§r. §6Villager§r: Obtain [§5Hero Of the Village§r]\n§b2§r. §1Warden§r: Kill §43§r Wardens\n§b3§r. §7Wither§r: Kill §41§r Wither\n§b4§r. §5Ender Dragon§r: Kill §41§r Ender Dragon\n§b5§r. §eLightning§r: Struck by Lightning §516§r times\n§b6§r. Low §cHealth§r: Die & Respawn or Trigger Totem of Undying §58§r times\n§b7§r. In the End / Nether: Stay for §310§r Minutes in respective dimensions\n§b8§r. Near Certain Origins: §dInteracted§r §fby them",
+	"thshy.info3": "\n\nWhile the Fear effects are present, hold [%s] to highlight the entity fear causes within 15 blocks\n\nAim at a trusted Player (No longer feared), sneak and press [%s] to revoke the trust.",
 	"thorigins.wolf_certified_0": "§aGood boy certification successful",
 	"thorigins.wolf_certified_1": "§aFriend request from <§r%s§a> accepted",
 	"thorigins.wolf_certified_2": "§aYou made truce with this predator",
 	"thorigins.wolf_certified_3": "§aNew <§r%s§a> registered as professional good boy",
 	"thorigins.wolf_certified_4": "§aHand shake protocol complete",
+	"thshy.conquer.general": "§aYou have conquered the fear of <%s§a>!",
+	"thshy.fear.low_health": "Low Health",
 
 	"fox.thfood.name": "§e§nUnique Taste",
 	"fox.thfood.description": "Your food preferences are heavily influenced by your nature.",
@@ -99,6 +102,7 @@
 	"fox.cant_sleep_shade": "Your fox instinct forces you to sleep under shades!",
 	"fox.cant_sleep_fear": "You're too scared to fall asleep!",
 	"fox.cant_sleep_hunt": "You're hunting! Don't slack it off!",
+	"fox.cant_sleep_near_armor_stand": "A nearby armor stand is unsettling you from sleeping!",
 
 	"death.attack.thorigins:foxie_bite": "%1$s was torn apart.",
 	"death.attack.thorigins:predator_bite": "%1$s was disemboweled by %2$s.",
@@ -109,8 +113,6 @@
 	"death.attack.thorigins:foxie_bite.item": "%1$s underestimated how feral %2$s with their %3$s can be in a fight.",
 	"death.attack.thorigins:predator_bite.item": "%1$s was eviscerated to an unrecognizable shape by a %3$s-wielding %2$s.",
 
-	"fox.wakeup.item": "You Found <%s> When You Were Asleep!",
-
 	"fox.petter": "§dPetted %s",
 	"fox.petted": "§dYou've been pet by %s",
 	"fox.feeder": "§dYou granted %s §bthe fox§r§d with berries as a little treat :3",
@@ -119,9 +121,13 @@
 	"fox.hug": "§dYou gave %s §dthe little critter a little hug :3",
 	"fox.hugged": "%s §dgave you a passionate hug",
 	"fox.belly_rub": "§dYou gently rubbed %s§d's belly :3",
-	"fox.belly_rubbed": "%s gently rubbed you belly",
+	"fox.belly_rubbed": "%s §dgently rubbed you belly",
+	"fox.brusher": "§dYou lightly brushed %s§d's fur",
+	"fox.brushed": "%s§d lightly brushed your fur",
 
 	"fox.trusted": "§dWholesome Interaction! You are now trusted by them",
+	"fox.trust": "§dYou now trust [%s§8] and no longer fear them (If you were)",
+	"fox.untrust": "§8You no longer trust [%s§8]",
 	"fox.distrusted": "§4You are no longer trusted...",
 
 	"layer.thorigins.foxsize.name": "body size",
@@ -144,7 +150,7 @@
 	"figura_off": "§dFigura Mode§r §cOFF§r, §byour hitbox and eye height is resetted.\n§eExit§r §band§r §eRe-enter§r §bthe world if §f§nall of your powers disappear",
 
 	"thorigins.forge.server.detected": "It appears that you are in a §cForge Server§r!\n[§5Walk On Powder Snow§r] power of this Origin is automatically disabled to prevent certain horrifying bugz :3c",
-	"leash_tip": "[Sneak] + Leash = Extended max distance",
+	"leash_tip": "[§eSneak§r] while leashing them to greatly increase leash breaking threshold",
 	"tied_leash_to_fence": "§eSneak + Right Click§r §bthe§r §6Leashed§r §bto free them",
 	"tie_dupe": "§bYou can only leash §c1§b entity at the same time!",
 
@@ -153,12 +159,16 @@
 	"halt_afk_timer": "§eAFK Timer Countdown [§r%s§e]§r",
 	"destroy_terrain": "§eEvolution Fox Destroy Terrain [§r%s§e]§r",
 	"activate_soundboard": "§eFox Soundboard [§r%s§e]§r",
+	"hide_fear_bossbar": "§eHide Timidity Fear Bossbar [§r%s§e]§r",
 
 	"thorigins.advancements.root.title": "Fox Origin",
 	"thorigins.advancements.root.description": "Life as a fox in a blocky world",
 
 	"thorigins.advancements.all_modifier.title": "Master Assassin",
 	"thorigins.advancements.all_modifier.description": "Trigger the highest possible damage modifiers combination",
+
+	"thorigins.advancements.berry_damage.title": "How'd that happen?",
+	"thorigins.advancements.berry_damage.description": "How'd a fox get damaged by berry bushes? That's against the minecraft law!",
 
 	"thorigins.advancements.berry_effect.title": "Magical Berries",
 	"thorigins.advancements.berry_effect.description": "Obtain a random effect from consuming berries",
@@ -167,7 +177,28 @@
 	"thorigins.advancements.bonk.description": "Sounds empty...",
 
 	"thorigins.advancements.conquer_all_fear.title": "Brave Litol Fox",
-	"thorigins.advancements.conquer_all_fear.description": "Conquer all conquerable fears (except from death)",
+	"thorigins.advancements.conquer_all_fear.description": "Conquer all fears",
+
+	"thorigins.advancements.conquer_fear_death.title": "Nine-Lives",
+	"thorigins.advancements.conquer_fear_death.description": "Conquer the fear of death by escaping from it 8 times",
+
+	"thorigins.advancements.conquer_fear_dimensions.title": "High Adaptability",
+	"thorigins.advancements.conquer_fear_dimensions.description": "Conquer the fear of both the Nether and the End by staying in respective dimensions for 10 minutes",
+
+	"thorigins.advancements.conquer_fear_ender_dragon.title": "Here was Dragon",
+	"thorigins.advancements.conquer_fear_ender_dragon.description": "Conquer the fear of Ender Dragon by slaying one",
+
+	"thorigins.advancements.conquer_fear_thunder.title": "Channeling Fox",
+	"thorigins.advancements.conquer_fear_thunder.description": "Conquer the fear of thunder by striking yourself with lightning 16 times",
+
+	"thorigins.advancements.conquer_fear_warden.title": "Fox > Warden Q.E.D",
+	"thorigins.advancements.conquer_fear_warden.description": "Conquer the fear of Warden by killing three wardens",
+
+	"thorigins.advancements.conquer_fear_wither.title": "Fallen Star",
+	"thorigins.advancements.conquer_fear_wither.description": "Conquer the fear of Wither by killing one",
+
+	"thorigins.advancements.damp_fur_insulator.title": "Unexpected Insulator",
+	"thorigins.advancements.damp_fur_insulator.description": "Let your still-damp fur protect you from fire",
 
 	"thorigins.advancements.enhanced_pounce.title": "Mountain Hopping",
 	"thorigins.advancements.enhanced_pounce.description": "Supercharge your pounce strength with a jump boost 2 potion",
@@ -219,6 +250,9 @@
 
 	"thorigins.advancements.test_advancement.title": "Test Advancement Plz Ignore",
 	"thorigins.advancements.test_advancement.description": "Boop the creator across time and space >:3c",
+
+	"thorigins.advancements.use_mace.title": "Fox Around and Find Out",
+	"thorigins.advancements.use_mace.description": "Use the Mace despite being a weak lil fox and suffer the consequences",
 
 	"thorigins.advancements.wimdy.title": "It Wimdy",
 	"thorigins.advancements.wimdy.description": "Visit a windswept biome and have your fur blown messy"
