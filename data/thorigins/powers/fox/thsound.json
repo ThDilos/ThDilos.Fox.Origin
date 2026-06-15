@@ -903,6 +903,11 @@
 		}
 	},
 
+	"drop_fur_limit": {
+		"type": "origins:cooldown",
+		"cooldown": 600
+	},
+
 	"interactions": {
 		"type": "origins:action_on_being_used",
 		"bientity_condition": {
@@ -927,6 +932,9 @@
 										},
 										{
 											"item": "minecraft:glow_berries"
+										},
+										{
+											"item": "minecraft:brush"
 										}
 									]
 								}
@@ -954,61 +962,53 @@
 			"type": "origins:and",
 			"actions": [
 				{
-					"type": "origins:actor_action",
-					"action": {
-						"type": "origins:if_else",
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:actor_condition",
 						"condition": {
-							"type": "origins:and",
-							"conditions": [
-								{
-									"type": "origins:nbt",
-									"nbt": "{\"Tags\":[\"foxie_trust\"]}",
-									"inverted": true
-								},
-								{
-									"type": "origins:or",
-									"conditions": [
+							"type": "origins:nbt",
+							"nbt": "{\"Tags\":[\"foxie_trust\"]}",
+							"inverted": true
+						}
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
 										{
-											"type": "origins:nbt",
-											"nbt": "{\"Tags\":[\"foxie_fear\"]}"
+											"type": "origins:execute_command",
+											"command": "/tag @s add foxie_trust"
 										},
 										{
-											"type": "origins:origin",
-											"origin": "origins:human",
-											"layer": "origins:origin"
+											"type": "origins:execute_command",
+											"command": "/tag @s add temp"
 										},
 										{
-											"type": "origins:origin",
-											"origin": "origins:enderian",
-											"layer": "origins:origin"
-										},
-										{
-											"type": "origins:origin",
-											"origin": "origins:shulk",
-											"layer": "origins:origin"
-										},
-										{
-											"type": "origins:origin",
-											"origin": "origins:blazeborn",
-											"layer": "origins:origin"
+											"type": "origins:execute_command",
+											"command": "/title @s actionbar {\"translate\":\"fox.trusted\",\"fallback\":\"§dWholesome Interaction! You are now trusted by them\"}"
 										}
 									]
 								}
-							]
-						},
-						"if_action": {
-							"type": "origins:and",
-							"actions": [
-								{
+							},
+							{
+								"type": "origins:target_action",
+								"action": {
 									"type": "origins:execute_command",
-									"command": "/tag @s add foxie_trust"
-								},
-								{
-									"type": "origins:execute_command",
-									"command": "/title @s actionbar {\"translate\":\"fox.trusted\",\"fallback\":\"§dWholesome Interaction! You are now trusted by them\"}"
+									"command": "/title @s actionbar {\"text\":\"\",\"extra\":[{\"translate\":\"fox.trust\",\"with\":[{\"selector\":\"@e[tag=temp,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 								}
-							]
-						}
+							},
+							{
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:execute_command",
+									"command": "/tag @s remove temp"
+								}
+							}
+						]
 					}
 				},
 				{
@@ -1022,6 +1022,79 @@
 							"x": 0.3,
 							"y": 0.2,
 							"z": 0.3
+						}
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:actor_condition",
+						"condition": {
+							"type": "origins:equipped_item",
+							"equipment_slot": "mainhand",
+							"item_condition": {
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:brush"
+								}
+							}
+						}
+					},
+					"if_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:actor_condition",
+							"inverted": true,
+							"condition": {
+								"type": "origins:nbt",
+								"nbt": "{Tags:[\"no_brush_spam\"]}"
+							}
+						},
+						"if_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:chance",
+										"chance": 0.5,
+										"action": {
+											"type": "origins:play_sound",
+											"sound": "minecraft:item.brush.brushing.gravel",
+											"category": "players",
+											"pitch": 1.3,
+											"volume": 0.6
+										},
+										"fail_action": {
+											"type": "origins:play_sound",
+											"sound": "minecraft:item.brush.brushing.sand",
+											"category": "players",
+											"pitch": 1.3,
+											"volume": 0.6
+										}
+									}
+								},
+								{
+									"type": "origins:actor_action",
+									"action": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "/tag @s add no_brush_spam"
+											},
+											{
+												"type": "origins:delay",
+												"ticks": 8,
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/tag @s remove no_brush_spam"
+												}
+											}
+										]
+									}
+								}
+							]
 						}
 					}
 				},
@@ -1078,6 +1151,119 @@
 							{
 								"type": "origins:if_else_list",
 								"actions": [
+									{
+										"condition": {
+											"type": "origins:actor_condition",
+											"condition": {
+												"type": "origins:equipped_item",
+												"equipment_slot": "mainhand",
+												"item_condition": {
+													"type": "origins:ingredient",
+													"ingredient": [
+														{
+															"item": "minecraft:brush"
+														}
+													]
+												}
+											}
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:if_else",
+													"condition": {
+														"type": "origins:target_condition",
+														"condition": {
+															"type": "origins:resource",
+															"resource": "*:*_drop_fur_limit",
+															"compare_to": 0,
+															"comparison": "=="
+														}
+													},
+													"if_action": {
+														"type": "origins:chance",
+														"chance": 0.1,
+														"action": {
+															"type": "origins:and",
+															"actions": [
+																{
+																	"type": "origins:actor_action",
+																	"action": {
+																		"type": "origins:give",
+																		"stack": {
+																			"item": "minecraft:string"
+																		}
+																	}
+																},
+																{
+																	"type": "origins:target_action",
+																	"action": {
+																		"type": "origins:trigger_cooldown",
+																		"power": "*:*_drop_fur_limit"
+																	}
+																}
+															]
+														},
+														"fail_action": {
+															"type": "origins:nothing"
+														}
+													}
+												},
+												{
+													"type": "origins:actor_action",
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:execute_command",
+																"command": "/tag @s remove no_brush_spam"
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.brusher\",\"fallback\":\"§dYou brushed %s§d's fur\",\"with\":[{\"selector\":\"@e[tag=interacted,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+															}
+														]
+													}
+												},
+												{
+													"type": "origins:target_action",
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:if_else",
+																"condition": {
+																	"type": "origins:resource",
+																	"resource": "*:*_higher_pitch",
+																	"compare_to": 1,
+																	"comparison": "=="
+																},
+																"if_action": {
+																	"type": "origins:play_sound",
+																	"sound": "minecraft:entity.cat.purr",
+																	"volume": 0.65,
+																	"pitch": 1.3,
+																	"category": "players"
+																},
+																"else_action": {
+																	"type": "origins:play_sound",
+																	"sound": "minecraft:entity.cat.purr",
+																	"volume": 0.65,
+																	"pitch": 1.0,
+																	"category": "players"
+																}
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.brushed\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+															}
+														]
+													}
+												}
+											]
+										}
+									},
 									{
 										"condition": {
 											"type": "origins:actor_condition",
@@ -1958,31 +2144,6 @@
 	"comforted_timer": {
 		"type": "origins:cooldown",
 		"cooldown": 160
-	},
-
-	"no_longer_trust": {
-		"type": "origins:action_when_hit",
-		"bientity_condition": {
-			"type": "origins:actor_condition",
-			"condition": {
-				"type": "origins:nbt",
-				"nbt": {
-					"Tags": ["foxie_trust"]
-				}
-			}
-		},
-		"damage_condition": {
-			"type": "origins:amount",
-			"compare_to": 3,
-			"comparison": ">="
-		},
-		"bientity_action": {
-			"type": "origins:actor_action",
-			"action": {
-				"type": "origins:execute_command",
-				"command": "/tag @s[tag=foxie_trust] remove foxie_trust"
-			}
-		}
 	},
 
 	"soundboard_cd": {
