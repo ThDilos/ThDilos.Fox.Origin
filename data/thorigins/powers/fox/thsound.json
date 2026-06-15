@@ -966,9 +966,10 @@
 					"condition": {
 						"type": "origins:actor_condition",
 						"condition": {
-							"type": "origins:nbt",
-							"nbt": "{\"Tags\":[\"foxie_trust\"]}",
-							"inverted": true
+							"type": "origins:command",
+							"command": "/execute if entity @s[tag=foxie_trust]",
+							"compare_to": 0,
+							"comparison": "=="
 						}
 					},
 					"if_action": {
