@@ -122,6 +122,8 @@
 	"fox.hugged": "%s§d给你了一个热情的拥抱",
 	"fox.belly_rub": "§d你轻轻地摸了摸%s§d的肚子 :3",
 	"fox.belly_rubbed": "%s§d轻轻摸了摸你的肚子",
+	"fox.brusher": "§d你轻轻地刷了刷%s§d的绒毛",
+	"fox.brushed": "%s§d轻轻地刷了刷你的绒毛",
 
 	"fox.trusted": "§d友好互动!你获得了狐狸的信任",
 	"fox.trust": "§d你现在信任[%s§8](且不再惧怕ta们了)",

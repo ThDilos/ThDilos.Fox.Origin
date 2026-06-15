@@ -122,6 +122,8 @@
 	"fox.hugged": "%s §dgave you a passionate hug",
 	"fox.belly_rub": "§dYou gently rubbed %s§d's belly :3",
 	"fox.belly_rubbed": "%s §dgently rubbed you belly",
+	"fox.brusher": "§dYou lightly brushed %s§d's fur",
+	"fox.brushed": "%s§d lightly brushed your fur",
 
 	"fox.trusted": "§dWholesome Interaction! You are now trusted by them",
 	"fox.trust": "§dYou now trust [%s§8] and no longer fear them (If you were)",
