@@ -123,8 +123,23 @@
 				},
 				{
 					"type": "origins:air",
+					"compare_to": 300,
+					"comparison": "<"
+				},
+				{
+					"type": "origins:air",
 					"compare_to": 0,
 					"comparison": ">"
+				},
+				{
+					"type": "origins:status_effect",
+					"effect": "minecraft:conduit_power",
+					"inverted": true
+				},
+				{
+					"type": "origins:status_effect",
+					"effect": "minecraft:water_breathing",
+					"inverted": true
 				},
 				{
 					"type": "origins:resource",
