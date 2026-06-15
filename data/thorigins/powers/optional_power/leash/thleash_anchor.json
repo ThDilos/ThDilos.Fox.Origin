@@ -16,6 +16,10 @@
 			"actions": [
 				{
 					"type": "origins:execute_command",
+					"command": "/tag @s remove unbounded"
+				},
+				{
+					"type": "origins:execute_command",
 					"command": "/scale delay set pehkui:width 0"
 				},
 				{
@@ -24,15 +28,11 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/scale set pehkui:width 0.01 @s"
+					"command": "/scale set pehkui:width 0"
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/scale set pehkui:height 0.01 @s"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/tag @s add leash_anchor"
+					"command": "/scale set pehkui:height 0"
 				}
 			]
 		}
@@ -44,6 +44,10 @@
 		"entity_action": {
 			"type": "origins:and",
 			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @s add temp"
+				},
 				{
 					"type": "origins:if_else",
 					"condition": {
@@ -60,6 +64,25 @@
 								"type": "origins:block",
 								"block": "minecraft:air"
 							}
+						},
+						"if_action": {
+							"type": "origins:change_resource",
+							"resource": "*:*_exit",
+							"change": 1
+						}
+					},
+					"else_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:riding",
+							"bientity_condition": {
+								"type": "origins:target_condition",
+								"condition": {
+									"type": "origins:power",
+									"power": "*:optional_power/leash/thleasher"
+								}
+							},
+							"inverted": true
 						},
 						"if_action": {
 							"type": "origins:change_resource",
@@ -83,24 +106,22 @@
 						"command_step": 0.1,
 						"block": false,
 						"bientity_condition": {
-							"type": "origins:target_condition",
-							"condition": {
-								"type": "origins:and",
-								"conditions": [
-									{
-										"type": "origins:command",
-										"command": "/execute if entity @s[tag=leasher]",
-										"compare_to": 0,
-										"comparison": "=="
-									},
-									{
-										"type": "origins:command",
-										"command": "/execute if entity @s[tag=leashed]",
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:riding",
+									"inverted": true
+								},
+								{
+									"type": "origins:target_condition",
+									"condition": {
+										"type": "origins:resource",
+										"resource": "*:optional_power/leash/thleash_leashed",
 										"compare_to": 1,
 										"comparison": "=="
 									}
-								]
-							}
+								}
+							]
 						}
 					},
 					"else_action": {
@@ -110,24 +131,22 @@
 						"command_step": 0.1,
 						"block": false,
 						"bientity_condition": {
-							"type": "origins:target_condition",
-							"condition": {
-								"type": "origins:and",
-								"conditions": [
-									{
-										"type": "origins:command",
-										"command": "/execute if entity @s[tag=leasher]",
-										"compare_to": 0,
-										"comparison": "=="
-									},
-									{
-										"type": "origins:command",
-										"command": "/execute if entity @s[tag=leashed]",
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:riding",
+									"inverted": true
+								},
+								{
+									"type": "origins:target_condition",
+									"condition": {
+										"type": "origins:resource",
+										"resource": "*:optional_power/leash/thleash_leashed",
 										"compare_to": 1,
 										"comparison": "=="
 									}
-								]
-							}
+								}
+							]
 						}
 					}
 				},
@@ -141,63 +160,13 @@
 								"conditions": [
 									{
 										"type": "origins:resource",
-										"resource": "*:*_tied",
-										"compare_to": 0,
-										"comparison": "=="
-									},
-									{
-										"type": "origins:or",
-										"conditions": [
-											{
-												"type": "origins:and",
-												"conditions": [
-													{
-														"type": "origins:resource",
-														"resource": "*:*_extended",
-														"compare_to": 0,
-														"comparison": "=="
-													},
-													{
-														"type": "origins:command",
-														"command": "/execute if entity @e[distance=..10,tag=leasher]",
-														"compare_to": 0,
-														"comparison": "=="
-													}
-												]
-											},
-											{
-												"type": "origins:and",
-												"conditions": [
-													{
-														"type": "origins:resource",
-														"resource": "*:*_extended",
-														"compare_to": 1,
-														"comparison": "=="
-													},
-													{
-														"type": "origins:command",
-														"command": "/execute if entity @e[distance=..100,tag=leasher]",
-														"compare_to": 0,
-														"comparison": "=="
-													}
-												]
-											}
-										]
-									}
-								]
-							},
-							{
-								"type": "origins:and",
-								"conditions": [
-									{
-										"type": "origins:resource",
 										"resource": "*:*_extended",
 										"compare_to": 0,
 										"comparison": "=="
 									},
 									{
 										"type": "origins:command",
-										"command": "/execute at @e[tag=!leash_anchor,tag=leashed,distance=..10] run execute if score @s UUID0 = @e[limit=1,sort=nearest] UUID0",
+										"command": "/execute as @e[tag=leashed,distance=..10] if score @s leashedUUID0 = @e[tag=temp,tag=leash_anchor,limit=1,sort=nearest] leashTargetUUID0",
 										"compare_to": 0,
 										"comparison": "=="
 									}
@@ -214,7 +183,7 @@
 									},
 									{
 										"type": "origins:command",
-										"command": "/execute at @e[tag=!leash_anchor,tag=leashed,distance=..100] run execute if score @s UUID0 = @e[limit=1,sort=nearest] UUID0",
+										"command": "/execute as @e[tag=leashed,distance=..100] if score @s leashedUUID0 = @e[tag=temp,tag=leash_anchor,limit=1,sort=nearest] leashTargetUUID0",
 										"compare_to": 0,
 										"comparison": "=="
 									}
@@ -227,6 +196,10 @@
 						"resource": "*:*_exit",
 						"change": 1
 					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @s remove temp"
 				}
 			]
 		}
@@ -251,6 +224,13 @@
 				{
 					"type": "origins:execute_command",
 					"command": "/scale set pehkui:height 0.5 @s"
+				},
+				{
+					"type": "origins:dismount"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute at @e[type=marker,tag=tp_marker,limit=1,sort=nearest] run tp @s ~ ~ ~"
 				}
 			]
 		}
@@ -259,7 +239,7 @@
 	"exit": {
 		"type": "origins:resource",
 		"min": 0,
-		"max": 1,
+		"max": 2,
 		"start_value": 0,
 		"max_action": {
 			"type": "origins:and",
