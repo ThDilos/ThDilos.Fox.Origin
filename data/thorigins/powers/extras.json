@@ -355,6 +355,30 @@
 									"command": "/scale reset @s"
 								},
 								{
+									"type": "origins:execute_command",
+									"command": "/advancement revoke @s through thorigins:fox_origin/root"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/scoreboard players reset @s thorigins.foxie.death"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/scoreboard players reset @s thorigins.killed.warden"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/scoreboard players reset @s thorigins.thunder.struck"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/scoreboard players reset @s thorigins.time.in.end"
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "/scoreboard players reset @s thorigins.time.in.nether"
+								},
+								{
 									"type": "origins:delay",
 									"ticks": 1,
 									"action": {

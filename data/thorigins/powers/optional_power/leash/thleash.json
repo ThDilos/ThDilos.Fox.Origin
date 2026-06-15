@@ -2,6 +2,27 @@
 	"type": "origins:multiple",
 	"hidden": true,
 
+	"init": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/scoreboard objectives add leashedUUID0 dummy"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/scoreboard objectives add leashTargetUUID0 dummy"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute store result score @s leashedUUID0 run data get entity @s UUID[0] 1"
+				}
+			]
+		}
+	},
+
 	"spam_counter": {
 		"type": "origins:resource",
 		"min": 0,
@@ -39,7 +60,7 @@
 		"type": "origins:resource",
 		"start_value": 0,
 		"min": 0,
-		"max": 2,
+		"max": 5,
 		"min_action": {
 			"type": "origins:and",
 			"actions": [
@@ -82,19 +103,7 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "/execute store result score @s UUID0 run data get entity @s UUID[0] 1"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/tag @s remove leasher"
-				},
-				{
-					"type": "origins:execute_command",
 					"command": "/tag @s add leashed"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/tag @s add unlinked"
 				},
 				{
 					"type": "origins:play_sound",
@@ -108,10 +117,6 @@
 		"min_action": {
 			"type": "origins:and",
 			"actions": [
-				{
-					"type": "origins:execute_command",
-					"command": "/tag @s remove unlinked"
-				},
 				{
 					"type": "origins:execute_command",
 					"command": "/tag @s remove leashed"
@@ -129,6 +134,47 @@
 
 	"leashable": {
 		"type": "origins:action_on_being_used",
+		"bientity_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:actor_condition",
+							"condition": {
+								"type": "origins:equipped_item",
+								"equipment_slot": "mainhand",
+								"item_condition": {
+									"type": "origins:ingredient",
+									"ingredient": {
+										"item": "minecraft:lead"
+									}
+								}
+							}
+						},
+						{
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_leashed",
+								"compare_to": 0,
+								"comparison": "=="
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_leashed",
+						"compare_to": 1,
+						"comparison": "=="
+					}
+				}
+			]
+		},
 		"bientity_action": {
 			"type": "origins:if_else",
 			"condition": {
@@ -156,54 +202,126 @@
 					}
 				},
 				"if_action": {
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:actor_condition",
-						"condition": {
-							"type": "origins:power",
-							"power": "*:optional_power/leash/thleasher",
-							"source": "thorigins:temp"
-						}
-					},
-					"if_action": {
-						"type": "origins:actor_action",
-						"action": {
-							"type": "origins:execute_command",
-							"command": "/title @s actionbar {\"translate\":\"tie_dupe\"}"
-						}
-					},
-					"else_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:target_action",
-								"action": {
-									"type": "origins:change_resource",
-									"resource": "*:*_leashed",
-									"change": 1
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:actor_action",
+							"action": {
+								"type": "origins:equipped_item_action",
+								"equipment_slot": "mainhand",
+								"item_action": {
+									"type": "origins:consume",
+									"amount": 1
 								}
-							},
-							{
-								"type": "origins:actor_action",
-								"action": {
+							}
+						},
+						{
+							"type": "origins:actor_action",
+							"action": {
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:power",
+									"power": "*:optional_power/leash/thleasher",
+									"source": "thorigins:temp",
+									"inverted": true
+								},
+								"if_action": {
 									"type": "origins:grant_power",
 									"power": "*:optional_power/leash/thleasher",
 									"source": "thorigins:temp"
 								}
-							},
-							{
-								"type": "origins:actor_action",
-								"action": {
-									"type": "origins:equipped_item_action",
-									"equipment_slot": "mainhand",
-									"item_action": {
-										"type": "origins:consume",
-										"amount": 1
+							}
+						},
+						{
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_leashed",
+										"change": 1
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/summon armor_stand ~ ~ ~ {Invisible:0b,NoBasePlate:1b,DisabledSlots:4144959,Invulnerable:1b,NoGravity:1b,PersistenceRequired:1b,Silent:1b,Tags:[\"leash_anchor\",\"unbounded\"]}"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "/execute store result score @e[tag=leash_anchor,tag=unbounded,type=armor_stand,limit=1,sort=nearest] leashTargetUUID0 run data get entity @s UUID[0] 1"
 									}
+								]
+							}
+						},
+						{
+							"type": "origins:actor_action",
+							"action": {
+								"type": "origins:area_of_effect",
+								"radius": 10,
+								"bientity_condition": {
+									"type": "origins:target_condition",
+									"condition": {
+										"type": "origins:and",
+										"conditions": [
+											{
+												"type": "origins:entity_type",
+												"entity_type": "minecraft:armor_stand"
+											},
+											{
+												"type": "origins:command",
+												"command": "/execute if entity @s[tag=leash_anchor,tag=unbounded]",
+												"compare_to": 0,
+												"comparison": ">"
+											}
+										]
+									}
+								},
+								"bientity_action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:invert",
+											"action": {
+												"type": "origins:mount"
+											}
+										},
+										{
+											"type": "origins:target_action",
+											"action": {
+												"type": "origins:grant_power",
+												"power": "*:optional_power/leash/thleash_anchor",
+												"source": "thorigins:temp"
+											}
+										},
+										{
+											"type": "origins:if_else",
+											"condition": {
+												"type": "origins:actor_condition",
+												"condition": {
+													"type": "origins:sneaking"
+												}
+											},
+											"if_action": {
+												"type": "origins:target_action",
+												"action": {
+													"type": "origins:change_resource",
+													"resource": "*:optional_power/leash/thleash_anchor_extended",
+													"change": 1
+												}
+											},
+											"else_action": {
+												"type": "origins:actor_action",
+												"action": {
+													"type": "origins:execute_command",
+													"command": "/title @s actionbar {\"translate\":\"leash_tip\"}"
+												}
+											}
+										}
+									]
 								}
 							}
-						]
-					}
+						}
+					]
 				}
 			},
 			"else_action": {
@@ -268,10 +386,19 @@
 					"bientity_condition": {
 						"type": "origins:target_condition",
 						"condition": {
-							"type": "origins:command",
-							"command": "/execute if score @s UUID0 = @e[tag=temp,limit=1,distance=..100] UUID0",
-							"compare_to": 1,
-							"comparison": "=="
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:entity_type",
+									"entity_type": "minecraft:armor_stand"
+								},
+								{
+									"type": "origins:command",
+									"command": "/execute if score @s leashTargetUUID0 = @e[tag=temp,limit=1,distance=..100] leashedUUID0",
+									"compare_to": 0,
+									"comparison": ">"
+								}
+							]
 						}
 					},
 					"bientity_action": {
@@ -282,8 +409,7 @@
 								"action": {
 									"type": "origins:change_resource",
 									"resource": "*:*_keep_alive",
-									"change": 2,
-									"operation": "set"
+									"change": 999
 								}
 							},
 							{

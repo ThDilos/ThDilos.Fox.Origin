@@ -8,7 +8,7 @@
 	"fox.thdash.name": "§6§l§n掠袭",
 	"fox.thdash.description": "暂时放弃防御, 向前上方冲刺一段距离, 并在下落时加成攻击力。",
 	"thdash.key": "按下 [%s] 向前跳跃\n\n§8用到的键位:\n起源 - 主动能力(首要按键)",
-	"thdash.info": "§4合适时机§r, §9合适角度§r使用该技能能§o进一步§r提升你的攻击\n\n§8§o据说, 狐狸能利用地球§l磁§r§8§o场在§l狩猎时§r§8§o更精准地扑击",
+	"thdash.info": "§4合适时机§r, §9合适角度§r使用该技能能§o进一步§r提升你的攻击\n\n§8§o据说, 狐狸能利用地球§l磁§r§8§o场在§l狩猎时§r§8§o更精准地扑击目标",
 
 	"fox.thstorage.name": "§6§l§n叼住",
 	"fox.thstorage.description": "把东西存在嘴里, 死了也能带走。",
@@ -36,7 +36,7 @@
 	"thfoxify.info4": "使用指令 \n§6/trigger foxtype set [§a数字§r§6]§r\n换成§a别的狐狸§r。\n\n§a0§r 红狐\n§a1§r 雪狐\n§a2§r 红狐幼崽\n§a3§r 雪狐幼崽\n§a4§r 返回§a0§r\n\n§a-1§r 关闭[§5睡眠模式§r]\n§a5§r 启用[Figura模式]\n§a6§r 启用[Figura模式](幼崽声效)",
 	"thfoxify.keybind.info": "用到的键位:\n§a1§r. 疾跑 - [%s]\n§a2§r. 丢弃 - [%s]\n§a3§r. 使用 - [%s]\n§a4§r. 保存物品栏 - [%s]\n§a5§r. 交换副手物品 - [%s]",
 	"thfoxify.error": "§c检测到错误尺寸, 狐化被迫结束",
-	"thfoxify.info6": "FoxType 应用\n使用指令 §6/trigger foxtype §c§ladd§r §6[§a数字§r§6]§r\n\n§a10§r §f开关§r§5夜视修复§r\n§8被动夜视被部分光影/模组屏蔽时使用\n\n§a20§r §4刷新技能§r\n§8服务器不稳定/突然关闭，导致技能失常时使用\n\n§a40§r §1暂停狐化AFK计时§r\n§8是否在1分钟没动作后自动进入[§l睡眠模式§r§8]？\n\n§a50§r §7破坏地形（仅进化狐狸）\n§8各进化狐狸的主动技能是否能破坏地形？\n\n§a60§r §e狐狸叫\n§8使用工具栏热键（1-7） 发声？",
+	"thfoxify.info6": "FoxType 应用\n使用指令 §6/trigger foxtype §c§ladd§r §6[§a数字§r§6]§r\n\n§a10§r §f开关§r§5夜视修复§r\n§8被动夜视被部分光影/模组屏蔽时使用\n\n§a20§r §4刷新技能§r\n§8服务器不稳定/突然关闭，导致技能失常时使用\n\n§a40§r §1暂停狐化AFK计时§r\n§8是否在1分钟没动作后自动进入[§l睡眠模式§r§8]？\n\n§a50§r §7破坏地形（仅进化狐狸）\n§8各进化狐狸的主动技能是否能破坏地形？\n\n§a60§r §e狐狸叫\n§8使用工具栏热键（1-7） 发声？\n\n§a70§r §2隐藏恐惧效果Boss条?\n§8被动技能[羸弱]的恐惧效果§r",
 	"thfoxify.fox_hat_prompt": "§6使用 [%s§6] 放下头上的狐狸",
 
 	"fox.thhunt.name": "§6§l§n狩猎",
@@ -51,7 +51,7 @@
 
 	"fox.thsmol.name": "§e§n迷你",
 	"fox.thsmol.description": "作为狐狸, 你比一般人矮了许多, 耐力也随之下降。不过, 怪物也因此不能轻易地发现你了。",
-	"thsmol.info": "[§e~§r] 更小的体积 \n[§c-§r] 更少的最大生命值 \n[§a+§r] 不易受生物察觉",
+	"thsmol.info": "[§e~§r] 更小的体积\n[§c-§r] 更少的最大生命值\n[§a+§r] 不易受生物察觉",
 
 	"fox.thweak.name": "§c§n羸弱",
 	"fox.thweak.description": "你纤细的四肢不能使用盾牌, 不能正常身着重甲。",
@@ -61,15 +61,16 @@
 
 	"fox.thfoxiality.name": "§e§n狐狸本性",
 	"fox.thfoxiality.description": "理解狐狸, 接受狐狸, 成为狐狸。",
-	"thfoxiality.info": "[§a+§r] 副手无<§e光§r>时永久夜视\n[§a+§r] 对猎物的伤害大幅提高\n[§a+§r] 无视浆果丛\n[§a+§r] 破坏浆果丛可回收浆果\n[§a+§r] 起床时获取随机物品\n[§c-§r] 不在阴影下无法入睡\n[§a+§r] 对人鱼族和羽人族起源玩家造成更多伤害\n[§c-§r] 受到更多来自烈焰族起源玩家的伤害\n[§a+§r] 用爪子光速挖掘(空手)\n[§a+§r] 更远的拾取距离\n[§a+§r] 攀爬细雪方块\n[§a+§r] 受到狐狸信任\n[§c-§r] 惹怒附近的狼和北极熊\n[§c-§r] 追猎你的狼和北极熊获得速度Buffs",
+	"thfoxiality.info": "[§a+§r] 副手无<§e光§r>时永久夜视\n[§a+§r] 对猎物的伤害大幅提高\n[§a+§r] 无视浆果丛\n[§a+§r] 破坏浆果丛可回收浆果\n[§a+§r] 起床时获取随机物品\n[§c-§r] 不在阴影下无法入睡\n[§c-§r] 无法在盔甲架周围入睡\n[§a+§r] 对人鱼族和羽人族起源玩家造成更多伤害\n[§c-§r] 受到更多来自烈焰族起源玩家的伤害\n[§a+§r] 用爪子光速挖掘(空手)\n[§a+§r] 更远的拾取距离\n[§a+§r] 攀爬细雪方块\n[§a+§r] 受到狐狸信任\n[§c-§r] 惹怒附近的狼和北极熊\n[§c-§r] 追猎你的狼和北极熊获得速度Buffs",
 	"thfoxiality.info1": "\n[§c-§r] 天敌的攻击将附带更致命的§5§l爪牙连击§r",
 	"thfoxiality.info1_legacy": "\n[§c-§r] 狼和北极熊对你造成的伤害翻倍",
 	"thfoxiality.info2": "你天敌的§5§l爪牙连击§r有以下效果:\n§b1§r. 给你施加§5缓慢§r+虚弱+反胃效果\n§b2§r. 给你造成§e更多§r的❂§l真实伤害§r\n§b3§r. 暂时§c禁用§r你的[§6§l掠袭§r]\n§b4§r. 暂时§c无效化§r你[§a灵跃§r]的第一个效果\n§b5§r. 暂时§c禁用§r你的自然生命恢复\n\n§8§o装备护甲和抗性提升有一定几率能让天敌对你的§l爪牙连击§r§8§o失败",
+	"fox.wakeup.item": "你在睡梦中找到了个<%s>!",
 	"kill_a_fox": "§4§l你都做了些什么...",
 
 	"fox.thfluffy.name": "§e§n毛绒绒",
 	"fox.thfluffy.description": "浑身的毛绒绒让你不畏严寒, 但一点火星子就能让你生不如死。",
-	"thfluffy.info": "[§c-§r] 受到更多火焰/爆炸伤害\n[§a+§r] 冰冻抗性\n[§c-§r] 毛发受潮时速度下降\n[§e~§r] 保持静止把水甩干\n[§c-§r] 干燥的绒毛容易着火",
+	"thfluffy.info": "[§c-§r] 受到更多火焰/爆炸伤害\n[§a+§r] §8§o(毛发干燥时)§r冰冻抗性\n[§c-§r] 毛发受潮时速度下降\n[§e~§r] 保持静止把水甩干\n[§c-§r] 干燥的绒毛容易着火\n[§a+§r] 潮湿的绒毛可熄灭你身上的火焰/减少火焰伤害",
 	"fluff_fired_oh_no": "§c你身上的绒毛着火了！",
 	"fluff_damped_good": "§a毛毛受潮了，§e暂时§a不怕火星子了...",
 
@@ -77,13 +78,15 @@
 	"fox.thshy.description": "胆小的天性让你惧怕天敌、惧怕死亡、惧怕人群、惧怕极其危险的生物, 带来诸多不便。不过, 大部分恐惧都能想办法克服。",
 	"thshy.info0": "[§c-§r] 以下情况颤抖, 并获得虚弱和速度效果:\n§b1§r. 接近§c北极熊§r/§c狼§r/§6村民§r/§1循声守卫§r/§7凋零§r/§5末影龙§r\n§b2§r. §e打雷§r\n§b3§r. 低§c生命值§c\n§b4§r§f. 处于另外两个维度\n§b5§r. 接近人类/末影族/烈焰族/潜影族起源玩家\n\n[§c-§r] 以上效果触发时无法睡觉\n\n",
 	"thshy.info1": "对着§d已驯化§f的§c狼§r按下 [%s] 将不再惧怕ta",
-	"thshy.info2": "[§e~§r] 消除恐惧的最好办法就是面对恐惧\n§b1§r. §6村民§r: 得到 [§5村庄英雄§r]\n§b2§r. §1循声守卫§r: 击杀 §43§r 个循声守卫\n§b3§r. §7凋零§r: 击杀 §41§r 个凋零\n§b4§r. §5末影龙§r: 击杀 §41§r 只末影龙\n§b5§r. §e雷电§r: 被雷击 §516§r 次\n§b6§r. 低§c生命值§r: 重生 §58§r 次\n§b7§r. 进入下界 / 末地: 在相应的维度呆 §310§r 分钟\n§b8§r. 靠近部分种族玩家: 被他们 §d互动",
-	"thshy.info3": "\n\n恐惧效果触发时， 按住 [%s] 高亮15格内引起恐惧的实体",
+	"thshy.info2": "[§e~§r] 消除恐惧的最好办法就是面对恐惧\n§b1§r. §6村民§r: 得到 [§5村庄英雄§r]\n§b2§r. §1循声守卫§r: 击杀 §43§r 个循声守卫\n§b3§r. §7凋零§r: 击杀 §41§r 个凋零\n§b4§r. §5末影龙§r: 击杀 §41§r 只末影龙\n§b5§r. §e雷电§r: 被雷击 §516§r 次\n§b6§r. 低§c生命值§r: 重生或触发不死图腾 §58§r 次\n§b7§r. 进入下界 / 末地: 在相应的维度呆 §310§r 分钟\n§b8§r. 靠近部分种族玩家: 被他们 §d互动",
+	"thshy.info3": "\n\n恐惧效果触发时， 按住 [%s] 高亮15格内引起恐惧的实体\n\n对着一位被信任(不再惧怕)的玩家潜行并按下[%s]收回信任",
 	"thorigins.wolf_certified_0": "§a好狗狗证书颁发成功",
 	"thorigins.wolf_certified_1": "§a同意了来自<§r%s§a>的好友申请",
 	"thorigins.wolf_certified_2": "§a你与这只天敌达成了共识",
 	"thorigins.wolf_certified_3": "§a<§r%s§a>注册成为了职业好狗狗",
 	"thorigins.wolf_certified_4": "§a握手协议已达成",
+	"thshy.conquer.general": "§a你克服了对<%s§a>的恐惧!",
+	"thshy.fear.low_health": "低生命值",
 
 	"fox.thfood.name": "§e§n独特胃口",
 	"fox.thfood.description": "狐狸对某些食物的偏好被刻入了你的DNA。",
@@ -99,6 +102,7 @@
 	"fox.cant_sleep_shade": "你的狐狸基因阻止你露天睡觉！",
 	"fox.cant_sleep_fear": "你现在不能睡觉, 周围有令你恐惧的东西!",
 	"fox.cant_sleep_hunt": "你正在狩猎!别偷懒!",
+	"fox.cant_sleep_near_armor_stand": "附近有盔甲架让你无法入睡！",
 
 	"death.attack.thorigins:foxie_bite": "%1$s被撕成了碎片。",
 	"death.attack.thorigins:predator_bite": "%1$s被%2$s开膛破肚。",
@@ -108,8 +112,6 @@
 
 	"death.attack.thorigins:foxie_bite.item": "%1$s低估了爪持%3$s的%2$s在死斗中的野性。",
 	"death.attack.thorigins:predator_bite.item": "%1$s被一只爪持%3$s的%2$s掏空了内脏, 惨不忍睹。",
-
-	"fox.wakeup.item": "你在睡梦中找到了个<%s>!",
 
 	"fox.petter": "§d你摸了摸%s§d的脑袋",
 	"fox.petted": "§d你被%s§d摸头了",
@@ -122,6 +124,8 @@
 	"fox.belly_rubbed": "%s§d轻轻摸了摸你的肚子",
 
 	"fox.trusted": "§d友好互动!你获得了狐狸的信任",
+	"fox.trust": "§d你现在信任[%s§8](且不再惧怕ta们了)",
+	"fox.untrust": "§8你不再信任[%s§8]",
 	"fox.distrusted": "§4你不再被狐狸信任...",
 
 	"layer.thorigins.foxsize.name": "体型",
@@ -144,8 +148,8 @@
 	"figura_off": "§dFigura模式§r §c关闭§r, §b你的碰撞箱和视角高度已重置\n§b如果§f§n所有技能都消失了§r, §e退出重进§r§b可解",
 
 	"thorigins.forge.server.detected": "检测到§cForge多人服务器§r环境!\n该起源的[§5积雪行者§r]被动技能已被自动禁用\n不然会有很可怕的事情发生 :3c",
+	"leash_tip": "施加拴绳时[§e潜行§r]将极大提高拴绳断开阈值",
 	"tied_leash_to_fence": "§e潜行+右键§r§6被拴住的玩家§r§b解放ta们§r",
-	"leash_tip": "[潜行] + 栓绳 = 最大栓绳距离大幅延长",
 	"tie_dupe": "§b你一次只能牵引§c1§b只生物!",
 
 	"nightvision_fix": "§e夜视修复 [§r%s§e]§r",
@@ -160,6 +164,9 @@
 	"thorigins.advancements.all_modifier.title": "资深小狐狸刺客",
 	"thorigins.advancements.all_modifier.description": "触发最大伤害加成倍率组合",
 
+	"thorigins.advancements.berry_damage.title": "这对吗？",
+	"thorigins.advancements.berry_damage.description": "狐狸是怎么被浆果丛刺伤的？这不河里！",
+
 	"thorigins.advancements.berry_effect.title": "魔幻浆果",
 	"thorigins.advancements.berry_effect.description": "吃浆果并获得一个随机正面效果",
 
@@ -167,7 +174,28 @@
 	"thorigins.advancements.bonk.description": "听起来像是空心的...",
 
 	"thorigins.advancements.conquer_all_fear.title": "勇敢狐狸不怕困难",
-	"thorigins.advancements.conquer_all_fear.description": "克服所有可克服的恐惧（除了来自死亡的）",
+	"thorigins.advancements.conquer_all_fear.description": "克服所有恐惧",
+
+	"thorigins.advancements.conquer_fear_death.title": "九条命",
+	"thorigins.advancements.conquer_fear_death.description": "逃离死亡８次以战胜对死亡的恐惧",
+
+	"thorigins.advancements.conquer_fear_dimensions.title": "高适应性",
+	"thorigins.advancements.conquer_fear_dimensions.description": "在下界和终末之地各呆１０分钟以战胜对应维度的恐惧",
+
+	"thorigins.advancements.conquer_fear_ender_dragon.title": "龙曾在此",
+	"thorigins.advancements.conquer_fear_ender_dragon.description": "击杀一只末影龙以战胜对其的恐惧",
+
+	"thorigins.advancements.conquer_fear_thunder.title": "炸毛小狐狸",
+	"thorigins.advancements.conquer_fear_thunder.description": "雷劈自己１６次以战胜对雷声的恐惧",
+
+	"thorigins.advancements.conquer_fear_warden.title": "小狐狸 > 循声守卫 Q.E.D",
+	"thorigins.advancements.conquer_fear_warden.description": "击杀三只循声守卫以战胜对其的恐惧",
+
+	"thorigins.advancements.conquer_fear_wither.title": "坠落之星",
+	"thorigins.advancements.conquer_fear_wither.description": "击杀一只凋零以战胜对其的恐惧",
+
+	"thorigins.advancements.damp_fur_insulator.title": "意外的隔热功能",
+	"thorigins.advancements.damp_fur_insulator.description": "让你湿漉漉的绒毛隔绝部分来自火焰的伤害",
 
 	"thorigins.advancements.enhanced_pounce.title": "十万八千里",
 	"thorigins.advancements.enhanced_pounce.description": "利用跳跃提升2加持的掠袭一跃千里",
@@ -219,6 +247,9 @@
 
 	"thorigins.advancements.test_advancement.title": "测试成就，请无视",
 	"thorigins.advancements.test_advancement.description": "跨越时空Boop作者 >:3c",
+
+	"thorigins.advancements.use_mace.title": "小狐抡大锤",
+	"thorigins.advancements.use_mace.description": "--后果自负 :3",
 
 	"thorigins.advancements.wimdy.title": "强风大狐头",
 	"thorigins.advancements.wimdy.description": "在风袭群系被风吹得狐毛乱飞"

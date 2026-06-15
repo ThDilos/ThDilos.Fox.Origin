@@ -101,9 +101,9 @@ For all the other settings, the "start_value" can only be either 0 or 1
    By default: ON
    Player consume oxygen faster when under water.
 
-9. "grabby_paws"
-   By default: ON
-   Whether player passively pulls dropped items within 2 blocks towards them
+9. "ride_everything"
+   By default: OFF
+   Whether player can ride on any entities
 
 10. "enable_sleepin_mode"
    By default: ON

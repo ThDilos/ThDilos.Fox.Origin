@@ -1,0 +1,40 @@
+{
+	"criteria": {
+		"used_totem": {
+			"conditions": {
+				"item": {
+					"items": ["minecraft:totem_of_undying"]
+				},
+				"player": {
+					"nbt": "{Tags:[\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/root": true
+						}
+					}
+				}
+			},
+			"trigger": "minecraft:used_totem"
+		}
+	},
+	"display": {
+		"announce_to_chat": false,
+		"background": "minecraft:textures/block/white_wool.png",
+		"description": {
+			"translate": "Utility Advancement, plz ignore",
+			"fallback": "Utility Advancement, plz ignore"
+		},
+		"frame": "task",
+		"hidden": true,
+		"icon": {
+			"id": "minecraft:barrier"
+		},
+		"show_toast": false,
+		"title": {
+			"translate": "[Totem Trigger]",
+			"fallback": "[Totem Trigger]"
+		}
+	},
+	"requirements": [["used_totem"]]
+}

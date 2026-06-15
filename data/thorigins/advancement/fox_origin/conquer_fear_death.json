@@ -1,0 +1,178 @@
+{
+	"parent": "thorigins:fox_origin/fear",
+	"criteria": {
+		"death_count_1": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.foxie.death": {
+								"min": 1
+							}
+						}
+					},
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"nbt": "{Tags: [\"foxie\"]}",
+							"type_specific": {
+								"type": "player",
+								"advancements": {
+									"thorigins:fox_origin/fear": true
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		"death_count_2": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.foxie.death": {
+								"min": 2
+							}
+						}
+					}
+				]
+			}
+		},
+		"death_count_3": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.foxie.death": {
+								"min": 3
+							}
+						}
+					}
+				]
+			}
+		},
+		"death_count_4": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.foxie.death": {
+								"min": 4
+							}
+						}
+					}
+				]
+			}
+		},
+		"death_count_5": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.foxie.death": {
+								"min": 5
+							}
+						}
+					}
+				]
+			}
+		},
+		"death_count_6": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.foxie.death": {
+								"min": 6
+							}
+						}
+					}
+				]
+			}
+		},
+		"death_count_7": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.foxie.death": {
+								"min": 7
+							}
+						}
+					}
+				]
+			}
+		},
+		"death_count_8": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.foxie.death": {
+								"min": 8
+							}
+						}
+					}
+				]
+			}
+		}
+	},
+
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.conquer_fear_death.description",
+			"fallback": "Conquer the fear of death by escaping from it 8 times"
+		},
+		"frame": "task",
+		"hidden": false,
+		"icon": {
+			"id": "minecraft:totem_of_undying"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.conquer_fear_death.title",
+			"fallback": "Nine-Lives"
+		}
+	},
+	"requirements": [
+		["death_count_1"],
+		["death_count_2"],
+		["death_count_3"],
+		["death_count_4"],
+		["death_count_5"],
+		["death_count_6"],
+		["death_count_7"],
+		["death_count_8"]
+	],
+	"rewards": {
+		"experience": 500
+	}
+}

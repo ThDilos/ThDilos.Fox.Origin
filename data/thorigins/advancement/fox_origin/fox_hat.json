@@ -24,6 +24,5 @@
 			"fallback": "Fox Hat"
 		}
 	},
-	"requirements": [["to_be_granted"]],
-	"sends_telemetry_event": true
+	"requirements": [["to_be_granted"]]
 }

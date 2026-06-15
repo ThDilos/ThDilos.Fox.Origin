@@ -17,7 +17,19 @@
 					"taken": {
 						"min": 100
 					}
-				}
+				},
+				"entity": [
+					{
+						"condition": "minecraft:inverted",
+						"term": {
+							"condition": "minecraft:entity_properties",
+							"entity": "this",
+							"predicate": {
+								"type": "minecraft:ghast"
+							}
+						}
+					}
+				]
 			}
 		}
 	},
@@ -40,7 +52,6 @@
 		}
 	},
 	"requirements": [["more_than_hundred"]],
-	"sends_telemetry_event": true,
 	"rewards": {
 		"experience": 300
 	}

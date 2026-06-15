@@ -1,0 +1,27 @@
+{
+	"parent": "thorigins:fox_origin/use_mace",
+	"criteria": {
+		"to_be_granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.berry_damage.description",
+			"fallback": "How'd a fox get damaged by berry bushes? That's against the minecraft law!"
+		},
+		"frame": "task",
+		"hidden": true,
+		"icon": {
+			"id": "minecraft:pufferfish"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.berry_damage.title",
+			"fallback": "Huh?"
+		}
+	},
+	"requirements": [["to_be_granted"]]
+}

@@ -1,8 +1,103 @@
 {
 	"parent": "thorigins:fox_origin/fear",
 	"criteria": {
-		"to_be_granted": {
-			"trigger": "minecraft:impossible"
+		"conquer_fear_death": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"nbt": "{Tags: [\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/conquer_fear_death": true
+						}
+					}
+				}
+			}
+		},
+		"conquer_fear_dimensions": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"nbt": "{Tags: [\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/conquer_fear_dimensions": true
+						}
+					}
+				}
+			}
+		},
+		"conquer_fear_ender_dragon": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"nbt": "{Tags: [\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/conquer_fear_ender_dragon": true
+						}
+					}
+				}
+			}
+		},
+		"conquer_fear_thunder": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"nbt": "{Tags: [\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/conquer_fear_thunder": true
+						}
+					}
+				}
+			}
+		},
+		"conquer_fear_warden": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"nbt": "{Tags: [\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/conquer_fear_warden": true
+						}
+					}
+				}
+			}
+		},
+		"conquer_fear_wither": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"nbt": "{Tags: [\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/conquer_fear_wither": true
+						}
+					}
+				}
+			}
+		},
+		"conquer_fear_villager": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"nbt": "{Tags: [\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"minecraft:adventure/hero_of_the_village": true
+						}
+					}
+				}
+			}
 		}
 	},
 
@@ -11,7 +106,7 @@
 		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
 		"description": {
 			"translate": "thorigins.advancements.conquer_all_fear.description",
-			"fallback": "Conquer all conquerable fears (except from death)"
+			"fallback": "Conquer all conquerable fears"
 		},
 		"frame": "challenge",
 		"hidden": false,
@@ -24,9 +119,16 @@
 			"fallback": "Brave Litol Fox"
 		}
 	},
-	"requirements": [["to_be_granted"]],
-	"sends_telemetry_event": true,
+	"requirements": [
+		["conquer_fear_death"],
+		["conquer_fear_dimensions"],
+		["conquer_fear_ender_dragon"],
+		["conquer_fear_thunder"],
+		["conquer_fear_warden"],
+		["conquer_fear_wither"],
+		["conquer_fear_villager"]
+	],
 	"rewards": {
-		"experience": 500
+		"experience": 1500
 	}
 }

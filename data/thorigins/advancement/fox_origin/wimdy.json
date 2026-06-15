@@ -48,6 +48,5 @@
 			"fallback": "It Wimdy"
 		}
 	},
-	"requirements": [["visited"]],
-	"sends_telemetry_event": true
+	"requirements": [["visited"]]
 }

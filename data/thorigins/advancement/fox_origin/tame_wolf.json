@@ -24,7 +24,6 @@
 		}
 	},
 	"requirements": [["to_be_granted"]],
-	"sends_telemetry_event": true,
 	"rewards": {
 		"experience": 100
 	}

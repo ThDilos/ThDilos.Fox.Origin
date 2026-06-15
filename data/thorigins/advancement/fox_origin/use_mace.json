@@ -1,0 +1,27 @@
+{
+	"parent": "thorigins:fox_origin/foxie_bite",
+	"criteria": {
+		"to_be_granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.use_mace.description",
+			"fallback": "Use the Mace despite being a weak lil fox and suffer the consequences"
+		},
+		"frame": "task",
+		"hidden": false,
+		"icon": {
+			"id": "minecraft:mace"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.use_mace.title",
+			"fallback": "Fox around and Find out"
+		}
+	},
+	"requirements": [["to_be_granted"]]
+}
