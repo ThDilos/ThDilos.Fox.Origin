@@ -1,45 +1,28 @@
-# Realistic-Fox-Origin
+# Realistic Fox Origin
 A custom-made fox origin mod for Minecraft Fabric Origins Mod.\
 Language available: Simplified Chinese & English
 
 **Needs Fabric**
-(Forge is also possible, but would not be as functional as Fabric)
-
+(Forge is also possible, but would not be as functional as Fabric)\
 **Needs Origins Mod (Either Fabric or Forge ver.), Pehkui Mod to function**
 
-Fabric: https://fabricmc.net/use/installer/
-
-Origins Mod: https://www.curseforge.com/minecraft/mc-mods/origins
-
+Fabric: https://fabricmc.net/use/installer/\
+Origins Mod: https://www.curseforge.com/minecraft/mc-mods/origins\
 Pehkui Mod: https://www.curseforge.com/minecraft/mc-mods/pehkui
 
 This was my first time writing a mod.
 
 Technically it's not a mod, I just created the datapack first (also my first time) and added the fabric header file then converted it to .jar to make it work in mods folder.
 
-This is also my first Origin, I just kept adding new stuff into it and fixing bugs for more than a year.
+This is also my first Origin, I just kept adding new stuff into it and fixing bugs for years.
 
-Anyways, hope you have fun with this mod ;)
+Anyways, hope you have fun with this mod ;)\
+Alternative way of reporting bugs / suggestions: [My Discord Server](https://discord.gg/4GFpQGY6en)
 
-
-Alternative way of reporting bugs / suggestions: [Discord Server](https://discord.gg/4GFpQGY6en)
+**=-=-<[ Please don't feed my creations into GenAIs :c ]>-=-=**
 
 ---
-### Before you install:
-This Origin is intended for both **Single** AND **Multi** Player environment.\
-However, due to the **sheer amount of skills** it has, it _WILL_ bring lag to a less-optimal server.\
-Since V4.0, my main focus has shifted from _adding new stuff_ into _maximising performance_, if there is new stuff to be added, it has to be not causing lag as well.\
-Because of this, you won't see the me adding stuff like "**Walk on Powder Snow**". I may even have achieved them via Origins and Minecraft Commands, but they are abandoned due to performance cost.
 
-I will try to use Minecraft Fabric / Forge Coding to achieve the powers that should be added but couldn't because of performance issue when I have time and motivation.\
-Minecraft Java Modding is a new thing to me, which I have tried to learn in the past but failed as I couldn't understand the existing tutorials.
-
-For now, this Origin is **BEST** to be used in Single Player. It usually has **NO** performance problem when in Single Player.\
-If in multiplayer, make sure:
-1. **THERE IS NOT MANY MODS**
-2. Server is mid-high config
-3. There is not many people playing
----
 ### Currently Known Incompatibilities
 These Incompatibilities are applied to **All Origins** with similar Powers.\
 My Fox has **a lot** of Powers, which makes it extra vulnerable to incompatibility issues :(

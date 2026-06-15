@@ -68,9 +68,9 @@ For all the other settings, the "start_value" can only be either 0 or 1
    By default: ON
    Player consume oxygen faster when under water.
 
-9. "grabby_paws"
-   By default: ON
-   Whether player can left click a dropped item within 3 blocks to pull it towards them
+9. "ride_everything"
+   By default: OFF
+   Whether player can ride on any entities
 
 10. "enable_sleepin_mode"
    By default: ON
@@ -120,7 +120,7 @@ Drawbacks:
    You may find it very hard to crit in occasions, (and mace deal low damage) because this power is messing with fall distance.
    This power is inconsistent in Server Environment. Almost 100% functional in Single Player.
 
-2. "optional_walk_on_powdered_snow" [Not for < 1.19.4]
+2. "optional_walk_on_powdered_snow" [Not for < 1.19.4 and 1.21.1]
 Lag Factors: 10 Subpowers, 2 Ticking-Every-Tick Functions
 Brief Introduction:
    This power allows you to _somewhat_ walk / jump / sneak on powdered snow.
