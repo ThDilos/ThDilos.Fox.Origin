@@ -321,7 +321,7 @@
 			"type": "origins:actor_condition",
 			"condition": {
 				"type": "origins:in_tag",
-				"tag": "thorigins:predators"
+				"tag": "thorigins:predator"
 			}
 		},
 		"bientity_action": {
