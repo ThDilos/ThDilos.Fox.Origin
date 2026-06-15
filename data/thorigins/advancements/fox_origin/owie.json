@@ -38,6 +38,5 @@
 			"fallback": "Owie"
 		}
 	},
-	"requirements": [["hurt"]],
-	"sends_telemetry_event": true
+	"requirements": [["hurt"]]
 }

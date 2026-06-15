@@ -102,7 +102,7 @@
 			"fallback": "Visit a windswept biome and have your fur blown messy"
 		},
 		"frame": "task",
-		"hidden": true,
+		"hidden": false,
 		"icon": {
 			"item": "minecraft:feather"
 		},
@@ -119,6 +119,5 @@
 			"windswept_hills",
 			"windswept_savanna"
 		]
-	],
-	"sends_telemetry_event": true
+	]
 }

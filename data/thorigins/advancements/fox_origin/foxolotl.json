@@ -42,6 +42,5 @@
 			"fallback": "Foxolotl"
 		}
 	},
-	"requirements": [["fox_on_axolotl"]],
-	"sends_telemetry_event": true
+	"requirements": [["fox_on_axolotl"]]
 }
