@@ -1,0 +1,314 @@
+{
+	"parent": "thorigins:fox_origin/fear",
+	"criteria": {
+		"thunder_struck_1": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 1
+							}
+						}
+					},
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"nbt": "{Tags: [\"foxie\"]}",
+							"type_specific": {
+								"type": "player",
+								"advancements": {
+									"thorigins:fox_origin/fear": true
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_2": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 2
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_3": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 3
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_4": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 4
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_5": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 5
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_6": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 6
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_7": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 7
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_8": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 8
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_9": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 9
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_10": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 10
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_11": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 11
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_12": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 12
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_13": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 13
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_14": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 14
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_15": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 15
+							}
+						}
+					}
+				]
+			}
+		},
+		"thunder_struck_16": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_scores",
+						"entity": "this",
+						"scores": {
+							"thorigins.thunder.struck": {
+								"min": 16
+							}
+						}
+					}
+				]
+			}
+		}
+	},
+
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.conquer_fear_thunder.description",
+			"fallback": "Conquer the fear of thunder by striking yourself with lightning 16 times"
+		},
+		"frame": "task",
+		"hidden": false,
+		"icon": {
+			"item": "minecraft:lightning_rod"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.conquer_fear_thunder.title",
+			"fallback": "Channeling Fox"
+		}
+	},
+	"requirements": [
+		["thunder_struck_1"],
+		["thunder_struck_2"],
+		["thunder_struck_3"],
+		["thunder_struck_4"],
+		["thunder_struck_5"],
+		["thunder_struck_6"],
+		["thunder_struck_7"],
+		["thunder_struck_8"],
+		["thunder_struck_9"],
+		["thunder_struck_10"],
+		["thunder_struck_11"],
+		["thunder_struck_12"],
+		["thunder_struck_13"],
+		["thunder_struck_14"],
+		["thunder_struck_15"],
+		["thunder_struck_16"]
+	],
+	"rewards": {
+		"experience": 500
+	}
+}

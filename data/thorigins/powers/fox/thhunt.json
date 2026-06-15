@@ -234,14 +234,12 @@
 								"dimension": "minecraft:the_nether"
 							},
 							"if_action": {
-								"type": "origins:change_resource",
-								"resource": "*:fox/thtrackers_time_in_nether",
-								"change": 40
+								"type": "origins:execute_command",
+								"command": "/scoreboard players add @s[scores={thorigins.time.in.nether=..12000}] thorigins.time.in.nether 40"
 							},
 							"else_action": {
-								"type": "origins:change_resource",
-								"resource": "*:fox/thtrackers_time_in_end",
-								"change": 40
+								"type": "origins:execute_command",
+								"command": "/scoreboard players add @s[scores={thorigins.time.in.end=..12000}] thorigins.time.in.end 40"
 							}
 						},
 						"else_action": {
@@ -251,14 +249,12 @@
 								"dimension": "minecraft:the_nether"
 							},
 							"if_action": {
-								"type": "origins:change_resource",
-								"resource": "*:fox/thtrackers_time_in_nether",
-								"change": 20
+								"type": "origins:execute_command",
+								"command": "/scoreboard players add @s[scores={thorigins.time.in.nether=..12000}] thorigins.time.in.nether 20"
 							},
 							"else_action": {
-								"type": "origins:change_resource",
-								"resource": "*:fox/thtrackers_time_in_end",
-								"change": 20
+								"type": "origins:execute_command",
+								"command": "/scoreboard players add @s[scores={thorigins.time.in.end=..12000}] thorigins.time.in.end 20"
 							}
 						}
 					}
@@ -522,8 +518,8 @@
 									"dimension": "minecraft:the_nether"
 								},
 								{
-									"type": "origins:resource",
-									"resource": "*:fox/thtrackers_time_in_nether",
+									"type": "origins:scoreboard",
+									"objective": "thorigins.time.in.nether",
 									"compare_to": 12000,
 									"comparison": "<"
 								}
@@ -537,8 +533,8 @@
 									"dimension": "minecraft:the_end"
 								},
 								{
-									"type": "origins:resource",
-									"resource": "*:fox/thtrackers_time_in_end",
+									"type": "origins:scoreboard",
+									"objective": "thorigins.time.in.end",
 									"compare_to": 12000,
 									"comparison": "<"
 								}
@@ -657,10 +653,10 @@
 									"dimension": "minecraft:the_nether"
 								},
 								{
-									"type": "origins:resource",
-									"resource": "*:fox/thtrackers_time_in_nether",
+									"type": "origins:scoreboard",
+									"objective": "thorigins.time.in.nether",
 									"compare_to": 12000,
-									"comparison": "=="
+									"comparison": ">="
 								}
 							]
 						},
@@ -672,10 +668,10 @@
 									"dimension": "minecraft:the_end"
 								},
 								{
-									"type": "origins:resource",
-									"resource": "*:fox/thtrackers_time_in_end",
+									"type": "origins:scoreboard",
+									"objective": "thorigins.time.in.end",
 									"compare_to": 12000,
-									"comparison": "=="
+									"comparison": ">="
 								}
 							]
 						},

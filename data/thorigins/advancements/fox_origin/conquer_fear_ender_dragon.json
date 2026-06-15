@@ -1,0 +1,45 @@
+{
+	"parent": "thorigins:fox_origin/conquer_fear_dimensions",
+	"criteria": {
+		"ender_dragon_kill": {
+			"trigger": "minecraft:player_killed_entity",
+			"conditions": {
+				"player": {
+					"nbt": "{Tags: [\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/fear": true
+						}
+					}
+				},
+				"entity": {
+					"type": "minecraft:ender_dragon"
+				}
+			}
+		}
+	},
+
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.conquer_fear_ender_dragon.description",
+			"fallback": "Conquer the fear of Ender Dragon by slaying one"
+		},
+		"frame": "task",
+		"hidden": false,
+		"icon": {
+			"item": "minecraft:dragon_head"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.conquer_fear_ender_dragon.title",
+			"fallback": "Here was Dragon"
+		}
+	},
+	"requirements": [["ender_dragon_kill"]],
+	"rewards": {
+		"experience": 500
+	}
+}

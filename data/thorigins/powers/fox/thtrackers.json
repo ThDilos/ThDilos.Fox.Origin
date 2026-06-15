@@ -83,6 +83,46 @@
 				"type": "origins:and",
 				"actions": [
 					{
+						"type": "origins:execute_command",
+						"command": "/scoreboard objectives add thorigins.killed.warden minecraft.killed:minecraft.warden"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/scoreboard objectives add thorigins.thunder.struck dummy"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/scoreboard objectives add thorigins.time.in.nether dummy"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/scoreboard objectives add thorigins.time.in.end dummy"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/scoreboard players add @s thorigins.killed.warden 0"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/scoreboard players add @s thorigins.thunder.struck 0"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/scoreboard players add @s thorigins.time.in.nether 0"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/scoreboard players add @s thorigins.time.in.end 0"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/scoreboard objectives add thorigins.foxie.death deathCount"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "/scoreboard players add @s thorigins.foxie.death 0"
+					},
+					{
 						"type": "origins:if_else",
 						"condition": {
 							"type": "origins:command",
@@ -335,58 +375,6 @@
 						"conditions": [
 							{
 								"type": "origins:resource",
-								"resource": "*:*_warden_kills",
-								"compare_to": 3,
-								"comparison": ">="
-							},
-							{
-								"type": "origins:advancement",
-								"advancement": "minecraft:adventure/hero_of_the_village"
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:*_thunderstruck",
-								"compare_to": 16,
-								"comparison": ">="
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:*_edrag_kills",
-								"compare_to": 1,
-								"comparison": ">="
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:*_wither_kills",
-								"compare_to": 1,
-								"comparison": ">="
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:*_time_in_nether",
-								"compare_to": 12000,
-								"comparison": "=="
-							},
-							{
-								"type": "origins:resource",
-								"resource": "*:*_time_in_end",
-								"compare_to": 12000,
-								"comparison": "=="
-							}
-						]
-					},
-					"if_action": {
-						"type": "origins:execute_command",
-						"command": "/advancement grant @s only thorigins:fox_origin/conquer_all_fear"
-					}
-				},
-				{
-					"type": "origins:if_else",
-					"condition": {
-						"type": "origins:and",
-						"conditions": [
-							{
-								"type": "origins:resource",
 								"resource": "*:*_flammability_notification",
 								"compare_to": 1,
 								"comparison": "=="
@@ -404,79 +392,29 @@
 						"resource": "*:*_flammability_notification",
 						"change": -1
 					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:advancement",
+						"advancement": "thorigins:utils/totem_trigger"
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/advancement revoke @s only thorigins:utils/totem_trigger"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/scoreboard players add @s thorigins.foxie.death 1"
+							}
+						]
+					}
 				}
 			]
 		}
-	},
-
-	"warden_kills": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 65535,
-		"start_value": 0
-	},
-
-	"warden_kills_tracker": {
-		"type": "origins:self_action_on_kill",
-		"target_condition": {
-			"type": "origins:entity_type",
-			"entity_type": "minecraft:warden"
-		},
-		"entity_action": {
-			"type": "origins:change_resource",
-			"resource": "*:*_warden_kills",
-			"change": 1
-		},
-		"cooldown": 0
-	},
-
-	"wither_kills": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 65535,
-		"start_value": 0
-	},
-
-	"wither_kills_tracker": {
-		"type": "origins:self_action_on_kill",
-		"target_condition": {
-			"type": "origins:entity_type",
-			"entity_type": "minecraft:wither"
-		},
-		"entity_action": {
-			"type": "origins:change_resource",
-			"resource": "*:*_wither_kills",
-			"change": 1
-		},
-		"cooldown": 0
-	},
-
-	"edrag_kills": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 65535,
-		"start_value": 0
-	},
-
-	"edrag_kills_tracker": {
-		"type": "origins:self_action_on_kill",
-		"target_condition": {
-			"type": "origins:entity_type",
-			"entity_type": "minecraft:ender_dragon"
-		},
-		"entity_action": {
-			"type": "origins:change_resource",
-			"resource": "*:*_edrag_kills",
-			"change": 1
-		},
-		"cooldown": 0
-	},
-
-	"thunderstruck": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 65535,
-		"start_value": 0
 	},
 
 	"thunderstruck_tracker": {
@@ -486,53 +424,9 @@
 			"name": "lightningBolt"
 		},
 		"entity_action": {
-			"type": "origins:change_resource",
-			"resource": "*:*_thunderstruck",
-			"change": 1
+			"type": "origins:execute_command",
+			"command": "/scoreboard players add @s thorigins.thunder.struck 1"
 		},
 		"cooldown": 0
-	},
-
-	"death": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 65535,
-		"start_value": 0
-	},
-
-	"death_tracker": {
-		"type": "origins:self_action_when_hit",
-		"entity_action": {
-			"type": "origins:delay",
-			"ticks": 1,
-			"action": {
-				"type": "origins:if_else",
-				"condition": {
-					"type": "origins:health",
-					"compare_to": 0,
-					"comparison": "<="
-				},
-				"if_action": {
-					"type": "origins:change_resource",
-					"resource": "*:*_death",
-					"change": 1
-				}
-			}
-		},
-		"cooldown": 10
-	},
-
-	"time_in_nether": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 12000,
-		"start_value": 0
-	},
-
-	"time_in_end": {
-		"type": "origins:resource",
-		"min": 0,
-		"max": 12000,
-		"start_value": 0
 	}
 }

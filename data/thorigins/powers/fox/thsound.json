@@ -460,6 +460,69 @@
 						},
 						{
 							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 69,
+										"comparison": ">="
+									},
+									{
+										"type": "origins:scoreboard",
+										"objective": "foxtype",
+										"compare_to": 76,
+										"comparison": "<="
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "/scoreboard players remove @s foxtype 70"
+									},
+									{
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:command",
+											"command": "/execute if entity @s[tag=hide_fear_bossbar]",
+											"compare_to": 0,
+											"comparison": ">"
+										},
+										"if_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"hide_fear_bossbar\",\"with\":[{\"text\":\"OFF\",\"color\":\"red\"}]}]"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/tag @s remove hide_fear_bossbar"
+												}
+											]
+										},
+										"else_action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "/tellraw @s [{\"translate\":\"hide_fear_bossbar\",\"with\":[{\"text\":\"ON\",\"color\":\"green\"}]}]"
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "/tag @s add hide_fear_bossbar"
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
 								"type": "origins:or",
 								"inverted": true,
 								"conditions": [

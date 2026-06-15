@@ -1,0 +1,45 @@
+{
+	"parent": "thorigins:fox_origin/conquer_fear_dimensions",
+	"criteria": {
+		"wither_kill": {
+			"trigger": "minecraft:player_killed_entity",
+			"conditions": {
+				"player": {
+					"nbt": "{Tags: [\"foxie\"]}",
+					"type_specific": {
+						"type": "player",
+						"advancements": {
+							"thorigins:fox_origin/fear": true
+						}
+					}
+				},
+				"entity": {
+					"type": "minecraft:wither"
+				}
+			}
+		}
+	},
+
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.conquer_fear_wither.description",
+			"fallback": "Conquer the fear of Wither by killing one"
+		},
+		"frame": "task",
+		"hidden": false,
+		"icon": {
+			"item": "minecraft:nether_star"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.conquer_fear_wither.title",
+			"fallback": "Fallen Star"
+		}
+	},
+	"requirements": [["wither_kill"]],
+	"rewards": {
+		"experience": 500
+	}
+}

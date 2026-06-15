@@ -46,6 +46,27 @@
 		}
 	],
 
+	"init": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/scoreboard objectives add thorigins.fear_timer dummy"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/bossbar add thorigins.fear_timer \"Fear\""
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/bossbar set minecraft:thorigins.fear_timer color red"
+				}
+			]
+		}
+	},
+
 	"ticks": {
 		"type": "origins:action_over_time",
 		"interval": 1,
@@ -57,8 +78,8 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:resource",
-					"resource": "*:fox/thtrackers_thunderstruck",
+					"type": "origins:scoreboard",
+					"objective": "thorigins.thunder.struck",
 					"comparison": "<",
 					"compare_to": 16
 				},
@@ -70,9 +91,31 @@
 				},
 				{
 					"type": "origins:command",
-					"command": "/execute if entity @e[type=lightning_bolt,distance=0..]",
+					"command": "/execute if entity @e[type=lightning_bolt,distance=..160000]",
 					"compare_to": 0,
 					"comparison": ">"
+				}
+			]
+		}
+	},
+
+	"ticks_2": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/execute store result score @s thorigins.fear_timer run resource get @s thorigins:fox/thshy_fear_timer"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/execute store result bossbar minecraft:thorigins.fear_timer value run scoreboard players get @s thorigins.fear_timer"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/bossbar set minecraft:thorigins.fear_timer players @a[scores={thorigins.fear_timer=1..},tag=foxie,tag=!hide_fear_bossbar]"
 				}
 			]
 		}
@@ -107,10 +150,21 @@
 							"type": "origins:or",
 							"conditions": [
 								{
-									"type": "origins:command",
-									"command": "/execute if entity @e[type=#thorigins:fear_source,distance=..18,tag=!foxie_trust]",
-									"compare_to": 0,
-									"comparison": ">"
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:command",
+											"command": "/execute if entity @e[type=#thorigins:fear_source,distance=..18,tag=!foxie_trust]",
+											"compare_to": 0,
+											"comparison": ">"
+										},
+										{
+											"type": "origins:resource",
+											"resource": "*:*_fear_fear_source",
+											"compare_to": 1,
+											"comparison": "=="
+										}
+									]
 								},
 								{
 									"type": "origins:and",
@@ -132,10 +186,10 @@
 									"type": "origins:and",
 									"conditions": [
 										{
-											"type": "origins:resource",
-											"resource": "*:fox/thtrackers_warden_kills",
-											"comparison": "<",
-											"compare_to": 3
+											"type": "origins:scoreboard",
+											"objective": "thorigins.killed.warden",
+											"compare_to": 3,
+											"comparison": "<"
 										},
 										{
 											"type": "origins:command",
@@ -149,10 +203,9 @@
 									"type": "origins:and",
 									"conditions": [
 										{
-											"type": "origins:resource",
-											"resource": "*:fox/thtrackers_wither_kills",
-											"comparison": "<",
-											"compare_to": 1
+											"type": "origins:advancement",
+											"advancement": "thorigins:fox_origin/conquer_fear_wither",
+											"inverted": true
 										},
 										{
 											"type": "origins:command",
@@ -166,10 +219,9 @@
 									"type": "origins:and",
 									"conditions": [
 										{
-											"type": "origins:resource",
-											"resource": "*:fox/thtrackers_edrag_kills",
-											"comparison": "<",
-											"compare_to": 1
+											"type": "origins:advancement",
+											"advancement": "thorigins:fox_origin/conquer_fear_ender_dragon",
+											"inverted": true
 										},
 										{
 											"type": "origins:command",
@@ -188,10 +240,10 @@
 											"compare_to": 6
 										},
 										{
-											"type": "origins:resource",
-											"resource": "*:fox/thtrackers_death",
-											"comparison": "<",
-											"compare_to": 8
+											"type": "origins:scoreboard",
+											"objective": "thorigins.foxie.death",
+											"compare_to": 8,
+											"comparison": "<"
 										}
 									]
 								},
@@ -206,10 +258,10 @@
 											"type": "origins:or",
 											"conditions": [
 												{
-													"type": "origins:resource",
+													"type": "origins:scoreboard",
+													"objective": "thorigins.time.in.nether",
 													"compare_to": 12000,
-													"comparison": "<",
-													"resource": "*:fox/thtrackers_time_in_nether"
+													"comparison": "<"
 												},
 												{
 													"type": "origins:resource",
@@ -233,23 +285,6 @@
 													"type": "origins:status_effect",
 													"effect": "minecraft:fire_resistance",
 													"inverted": true
-												},
-												{
-													"type": "origins:equipped_item",
-													"equipment_slot": "chest",
-													"item_condition": {
-														"type": "origins:ingredient",
-														"ingredient": {
-															"item": "minecraft:elytra"
-														}
-													},
-													"inverted": true
-												},
-												{
-													"type": "origins:resource",
-													"resource": "*:fox/thtrackers_death",
-													"comparison": "<",
-													"compare_to": 8
 												}
 											]
 										}
@@ -266,10 +301,10 @@
 											"type": "origins:or",
 											"conditions": [
 												{
-													"type": "origins:resource",
+													"type": "origins:scoreboard",
+													"objective": "thorigins.time.in.end",
 													"compare_to": 12000,
-													"comparison": "<",
-													"resource": "*:fox/thtrackers_time_in_end"
+													"comparison": "<"
 												},
 												{
 													"type": "origins:resource",
@@ -280,26 +315,15 @@
 											]
 										},
 										{
-											"type": "origins:and",
-											"conditions": [
-												{
-													"type": "origins:equipped_item",
-													"equipment_slot": "chest",
-													"item_condition": {
-														"type": "origins:ingredient",
-														"ingredient": {
-															"item": "minecraft:elytra"
-														}
-													},
-													"inverted": true
-												},
-												{
-													"type": "origins:resource",
-													"resource": "*:fox/thtrackers_death",
-													"comparison": "<",
-													"compare_to": 8
+											"type": "origins:equipped_item",
+											"equipment_slot": "chest",
+											"item_condition": {
+												"type": "origins:ingredient",
+												"ingredient": {
+													"item": "minecraft:elytra"
 												}
-											]
+											},
+											"inverted": true
 										}
 									]
 								},
@@ -371,14 +395,31 @@
 											"type": "origins:or",
 											"conditions": [
 												{
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:actor_condition",
+															"condition": {
+																"type": "origins:resource",
+																"resource": "*:*_fear_fear_source",
+																"compare_to": 1,
+																"comparison": "=="
+															}
+														},
+														{
+															"type": "origins:target_condition",
+															"condition": {
+																"type": "origins:in_tag",
+																"tag": "thorigins:fear_source"
+															}
+														}
+													]
+												},
+												{
 													"type": "origins:target_condition",
 													"condition": {
 														"type": "origins:or",
 														"conditions": [
-															{
-																"type": "origins:in_tag",
-																"tag": "thorigins:fear_source"
-															},
 															{
 																"type": "origins:origin",
 																"origin": "origins:human"
@@ -428,10 +469,10 @@
 														{
 															"type": "origins:actor_condition",
 															"condition": {
-																"type": "origins:resource",
-																"resource": "*:fox/thtrackers_warden_kills",
-																"comparison": "<",
-																"compare_to": 3
+																"type": "origins:scoreboard",
+																"objective": "thorigins.killed.warden",
+																"compare_to": 3,
+																"comparison": "<"
 															}
 														},
 														{
@@ -449,10 +490,9 @@
 														{
 															"type": "origins:actor_condition",
 															"condition": {
-																"type": "origins:resource",
-																"resource": "*:fox/thtrackers_wither_kills",
-																"comparison": "<",
-																"compare_to": 1
+																"type": "origins:advancement",
+																"advancement": "thorigins:fox_origin/conquer_fear_wither",
+																"inverted": true
 															}
 														},
 														{
@@ -523,6 +563,13 @@
 	"fear_timer": {
 		"type": "origins:cooldown",
 		"cooldown": 100
+	},
+
+	"fear_fear_source": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 1
 	},
 
 	"fear_status_effects": {
