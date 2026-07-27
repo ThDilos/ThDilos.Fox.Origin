@@ -2,14 +2,14 @@
 	"schemaVersion": 1,
 	"environment": "*",
 	"depends": {
-		"origins": ">=1.13.0-pre.1+mc.1.21.1",
+		"origins": ">=1.13.0-pre.2+mc.1.21.1",
 		"pehkui": ">=3.3.3",
 		"minecraft": ">=1.21"
 	},
 	"name": "ThDilos Fox Origins",
 	"icon": "OriginIcon.png",
 	"id": "thorigins",
-	"version": "5.0.0",
+	"version": "5.0.0.1",
 	"description": "ThDilos' moderatedly complicated homebrew Fox Origin, with 30% pouncin and 70% foxes :3",
 	"license": "Unknown",
 	"pack_format": 15,

@@ -37,7 +37,7 @@
 				{
 					"type": "origins:passenger_action",
 					"bientity_condition": {
-						"type": "origins:actor_condition",
+						"type": "origins:target_condition",
 						"condition": {
 							"type": "origins:power",
 							"power": "*:optional_power/leash/thleash_anchor"
