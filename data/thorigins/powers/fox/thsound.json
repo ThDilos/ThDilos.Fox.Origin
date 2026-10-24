@@ -226,6 +226,10 @@
 									},
 									{
 										"type": "origins:execute_command",
+										"command": "/power revokeall @s thorigins:inherited"
+									},
+									{
+										"type": "origins:execute_command",
 										"command": "/tellraw @s {\"translate\":\"power_reset\"}"
 									}
 								]
@@ -1258,6 +1262,10 @@
 															{
 																"type": "origins:execute_command",
 																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.brushed\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "/advancement grant @s only thorigins:fox_origin/fully_interacted brush_fur"
 															}
 														]
 													}
@@ -1384,6 +1392,10 @@
 																	"type": "origins:execute_command",
 																	"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.feed\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
 																}
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "/advancement grant @s only thorigins:fox_origin/fully_interacted fed"
 															}
 														]
 													}
@@ -1497,6 +1509,10 @@
 																			}
 																		]
 																	}
+																},
+																{
+																	"type": "origins:execute_command",
+																	"command": "/advancement grant @s only thorigins:fox_origin/fully_interacted belly_rub"
 																}
 															]
 														}
@@ -1557,6 +1573,10 @@
 																		"pitch": 1.0,
 																		"category": "players"
 																	}
+																},
+																{
+																	"type": "origins:execute_command",
+																	"command": "/advancement grant @s only thorigins:fox_origin/fully_interacted hug"
 																}
 															]
 														}
@@ -1637,6 +1657,10 @@
 															{
 																"type": "origins:execute_command",
 																"command": "/tellraw @s {\"text\":\"\",\"extra\":[{\"translate\":\"fox.petted\",\"with\":[{\"selector\":\"@e[tag=interactor,limit=1,sort=nearest]\",\"color\":\"aqua\"}]}]}"
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "/advancement grant @s only thorigins:fox_origin/fully_interacted pet"
 															}
 														]
 													}
@@ -1699,6 +1723,10 @@
 																	"volume": 1.0,
 																	"category": "players"
 																}
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "/advancement grant @s only thorigins:fox_origin/fully_interacted boop"
 															}
 														]
 													}
