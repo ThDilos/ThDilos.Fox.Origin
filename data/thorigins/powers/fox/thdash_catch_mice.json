@@ -1,0 +1,592 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+
+	"low_chance_period": {
+		"type": "origins:cooldown",
+		"cooldown": 600
+	},
+
+	"success_factor": {
+		"type": "origins:resource",
+		"min": -1,
+		"max": 10,
+		"start_value": 0,
+		"min_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:fox/thdash_catch_mice_success_factor",
+					"change": 3,
+					"operation": "set"
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": {
+						"type": "minecraft:block",
+						"params": "snow_block"
+					},
+					"spread": {
+						"x": 0.15,
+						"y": 0.1,
+						"z": 0.15
+					},
+					"speed": 0,
+					"count": 30
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:snowflake",
+					"spread": {
+						"x": 0.15,
+						"y": 0.1,
+						"z": 0.15
+					},
+					"speed": 0,
+					"count": 30
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:fox/thdash_catch_mice_catch_mice",
+						"change": 21
+					}
+				}
+			]
+		}
+	},
+
+	"ticks_5": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "*:*_catch_mice",
+						"compare_to": 5,
+						"comparison": ">="
+					},
+					{
+						"type": "origins:resource",
+						"resource": "*:*_catch_mice_tries",
+						"compare_to": 2,
+						"comparison": "<="
+					},
+					{
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:command",
+								"command": "/execute if entity @s[x_rotation=70..90]",
+								"compare_to": 0,
+								"comparison": "=="
+							},
+							{
+								"type": "origins:equipped_item",
+								"equipment_slot": "mainhand",
+								"item_condition": {
+									"type": "origins:empty",
+									"inverted": true
+								}
+							},
+							{
+								"type": "origins:on_block",
+								"block_condition": {
+									"type": "origins:in_tag",
+									"tag": "minecraft:snow"
+								},
+								"inverted": true
+							},
+							{
+								"type": "origins:moving"
+							}
+						]
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_catch_mice",
+				"change": 0,
+				"operation": "set"
+			},
+			"else_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_catch_mice",
+				"change": 5
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_catch_mice",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+
+	"catch_mice_tries": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 3,
+		"start_value": 0,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_catch_mice_tries",
+					"change": -3
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_catch_mice",
+					"change": 0,
+					"operation": "set"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_success_factor",
+					"change": 0,
+					"operation": "set"
+				}
+			]
+		}
+	},
+
+	"catch_mice": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 21,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_catch_mice_tries",
+						"compare_to": 3,
+						"comparison": "<"
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:change_resource",
+								"resource": "*:*_catch_mice",
+								"change": 1,
+								"operation": "set"
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "*:*_success_factor",
+									"compare_to": 1,
+									"comparison": ">"
+								},
+								"if_action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_success_factor",
+									"change": -1
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_catch_mice_tries",
+					"change": 1
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": {
+						"type": "minecraft:block",
+						"params": "snow_block"
+					},
+					"spread": {
+						"x": 0.15,
+						"y": 0.1,
+						"z": 0.15
+					},
+					"speed": 0,
+					"count": 30
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:block.snow.place",
+					"category": "blocks",
+					"pitch": 1,
+					"volume": 0.8
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_low_chance_period",
+										"compare_to": 0,
+										"comparison": ">"
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_success_factor",
+										"compare_to": 1,
+										"comparison": "=="
+									}
+								]
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.1,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_caught_mice",
+									"change": 1
+								},
+								"fail_action": {
+									"type": "origins:nothing"
+								}
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_success_factor",
+								"compare_to": 2,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.15,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_caught_mice",
+									"change": 1
+								},
+								"fail_action": {
+									"type": "origins:nothing"
+								}
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_success_factor",
+								"compare_to": 3,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.2,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_caught_mice",
+									"change": 1
+								},
+								"fail_action": {
+									"type": "origins:nothing"
+								}
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_success_factor",
+								"compare_to": 4,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.25,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_caught_mice",
+									"change": 1
+								},
+								"fail_action": {
+									"type": "origins:nothing"
+								}
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_success_factor",
+								"compare_to": 5,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.3,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_caught_mice",
+									"change": 1
+								},
+								"fail_action": {
+									"type": "origins:nothing"
+								}
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_success_factor",
+								"compare_to": 6,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.35,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_caught_mice",
+									"change": 1
+								},
+								"fail_action": {
+									"type": "origins:nothing"
+								}
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_success_factor",
+								"compare_to": 7,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.45,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_caught_mice",
+									"change": 1
+								},
+								"fail_action": {
+									"type": "origins:nothing"
+								}
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_success_factor",
+								"compare_to": 8,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.55,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_caught_mice",
+									"change": 1
+								},
+								"fail_action": {
+									"type": "origins:nothing"
+								}
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_success_factor",
+								"compare_to": 9,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.65,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_caught_mice",
+									"change": 1
+								},
+								"fail_action": {
+									"type": "origins:nothing"
+								}
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:resource",
+								"resource": "*:*_success_factor",
+								"compare_to": 10,
+								"comparison": "=="
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.75,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:*_caught_mice",
+									"change": 1
+								},
+								"fail_action": {
+									"type": "origins:nothing"
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		"min_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_catch_mice_tries",
+			"change": 0,
+			"operation": "set"
+		}
+	},
+
+	"caught_mice": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_caught_mice",
+					"change": -1
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_catch_mice_tries",
+					"change": 3,
+					"operation": "set"
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "*:*_low_chance_period"
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.fox.bite",
+					"category": "players",
+					"pitch": 1,
+					"volume": 0.5
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:play_sound",
+						"sound": "minecraft:entity.bat.hurt",
+						"category": "neutral",
+						"pitch": 1.3,
+						"volume": 0.4
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 4,
+					"action": {
+						"type": "origins:play_sound",
+						"sound": "minecraft:entity.fox.bite",
+						"category": "players",
+						"pitch": 1,
+						"volume": 0.5
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 5,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "/particle dust_color_transition 1 0 0 0.5 0.15 0 0 ~ ~ ~ 0.15 0.15 0.15 10 16 force"
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 6,
+					"action": {
+						"type": "origins:play_sound",
+						"sound": "minecraft:entity.bat.death",
+						"category": "neutral",
+						"pitch": 1.3,
+						"volume": 0.3
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 8,
+					"action": {
+						"type": "origins:play_sound",
+						"sound": "minecraft:entity.fox.bite",
+						"category": "players",
+						"pitch": 1,
+						"volume": 0.5
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 14,
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/advancement grant @s only thorigins:fox_origin/caught_mice"
+							},
+							{
+								"type": "origins:choice",
+								"actions": [
+									{
+										"weight": 5,
+										"element": {
+											"type": "origins:execute_command",
+											"command": "/tellraw @s {\"translate\":\"thdash.caught_mice1\"}"
+										}
+									},
+									{
+										"weight": 3,
+										"element": {
+											"type": "origins:execute_command",
+											"command": "/tellraw @s {\"translate\":\"thdash.caught_mice2\"}"
+										}
+									},
+									{
+										"weight": 2,
+										"element": {
+											"type": "origins:execute_command",
+											"command": "/tellraw @s {\"translate\":\"thdash.caught_mice3\",\"with\":[{\"selector\":\"@s\",\"color\":\"aqua\"}]}"
+										}
+									}
+								]
+							},
+							{
+								"type": "origins:play_sound",
+								"sound": "minecraft:entity.fox.eat",
+								"category": "players",
+								"pitch": 1,
+								"volume": 0.5
+							},
+							{
+								"type": "origins:feed",
+								"food": 5,
+								"saturation": 3
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+}

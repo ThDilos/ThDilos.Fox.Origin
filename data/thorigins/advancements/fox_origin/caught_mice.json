@@ -1,0 +1,27 @@
+{
+	"parent": "thorigins:fox_origin/berry_effect",
+	"criteria": {
+		"to_be_granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.caught_mice.description",
+			"fallback": "Catch a mouse by pouncing & diving into a snow block"
+		},
+		"frame": "task",
+		"hidden": false,
+		"icon": {
+			"item": "minecraft:bat_spawn_egg"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.caught_mice.title",
+			"fallback": "Snacks Squeaking in the Snow"
+		}
+	},
+	"requirements": [["to_be_granted"]]
+}

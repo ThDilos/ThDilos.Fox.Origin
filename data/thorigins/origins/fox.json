@@ -13,7 +13,8 @@
 		"thorigins:fox/thshy",
 		"thorigins:fox/thweak",
 		"thorigins:fox/thsound",
-		"thorigins:fox/loadin"
+		"thorigins:fox/loadin",
+		"thorigins:fox/thdash_catch_mice"
 	],
 	"icon": "minecraft:sweet_berries",
 	"impact": 3

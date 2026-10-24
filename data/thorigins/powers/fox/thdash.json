@@ -288,6 +288,81 @@
 			"type": "origins:and",
 			"actions": [
 				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:command",
+								"command": "/execute if entity @s[x_rotation=70..90]",
+								"compare_to": 0,
+								"comparison": ">"
+							},
+							{
+								"type": "origins:equipped_item",
+								"equipment_slot": "mainhand",
+								"item_condition": {
+									"type": "origins:empty"
+								}
+							},
+							{
+								"type": "origins:on_block",
+								"block_condition": {
+									"type": "origins:in_tag",
+									"tag": "minecraft:snow"
+								}
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:change_resource",
+								"resource": "*:fox/thdash_catch_mice_success_factor",
+								"change": -11
+							},
+							{
+								"type": "origins:modify_resource",
+								"resource": "*:fox/thdash_catch_mice_success_factor",
+								"modifier": {
+									"operation": "addition",
+									"value": 0,
+									"resource": "*:*_magnetoreception_direction",
+									"modifier": {
+										"operation": "multiply_total",
+										"value": 1
+									}
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:power_active",
+									"power": "*:fox/thhunt_damage_bonus_day"
+								},
+								"if_action": {
+									"type": "origins:change_resource",
+									"resource": "*:fox/thdash_catch_mice_success_factor",
+									"change": 1
+								},
+								"else_action": {
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:power_active",
+										"power": "*:fox/thhunt_damage_bonus_midnight"
+									},
+									"if_action": {
+										"type": "origins:change_resource",
+										"resource": "*:fox/thdash_catch_mice_success_factor",
+										"change": 2
+									}
+								}
+							}
+						]
+					}
+				},
+				{
 					"type": "origins:execute_command",
 					"command": "/scale reset pehkui:reach @s"
 				},

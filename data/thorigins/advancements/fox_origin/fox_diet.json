@@ -1,5 +1,5 @@
 {
-	"parent": "thorigins:fox_origin/berry_effect",
+	"parent": "thorigins:fox_origin/caught_mice",
 	"criteria": {
 		"sweet_berries": {
 			"conditions": {
