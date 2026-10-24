@@ -313,6 +313,10 @@
 		}
 	},
 
+	"prevent_use": {
+		"type": "origins:prevent_being_used"
+	},
+
 	"anger_reset": {
 		"type": "origins:action_on_callback",
 		"entity_action_added": {
@@ -424,7 +428,18 @@
 			"actions": [
 				{
 					"type": "origins:execute_command",
-					"command": "/execute at @p[tag=foxie,limit=1,sort=nearest,distance=..1] run tp @s[nbt={Sitting:1b}] ~ ~ ~ facing ^ ^ ^1"
+					"command": "/execute at @p[tag=foxie,distance=..1] if score @s UUID0 = @p UUID0 run tag @p add sleepin_fox_owner"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:nbt",
+						"nbt": "{Sitting:1b}"
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "/execute at @p[tag=foxie,tag=sleepin_fox_owner,distance=..1] run tp @s ~ ~ ~ facing ^ ^ ^1"
+					}
 				},
 				{
 					"type": "origins:if_else",
@@ -518,7 +533,7 @@
 									},
 									{
 										"type": "origins:command",
-										"command": "/resource get @p[tag=foxie,limit=1,sort=nearest,distance=..2] thorigins:fox/thfoxify_afk_timer",
+										"command": "/resource get @p[tag=sleepin_fox_owner,limit=1,sort=nearest,distance=..2] thorigins:fox/thfoxify_afk_timer",
 										"compare_to": 0,
 										"comparison": ">"
 									}
@@ -526,9 +541,9 @@
 							},
 							{
 								"type": "origins:command",
-								"command": "/execute unless entity @p[tag=foxie,limit=1,sort=nearest,distance=..2]",
+								"command": "/execute if entity @p[tag=foxie,limit=1,sort=nearest,distance=..2]",
 								"compare_to": 0,
-								"comparison": ">"
+								"comparison": "=="
 							}
 						]
 					},
@@ -543,6 +558,10 @@
 								"type": "origins:change_resource",
 								"resource": "*:*_exit",
 								"change": 1
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/tag @p[tag=sleepin_fox_summoner,distance=..2] remove sleepin_fox_summoner"
 							}
 						]
 					}

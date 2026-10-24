@@ -280,13 +280,13 @@
 						"type": "origins:and",
 						"actions": [
 							{
-						"type": "origins:passenger_action",
-						"bientity_action": {
-							"type": "origins:target_action",
-							"action": {
-								"type": "origins:dismount"
-							}
-						}
+								"type": "origins:passenger_action",
+								"bientity_action": {
+									"type": "origins:target_action",
+									"action": {
+										"type": "origins:dismount"
+									}
+								}
 							},
 							{
 								"type": "origins:change_resource",
@@ -349,7 +349,7 @@
 												},
 												{
 													"type": "origins:command",
-													"command": "/execute if entity @e[tag=sleepin,limit=1,sort=nearest,nbt={NoAI:1b,NoGravity:1b,Sleeping:1b},distance=..2]",
+													"command": "/execute if entity @e[tag=sleepin,limit=1,sort=nearest,nbt={NoAI:1b,Sleeping:1b},distance=..2]",
 													"compare_to": 0,
 													"comparison": ">"
 												}
@@ -406,13 +406,9 @@
 					"command": "/tag @s remove hatting"
 				},
 				{
-					"type": "origins:delay",
-					"ticks": 1,
-					"action": {
-						"type": "origins:revoke_power",
-						"power": "*:fox/thhat",
-						"source": "thorigins:temp"
-					}
+					"type": "origins:revoke_power",
+					"power": "*:fox/thhat",
+					"source": "thorigins:temp"
 				}
 			]
 		}

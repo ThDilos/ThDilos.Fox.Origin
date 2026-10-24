@@ -63,41 +63,36 @@
 					"command": "/title @s actionbar {\"translate\":\"tied_leash_to_fence\"}"
 				},
 				{
-					"type": "origins:delay",
-					"ticks": 1,
-					"action": {
-						"type": "origins:revoke_power",
-						"power": "*:optional_power/leash/thleasher",
-						"source": "thorigins:temp"
-					}
+					"type": "origins:revoke_power",
+					"power": "*:optional_power/leash/thleasher",
+					"source": "thorigins:temp"
 				}
 			]
 		},
 		"block_action": {
-				"type": "origins:and",
-				"actions": [
-					{
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/summon marker ~ ~-0.5 ~ {Tags:[\"tp_marker\"]}"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tag @e[tag=leash_anchor,tag=temp,distance=..1] remove temp"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/playsound minecraft:entity.leash_knot.place player @a[distance=..16] ~ ~ ~ 1 1.4"
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
 						"type": "origins:execute_command",
-						"command": "/summon marker ~ ~-0.5 ~ {Tags:[\"tp_marker\"]}"
-					},
-					{
-						"type": "origins:execute_command",
-						"command": "/tag @e[tag=leash_anchor,tag=temp,distance=..1] remove temp"
-					},
-					{
-						"type": "origins:execute_command",
-						"command": "/playsound minecraft:entity.leash_knot.place player @a[distance=..16] ~ ~ ~ 1 1.4"
-					},
-					{
-						"type": "origins:delay",
-						"ticks": 1,
-						"action": {
-							"type": "origins:execute_command",
-							"command": "/kill @e[type=marker,tag=tp_marker,distance=..1]"
-						}
+						"command": "/kill @e[type=marker,tag=tp_marker,distance=..1]"
 					}
-				]
-			
+				}
+			]
 		}
 	}
 }

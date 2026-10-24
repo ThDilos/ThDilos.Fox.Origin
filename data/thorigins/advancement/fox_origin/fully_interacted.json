@@ -1,0 +1,48 @@
+{
+	"parent": "thorigins:fox_origin/interacted",
+	"criteria": {
+		"boop": {
+			"trigger": "minecraft:impossible"
+		},
+		"pet": {
+			"trigger": "minecraft:impossible"
+		},
+		"hug": {
+			"trigger": "minecraft:impossible"
+		},
+		"belly_rub": {
+			"trigger": "minecraft:impossible"
+		},
+		"fed": {
+			"trigger": "minecraft:impossible"
+		},
+		"brush_fur": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"announce_to_chat": true,
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"description": {
+			"translate": "thorigins.advancements.fully_interacted.description",
+			"fallback": "Received affections in all possible ways"
+		},
+		"frame": "challenge",
+		"icon": {
+			"id": "minecraft:brush"
+		},
+		"show_toast": true,
+		"title": {
+			"translate": "thorigins.advancements.fully_interacted.title",
+			"fallback": "One Happy Foxie"
+		}
+	},
+	"requirements": [
+		["boop"],
+		["pet"],
+		["hug"],
+		["belly_rub"],
+		["fed"],
+		["brush_fur"]
+	]
+}

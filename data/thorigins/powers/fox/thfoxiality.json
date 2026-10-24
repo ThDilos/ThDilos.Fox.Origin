@@ -64,6 +64,11 @@
 									"type": "origins:nbt",
 									"nbt": "{\"Tags\":[\"uuidappended\"]}",
 									"inverted": true
+								},
+								{
+									"type": "origins:nbt",
+									"nbt": "{NoAI:1b}",
+									"inverted": true
 								}
 							]
 						}
@@ -1078,51 +1083,6 @@
 	"powder_snow_walking": {
 		"type": "origins:modify_type_tag",
 		"tag": "minecraft:powder_snow_walkable_mobs"
-	},
-
-	"kill_foxes": {
-		"type": "origins:self_action_on_kill",
-		"cooldown": 1,
-		"target_condition": {
-			"type": "origins:in_tag",
-			"tag": "thorigins:fox"
-		},
-		"entity_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:apply_effect",
-					"effects": [
-						{
-							"id": "minecraft:unluck",
-							"show_particles": false,
-							"duration": 24000,
-							"amplifier": 4
-						},
-						{
-							"id": "minecraft:weakness",
-							"show_particles": false,
-							"duration": 600,
-							"amplifier": 2
-						},
-						{
-							"id": "minecraft:nausea",
-							"show_particles": false,
-							"duration": 600
-						},
-						{
-							"id": "minecraft:darkness",
-							"show_particles": false,
-							"duration": 600
-						}
-					]
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "/title @s actionbar {\"translate\":\"kill_a_fox\"}"
-				}
-			]
-		}
 	},
 
 	"boosted_pickup_range": {
