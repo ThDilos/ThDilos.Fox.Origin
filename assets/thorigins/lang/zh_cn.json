@@ -9,6 +9,9 @@
 	"fox.thdash.description": "暂时放弃防御, 向前上方冲刺一段距离, 并在下落时加成攻击力。",
 	"thdash.key": "按下 [%s] 向前跳跃\n\n§8用到的键位:\n起源 - 主动能力(首要按键)",
 	"thdash.info": "§4合适时机§r, §9合适角度§r使用该技能能§o进一步§r提升你的攻击\n\n§8§o据说, 狐狸能利用地球§l磁§r§8§o场在§l狩猎时§r§8§o更精准地扑击目标",
+	"thdash.caught_mice1": "§d你在雪层下抓到了一只小老鼠!",
+	"thdash.caught_mice2": "§d藏在雪里的小老鼠被从天而降的嘴筒子袭击了!",
+	"thdash.caught_mice3": "§d狐萝卜%s在雪层下发现了今日份的冷藏零食",
 
 	"fox.thstorage.name": "§6§l§n叼住",
 	"fox.thstorage.description": "把东西存在嘴里, 死了也能带走。",
@@ -38,6 +41,8 @@
 	"thfoxify.error": "§c检测到错误尺寸, 狐化被迫结束",
 	"thfoxify.info6": "FoxType 应用\n使用指令 §6/trigger foxtype §c§ladd§r §6[§a数字§r§6]§r\n\n§a10§r §f开关§r§5夜视修复§r\n§8被动夜视被部分光影/模组屏蔽时使用\n\n§a20§r §4刷新技能§r\n§8服务器不稳定/突然关闭，导致技能失常时使用\n\n§a40§r §1暂停狐化AFK计时§r\n§8是否在1分钟没动作后自动进入[§l睡眠模式§r§8]？\n\n§a50§r §7破坏地形（仅进化狐狸）\n§8各进化狐狸的主动技能是否能破坏地形？\n\n§a60§r §e狐狸叫\n§8使用工具栏热键（1-7） 发声？\n\n§a70§r §2隐藏恐惧效果Boss条?\n§8被动技能[羸弱]的恐惧效果§r",
 	"thfoxify.fox_hat_prompt": "§6使用 [%s§6] 放下头上的狐狸",
+	"thfoxify.cant_sleep.admin": "§c你的[§l§5睡眠模式§r§c]已被管理员关闭!",
+	"thfoxify.cant_sleep.foxtype": "§c你的[§l§5睡眠模式§r§c]不适用于你的Foxtype[%s§c]!",
 
 	"fox.thhunt.name": "§6§l§n狩猎",
 	"fox.thhunt.description": "通过下蹲保持隐蔽, 蓄力后进入猎杀状态, 短时间内提升攻击力。",
@@ -87,6 +92,7 @@
 	"thorigins.wolf_certified_4": "§a握手协议已达成",
 	"thshy.conquer.general": "§a你克服了对<%s§a>的恐惧!",
 	"thshy.fear.low_health": "低生命值",
+	"thshy.show_fear_src_prompt": "§6按住 [%s§6] 高亮附近可能导致恐惧的生物",
 
 	"fox.thfood.name": "§e§n独特胃口",
 	"fox.thfood.description": "狐狸对某些食物的偏好被刻入了你的DNA。",
@@ -120,8 +126,8 @@
 	"fox.feed2": "§d, 并且获得了一个随机§6正面效果！",
 	"fox.hug": "§d你给了小动物%s§d一个小小的拥抱:3",
 	"fox.hugged": "%s§d给你了一个热情的拥抱",
-	"fox.belly_rub": "§d你温柔地摸了摸%s§d的肚子 :3",
-	"fox.belly_rubbed": "%s§d温柔摸了摸你的肚子",
+	"fox.belly_rub": "§d你轻轻地摸了摸%s§d的肚子 :3",
+	"fox.belly_rubbed": "%s§d轻轻摸了摸你的肚子",
 	"fox.brusher": "§d你轻轻地刷了刷%s§d的绒毛",
 	"fox.brushed": "%s§d轻轻地刷了刷你的绒毛",
 
@@ -159,6 +165,7 @@
 	"halt_afk_timer": "§eAFK自动狐化[§r%s§e]§r",
 	"destroy_terrain": "§e进化狐狸破坏地形[§r%s§e]§r",
 	"activate_soundboard": "§e狐狸叫[§r%s§e]§r",
+	"hide_fear_bossbar": "§e胆小技能恐惧条[§r%s§e]§r",
 
 	"thorigins.advancements.root.title": "狐狸起源",
 	"thorigins.advancements.root.description": "方块狐在方块世界の方块狐生",
@@ -174,6 +181,9 @@
 
 	"thorigins.advancements.bonk.title": "Bonk",
 	"thorigins.advancements.bonk.description": "听起来像是空心的...",
+	
+	"thorigins.advancements.caught_mice.title": "雪中吱吱叫的零食",
+	"thorigins.advancements.caught_mice.description": "掠袭，利用重力垂直钻进雪中，并抓住一只老鼠",
 
 	"thorigins.advancements.conquer_all_fear.title": "勇敢狐狸不怕困难",
 	"thorigins.advancements.conquer_all_fear.description": "克服所有恐惧",
@@ -222,6 +232,9 @@
 
 	"thorigins.advancements.foxolotl.title": "狐螈",
 	"thorigins.advancements.foxolotl.description": "变成狐狸§l坐§r§a上蝾螈！",
+
+	"thorigins.advancements.fully_interacted.title": "变成别人家的狐了",
+	"thorigins.advancements.fully_interacted.description": "触发所有狐狸起源的互动",
 
 	"thorigins.advancements.high_dmg.title": "天降狐击",
 	"thorigins.advancements.high_dmg.description": "一击造成不小于100点的伤害",

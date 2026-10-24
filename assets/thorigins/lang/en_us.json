@@ -9,6 +9,9 @@
 	"fox.thdash.description": "By sacrificing defence, pounce forward and boost your attack while falling down.",
 	"thdash.key": "Press [%s] to pounce forward\n\n§8Keybind Used:\nOrigins - Active Power (Primary)",
 	"thdash.info": "§6§lPounce§r during §4right time§r at §9right angle§r §fwill boost your attack §oeven more§r\n\n§8§oFoxes are believed to pounce more accurately §lwhen hunting§r §8§oif they are aligned with the Earth's §lmagnet§r§8§oic field§r",
+	"thdash.caught_mice1": "§dYou caught a mice under the snow!",
+	"thdash.caught_mice2": "§dLittle mouse was assulted by a snout from the sky.",
+	"thdash.caught_mice3": "§bxX_SnowMouse_Xx§d was slain by %s§d using [§bThe Mighty Mouth§d]",
 
 	"fox.thstorage.name": "§6§l§nMouth Pouch",
 	"fox.thstorage.description": "Hide items in your mouth",
@@ -38,6 +41,8 @@
 	"thfoxify.error": "§cError Sizes Detected, Foxification is forced to end",
 	"thfoxify.info6": "FoxType Utilities\nUse §6/trigger foxtype §c§ladd§r §6[§aNumber§r§6]§r\n\n§a10§r §5Toggle Nightvision Fix§r\n§8For when passive nightvision is bugged by shaders / mods\n\n§a20§r §4Refresh Powers§r\n§8For when your powers are not working due to Server sudden shut down etc.\n\n§a40§r §1Halt Foxify AFK Timer§r\n§8Automatically enter [§lSleepin Mode§r§8] after 1 minute of not moving?\n\n§a50§r §7Destroy Terrain (For Evolved Foxes)\n§8Should active skills destroy terrain?\n\n§a60§r §eFox Soundboard\n§8Use Hotbar Keys (1-7) to play sounds?\n\n§a70§r §2Hide Fear Bossbar\n§8From Passive Skill Timidity?§r",
 	"thfoxify.fox_hat_prompt": "§6Use [%s§6] to Drop the Foxes on your head",
+	"thfoxify.cant_sleep.admin": "§cYour [§l§5Sleepin Mode§r§c] was turned off by an admin!",
+	"thfoxify.cant_sleep.foxtype": "§cYour [§l§5Sleepin Mode§r§c] is disabled for your current Foxtype [%s§c]!",
 
 	"fox.thhunt.name": "§6§l§nHunt",
 	"fox.thhunt.description": "Hide yourself by crouching and enter a hunting phase after much preparation.",
@@ -87,6 +92,7 @@
 	"thorigins.wolf_certified_4": "§aHand shake protocol complete",
 	"thshy.conquer.general": "§aYou have conquered the fear of <%s§a>!",
 	"thshy.fear.low_health": "Low Health",
+	"thshy.show_fear_src_prompt": "§6Hold [%s§6] to highlight the nearby entities that might be scaring you",
 
 	"fox.thfood.name": "§e§nUnique Taste",
 	"fox.thfood.description": "Your food preferences are heavily influenced by your nature.",
@@ -175,6 +181,9 @@
 
 	"thorigins.advancements.bonk.title": "Bonk",
 	"thorigins.advancements.bonk.description": "Sounds empty...",
+	
+	"thorigins.advancements.caught_mice.title": "Snacks Squeaking in the Snow",
+	"thorigins.advancements.caught_mice.description": "Catch a mouse by pouncing & diving straight down into a snow block",
 
 	"thorigins.advancements.conquer_all_fear.title": "Brave Litol Fox",
 	"thorigins.advancements.conquer_all_fear.description": "Conquer all fears",
@@ -223,6 +232,9 @@
 
 	"thorigins.advancements.foxolotl.title": "Foxolotl",
 	"thorigins.advancements.foxolotl.description": "§lSit§r§a on an axolotl as a fox",
+
+	"thorigins.advancements.fully_interacted.title": "Overjoyed Foxie",
+	"thorigins.advancements.fully_interacted.description": "Received affections in all possible ways",
 
 	"thorigins.advancements.high_dmg.title": "Crits From Heaven",
 	"thorigins.advancements.high_dmg.description": "Deal no less than 100 damage in a single hit",
