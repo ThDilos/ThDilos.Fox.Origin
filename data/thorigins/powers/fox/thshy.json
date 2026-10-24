@@ -64,6 +64,10 @@
 					"command": "/bossbar set minecraft:thorigins.fear_timer color red"
 				}
 			]
+		},
+		"entity_action_lost": {
+			"type": "origins:execute_command",
+			"command": "/bossbar set minecraft:thorigins.fear_timer players @s[type=fox]"
 		}
 	},
 
@@ -372,6 +376,18 @@
 					"if_action": {
 						"type": "origins:and",
 						"actions": [
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:advancement",
+									"advancement": "thorigins:fox_origin/fear",
+									"inverted": true
+								},
+								"if_action": {
+									"type": "origins:execute_command",
+									"command": "/tellraw @s {\"translate\":\"thshy.show_fear_src_prompt\",\"with\":[{\"keybind\":\"key.sneak\",\"color\":\"aqua\"}]}"
+								}
+							},
 							{
 								"type": "origins:execute_command",
 								"command": "/advancement grant @s only thorigins:fox_origin/fear"
