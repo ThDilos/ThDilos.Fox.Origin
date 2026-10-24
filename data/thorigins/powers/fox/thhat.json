@@ -326,7 +326,7 @@
 												},
 												{
 													"type": "origins:command",
-													"command": "/execute if entity @e[tag=sleepin,limit=1,sort=nearest,nbt={NoAI:1b,NoGravity:1b,Sleeping:1b},distance=..2]",
+													"command": "/execute if entity @e[tag=sleepin,limit=1,sort=nearest,nbt={NoAI:1b,Sleeping:1b},distance=..2]",
 													"compare_to": 0,
 													"comparison": ">"
 												}
